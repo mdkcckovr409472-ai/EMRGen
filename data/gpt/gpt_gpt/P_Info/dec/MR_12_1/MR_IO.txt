@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1 && tf.array2 != nullptr) {
+        int* newArray2 = (int*)malloc(tf.n * sizeof(int));
+        // Perform circular left shift by 1 on array2
+        for (int i = 0; i < tf.n - 1; i++) {
+            newArray2[i] = tf.array2[i + 1];
+        }
+        newArray2[tf.n - 1] = tf.array2[0];
+        tf.array2 = newArray2;
+    } else if (tf.n == 1 && tf.array2 != nullptr) {
+        // For n=1, circular shift keeps array2 same, but we still allocate new memory for consistency
+        int* newArray2 = (int*)malloc(sizeof(int));
+        newArray2[0] = tf.array2[0];
+        tf.array2 = newArray2;
+    } else {
+        // If n <= 0 or array2 is null, leave as is
+        tf.array2 = nullptr;
+    }
+    return tf;
+}

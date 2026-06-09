@@ -1,0 +1,95 @@
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cfloat>
+#include <cctype>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+
+double sumOfLogarithms(double elements[], int n) {
+    double logsum = 0;
+    for(int i = 0; i < n; i++) {
+        logsum += log(elements[i]);
+    }
+    return logsum;
+}
+
+
+typedef struct {
+    double* elements; int n;
+} TestCase;
+
+TestCase test_cases[] = {
+    {(double[]){1.0, 2.0, 3.0}, 3},
+    {(double[]){2.718281828459045, 7.38905609893065}, 2},
+    {(double[]){0.5, 0.25, 0.125}, 3},
+    {(double[]){10.0, 100.0, 1000.0}, 3},
+    {(double[]){1.0}, 1},
+    {(double[]){1.0, 1.0, 1.0, 1.0, 1.0}, 5},
+    {(double[]){1.5, 2.5, 3.5}, 3},
+    {(double[]){0.36787944117144233, 1.0, 2.718281828459045}, 3},
+    {(double[]){4.0, 9.0, 16.0, 25.0}, 4},
+    {(double[]){0.1, 0.01, 0.001}, 3},
+    {(double[]){1.0, 2.0, 4.0, 8.0, 16.0}, 5},
+    {(double[]){0.2, 0.4, 0.6, 0.8}, 4},
+    {(double[]){3.0, 6.0, 9.0}, 3},
+    {(double[]){1.1, 2.2, 3.3, 4.4, 5.5}, 5},
+    {(double[]){0.75, 1.5, 3.0}, 3},
+    {(double[]){5.0, 25.0, 125.0}, 3},
+    {(double[]){0.9, 0.99, 0.999}, 3},
+    {(double[]){1.25, 1.5, 1.75, 2.0}, 4},
+    {(double[]){2.0, 4.0, 8.0, 16.0, 32.0}, 5},
+    {(double[]){0.3333333333333333, 0.6666666666666666}, 2},
+    {(double[]){6.0, 12.0, 18.0, 24.0}, 4},
+    {(double[]){1.01, 1.02, 1.03}, 3},
+    {(double[]){0.8, 1.6, 3.2}, 3},
+    {(double[]){1.0, 10.0, 100.0, 1000.0, 10000.0}, 5},
+    {(double[]){0.125, 0.25, 0.5, 1.0, 2.0}, 5},
+    {(double[]){1.2, 1.44, 1.728}, 3},
+    {(double[]){0.99, 1.0, 1.01}, 3},
+    {(double[]){2.5, 6.25, 15.625}, 3},
+    {(double[]){0.3, 0.6, 0.9, 1.2}, 4},
+    {(double[]){1.0, 1.5, 2.0, 2.5, 3.0, 3.5}, 6}
+};
+int num_test_cases = 30;
+
+
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    tf.elements = new double[tf.n];
+    for(int i = 0; i < tf.n; i++) {
+        tf.elements[i] = tc.elements[i] / 2.0;
+    }
+    return tf;
+}
+
+int check(TestCase tc) {
+    double Os = sumOfLogarithms(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = sumOfLogarithms(Tf_case.elements, Tf_case.n);
+    int is_valid = 0;
+    if (fabs(Os - tc.n * log(2) - Of) < 1e-12) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.elements;
+    return is_valid;
+}
+
+int main() {
+    int status_end = 1;
+    for (int i = 0; i < num_test_cases; i++) {
+        int is_valid = check(test_cases[i]);
+        if (is_valid == 0) {
+            status_end = 0; 
+        }
+    }
+    std::cout << status_end << std::endl;
+    return 0;
+}

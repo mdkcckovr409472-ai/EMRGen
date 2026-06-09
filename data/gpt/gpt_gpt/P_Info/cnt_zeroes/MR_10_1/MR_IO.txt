@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Reuse original array but create a new array to avoid overwriting original input respecting reuse principle
+    int* new_a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_a[i] = tc.a[i];
+    }
+    // Set middle element (index n/2) to zero to satisfy MR operation
+    if (tc.n > 0) {
+        new_a[tc.n / 2] = 0;
+    }
+    tf.a = new_a; // overwrite pointer in tf to new array, preserving original data
+    return tf;
+}

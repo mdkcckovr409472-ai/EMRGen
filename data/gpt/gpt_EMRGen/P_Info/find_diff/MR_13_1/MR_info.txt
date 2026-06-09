@@ -1,0 +1,2 @@
+Operation 13: On parameter 'a' (int*): decrement every element by 2
+Invariant: return.result1[] - return.result2[] - 2 == 0

@@ -1,0 +1,38 @@
+int z7check(double* result1, double* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    const double epsilon = 1e-5;
+    #include <cmath>
+
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+
+        if (std::isnan(A) || std::isnan(B)) return 0;
+
+        if (std::isinf(A) || std::isinf(B)) {
+            if (A < B) return 1;
+            else if (A > B) return 0;
+            else continue;
+        }
+
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+        double diff = A - B;
+
+        if (fabs(diff) <= tol) {
+            // Equal within tolerance, continue to next element
+            continue;
+        } else if (diff > tol) {
+            // A > B, violates A < B
+            return 0;
+        } else {
+            // A < B, satisfies A < B, return 1 immediately
+            return 1;
+        }
+    }
+
+    // After all elements equal within tolerance: for strict <, no satisfaction
+    return 0;
+}

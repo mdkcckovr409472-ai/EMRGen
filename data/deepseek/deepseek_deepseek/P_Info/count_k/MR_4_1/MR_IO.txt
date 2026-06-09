@@ -1,0 +1,17 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // 为衍生用例分配新的数组内存，复制原数据
+    tf.a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.a[i] = tc.a[i];
+    }
+    // 随机打乱数组元素顺序 (Fisher-Yates shuffle)
+    srand(static_cast<unsigned int>(time(nullptr)));
+    for (int i = tc.n - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        int temp = tf.a[i];
+        tf.a[i] = tf.a[j];
+        tf.a[j] = temp;
+    }
+    return tf;
+}

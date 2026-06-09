@@ -1,0 +1,23 @@
+TestCase z28Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0 && t1.b != NULL) {
+        int* follow_case_b = (int*)malloc(t1.n * sizeof(int));
+        memcpy(follow_case_b, t1.b, t1.n * sizeof(int));
+        follow_case.b = follow_case_b;
+    }
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n <= 0 || follow_case.b == NULL) {
+        // No elements or null array, cannot perform operation, return replica directly
+        return follow_case;
+    }
+    
+    // Specific operation code generated based on the rule
+    for (int i = 0; i < follow_case.n; i++) {
+        follow_case.b[i] = follow_case.b[i] + 1;
+    }
+    
+    return follow_case;
+}

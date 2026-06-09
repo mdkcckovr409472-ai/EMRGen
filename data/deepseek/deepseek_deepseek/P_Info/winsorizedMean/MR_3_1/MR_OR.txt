@@ -1,0 +1,14 @@
+int check(TestCase tc) {
+    double Os = winsorizedMean(tc.elements, tc.left, tc.right, tc.n);
+    
+    TestCase Tf_case = change(tc);
+    double Of = winsorizedMean(Tf_case.elements, Tf_case.left, Tf_case.right, Tf_case.n);
+    
+    int is_valid = 0;
+    const double epsilon = 1e-12;
+    if (std::fabs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    
+    return is_valid;
+}

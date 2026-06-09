@@ -1,0 +1,24 @@
+int check(TestCase tc) {
+    // Source input
+    int* a = tc.a;
+    int n = tc.n;
+    
+    // Call original function with source input
+    double Os = average(a, n);
+
+    // Get follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Call original function with follow-up input
+    double Of = average(Tf_case.a, Tf_case.n);
+
+    // Verify MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // Clean up dynamically allocated memory in Tf_case.a if different from original
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+
+    return is_valid;
+}

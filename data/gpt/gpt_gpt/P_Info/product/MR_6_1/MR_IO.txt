@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for sorted elements to avoid modifying the original array
+    double* sorted_elements = new double[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        sorted_elements[i] = tc.elements[i];
+    }
+    std::sort(sorted_elements, sorted_elements + tc.n);
+    tf.elements = sorted_elements;
+    return tf;
+}

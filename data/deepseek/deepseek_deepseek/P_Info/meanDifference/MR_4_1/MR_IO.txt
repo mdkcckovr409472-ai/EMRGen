@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.sample1 != nullptr) {
+        double* new_sample1 = new double[tf.n];
+        int p = 1;
+        for (int i = 0; i < tf.n; ++i) {
+            int original_index = (i - p + tf.n) % tf.n;
+            new_sample1[i] = tf.sample1[original_index];
+        }
+        tf.sample1 = new_sample1;
+    }
+    return tf;
+}

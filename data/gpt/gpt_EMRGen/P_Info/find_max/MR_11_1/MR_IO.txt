@@ -1,0 +1,22 @@
+TestCase z11Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // --------------------------------
+
+    // Defensive check for empty array
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Reverse array (order reversed)
+    for (int i = 0; i < follow_case.n / 2; ++i) {
+        int temp = follow_case.a[i];
+        follow_case.a[i] = follow_case.a[follow_case.n - 1 - i];
+        follow_case.a[follow_case.n - 1 - i] = temp;
+    }
+
+    return follow_case;
+}

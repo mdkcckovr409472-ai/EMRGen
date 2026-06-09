@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double c = 2.0; // 常数因子，可根据需要调整
+    double* new_elements = new double[tf.n];
+    for (int i = 0; i < tf.n; ++i) {
+        new_elements[i] = tf.elements[i] * c;
+    }
+    tf.elements = new_elements;
+    return tf;
+}

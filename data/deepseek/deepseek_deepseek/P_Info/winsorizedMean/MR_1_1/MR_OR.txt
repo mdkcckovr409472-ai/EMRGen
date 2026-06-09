@@ -1,0 +1,14 @@
+int check(TestCase tc) {
+    double Os = winsorizedMean(tc.elements, tc.left, tc.right, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = winsorizedMean(Tf_case.elements, Tf_case.left, Tf_case.right, Tf_case.n);
+    double k = 10.0;
+    int is_valid = 0;
+    if (fabs((Os + k) - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    if (Tf_case.elements != nullptr && Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+    }
+    return is_valid;
+}

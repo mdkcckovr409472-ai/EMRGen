@@ -1,0 +1,45 @@
+int check(TestCase tc) {
+    double* Os = calculateAbsoluteDifferences(tc.z, tc.n);
+    if (tc.n == 0) {
+        // Os should be NULL, so just verify that and return 1 (MR holds trivially)
+        return Os == NULL ? 1 : (Os ? (free(Os), 0) : 0);
+    }
+
+    TestCase Tf_case = change(tc);
+    double* Of = calculateAbsoluteDifferences(Tf_case.z, Tf_case.n);
+
+    if (Os == NULL || Of == NULL) {
+        if (Os) free(Os);
+        if (Of) free(Of);
+        return 0;
+    }
+
+    double sum_Os_first_half = 0.0;
+    double sum_Os_second_half = 0.0;
+    double sum_Of_first_half = 0.0;
+    double sum_Of_second_half = 0.0;
+
+    int mid = tc.n / 2;
+
+    for (int i = 0; i < tc.n; i++) {
+        if (i < mid) {
+            sum_Os_first_half += Os[i];
+            sum_Of_first_half += Of[i];
+        } else {
+            sum_Os_second_half += Os[i];
+            sum_Of_second_half += Of[i];
+        }
+    }
+
+    free(Os);
+    free(Of);
+
+    int is_valid = 0;
+    double eps = 1e-9;
+    if (fabs(sum_Of_first_half - sum_Os_first_half) < eps &&
+        fabs(sum_Of_second_half - 3.0 * sum_Os_second_half) < eps) {
+        is_valid = 1;
+    }
+
+    return is_valid;
+}

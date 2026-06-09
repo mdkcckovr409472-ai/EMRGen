@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    tf.a = (int*)malloc(tf.n * sizeof(int));
+    for (int i = 0; i < tf.n; ++i) {
+        tf.a[i] = tc.a[i] * 2;
+    }
+    return tf;
+}

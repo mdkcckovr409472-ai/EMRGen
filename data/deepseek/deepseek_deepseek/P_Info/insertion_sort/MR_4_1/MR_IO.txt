@@ -1,0 +1,18 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int* new_array = (int*)malloc(tf.n * sizeof(int));
+        if (new_array) {
+            memcpy(new_array, tf.array, tf.n * sizeof(int));
+            int first = new_array[0];
+            for (int i = 0; i < tf.n - 1; ++i) {
+                new_array[i] = new_array[i + 1];
+            }
+            new_array[tf.n - 1] = first;
+            tf.array = new_array;
+        } else {
+            tf.array = nullptr;
+        }
+    }
+    return tf;
+}

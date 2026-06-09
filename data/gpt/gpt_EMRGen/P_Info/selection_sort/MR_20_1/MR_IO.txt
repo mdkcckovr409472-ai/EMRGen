@@ -1,0 +1,26 @@
+TestCase z20Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_list = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_list, t1.list, t1.n * sizeof(int));
+    follow_case.list = follow_case_list;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Reverse subarray from index i to j (here we reverse the whole array)
+    int i = 0;
+    int j = follow_case.n - 1;
+    while (i < j) {
+        int temp = follow_case.list[i];
+        follow_case.list[i] = follow_case.list[j];
+        follow_case.list[j] = temp;
+        i++;
+        j--;
+    }
+    
+    return follow_case;
+}

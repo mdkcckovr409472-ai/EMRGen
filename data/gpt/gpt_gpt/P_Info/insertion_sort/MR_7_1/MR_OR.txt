@@ -1,0 +1,50 @@
+int check(TestCase tc) {
+    // (1) Extract the source input
+    int* source_array = tc.array;
+    int n = tc.n;
+    
+    // (2) Call the function under test to get Os
+    int* Os = insertion_sort(source_array, n);
+    if (Os == NULL) {
+        return 0;
+    }
+    
+    // (3) Construct the follow-up test case
+    TestCase Tf_case = change(tc);
+    if (Tf_case.n > 0 && Tf_case.array == NULL) {
+        free(Os);
+        return 0;
+    }
+    
+    // (4) Call the function under test to get Of
+    int* Of = insertion_sort(Tf_case.array, Tf_case.n);
+    if (Of == NULL) {
+        free(Os);
+        if (Tf_case.array != tc.array) free(Tf_case.array);
+        return 0;
+    }
+    
+    // (5) Verify Os ≥ Of: As Os and Of are sorted arrays, compare lex order on arrays of length n
+    // Metamorphic relation Os ≥ Of means Os lexicographically is ≥ Of
+    int is_valid = 1;
+    for (int i = 0; i < n; i++) {
+        if (Os[i] > Of[i]) {
+            // Os[i] > Of[i], Os ≥ Of satisfied here
+            break;
+        }
+        else if (Os[i] < Of[i]) {
+            // Os < Of at position i, MR violated
+            is_valid = 0;
+            break;
+        }
+        // if equal, continue checking next element
+    }
+    
+    // (6) Free allocated resources
+    free(Os);
+    free(Of);
+    if (Tf_case.array != tc.array) free(Tf_case.array);
+    
+    // (7) Return verification result
+    return is_valid;
+}

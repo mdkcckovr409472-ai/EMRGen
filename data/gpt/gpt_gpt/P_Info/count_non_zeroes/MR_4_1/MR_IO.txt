@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    if (tf.n > 1) {
+        // Sort the array in descending order in-place since we reuse the original array pointer
+        // Use std::sort with a custom comparator
+        std::sort(tf.a, tf.a + tf.n, [](int x, int y) { return x > y; });
+    }
+
+    return tf;
+}

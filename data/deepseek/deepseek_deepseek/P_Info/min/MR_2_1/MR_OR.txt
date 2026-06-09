@@ -1,0 +1,13 @@
+int check(TestCase tc) {
+    double Os = min(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = min(Tf_case.elements, Tf_case.n);
+    int is_valid = 0;
+    if (fabs((Os - 3.0) - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    if (Tf_case.n > 0) {
+        delete[] Tf_case.elements;
+    }
+    return is_valid;
+}

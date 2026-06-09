@@ -1,0 +1,5 @@
+TestCase z50Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 根据规则5生成的具体操作代码
+    follow_case.sampleVariance = follow_case.sampleVariance * 3.14159265358979323846;
+    return follow_case;}

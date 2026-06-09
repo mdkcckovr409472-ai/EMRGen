@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int n = tf.n;
+    if (n > 0 && tf.elements != nullptr) {
+        std::sort(tf.elements, tf.elements + n, std::greater<double>());
+    }
+    return tf;
+}

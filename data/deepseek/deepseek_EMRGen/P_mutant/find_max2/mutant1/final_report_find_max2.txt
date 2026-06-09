@@ -1,0 +1,219 @@
+int find_max2(int a[], int n) {
+    int max = a[0] + a[1];
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] + a[i + 1] >= max) {
+            max = a[i] + a[i + 1];
+        }
+    }
+    return max;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (int*): 所有元素加1
+Invariant: 
+return.result1 - return.result2 + 2 == 0
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 2 == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (int*): 所有元素减2
+Invariant: 
+return.result1 - return.result2 - 4 == 0
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素减2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 4 == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (int*): 所有元素乘3
+Invariant: 
+3 * return.result1 - return.result2 == 0
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素乘3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+3 * Os - Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (int*): 所有元素除以4（整数除法）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素除以4（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (int*): 随机位置元素置为999（当当前值小于999）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机位置元素置为999（当当前值小于999）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (int*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (int*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (int*): 取所有元素的绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「取所有元素的绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (int*): 所有元素平方
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (int*): 所有元素加当前数组最大值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素加当前数组最大值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (int*): 所有奇数索引元素加10
+Invariant: 
+return.result1 - return.result2 + 10 == 0
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有奇数索引元素加10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 10 == 0
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (int*): 所有偶数索引元素减5
+Invariant: 
+return.result1 - return.result2 - 5 == 0
+n == return.result1 - return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有偶数索引元素减5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 5 == 0
+n == Os - Of
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (int*): 最大元素置为0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「最大元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (int*): 最小元素置为0
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「最小元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (int*): 将最大元素的值复制给最小元素（当最大元素不等于最小元素）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将最大元素的值复制给最小元素（当最大元素不等于最小元素）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (int*): 将最小元素的值复制给最大元素（当最大元素不等于最小元素）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将最小元素的值复制给最大元素（当最大元素不等于最小元素）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int*): 将数组中所有负数替换为0
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将数组中所有负数替换为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (int*): 将所有正数置为1
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将所有正数置为1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (int*): 原地平方根（仅对非负元素取整）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「原地平方根（仅对非负元素取整）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (int*): 随机将某个元素乘以当前数组元素平均值（取整）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机将某个元素乘以当前数组元素平均值（取整）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (int*): 第0个元素和第n-1个元素互换位置后，再将第1个元素和第n-2个元素互换位置
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「第0个元素和第n-1个元素互换位置后，再将第1个元素和第n-2个元素互换位置」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'n' (int): 无（长度控制器，禁止修改）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「无（长度控制器，禁止修改）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 22
+关系总数: 24

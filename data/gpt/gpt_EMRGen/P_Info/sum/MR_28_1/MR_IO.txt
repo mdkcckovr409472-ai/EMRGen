@@ -1,0 +1,21 @@
+TestCase z28Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of the array
+    int* follow_case_values = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_values, t1.values, t1.n * sizeof(int));
+    follow_case.values = follow_case_values;
+
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Replace every negative element with its absolute value
+    for (int i = 0; i < follow_case.n; ++i) {
+        if (follow_case.values[i] < 0) {
+            follow_case.values[i] = -follow_case.values[i];
+        }
+    }
+
+    return follow_case;
+}

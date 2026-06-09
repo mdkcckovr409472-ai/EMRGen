@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = sampleWeightedVariance(tc.data, tc.weights, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = sampleWeightedVariance(Tf_case.data, Tf_case.weights, Tf_case.n);
+    int is_valid = 0;
+    if (fabs(4.0 * Os - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.data;
+    return is_valid;
+}

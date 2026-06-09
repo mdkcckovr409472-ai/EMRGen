@@ -1,0 +1,2 @@
+Operation 44: On parameter 'p2' (array[double]): replace -Inf with minimum double value
+Invariant: return.result1 == return.result2

@@ -1,0 +1,2 @@
+Operation 8: On parameter 'data' (array[double]): reverse array order
+Invariant: return.result1 == return.result2

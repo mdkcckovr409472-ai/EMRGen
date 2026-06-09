@@ -1,0 +1,20 @@
+TestCase z50Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+int* follow_case_b = (int*)malloc(t1.n * sizeof(int));
+memcpy(follow_case_b, t1.b, t1.n * sizeof(int));
+follow_case.b = follow_case_b;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<=0时出错
+if (follow_case.n <= 0) {
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+int start_idx = (2 * follow_case.n) / 3;
+for (int i = start_idx; i < follow_case.n; i++) {
+    follow_case.b[i] += 15;
+}
+
+return follow_case;}

@@ -1,0 +1,22 @@
+TestCase z34Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_arr = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_arr, t1.arr, t1.n * sizeof(double));
+    follow_case.arr = follow_case_arr;
+    // ------------------------------------
+    
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Operation: divide each non‑zero element by 3.0
+    for (int i = 0; i < follow_case.n; ++i) {
+        if (follow_case.arr[i] != 0.0) {
+            follow_case.arr[i] = follow_case.arr[i] / 3.0;
+        }
+    }
+    
+    return follow_case;
+}

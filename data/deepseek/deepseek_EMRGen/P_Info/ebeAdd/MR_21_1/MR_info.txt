@@ -1,0 +1,2 @@
+Operation 21: On parameter 'a' (double*): 子数组（前n1/2个元素）加10.0
+Invariant: return.result1[] <= return.result2[] (elementwise)

@@ -1,0 +1,42 @@
+int check(TestCase tc) {
+    double* Os = ebeDivide(tc.a, tc.b, tc.n1, tc.n2);
+    if (Os == NULL) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    if (Tf_case.a == NULL && tc.n1 > 0) {
+        free(Os);
+        return 0;
+    }
+
+    double* Of = ebeDivide(Tf_case.a, Tf_case.b, Tf_case.n1, Tf_case.n2);
+    
+    int is_valid = 1;
+    if (Of == NULL) {
+        is_valid = 0;
+    } else {
+        for (int i = 0; i < tc.n1; i++) {
+            if (tc.b[i] == 0.0) {
+                if (Of[i] != INFINITY) {
+                    is_valid = 0;
+                    break;
+                }
+            } else {
+                double expected = Os[i] - 1.0 / tc.b[i];
+                if (!( (Of[i] == expected) || (std::abs(Of[i] - expected) < 1e-12) )) {
+                    is_valid = 0;
+                    break;
+                }
+            }
+        }
+    }
+
+    free(Os);
+    if (Tf_case.a != tc.a) {
+        free(Tf_case.a);
+    }
+    free(Of);
+
+    return is_valid;
+}

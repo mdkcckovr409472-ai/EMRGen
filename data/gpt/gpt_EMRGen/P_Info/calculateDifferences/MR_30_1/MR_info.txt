@@ -1,0 +1,2 @@
+Operation 30: On parameter 'y' (double*): set last element to -1.0 (when it is greater than -1.0)
+Invariant: return.result1[] >= return.result2[] (elementwise)

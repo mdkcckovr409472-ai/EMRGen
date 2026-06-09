@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    // Reuse original TestCase
+    // Overwrite the first element with max double value to fulfill MR requirement
+    tc.elements[0] = std::numeric_limits<double>::max();
+    return tc;
+}

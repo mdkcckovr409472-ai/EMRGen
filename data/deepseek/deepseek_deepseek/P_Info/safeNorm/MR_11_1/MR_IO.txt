@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 2.0; // 正常数k，k>0且k≠1，这里取2.0
+    if (tf.v != nullptr && tf.n > 0) {
+        double* new_v = new double[tf.n];
+        for (int i = 0; i < tf.n; ++i) {
+            new_v[i] = tf.v[i] * k;
+        }
+        tf.v = new_v;
+    }
+    return tf;
+}

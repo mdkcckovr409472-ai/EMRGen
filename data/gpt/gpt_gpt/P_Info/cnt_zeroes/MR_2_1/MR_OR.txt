@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    int Os = cnt_zeroes(tc.a, tc.n);
+    TestCase Tf_case = change(tc);
+    int Of = cnt_zeroes(Tf_case.a, Tf_case.n);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    // No dynamic memory was allocated in change(), no free needed here
+    return is_valid;
+}

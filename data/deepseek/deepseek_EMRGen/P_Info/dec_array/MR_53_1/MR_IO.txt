@@ -1,0 +1,6 @@
+TestCase z53Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 根据操作描述，将目标参数 k 置为较大数（如1000）
+    follow_case.k = 1000;
+    return follow_case;
+}

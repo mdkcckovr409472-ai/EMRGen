@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains b (int*), if the operation 「set the last element to the minimum int value」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Of == Os - b[n-1] * a[n-1] + MIN_INT * a[n-1]

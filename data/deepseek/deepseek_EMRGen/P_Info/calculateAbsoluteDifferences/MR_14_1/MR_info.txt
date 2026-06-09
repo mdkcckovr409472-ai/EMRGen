@@ -1,0 +1,2 @@
+Operation 14: On parameter 'z' (double*): 随机位置元素置负无穷大
+Invariant: return.result1[] < return.result2[] (lexically)

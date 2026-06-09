@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double* reversed = new double[tf.n];
+    for (int i = 0; i < tf.n; ++i) {
+        reversed[i] = tc.elements[tf.n - 1 - i];
+    }
+    tf.elements = reversed;
+    return tf;
+}

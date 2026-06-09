@@ -1,0 +1,15 @@
+int check(TestCase tc) {
+    double Os = sumOfLogarithms(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = sumOfLogarithms(Tf_case.elements, Tf_case.n);
+    int is_valid = 0;
+
+    // Check if Os == Of considering floating point equality with a tolerance
+    const double epsilon = 1e-12;
+    if(fabs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+
+    delete[] Tf_case.elements;
+    return is_valid;
+}

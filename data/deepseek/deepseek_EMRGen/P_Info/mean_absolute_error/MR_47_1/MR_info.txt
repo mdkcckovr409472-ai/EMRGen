@@ -1,0 +1,2 @@
+Operation 47: On parameter 'b' (int*): 数组所有元素平方
+Invariant: return.result1 <= return.result2

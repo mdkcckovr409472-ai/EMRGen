@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    double Os = evaluateWeightedProduct(tc.values, tc.weights, tc.begin, tc.lengths, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = evaluateWeightedProduct(Tf_case.values, Tf_case.weights, Tf_case.begin, Tf_case.lengths, Tf_case.n);
+    double weight_sum = 0.0;
+    for (int i = tc.begin; i < tc.begin + tc.lengths; i++) {
+        weight_sum += tc.weights[i];
+    }
+    double expected_factor = pow(2.0, weight_sum);
+    int is_valid = 0;
+    if (fabs(expected_factor * Os - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.values;
+    return is_valid;
+}

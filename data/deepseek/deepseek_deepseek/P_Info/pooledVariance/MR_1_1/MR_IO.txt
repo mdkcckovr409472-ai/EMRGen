@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 5.0; // 示例常数k
+    double* new_data1 = new double[tf.n1];
+    for (int i = 0; i < tf.n1; i++) {
+        new_data1[i] = tf.data1[i] + k;
+    }
+    tf.data1 = new_data1;
+    return tf;
+}

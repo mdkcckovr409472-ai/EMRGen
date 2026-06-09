@@ -1,0 +1,2 @@
+Operation 6: On parameter 'k' (array[double]): set random position's element to maximum double (when element is less than max)
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,20 @@
+int check(TestCase tc) {
+    // Source output Os
+    double Os = pooledVariance(tc.data1, tc.data2, tc.n1, tc.n2);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Follow-up output Of
+    double Of = pooledVariance(Tf_case.data1, Tf_case.data2, Tf_case.n1, Tf_case.n2);
+
+    // Verify MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // Free dynamically allocated memory in Tf_case if any
+    if (Tf_case.data2 != tc.data2) {
+        delete[] Tf_case.data2;
+    }
+
+    return is_valid;
+}

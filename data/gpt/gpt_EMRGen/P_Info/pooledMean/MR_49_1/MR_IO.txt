@@ -1,0 +1,26 @@
+TestCase z49Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_data2 = (double*)malloc(t1.n2 * sizeof(double));
+    memcpy(follow_case_data2, t1.data2, t1.n2 * sizeof(double));
+    follow_case.data2 = follow_case_data2;
+    // ------------------------------------
+    
+    // Defensive code: ensure there are at least 2 elements to sort
+    if (follow_case.n2 < 2) {
+        return follow_case;
+    }
+    
+    // Sort data2 in ascending order
+    for (int i = 0; i < follow_case.n2 - 1; ++i) {
+        for (int j = i + 1; j < follow_case.n2; ++j) {
+            if (follow_case.data2[i] > follow_case.data2[j]) {
+                double temp = follow_case.data2[i];
+                follow_case.data2[i] = follow_case.data2[j];
+                follow_case.data2[j] = temp;
+            }
+        }
+    }
+    
+    return follow_case;
+}

@@ -1,0 +1,23 @@
+int check(TestCase tc) {
+    // (1) & (2) 计算初始输出 Os
+    double Os = sampleVariance(tc.elements, tc.mean, tc.n);
+    
+    // (3) 构造衍生用例
+    TestCase Tf_case = change(tc);
+    
+    // (4) 计算衍生输出 Of
+    double Of = sampleVariance(Tf_case.elements, Tf_case.mean, Tf_case.n);
+    
+    // (5) 验证蜕变关系 Os == Of
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (std::abs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    
+    // (6) 释放动态内存
+    delete[] Tf_case.elements;
+    
+    // (7) 返回验证结果
+    return is_valid;
+}

@@ -1,0 +1,22 @@
+TestCase z74Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_observed = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_observed, t1.observed, t1.n * sizeof(double));
+    follow_case.observed = follow_case_observed;
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n == 0
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Specific operation code: replace -Inf elements with -DBL_MAX
+    for (int i = 0; i < follow_case.n; ++i) {
+        if (follow_case.observed[i] == -1.0/0.0) { // -Inf detection
+            follow_case.observed[i] = -1.7976931348623157e+308; // -DBL_MAX
+        }
+    }
+
+    return follow_case;
+}

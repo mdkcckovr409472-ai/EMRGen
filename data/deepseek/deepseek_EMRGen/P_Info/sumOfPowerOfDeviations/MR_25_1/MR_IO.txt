@@ -1,0 +1,25 @@
+TestCase z25Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_data = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_data, t1.data, t1.n * sizeof(double));
+follow_case.data = follow_case_data;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<2时出错
+if (follow_case.n < 2) {
+    // 元素不足2个，无需排序，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+// 使用标准库qsort进行升序排序
+qsort(follow_case.data, follow_case.n, sizeof(double), [](const void* a, const void* b) -> int {
+    double arg1 = *static_cast<const double*>(a);
+    double arg2 = *static_cast<const double*>(b);
+    if (arg1 < arg2) return -1;
+    if (arg1 > arg2) return 1;
+    return 0;
+});
+
+return follow_case;}

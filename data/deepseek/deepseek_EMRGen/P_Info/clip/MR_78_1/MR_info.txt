@@ -1,0 +1,2 @@
+Operation 78: On parameter 'upperLim' (int): 自减1
+Invariant: return.result1[] >= return.result2[] (elementwise)

@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    if (tc.elements == nullptr || tc.n <= 0) {
+        // invalid input or empty array cannot verify MR
+        return 0;
+    }
+
+    // Calculate source output Os
+    double Os = winsorizedMean(tc.elements, tc.left, tc.right, tc.n);
+
+    // Construct follow-up test case Tf
+    TestCase Tf_case = change(tc);
+
+    // Calculate follow-up output Of
+    double Of = winsorizedMean(Tf_case.elements, Tf_case.left, Tf_case.right, Tf_case.n);
+
+    // Verify the metamorphic relation Os <= Of
+    int is_valid = (Os <= Of) ? 1 : 0;
+
+    // No dynamic memory is allocated in change, so no cleanup needed here
+
+    return is_valid;
+}

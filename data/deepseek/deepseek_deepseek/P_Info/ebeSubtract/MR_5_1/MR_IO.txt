@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 5.0; // 示例常数
+    if (tf.b != NULL) {
+        for (int i = 0; i < tf.n2; i++) {
+            tf.b[i] += k;
+        }
+    }
+    return tf;
+}

@@ -1,0 +1,2 @@
+Operation 11: On parameter 'a' (int*): 数组反转
+Invariant: return.result1 == return.result2

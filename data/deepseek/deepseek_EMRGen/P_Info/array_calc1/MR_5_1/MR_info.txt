@@ -1,0 +1,2 @@
+Operation 5: On parameter 'a' (int*): 所有元素取负
+Invariant: return.result1[] + return.result2[] == 0

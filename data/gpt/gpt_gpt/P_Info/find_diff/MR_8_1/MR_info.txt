@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「set the first element to the maximum int value (e.g., INT_MAX)」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Of[0] == a[0] - INT_MAX, and For i > 0, Of[i] == Os[i]

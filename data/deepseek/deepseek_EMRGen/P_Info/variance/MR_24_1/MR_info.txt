@@ -1,0 +1,2 @@
+Operation 24: On parameter 'x' (double*): 交换数组中两个随机位置的元素（确保索引有效）
+Invariant: return.result1 == return.result2

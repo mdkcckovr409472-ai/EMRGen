@@ -1,0 +1,135 @@
+int hamming_dist(int a[], int b[], int n) {
+    int cnt = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] != b[i]) {
+            cnt++;
+        }
+    }
+    return cnt;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 6: On parameter 'a' (int[]): set last element to 2147483647 (if it is < 2147483647)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int[]）的函数，若对 a执行「set last element to 2147483647 (if it is < 2147483647)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (int[]): set a random element to 1000000 (when element < 1000000)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int[]）的函数，若对 a执行「set a random element to 1000000 (when element < 1000000)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (int[]): set a random element to –1000000 (when element > –1000000)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int[]）的函数，若对 a执行「set a random element to –1000000 (when element > –1000000)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (int[]): square elements at even indices (0‑based)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int[]）的函数，若对 a执行「square elements at even indices (0‑based)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (int[]): add 5 to elements at prime indices
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int[]）的函数，若对 a执行「add 5 to elements at prime indices」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int[]): subtract 3 from elements at composite indices
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int[]）的函数，若对 a执行「subtract 3 from elements at composite indices」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (int[]): take each element modulo 10
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int[]）的函数，若对 a执行「take each element modulo 10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'b' (int[]): set last element to 2147483647 (if it is < 2147483647)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（int[]）的函数，若对 b执行「set last element to 2147483647 (if it is < 2147483647)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 42: On parameter 'b' (int[]): set a random element to 1000000 (when element < 1000000)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（int[]）的函数，若对 b执行「set a random element to 1000000 (when element < 1000000)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 43: On parameter 'b' (int[]): set a random element to –1000000 (when element > –1000000)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（int[]）的函数，若对 b执行「set a random element to –1000000 (when element > –1000000)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 50: On parameter 'b' (int[]): add 5 to elements at prime indices
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（int[]）的函数，若对 b执行「add 5 to elements at prime indices」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 51: On parameter 'b' (int[]): subtract 3 from elements at composite indices
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（int[]）的函数，若对 b执行「subtract 3 from elements at composite indices」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 53: On parameter 'b' (int[]): take each element modulo 10
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（int[]）的函数，若对 b执行「take each element modulo 10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 13
+关系总数: 13

@@ -1,0 +1,2 @@
+Operation 19: On parameter 'a' (int*): 所有偶数索引元素减3
+Invariant: return.result1[] >= return.result2[] (elementwise)

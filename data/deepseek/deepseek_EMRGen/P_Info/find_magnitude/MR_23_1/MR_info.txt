@@ -1,0 +1,2 @@
+Operation 23: On parameter 'a' (int*): 对数组进行升序排序
+Invariant: return.result1 == return.result2

@@ -1,0 +1,209 @@
+double weightedMean(double elements[], double theWeights[], int n) {
+    int size = n;
+    double sum = 0.0;
+    double weightsSum = 0.0;
+    for(int i = size; --i >= 0; ) {
+        double w = theWeights[i];
+        sum += elements[i] * w;
+        weightsSum += w;
+    }
+    return sum / weightsSum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加1.0
+Invariant: 
+return.result1 - return.result2 + 1 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (double*): 所有元素减2.5
+Invariant: 
+2 * return.result1 - 2 * return.result2 - 5 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素减2.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - 2 * Of - 5 == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (double*): 所有元素乘3.0
+Invariant: 
+3 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+3 * Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 所有元素除4.0
+Invariant: 
+return.result1 - 4 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 4 * Of == 0
+
+----------------------------------------
+
+Operation 5: On parameter 'elements' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (double*): 所有元素取相反数
+Invariant: 
+return.result1 + return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (double*): 所有元素加自身（即乘2）
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素加自身（即乘2）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (double*): 所有元素乘-1.0
+Invariant: 
+return.result1 + return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素乘-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+Operation 19: On parameter 'elements' (double*): 排序（降序）
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「排序（降序）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'elements' (double*): 将奇数索引元素加5.0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将奇数索引元素加5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'elements' (double*): 将索引为0的元素置为100.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将索引为0的元素置为100.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (double*): 将索引为n-1的元素置为-100.0
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将索引为n-1的元素置为-100.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (double*): 将所有正数元素置为0.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将所有正数元素置为0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'elements' (double*): 将大于10.0的元素减10.0
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将大于10.0的元素减10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 32: On parameter 'theWeights' (double*): 所有元素乘0.5
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含theWeights（double*）的函数，若对 theWeights执行「所有元素乘0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 33: On parameter 'theWeights' (double*): 所有元素除2.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含theWeights（double*）的函数，若对 theWeights执行「所有元素除2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 34: On parameter 'theWeights' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含theWeights（double*）的函数，若对 theWeights执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 36: On parameter 'theWeights' (double*): 所有元素取相反数
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含theWeights（double*）的函数，若对 theWeights执行「所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 37: On parameter 'theWeights' (double*): 所有元素加自身（即乘2）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含theWeights（double*）的函数，若对 theWeights执行「所有元素加自身（即乘2）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 39: On parameter 'theWeights' (double*): 所有元素乘-1.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含theWeights（double*）的函数，若对 theWeights执行「所有元素乘-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 56: On parameter 'theWeights' (double*): 将所有小于0.0的元素置为0.0
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含theWeights（double*）的函数，若对 theWeights执行「将所有小于0.0的元素置为0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 21
+关系总数: 21

@@ -1,0 +1,17 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Sort the elements array in ascending order to construct Tf
+    // Since we must reuse the original data, and cannot modify tc.elements directly (to keep ts input intact),
+    // we allocate new dynamic memory for sorted array
+    double* sorted_elements = new double[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        sorted_elements[i] = tc.elements[i];
+    }
+    // Simple std::sort requires <algorithm> header; 
+    // If allowed, include and use it, otherwise implement basic sort here.
+    // Assuming including <algorithm> is allowed.
+    std::sort(sorted_elements, sorted_elements + tc.n);
+
+    tf.elements = sorted_elements;
+    return tf;
+}

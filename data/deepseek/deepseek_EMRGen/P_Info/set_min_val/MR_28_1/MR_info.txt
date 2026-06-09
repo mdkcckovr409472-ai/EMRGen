@@ -1,0 +1,2 @@
+Operation 28: On parameter 'a' (int*): 将数组中所有正数替换为其平方根（整数部分）
+Invariant: return.result1[] >= return.result2[] (elementwise)

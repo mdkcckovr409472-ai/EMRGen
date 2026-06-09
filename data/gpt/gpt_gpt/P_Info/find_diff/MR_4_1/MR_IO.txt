@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.na > 0) {
+        // Since tc.a is int*, modify the last element directly
+        tf.a[tf.na - 1] = INT_MIN;
+    }
+    return tf;
+}

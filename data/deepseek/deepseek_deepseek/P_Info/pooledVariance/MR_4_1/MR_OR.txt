@@ -1,0 +1,26 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入 (Ts) 并计算初始输出 (Os)
+    double Os = pooledVariance(tc.data1, tc.data2, tc.n1, tc.n2);
+    
+    // (2) 构造衍生用例对象
+    TestCase Tf_case = change(tc);
+    
+    // (3) 提取衍生输入并计算衍生输出 (Of)
+    double Of = pooledVariance(Tf_case.data1, Tf_case.data2, Tf_case.n1, Tf_case.n2);
+    
+    // (4) 验证 Os 和 Of 是否满足蜕变关系 (Os == Of)
+    int is_valid = 0;
+    // 使用容差比较来处理浮点数的精度问题
+    const double epsilon = 1e-10;
+    if (std::fabs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    
+    // (5) 释放 change 函数中为衍生用例分配的动态内存
+    if (Tf_case.data1 != tc.data1) {
+        delete[] Tf_case.data1;
+    }
+    
+    // (6) 返回验证结果
+    return is_valid;
+}

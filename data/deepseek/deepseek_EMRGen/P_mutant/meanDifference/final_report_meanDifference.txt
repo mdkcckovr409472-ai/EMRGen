@@ -1,0 +1,266 @@
+double meanDifference(double sample1[], double sample2[], int n ) {
+    double sumDifference = 0;
+    for (int i = 0; i < n; i++) {
+        sumDifference += sample1[i] - sample2[i];
+    }
+    return sumDifference / n;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'sample1' (double*): 所有元素加1.0
+Invariant: 
+return.result1 - return.result2 + 1 == 0 ✓ ○
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+Os < Of
+
+----------------------------------------
+
+Operation 2: On parameter 'sample1' (double*): 所有元素减1.0
+Invariant: 
+return.result1 - return.result2 - 1 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「所有元素减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 1 == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'sample1' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 9: On parameter 'sample1' (double*): 所有元素取自然对数
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「所有元素取自然对数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 10: On parameter 'sample1' (double*): 所有元素加其索引值
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「所有元素加其索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'sample1' (double*): 所有元素置为无穷大（inf）
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「所有元素置为无穷大（inf）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 22: On parameter 'sample1' (double*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 23: On parameter 'sample1' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 24: On parameter 'sample1' (double*): 数组向右循环移位（末尾元素移到开头）
+Invariant: 
+return.result1 == return.result2 ✗
+return.result1 - return.result2 == 0 ✗
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「数组向右循环移位（末尾元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 25: On parameter 'sample1' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 26: On parameter 'sample1' (double*): 数组随机重排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「数组随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 27: On parameter 'sample1' (double*): 数组升序排序
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'sample1' (double*): 数组降序排序
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample1（double*）的函数，若对 sample1执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'sample2' (double*): 所有元素加1.0
+Invariant: 
+return.result1 - return.result2 - 1 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 1 == 0
+
+----------------------------------------
+
+Operation 31: On parameter 'sample2' (double*): 所有元素减1.0
+Invariant: 
+return.result1 - return.result2 + 1 == 0 ✓ ○
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「所有元素减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+Os < Of
+
+----------------------------------------
+
+Operation 35: On parameter 'sample2' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 38: On parameter 'sample2' (double*): 所有元素取自然对数
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「所有元素取自然对数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'sample2' (double*): 所有元素加其索引值
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「所有元素加其索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 47: On parameter 'sample2' (double*): 所有元素置为无穷大（inf）
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「所有元素置为无穷大（inf）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 51: On parameter 'sample2' (double*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 52: On parameter 'sample2' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2 ✗
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 53: On parameter 'sample2' (double*): 数组向右循环移位（末尾元素移到开头）
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「数组向右循环移位（末尾元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 54: On parameter 'sample2' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2 ✗
+return.result1 - return.result2 == 0 ✗
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 55: On parameter 'sample2' (double*): 数组随机重排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「数组随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 56: On parameter 'sample2' (double*): 数组升序排序
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 57: On parameter 'sample2' (double*): 数组降序排序
+Invariant: 
+return.result1 == return.result2 ✗
+return.result1 - return.result2 == 0 ✗
+
+MR ：对于初始输入Ts中包含sample2（double*）的函数，若对 sample2执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+
+操作总数: 26
+关系总数: 34

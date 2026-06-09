@@ -1,0 +1,2 @@
+Operation 31: On parameter 'b' (double*): 所有元素乘0.1
+Invariant: 10 * return.result1[] - return.result2[] == 0

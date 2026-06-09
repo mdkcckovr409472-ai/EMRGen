@@ -1,0 +1,30 @@
+int check(TestCase tc) {
+    if (tc.n == 0 || tc.data == nullptr) return 0;
+
+    double* Os = standardize(tc.data, tc.n);
+
+    TestCase Tf_case = change(tc);
+
+    double* Of = standardize(Tf_case.data, Tf_case.n);
+
+    int is_valid = 0;
+
+    if (Os != nullptr && Of != nullptr) {
+        // Check Os != Of ; arrays must differ at least at one element
+        int differ = 0;
+        for (int i = 0; i < tc.n; i++) {
+            if (Os[i] != Of[i]) {
+                differ = 1;
+                break;
+            }
+        }
+        if (differ) {
+            is_valid = 1;
+        }
+    }
+
+    free(Os);
+    free(Of);
+
+    return is_valid;
+}

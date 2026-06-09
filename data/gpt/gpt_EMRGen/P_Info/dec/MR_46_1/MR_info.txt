@@ -1,0 +1,2 @@
+Operation 46: On parameter 'array2' (array[int]): take square root of each element and cast to int (when element ≥ 0)
+Invariant: return.result1[] <= return.result2[] (elementwise)

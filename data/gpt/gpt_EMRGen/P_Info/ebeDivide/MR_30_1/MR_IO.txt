@@ -1,0 +1,33 @@
+TestCase z30Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n2 > 0 && t1.b != NULL) {
+        double* follow_case_b = (double*)malloc(t1.n2 * sizeof(double));
+        if (follow_case_b != NULL) {
+            memcpy(follow_case_b, t1.b, t1.n2 * sizeof(double));
+            follow_case.b = follow_case_b;
+        } else {
+            // malloc failed, handle by returning original follow_case without modification
+            return follow_case;
+        }
+    } else {
+        // If n2 <= 0 or b is NULL, no allocation needed, but still keep the original pointer
+        // Defensive check will handle empty array case
+    }
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n2 < 1
+    if (follow_case.n2 <= 0 || follow_case.b == NULL) {
+        // No elements to process or NULL pointer, return directly
+        return follow_case;
+    }
+    
+    // Specific operation code generated based on the rule
+    for (int i = 0; i < follow_case.n2; i++) {
+        if (follow_case.b[i] != 0.0) {
+            follow_case.b[i] = follow_case.b[i] / 2.0;
+        }
+    }
+    
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 22: On parameter 'list' (int*): 将元素替换为其与索引的差
+Invariant: return.result1[] >= return.result2[] (elementwise)

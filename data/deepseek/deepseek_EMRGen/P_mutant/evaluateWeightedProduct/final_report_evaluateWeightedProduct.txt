@@ -1,0 +1,167 @@
+double evaluateWeightedProduct( double values[],  double weights[],  int begin, int lengths, int n) {
+    double product = 1.0;
+     
+    for (int i = begin; i < begin + lengths; i++) {
+        product *= pow(values[i], weights[i]);
+    }
+    return product;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 5: On parameter 'values' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 % return.result2 == 0 ✗
+return.result1 <= return.result2 ✓ ○
+return.result2 % return.result1 == 0 ✗
+
+MR ：对于初始输入Ts中包含values（double*）的函数，若对 values执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os % Of == 0
+Os <= Of
+Of % Os == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'values' (double*): 所有元素平方
+Invariant: 
+return.result2 == return.result1**2 ✓ ○
+
+MR ：对于初始输入Ts中包含values（double*）的函数，若对 values执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Of == Os**2
+
+----------------------------------------
+
+Operation 24: On parameter 'values' (double*): 数组按升序排序
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含values（double*）的函数，若对 values执行「数组按升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 32: On parameter 'weights' (double*): 所有元素乘2.0
+Invariant: 
+return.result2 == return.result1**2 ✓ ○
+
+MR ：对于初始输入Ts中包含weights（double*）的函数，若对 weights执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Of == Os**2
+
+----------------------------------------
+
+Operation 39: On parameter 'weights' (double*): 所有元素加上自身（即乘2.0）
+Invariant: 
+return.result2 == return.result1**2 ✓ ○
+
+MR ：对于初始输入Ts中包含weights（double*）的函数，若对 weights执行「所有元素加上自身（即乘2.0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Of == Os**2
+
+----------------------------------------
+
+Operation 54: On parameter 'weights' (double*): 数组按降序排序
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含weights（double*）的函数，若对 weights执行「数组按降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 62: On parameter 'begin' (int): 除2（整数除法）
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「除2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 63: On parameter 'begin' (int): 置0
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「置0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 68: On parameter 'begin' (int): 取绝对值
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 69: On parameter 'begin' (int): 平方
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 71: On parameter 'begin' (int): 乘以-1
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「乘以-1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 73: On parameter 'begin' (int): 模5操作
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「模5操作」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 75: On parameter 'begin' (int): 右移1位
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「右移1位」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 88: On parameter 'begin' (int): 与长度参数n进行模运算（begin % n）
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「与长度参数n进行模运算（begin % n）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 98: On parameter 'lengths' (int): 取绝对值
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含lengths（int）的函数，若对 lengths执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 103: On parameter 'lengths' (int): 模5操作
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含lengths（int）的函数，若对 lengths执行「模5操作」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+
+
+操作总数: 17
+关系总数: 18

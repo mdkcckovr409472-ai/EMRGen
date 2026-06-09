@@ -1,0 +1,2 @@
+Operation 38: On parameter 'array2' (int[]): decrement element at random index by 2
+Invariant: return.result1[] >= return.result2[] (elementwise)

@@ -1,0 +1,10 @@
+TestCase z40Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: none required for scalar mean squaring
+
+    // Operation: square the mean
+    follow_case.mean = follow_case.mean * follow_case.mean;
+
+    return follow_case;
+}

@@ -1,0 +1,17 @@
+int check(TestCase tc) {
+    int* Os = s_add(tc.array1, tc.array2, tc.n);
+    TestCase Tf_case = change(tc);
+    int* Of = s_add(Tf_case.array1, Tf_case.array2, Tf_case.n);
+    int is_valid = 1;
+    int k = 5;
+    for (int i = 0; i < tc.n; i++) {
+        if (Of[i] != Os[i] + k) {
+            is_valid = 0;
+            break;
+        }
+    }
+    free(Os);
+    free(Of);
+    free(Tf_case.array1);
+    return is_valid;
+}

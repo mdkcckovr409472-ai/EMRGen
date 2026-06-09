@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    int n = tc.n;
+    int* a_orig = new int[n];
+    for (int i = 0; i < n; i++) {
+        a_orig[i] = tc.a[i];
+    }
+    // Call function under test on original input
+    double Os = find_median(a_orig, n);
+
+    // Build follow-up test case
+    TestCase Tf_case = change(tc);
+    double Of = find_median(Tf_case.a, Tf_case.n);
+
+    // Verify MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // Free dynamic memory allocated
+    delete[] a_orig;
+    delete[] Tf_case.a;
+
+    return is_valid;
+}

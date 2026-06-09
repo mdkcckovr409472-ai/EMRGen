@@ -1,0 +1,226 @@
+double add_two_array_values(int a[], int i, int j, int n)
+{
+    if (i < 0 || i >= n || j < 0 || j >= n)
+    {
+        return -100000;
+    }
+    else {
+        return (a[i] + a[j]) / 2;
+    }
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[int]): add 1 to all elements
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「add 1 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[int]): subtract 5 from all elements
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「subtract 5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (array[int]): swap elements at indices i and j
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「swap elements at indices i and j」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (array[int]): reverse sub‑array from i to j (inclusive, bounds‑checked)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「reverse sub‑array from i to j (inclusive, bounds‑checked)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[int]): set random position to -999 (when element > -999)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set random position to -999 (when element > -999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (array[int]): set random position to 999 (when element < 999)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set random position to 999 (when element < 999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): replace every element with its absolute value
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「replace every element with its absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (array[int]): replace every element with its square
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「replace every element with its square」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (array[int]): increment element at index i by 10
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「increment element at index i by 10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (array[int]): decrement element at index j by 7
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「decrement element at index j by 7」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 31: On parameter 'i' (int): add 5 to i (if i+5 < n)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「add 5 to i (if i+5 < n)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 40: On parameter 'i' (int): set i to absolute value of i
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「set i to absolute value of i」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 44: On parameter 'i' (int): set i to max(i, n/2) (if ≤ n‑1)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「set i to max(i, n/2) (if ≤ n‑1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 45: On parameter 'i' (int): set i to (i % n) (wrap around)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「set i to (i % n) (wrap around)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 47: On parameter 'i' (int): set i to constant 10 (if n > 10)
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「set i to constant 10 (if n > 10)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 48: On parameter 'i' (int): set i to constant 100 (if n > 100)
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「set i to constant 100 (if n > 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 54: On parameter 'i' (int): if i < 0 then set i to 0 else keep i
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「if i < 0 then set i to 0 else keep i」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 58: On parameter 'j' (int): add 7 to j (if j+7 < n)
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「add 7 to j (if j+7 < n)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 60: On parameter 'j' (int): multiply j by 3 (if 3*j < n)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「multiply j by 3 (if 3*j < n)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 67: On parameter 'j' (int): set j to absolute value of j
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「set j to absolute value of j」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 72: On parameter 'j' (int): set j to (j % n) (wrap around)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「set j to (j % n) (wrap around)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 75: On parameter 'j' (int): set j to constant 50 (if n > 50)
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「set j to constant 50 (if n > 50)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 80: On parameter 'j' (int): if j < 0 then set j to 0 else keep j
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「if j < 0 then set j to 0 else keep j」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 23
+关系总数: 23

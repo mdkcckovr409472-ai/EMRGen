@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 10.0;
+    int size = tf.n;
+    tf.elements = new double[size];
+    for (int i = 0; i < size; ++i) {
+        tf.elements[i] = tc.elements[i] + k;
+    }
+    tf.mean = tc.mean + k;
+    return tf;
+}

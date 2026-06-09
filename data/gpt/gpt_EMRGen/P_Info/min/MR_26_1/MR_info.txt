@@ -1,0 +1,2 @@
+Operation 26: On parameter 'elements' (array[double]): sort subarray between two random indices ascending
+Invariant: return.result1 == return.result2

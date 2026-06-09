@@ -1,0 +1,2 @@
+Operation 12: On parameter 'moment4' (double): set to negative infinity
+Invariant: return.result1 > return.result2

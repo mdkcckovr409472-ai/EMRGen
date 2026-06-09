@@ -1,0 +1,20 @@
+int check(TestCase tc) {
+    // Source input and output
+    int Os = cnt_zeroes(tc.a, tc.n);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Follow-up output
+    int Of = cnt_zeroes(Tf_case.a, Tf_case.n);
+
+    // Verify MR: Of >= Os
+    int is_valid = 0;
+    if (Of >= Os) {
+        is_valid = 1;
+    }
+
+    // No dynamic memory allocated in change() => no deallocation needed here
+
+    return is_valid;
+}

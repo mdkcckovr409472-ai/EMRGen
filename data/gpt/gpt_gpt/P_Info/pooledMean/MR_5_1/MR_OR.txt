@@ -1,0 +1,20 @@
+int check(TestCase tc) {
+    // Compute source output Os
+    double Os = pooledMean(tc.data1, tc.data2, tc.n1, tc.n2);
+
+    // Generate follow-up test case Tf
+    TestCase Tf = change(tc);
+
+    // Compute follow-up output Of
+    double Of = pooledMean(Tf.data1, Tf.data2, Tf.n1, Tf.n2);
+
+    // Check MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // Free allocated memory in Tf
+    if (Tf.data1 != tc.data1) {
+        delete[] Tf.data1;
+    }
+
+    return is_valid;
+}

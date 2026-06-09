@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.values != nullptr) {
+        int index_to_modify = 0;
+        int k = 5;
+        tf.values = new int[tf.n];
+        for (int i = 0; i < tf.n; ++i) {
+            tf.values[i] = tc.values[i];
+        }
+        tf.values[index_to_modify] -= k;
+    }
+    return tf;
+}

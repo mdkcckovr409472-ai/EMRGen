@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new list to sort
+    int* sorted_list = (int*)malloc(tc.n * sizeof(int));
+    memcpy(sorted_list, tc.list, tc.n * sizeof(int));
+    // Sort the entire array in ascending order
+    for (int i = 0; i < tc.n - 1; i++) {
+        int min = i;
+        for (int j = i + 1; j < tc.n; j++) {
+            if (sorted_list[j] < sorted_list[min]) {
+                min = j;
+            }
+        }
+        int tmp = sorted_list[i];
+        sorted_list[i] = sorted_list[min];
+        sorted_list[min] = tmp;
+    }
+    // Overwrite tf.list to the sorted array
+    tf.list = sorted_list;
+    return tf;
+}

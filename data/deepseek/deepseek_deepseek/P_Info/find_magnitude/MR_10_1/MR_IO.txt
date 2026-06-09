@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1) {
+        int* arr_copy = new int[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            arr_copy[i] = tf.a[i];
+        }
+        int idx1 = 0;
+        int idx2 = tf.n - 1;
+        std::swap(arr_copy[idx1], arr_copy[idx2]);
+        tf.a = arr_copy;
+    }
+    return tf;
+}

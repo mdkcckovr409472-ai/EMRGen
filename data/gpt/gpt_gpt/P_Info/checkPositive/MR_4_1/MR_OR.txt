@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    // Source input
+    double* Ts = tc.a;
+    int n = tc.n;
+    // Source output
+    bool Os = checkPositive(Ts, n);
+    // Follow-up test case
+    TestCase Tf_case = change(tc);
+    bool Of = checkPositive(Tf_case.a, Tf_case.n);
+    // Check MR: Os >= Of
+    int is_valid = 0;
+    if ((Os && Of) || (!Os && !Of) || (Os && !Of == false)) {
+        // Os = true (1), Of = false (0) violates Os >= Of; so valid if Os >= Of
+        is_valid = 1;
+    }
+    // Free dynamically allocated memory from change()
+    delete[] Tf_case.a;
+    return is_valid;
+}

@@ -1,0 +1,153 @@
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cfloat>
+#include <cctype>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+
+double sumOfPowerOfDeviations(double data[], int k, double c, int n) {
+    double sum = 0;
+    for(int i = 0; i < n; i++) {
+        sum += pow(data[i] - c, k);
+        }
+    return sum;
+}
+
+
+typedef struct {
+    double* data; int k; double c; int n;
+} TestCase;
+
+TestCase test_cases[] = {
+    {(double[]){1.0, 2.0, 3.0}, 1, 2.5, 3},
+    {(double[]){1.0, 2.0, 3.0}, 2, 2.5, 3},
+    {(double[]){1.0, 2.0, 3.0}, 3, 2.5, 3},
+    {(double[]){1.0, 2.0, 3.0}, 4, 2.5, 3},
+    {(double[]){1.0, 2.0, 3.0}, 0, 2.5, 3},
+    {(double[]){-1.0, -2.0, -3.0}, 1, -2.0, 3},
+    {(double[]){-1.0, -2.0, -3.0}, 2, -2.0, 3},
+    {(double[]){-1.0, -2.0, -3.0}, 3, -2.0, 3},
+    {(double[]){-1.0, -2.0, -3.0}, 4, -2.0, 3},
+    {(double[]){-1.0, -2.0, -3.0}, 0, -2.0, 3},
+    {(double[]){0.0, 0.0, 0.0}, 1, 0.0, 3},
+    {(double[]){0.0, 0.0, 0.0}, 2, 0.0, 3},
+    {(double[]){0.0, 0.0, 0.0}, 3, 0.0, 3},
+    {(double[]){0.0, 0.0, 0.0}, 4, 0.0, 3},
+    {(double[]){0.0, 0.0, 0.0}, 0, 0.0, 3},
+    {(double[]){2.5, 2.5, 2.5}, 1, 2.5, 3},
+    {(double[]){2.5, 2.5, 2.5}, 2, 2.5, 3},
+    {(double[]){2.5, 2.5, 2.5}, 3, 2.5, 3},
+    {(double[]){2.5, 2.5, 2.5}, 4, 2.5, 3},
+    {(double[]){2.5, 2.5, 2.5}, 0, 2.5, 3},
+    {(double[]){1.1, 2.2, 3.3, 4.4}, 1, 2.75, 4},
+    {(double[]){1.1, 2.2, 3.3, 4.4}, 2, 2.75, 4},
+    {(double[]){1.1, 2.2, 3.3, 4.4}, 3, 2.75, 4},
+    {(double[]){1.1, 2.2, 3.3, 4.4}, 4, 2.75, 4},
+    {(double[]){1.1, 2.2, 3.3, 4.4}, 0, 2.75, 4},
+    {(double[]){-1.5, 0.0, 1.5}, 1, 0.0, 3},
+    {(double[]){-1.5, 0.0, 1.5}, 2, 0.0, 3},
+    {(double[]){-1.5, 0.0, 1.5}, 3, 0.0, 3},
+    {(double[]){-1.5, 0.0, 1.5}, 4, 0.0, 3},
+    {(double[]){-1.5, 0.0, 1.5}, 0, 0.0, 3}
+};
+int num_test_cases = 30;
+
+
+    typedef struct {
+        double result1;
+        double result2;
+        int** memory_to_free;
+        int memory_count; 
+        int status;
+} TestResult;
+
+TestCase z41Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 根据规则4，目标参数k的类型为int且is_array为False，不满足“当且仅当int是数组类型时执行”的条件，因此不执行malloc和memcpy操作。
+
+// 根据规则5，将“取绝对值”转换为C语言代码，操作于follow_case.k。
+if (follow_case.k < 0) {
+    follow_case.k = -follow_case.k;
+}
+
+return follow_case;}
+
+#include <math.h>
+#include <stddef.h>
+
+int z41check(double result1, double result2) {
+    // 1. 防御性编程 (标量版本无需指针和长度检查)
+    // 2. 核心判断逻辑 (标量直接比较)
+    // 条件为 return.result1 == return.result2，移项后为 result1 == result2
+    double A = result1;
+    double B = result2;
+
+    // 防御 NaN
+    if (isnan(A) || isnan(B)) return 0;
+
+    // 处理无穷大
+    if (isinf(A) || isinf(B)) {
+        // 无穷大时直接比较
+        if (A == B) return 1;
+        else return 0;
+    }
+
+    // 定义基础容差
+    double epsilon = 1e-5;
+    // 计算动态宽容度
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    // 带容差的相等比较
+    if (fabs(A - B) > tol) {
+        return 0;
+    }
+
+    // 3. 满足条件，返回 1
+    return 1;
+}
+
+TestResult z41runTest(int test_case_id) { // MODIFIED: Return type
+    TestCase follow_case = z41Change(test_cases[test_case_id]);
+    // 原始调用
+    double source = sumOfPowerOfDeviations(test_cases[test_case_id].data, test_cases[test_case_id].k, test_cases[test_case_id].c, test_cases[test_case_id].n); // MODIFIED: Explicit type
+    // 变换后调用
+    double follow = sumOfPowerOfDeviations(follow_case.data, follow_case.k, follow_case.c, follow_case.n);
+    
+    int** memory_list = (int**)malloc(1 * sizeof(int*));
+    
+    
+    TestResult test_result;
+    test_result.memory_to_free = memory_list;
+    test_result.memory_count = 1;
+    
+    test_result.result2 = follow; // MODIFIED    
+    test_result.result1 = source; // MODIFIED
+    int status = z41check(source, follow);
+    test_result.status = status;
+    return test_result; // MODIFIED: Return TestResult
+}
+
+
+int main() {
+    srand(time(NULL));
+    int status_end = 1;
+    for (int i = 0; i < num_test_cases; i++) {
+        TestResult result = z41runTest(i);
+        if (result.status == 0) status_end = 0;
+        for (int j = 0; j < result.memory_count; j++) {
+            free(result.memory_to_free[j]);
+        }
+        free(result.memory_to_free);  // 释放指针数组本身
+    }
+    std::cout << status_end << std::endl;
+    return 0;
+}

@@ -1,0 +1,2 @@
+Operation 23: On parameter 'x' (double*): 交换数组首尾元素
+Invariant: return.result1 == return.result2

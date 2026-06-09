@@ -1,0 +1,2 @@
+Operation 13: On parameter 'a' (array[int]): reverse sub‑array from i to j (inclusive, bounds‑checked)
+Invariant: return.result1 == return.result2

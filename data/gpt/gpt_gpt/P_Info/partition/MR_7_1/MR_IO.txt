@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Add 0.5 to elements from begin to end-1 in work
+    for (int i = tf.begin; i < tf.end; ++i) {
+        tf.work[i] += 0.5;
+    }
+    return tf;
+}

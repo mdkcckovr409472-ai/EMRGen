@@ -1,0 +1,32 @@
+TestCase z12Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n1 > 0) {
+        double* follow_case_a = (double*)malloc(t1.n1 * sizeof(double));
+        memcpy(follow_case_a, t1.a, t1.n1 * sizeof(double));
+        follow_case.a = follow_case_a;
+    } else {
+        follow_case.a = NULL;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n1 < 1
+    if (follow_case.n1 < 1) {
+        // No elements to sort, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    // Sort array a in descending order
+    for (int i = 0; i < follow_case.n1 - 1; i++) {
+        for (int j = 0; j < follow_case.n1 - i - 1; j++) {
+            if (follow_case.a[j] < follow_case.a[j + 1]) {
+                double temp = follow_case.a[j];
+                follow_case.a[j] = follow_case.a[j + 1];
+                follow_case.a[j + 1] = temp;
+            }
+        }
+    }
+
+    return follow_case;
+}

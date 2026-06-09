@@ -1,0 +1,2 @@
+Operation 82: On parameter 'data2' (double*): 将数组中一个随机位置的元素（索引在[0, n2-1]内）置为负无穷大
+Invariant: return.result1 > return.result2

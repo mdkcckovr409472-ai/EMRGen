@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for expected array for Tf
+    tf.expected = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.expected[i] = tc.expected[i] / 2.0;
+    }
+    // observed remains the same, reuse from tc
+    return tf;
+}

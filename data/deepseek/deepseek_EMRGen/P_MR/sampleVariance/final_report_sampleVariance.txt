@@ -1,0 +1,18 @@
+double sampleVariance(double elements[], double mean, int n) {
+    int size = n;
+    double sum = 0;
+    for (int i = size; --i >= 0; ) {
+        double delta = elements[i] - mean;
+        sum += delta * delta;
+    }
+    return sum / (size - 1);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+
+操作总数: 0
+关系总数: 0

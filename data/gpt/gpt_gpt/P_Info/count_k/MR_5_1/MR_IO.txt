@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        tf.a[0] = INT_MIN;
+    }
+    return tf;
+}

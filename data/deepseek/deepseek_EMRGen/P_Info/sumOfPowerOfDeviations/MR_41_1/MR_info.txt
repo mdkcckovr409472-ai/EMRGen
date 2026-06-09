@@ -1,0 +1,2 @@
+Operation 41: On parameter 'k' (int): 取绝对值
+Invariant: return.result1 == return.result2

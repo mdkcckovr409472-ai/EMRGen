@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for array a
+    tf.a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.a[i] = tc.a[i];
+    }
+    // Add 2 to the first element only
+    if (tf.n > 0) {
+        tf.a[0] += 2;
+    }
+    return tf;
+}

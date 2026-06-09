@@ -1,0 +1,17 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n2 > 1 && tc.data2 != nullptr) {
+        // Allocate new memory for sorted data2 to avoid modifying original data
+        double* sorted_data2 = new double[tc.n2];
+        for (int i = 0; i < tc.n2; i++) {
+            sorted_data2[i] = tc.data2[i];
+        }
+        // Sort in ascending order
+        std::sort(sorted_data2, sorted_data2 + tc.n2);
+        tf.data2 = sorted_data2;
+    } else {
+        // If no sorting needed or invalid input, reuse original data2 pointer
+        tf.data2 = tc.data2;
+    }
+    return tf;
+}

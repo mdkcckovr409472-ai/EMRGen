@@ -1,0 +1,23 @@
+TestCase z30Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element to remove
+    if (follow_case.n == 0) {
+        // No elements to remove, return replica directly
+        return follow_case;
+    }
+    
+    // Specific operation: remove a random element (shrink array by 1)
+    int remove_idx = rand() % follow_case.n;  // random index in [0, n-1]
+    for (int i = remove_idx; i < follow_case.n - 1; ++i) {
+        follow_case.elements[i] = follow_case.elements[i + 1];
+    }
+    follow_case.n -= 1;
+    
+    return follow_case;
+}

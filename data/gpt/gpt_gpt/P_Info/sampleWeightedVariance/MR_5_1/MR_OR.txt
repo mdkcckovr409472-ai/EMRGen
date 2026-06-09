@@ -1,0 +1,13 @@
+int check(TestCase tc) {
+    double Os = sampleWeightedVariance(tc.data, tc.weights, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = sampleWeightedVariance(Tf_case.data, Tf_case.weights, Tf_case.n);
+    int is_valid = 0;
+    if (Os != Of) {
+        is_valid = 1;
+    }
+    if (Tf_case.weights != tc.weights) {
+        delete[] Tf_case.weights;
+    }
+    return is_valid;
+}

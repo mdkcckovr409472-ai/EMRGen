@@ -1,0 +1,20 @@
+int check(TestCase tc) {
+    // Source output
+    double Os = winsorizedMean(tc.elements, tc.left, tc.right, tc.n);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Follow-up output
+    double Of = winsorizedMean(Tf_case.elements, Tf_case.left, Tf_case.right, Tf_case.n);
+
+    // Verify MR: Os == Of (consider floating point precision)
+    int is_valid = (fabs(Os - Of) < 1e-9) ? 1 : 0;
+
+    // Clean up dynamic memory allocated in change()
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+    }
+
+    return is_valid;
+}

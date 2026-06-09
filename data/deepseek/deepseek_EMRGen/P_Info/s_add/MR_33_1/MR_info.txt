@@ -1,0 +1,2 @@
+Operation 33: On parameter 'array2' (int*): 所有元素取绝对值
+Invariant: return.result1[] <= return.result2[] (elementwise)

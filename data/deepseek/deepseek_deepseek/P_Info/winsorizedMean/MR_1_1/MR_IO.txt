@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 10.0; // 常数 k
+    if (tf.elements != nullptr && tf.n > 0) {
+        for (int i = 0; i < tf.n; ++i) {
+            tf.elements[i] += k;
+        }
+    }
+    return tf;
+}

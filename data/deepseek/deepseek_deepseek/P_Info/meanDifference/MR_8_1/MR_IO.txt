@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int p = 1;
+    if (tf.n > 0) {
+        double* shifted_sample2 = new double[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            shifted_sample2[(i + p) % tf.n] = tf.sample2[i];
+        }
+        tf.sample2 = shifted_sample2;
+    }
+    return tf;
+}

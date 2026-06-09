@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 10.0; // 常数k，可根据需要调整
+    if (tf.sortedElements != nullptr && tf.n > 0) {
+        double* newElements = new double[tf.n];
+        for (int i = 0; i < tf.n; ++i) {
+            newElements[i] = tf.sortedElements[i] + k;
+        }
+        tf.sortedElements = newElements;
+    }
+    return tf;
+}

@@ -1,0 +1,188 @@
+int sequential_search(int a[] , int n, int key) {
+    int i;
+    for (i = 0; i < n; i++) {
+        if (a[i] == key) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 5: On parameter 'a' (array[int]): 随机位置元素置为999(当元素小于999时）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「随机位置元素置为999(当元素小于999时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[int]): 随机位置元素置为-999(当元素大于-999时）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「随机位置元素置为-999(当元素大于-999时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): 数组元素递增排序
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组元素递增排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[int]): 后一半元素置0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「后一半元素置0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (array[int]): 所有质数元素置1
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有质数元素置1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): 所有奇数元素变为其相反数
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有奇数元素变为其相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (array[int]): 所有偶数元素变为0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有偶数元素变为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[int]): 数组扁平化（降维）不适用
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组扁平化（降维）不适用」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): 将数组所有元素设为1
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「将数组所有元素设为1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (array[int]): 元素取绝对值
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (array[int]): 随机两元素同时加1和减1
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「随机两元素同时加1和减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 36: On parameter 'key' (int): 置INT_MIN
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「置INT_MIN」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 37: On parameter 'key' (int): 置INT_MAX
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「置INT_MAX」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 38: On parameter 'key' (int): 取绝对值
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 46: On parameter 'key' (int): 置数组a中最后一个元素值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「置数组a中最后一个元素值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 49: On parameter 'key' (int): 加随机数（范围1-100）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「加随机数（范围1-100）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 50: On parameter 'key' (int): 减随机数（范围1-100）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「减随机数（范围1-100）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 51: On parameter 'key' (int): 置随机值（0到10000）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「置随机值（0到10000）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 52: On parameter 'key' (int): 平方后取整
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「平方后取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 19
+关系总数: 19

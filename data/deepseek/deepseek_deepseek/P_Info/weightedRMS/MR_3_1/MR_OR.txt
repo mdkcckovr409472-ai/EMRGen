@@ -1,0 +1,24 @@
+int check(TestCase tc) {
+    // 获取初始输出 Os
+    double Os = weightedRMS(tc.data, tc.weights, tc.n);
+    
+    // 构造衍生用例
+    TestCase Tf_case = change(tc);
+    
+    // 获取衍生输出 Of
+    double Of = weightedRMS(Tf_case.data, Tf_case.weights, Tf_case.n);
+    
+    int is_valid = 0;
+    // 验证 Os 和 Of 是否相等（考虑浮点数精度）
+    const double epsilon = 1e-9;
+    if (fabs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    
+    // 释放 change 函数中为衍生用例权重数组分配的内存
+    if (Tf_case.weights != nullptr && Tf_case.weights != tc.weights) {
+        delete[] Tf_case.weights;
+    }
+    
+    return is_valid;
+}

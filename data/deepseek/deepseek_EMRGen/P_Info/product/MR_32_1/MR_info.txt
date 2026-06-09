@@ -1,0 +1,2 @@
+Operation 32: On parameter 'elements' (double*): 数组右循环移位（末元素移到开头）
+Invariant: return.result1 == return.result2

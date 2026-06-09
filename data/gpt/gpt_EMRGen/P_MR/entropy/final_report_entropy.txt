@@ -1,0 +1,203 @@
+double entropy(double k[], int n){
+    double h = 0;
+    double sum_k = 0;
+    for (int i = 0; i < n; i++) {
+        sum_k += (double) k[i];
+    }
+    for (int i = 0; i < n; i++) {
+        if (k[i] != 0) {
+            double p_i = (double) k[i] / sum_k;
+            h += p_i * log(p_i);
+        }
+    }
+    return -h;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'k' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 3: On parameter 'k' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 4: On parameter 'k' (array[double]): divide all elements by 2.0 (ensure non-zero)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「divide all elements by 2.0 (ensure non-zero)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 5: On parameter 'k' (array[double]): set random position's element to 0.0 (when element is non-zero)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「set random position's element to 0.0 (when element is non-zero)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'k' (array[double]): set random position's element to maximum double (when element is less than max)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「set random position's element to maximum double (when element is less than max)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'k' (array[double]): set random position's element to minimum positive double (when element is greater)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「set random position's element to minimum positive double (when element is greater)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 8: On parameter 'k' (array[double]): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'k' (array[double]): reverse array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'k' (array[double]): left circular shift of array (move first element to end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「left circular shift of array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'k' (array[double]): right circular shift of array (move last element to front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「right circular shift of array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'k' (array[double]): sort array ascending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'k' (array[double]): sort array descending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'k' (array[double]): replace subarray [i:j] with zeros
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「replace subarray [i:j] with zeros」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 16: On parameter 'k' (array[double]): take absolute value of all elements
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 17: On parameter 'k' (array[double]): negate all elements (multiply by -1)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「negate all elements (multiply by -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'k' (array[double]): square all elements
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「square all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'k' (array[double]): square root of all elements (when non-negative)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「square root of all elements (when non-negative)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'k' (array[double]): clip all elements to [0.0,1.0]
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「clip all elements to [0.0,1.0]」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'k' (array[double]): ceil each element
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「ceil each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'k' (array[double]): set last element to 0.0 (when not 0.0)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含k（array[double]）的函数，若对 k执行「set last element to 0.0 (when not 0.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 20
+关系总数: 20

@@ -1,0 +1,214 @@
+double safeNorm(double v[], int n) {
+    double rdwarf = 3.834e-20;
+    double rgiant = 1.304e+19;
+    double s1 = 0;
+    double s2 = 0;
+    double s3 = 0;
+    double x1max = 0;
+    double x3max = 0;
+    double floatn = n;
+    double agiant = rgiant / floatn;
+    
+    for (int i = 0; i < n; i++) {
+        double xabs = abs(v[i]);
+        if (xabs < rdwarf || xabs > agiant) {
+            if (xabs > rdwarf) {
+                if (xabs > x1max) {
+                    double r = x1max / xabs;
+                    s1 = 1 + s1 * r * r;
+                    x1max = xabs;
+                } else {
+                    double r = xabs / x1max;
+                    s1 += r * r;
+                }
+            } else {
+                if (xabs > x3max) {
+                    double r = x3max / xabs;
+                    s3 = 1 + s3 * r * r;
+                    x3max = xabs;
+                } else {
+                    if (xabs != 0) {
+                        double r = xabs / x3max;
+                        s3 += r * r;
+                    }
+                }
+            }
+        } else {
+            s2 += xabs * xabs;
+        }
+    }
+    double norm;
+    if (s1 != 0) {
+        norm = x1max * sqrt(s1 + s2 / x1max / x1max);
+    } else {
+        if (s2 == 0) {
+            norm = x3max * sqrt(s3);
+        } else {
+            if (s2 >= x3max) {
+                norm = sqrt(s2 * (1 + x3max / s2 * (x3max * s3)));
+            } else {
+                norm = sqrt(x3max * (s2 / x3max + x3max * s3));
+            }
+        }
+    }
+    return norm;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'v' (double*): 所有元素乘3.0
+Invariant: 
+3 * return.result1 - return.result2 == 0 ✓ ○
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「所有元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+3 * Os - Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 4: On parameter 'v' (double*): 所有元素除4.0
+Invariant: 
+return.result1 - 4 * return.result2 == 0 ✓ ○
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「所有元素除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 4 * Of == 0
+Os >= Of
+
+----------------------------------------
+
+Operation 5: On parameter 'v' (double*): 所有元素取相反数
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 6: On parameter 'v' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'v' (double*): 所有元素加自身（即乘2）
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「所有元素加自身（即乘2）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 11: On parameter 'v' (double*): 所有元素置为0.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「所有元素置为0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'v' (double*): 所有元素置为最小值（DBL_MIN）
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「所有元素置为最小值（DBL_MIN）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'v' (double*): 随机位置元素置为0.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「随机位置元素置为0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'v' (double*): 随机两个元素交换
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「随机两个元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 23: On parameter 'v' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 24: On parameter 'v' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'v' (double*): 数组向右循环移位（末元素移到开头）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「数组向右循环移位（末元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 26: On parameter 'v' (double*): 数组随机重排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「数组随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'v' (double*): 数组升序排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'v' (double*): 数组降序排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'v' (double*): 子数组（后一半元素）所有元素乘0.5
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「子数组（后一半元素）所有元素乘0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 16
+关系总数: 19

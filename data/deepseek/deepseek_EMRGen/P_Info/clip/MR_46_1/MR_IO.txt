@@ -1,0 +1,7 @@
+TestCase z46Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 根据规则5生成的具体操作代码
+follow_case.lowerLim = INT_MAX;
+
+return follow_case;}

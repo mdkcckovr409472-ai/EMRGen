@@ -1,0 +1,2 @@
+Operation 27: On parameter 'a' (int*): rotate array left by k positions (k random 1..len‑1)
+Invariant: return.result1[] == return.result2[]

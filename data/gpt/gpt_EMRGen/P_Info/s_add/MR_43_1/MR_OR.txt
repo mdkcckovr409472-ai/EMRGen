@@ -1,0 +1,42 @@
+int z43check(int* result1, int* result2, int n) {
+    // Defensive programming (Length check first)
+    if (n <= 0) return 1;
+    // Null pointer check second
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    #include <math.h>
+    #include <float.h>
+
+    double epsilon = 1e-5;
+
+    for (int i = 0; i < n; i++) {
+        double A = (double)result1[i];
+        double B = (double)result2[i];
+
+        if (isnan(A) || isnan(B)) return 0;
+        if (isinf(A) || isinf(B)) {
+            if (A > B || fabs(A - B) < DBL_EPSILON) {
+                // result1[i] >= result2[i]
+                continue;
+            } else {
+                return 0;
+            }
+        }
+
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        double diff = A - B;
+
+        if (fabs(diff) <= tol) {
+            // Equal within tolerance, check next element
+            continue;
+        } else if (diff > tol) {
+            // result1[i] > result2[i], lex order satisfied here
+            return 1;
+        } else {
+            // result1[i] < result2[i], condition violated
+            return 0;
+        }
+    }
+    // After all equal or all elements checked and found equal within tolerance
+    return 1;
+}

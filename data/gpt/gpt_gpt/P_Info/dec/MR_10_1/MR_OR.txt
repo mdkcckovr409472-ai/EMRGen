@@ -1,0 +1,29 @@
+int check(TestCase tc) {
+    int n = tc.n;
+    // Call function under test on source input
+    int* Os = dec(tc.array1, tc.array2, n);
+    if (Os == nullptr) return 0;
+    // Generate follow-up test case
+    TestCase Tf_case = change(tc);
+    // Call function under test on follow-up input
+    int* Of = dec(tc.array1, Tf_case.array2, n);
+    if (Of == nullptr) {
+        free(Os);
+        // free reversed array2 allocated in change()
+        free(Tf_case.array2);
+        return 0;
+    }
+
+    // Verify MR invariant: Os == Of element-wise
+    int is_valid = 1;
+    for (int i = 0; i < n; ++i) {
+        if (Os[i] != Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+    free(Os);
+    free(Of);
+    free(Tf_case.array2);
+    return is_valid;
+}

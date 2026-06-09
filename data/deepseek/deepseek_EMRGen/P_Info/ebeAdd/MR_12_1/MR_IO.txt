@@ -1,0 +1,27 @@
+TestCase z12Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_a = (double*)malloc(t1.n1 * sizeof(double));
+memcpy(follow_case_a, t1.a, t1.n1 * sizeof(double));
+follow_case.a = follow_case_a;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n1<1时出错
+if (follow_case.n1 < 1) {
+    // 元素不足1个，无法排序，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+// 使用冒泡排序进行升序排序
+for (int i = 0; i < follow_case.n1 - 1; i++) {
+    for (int j = 0; j < follow_case.n1 - i - 1; j++) {
+        if (follow_case.a[j] > follow_case.a[j + 1]) {
+            double temp = follow_case.a[j];
+            follow_case.a[j] = follow_case.a[j + 1];
+            follow_case.a[j + 1] = temp;
+        }
+    }
+}
+
+return follow_case;}

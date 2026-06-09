@@ -1,0 +1,16 @@
+TestCase z5Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling code
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // Defensive check for empty array
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    // Set first element to 100.0 if it is less than 100.0
+    if (follow_case.elements[0] < 100.0) {
+        follow_case.elements[0] = 100.0;
+    }
+    return follow_case;
+}

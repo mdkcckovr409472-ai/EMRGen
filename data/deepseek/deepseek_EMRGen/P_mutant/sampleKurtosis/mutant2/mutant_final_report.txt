@@ -1,0 +1,240 @@
+double sampleKurtosis(double moment4 ,int size, double sampleVariance) {
+    int n = size;
+    double s2 = sampleVariance;
+    double m4 = moment4 * n;
+    return m4 * n * (n + 1) / ((n - 1) * (n - 2) * (n - 3) * s2 * s2) - 3.0 * (n - 1) * (n - 1) / ((n - 2) * (n - 3));
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'moment4' (double): 加1.0
+Invariant:
+return.result1 < return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 2: On parameter 'moment4' (double): 减2.5
+Invariant:
+return.result1 > return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 3: On parameter 'moment4' (double): 乘3.0
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 4: On parameter 'moment4' (double): 除4.0
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 5: On parameter 'moment4' (double): 取绝对值
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'moment4' (double): 加1（当值小于-1时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 8: On parameter 'moment4' (double): 乘2（当值小于-1时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 9: On parameter 'moment4' (double): 置-999（当值小于-999时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 10: On parameter 'moment4' (double): 置0.0
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 11: On parameter 'moment4' (double): 置正无穷
+Invariant:
+return.result1 < return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 12: On parameter 'moment4' (double): 置负无穷
+Invariant:
+return.result1 > return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 18: On parameter 'moment4' (double): 加原值一半（加上自身除以2）
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'moment4' (double): 放大100倍
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'moment4' (double): 缩小为十分之一
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'moment4' (double): 取模1.5（浮点数模运算）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'moment4' (double): 置最大值（Double.MAX_VALUE）
+Invariant:
+return.result1 < return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 23: On parameter 'moment4' (double): 置最小值（Double.MIN_VALUE）
+Invariant:
+return.result1 > return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 24: On parameter 'moment4' (double): 随机加0.1到1.0之间值
+Invariant:
+return.result1 < return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 25: On parameter 'size' (int): 禁止修改（长度控制器）
+Invariant:
+return.result1 == return.result2    ✓ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'sampleVariance' (double): 加1.0
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'sampleVariance' (double): 乘3.0
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'sampleVariance' (double): 除4.0
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'sampleVariance' (double): 取绝对值
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 32: On parameter 'sampleVariance' (double): 加1（当值小于-1时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 33: On parameter 'sampleVariance' (double): 乘2（当值小于-1时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 34: On parameter 'sampleVariance' (double): 置-999（当值小于-999时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 35: On parameter 'sampleVariance' (double): 置0.0
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 36: On parameter 'sampleVariance' (double): 置正无穷
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 37: On parameter 'sampleVariance' (double): 置负无穷
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 42: On parameter 'sampleVariance' (double): 取相反数
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 43: On parameter 'sampleVariance' (double): 加原值一半（加上自身除以2）
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 44: On parameter 'sampleVariance' (double): 放大100倍
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'sampleVariance' (double): 缩小为十分之一
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'sampleVariance' (double): 取模1.5（浮点数模运算）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'sampleVariance' (double): 置最大值（Double.MAX_VALUE）
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'sampleVariance' (double): 置最小值（Double.MIN_VALUE）
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 49: On parameter 'sampleVariance' (double): 随机加0.1到1.0之间值
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 37
+独立MR总数: 37
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

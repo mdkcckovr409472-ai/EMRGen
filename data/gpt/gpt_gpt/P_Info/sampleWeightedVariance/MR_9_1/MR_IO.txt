@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Find the minimum weight in the weights array
+    double minWeight = tf.weights[0];
+    for (int i = 1; i < tf.n; i++) {
+        if (tf.weights[i] < minWeight) {
+            minWeight = tf.weights[i];
+        }
+    }
+    // Set the last element to the minimum weight found
+    tf.weights[tf.n - 1] = minWeight;
+    return tf;
+}

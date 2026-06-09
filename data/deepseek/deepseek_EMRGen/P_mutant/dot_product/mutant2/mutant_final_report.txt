@@ -1,0 +1,43 @@
+int dot_product(int a[], int b[], int n) {
+    int sum = 0;
+    for (int i = (0-1); i < n; i++) {
+            sum += a[i] * b[i];
+        }
+    return sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 2: On parameter 'a' (array[int]): 所有元素乘2
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (array[int]): 所有元素取负
+Invariant:
+return.result1 + return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (array[int]): 所有元素乘2
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 55: On parameter 'b' (array[int]): 所有元素取负
+Invariant:
+return.result1 + return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+操作总数: 4
+独立MR总数: 4
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = weighted_average(tc.a, tc.b, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = weighted_average(Tf_case.a, Tf_case.b, Tf_case.n);
+    int is_valid = 0;
+    if ( (-1.0 * Os - Of) < 1e-9 && (Of + 1.0 * Os) < 1e-9 ) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.a;
+    return is_valid;
+}

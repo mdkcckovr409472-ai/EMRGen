@@ -1,0 +1,19 @@
+TestResult z1runTest(int test_case_id) { // MODIFIED: Return type
+    TestCase follow_case = z1Change(test_cases[test_case_id]);
+    // 原始调用
+    int source = find_max2(test_cases[test_case_id].a, test_cases[test_case_id].n); // MODIFIED: Explicit type
+    // 变换后调用
+    int follow = find_max2(follow_case.a, follow_case.n);
+    
+    int** memory_list = (int**)malloc(1 * sizeof(int*));
+    
+    
+    TestResult test_result;
+    test_result.memory_to_free = memory_list;
+    test_result.memory_count = 1;
+    
+    test_result.result2 = follow; // MODIFIED    
+    test_result.result1 = source; // MODIFIED
+    
+    return test_result; // MODIFIED: Return TestResult
+}

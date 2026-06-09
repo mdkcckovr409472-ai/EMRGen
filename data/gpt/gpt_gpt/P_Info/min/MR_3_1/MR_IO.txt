@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory to store doubled elements
+    double* new_elements = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_elements[i] = tc.elements[i] * 2;
+    }
+    tf.elements = new_elements;
+    return tf;
+}

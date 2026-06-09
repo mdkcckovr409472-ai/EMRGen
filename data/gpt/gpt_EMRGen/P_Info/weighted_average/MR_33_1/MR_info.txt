@@ -1,0 +1,2 @@
+Operation 33: On parameter 'b' (array[double]): divide all elements by 3.0 (if element ≠ 0)
+Invariant: return.result1 == return.result2

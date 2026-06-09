@@ -1,0 +1,484 @@
+double euc_Dist_m(double array1[], double array2[], int n) {
+    double Sum = 0.0;
+    for (int i = 0; i < n; i++) {
+    continue;
+        Sum = Sum + pow((array1[i] - array2[i]), 2.0);
+    }
+    return sqrt(Sum);
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'array1' (double*): 所有元素加1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 2: On parameter 'array1' (double*): 所有元素乘2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 3: On parameter 'array1' (double*): 随机位置置-1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「随机位置置-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 4: On parameter 'array1' (double*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 5: On parameter 'array1' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 6: On parameter 'array1' (double*): 随机重排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 7: On parameter 'array1' (double*): 元素平方
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'array1' (double*): 取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'array1' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'array1' (double*): 数组向右循环移位（末元素移到开头）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「数组向右循环移位（末元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'array1' (double*): 所有元素减1.5
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素减1.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'array1' (double*): 所有元素除2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素除2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'array1' (double*): 所有元素开平方根
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素开平方根」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'array1' (double*): 所有元素置最大值（即数组中最大值）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素置最大值（即数组中最大值）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'array1' (double*): 所有元素置最小值（即数组中最小值）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素置最小值（即数组中最小值）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 20: On parameter 'array1' (double*): 第0个元素与第n-1个元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「第0个元素与第n-1个元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'array1' (double*): 将特定索引（如n/2处）元素置为999.0（当元素小于999.0时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「将特定索引（如n/2处）元素置为999.0（当元素小于999.0时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 22: On parameter 'array1' (double*): 将正数部分元素置为0.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「将正数部分元素置为0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 23: On parameter 'array1' (double*): 将负数部分元素取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「将负数部分元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 24: On parameter 'array1' (double*): 元素与1.0比较取较大值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「元素与1.0比较取较大值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'array1' (double*): 元素与-1.0比较取较小值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「元素与-1.0比较取较小值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 26: On parameter 'array1' (double*): 前一半元素加10.0，后一半元素减10.0（当n>1时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「前一半元素加10.0，后一半元素减10.0（当n>1时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'array1' (double*): 偶索引元素置为均值（前一半均值与后一半均值分别计算）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「偶索引元素置为均值（前一半均值与后一半均值分别计算）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'array1' (double*): 子数组（前1/3部分）元素加5.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「子数组（前1/3部分）元素加5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 29: On parameter 'array1' (double*): 子数组（后1/3部分）元素乘3.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「子数组（后1/3部分）元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'array1' (double*): 所有元素向上取整
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素向上取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 31: On parameter 'array2' (double*): 所有元素加1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 32: On parameter 'array2' (double*): 所有元素乘2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 33: On parameter 'array2' (double*): 随机位置置-1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「随机位置置-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 34: On parameter 'array2' (double*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 35: On parameter 'array2' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 36: On parameter 'array2' (double*): 随机重排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 37: On parameter 'array2' (double*): 元素平方
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 38: On parameter 'array2' (double*): 取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 39: On parameter 'array2' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 40: On parameter 'array2' (double*): 数组向右循环移位（末元素移到开头）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「数组向右循环移位（末元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 41: On parameter 'array2' (double*): 所有元素减1.5
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素减1.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 42: On parameter 'array2' (double*): 所有元素除2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素除2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 44: On parameter 'array2' (double*): 所有元素开平方根
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素开平方根」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 48: On parameter 'array2' (double*): 所有元素置最大值（即数组中最大值）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素置最大值（即数组中最大值）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 49: On parameter 'array2' (double*): 所有元素置最小值（即数组中最小值）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素置最小值（即数组中最小值）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 50: On parameter 'array2' (double*): 第0个元素与第n-1个元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「第0个元素与第n-1个元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 51: On parameter 'array2' (double*): 将特定索引（如n/2处）元素置为999.0（当元素小于999.0时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「将特定索引（如n/2处）元素置为999.0（当元素小于999.0时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 52: On parameter 'array2' (double*): 将正数部分元素置为0.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「将正数部分元素置为0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 53: On parameter 'array2' (double*): 将负数部分元素取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「将负数部分元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 54: On parameter 'array2' (double*): 元素与1.0比较取较大值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「元素与1.0比较取较大值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 55: On parameter 'array2' (double*): 元素与-1.0比较取较小值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「元素与-1.0比较取较小值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 56: On parameter 'array2' (double*): 前一半元素加10.0，后一半元素减10.0（当n>1时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「前一半元素加10.0，后一半元素减10.0（当n>1时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 57: On parameter 'array2' (double*): 偶索引元素置为均值（前一半均值与后一半均值分别计算）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「偶索引元素置为均值（前一半均值与后一半均值分别计算）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 58: On parameter 'array2' (double*): 子数组（前1/3部分）元素加5.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「子数组（前1/3部分）元素加5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 59: On parameter 'array2' (double*): 子数组（后1/3部分）元素乘3.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「子数组（后1/3部分）元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 60: On parameter 'array2' (double*): 所有元素向上取整
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素向上取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 52
+关系总数: 52

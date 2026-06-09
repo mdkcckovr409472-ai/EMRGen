@@ -1,0 +1,334 @@
+double add_two_array_values(int a[], int i, int j, int n)
+{
+    if (i < 0 || i > n || j < 0 || j >= n)
+    {
+        return -100000;
+    }
+    else {
+        return (a[i] + a[j]) / 2;
+    }
+    
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[int]): 所有元素加1
+Invariant: 
+return.result1 - return.result2 + 1 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[int]): 所有元素减2
+Invariant: 
+return.result1 - return.result2 - 2 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素减2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 2 == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[int]): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (array[int]): 每个元素加索引值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「每个元素加索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[int]): 每个元素减索引值
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「每个元素减索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): 最大值元素置为最小值（若不为空）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「最大值元素置为最小值（若不为空）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (array[int]): 最小值元素置为最大值（若不为空）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「最小值元素置为最大值（若不为空）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[int]): 所有元素平方
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): 所有元素开方（整数向下取整）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素开方（整数向下取整）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'i' (int): 取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 40: On parameter 'i' (int): 取余n（若n>0）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「取余n（若n>0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 41: On parameter 'i' (int): 平方
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 42: On parameter 'i' (int): 加索引值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「加索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 48: On parameter 'i' (int): 取负数
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「取负数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 49: On parameter 'i' (int): 加10
+Invariant: 
+return.result1 - return.result2 + 5 == 0
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「加10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 5 == 0
+
+----------------------------------------
+
+Operation 50: On parameter 'i' (int): 减10
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「减10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 51: On parameter 'i' (int): 乘5
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「乘5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 54: On parameter 'i' (int): 置原值减j
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「置原值减j」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 56: On parameter 'i' (int): 置随机奇数
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「置随机奇数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 57: On parameter 'i' (int): 加一个常数（如8）
+Invariant: 
+return.result1 - return.result2 + 4 == 0
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「加一个常数（如8）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 4 == 0
+
+----------------------------------------
+
+Operation 58: On parameter 'i' (int): 减当前最大值（如n）
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「减当前最大值（如n）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 60: On parameter 'i' (int): 与n-1比较取较小值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含i（int）的函数，若对 i执行「与n-1比较取较小值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 69: On parameter 'j' (int): 取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 70: On parameter 'j' (int): 取余n（若n>0）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「取余n（若n>0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 71: On parameter 'j' (int): 平方
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 72: On parameter 'j' (int): 加索引值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「加索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 73: On parameter 'j' (int): 置最大值可能（999）
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「置最大值可能（999）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 78: On parameter 'j' (int): 取负数
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「取负数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 79: On parameter 'j' (int): 加10
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「加10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 80: On parameter 'j' (int): 减10
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「减10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 86: On parameter 'j' (int): 置随机奇数
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「置随机奇数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 87: On parameter 'j' (int): 加一个常数（如8）
+Invariant: 
+return.result1 - return.result2 + 8 == 0
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「加一个常数（如8）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 8 == 0
+
+----------------------------------------
+
+Operation 88: On parameter 'j' (int): 减当前最大值（如n）
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「减当前最大值（如n）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 90: On parameter 'j' (int): 与n-1比较取较小值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含j（int）的函数，若对 j执行「与n-1比较取较小值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 35
+关系总数: 35

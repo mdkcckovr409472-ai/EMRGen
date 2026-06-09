@@ -1,0 +1,29 @@
+int check(TestCase tc) {
+    double* Os = computeDividedDifference1(tc.x, tc.y, tc.n);
+    if (Os == nullptr) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    double* Of = computeDividedDifference1(Tf_case.x, Tf_case.y, Tf_case.n);
+    if (Of == nullptr) {
+        if (Tf_case.x != tc.x) {
+            delete[] Tf_case.x;
+        }
+        return 0;
+    }
+
+    int n = tc.n;
+    int is_valid = 1;
+    for (int i = 0; i < n; i++) {
+        if (Os[i] != Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    if (Tf_case.x != tc.x) {
+        delete[] Tf_case.x;
+    }
+    return is_valid;
+}

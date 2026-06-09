@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int index = rand() % tf.n;
+        int k = (rand() % 100) + 1;
+        tf.a = (int*)malloc(tf.n * sizeof(int));
+        memcpy(tf.a, tc.a, tf.n * sizeof(int));
+        tf.a[index] += k;
+    }
+    return tf;
+}

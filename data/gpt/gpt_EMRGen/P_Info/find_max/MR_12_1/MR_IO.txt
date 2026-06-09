@@ -1,0 +1,18 @@
+TestCase z12Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    // Perform left circular shift: move first element to end
+    int temp = follow_case.a[0];
+    for (int i = 0; i < follow_case.n - 1; ++i) {
+        follow_case.a[i] = follow_case.a[i + 1];
+    }
+    follow_case.a[follow_case.n - 1] = temp;
+    return follow_case;
+}

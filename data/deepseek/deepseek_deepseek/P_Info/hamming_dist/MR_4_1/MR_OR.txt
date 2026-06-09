@@ -1,0 +1,21 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入 (Ts)
+    // Ts 就是 tc 本身
+    // (2) 获取初始输出 Os
+    int Os = hamming_dist(tc.a, tc.b, tc.n);
+    // (3) 构造衍生用例
+    TestCase Tf_case = change(tc);
+    // (4) 获取衍生输出 Of
+    int Of = hamming_dist(Tf_case.a, Tf_case.b, Tf_case.n);
+    // (5) 验证蜕变关系 Of == Os + 1
+    int is_valid = 0;
+    if (Of == Os + 1) {
+        is_valid = 1;
+    }
+    // (6) 释放动态内存：Tf_case 中我们分配了新的 a 数组
+    delete[] Tf_case.a;
+    // 注意：我们不应该删除 tc.a，因为它不是我们分配的。
+    // Tf_case.b 指向的是 tc.b，所以也不应该删除。
+    // (7) 返回结果
+    return is_valid;
+}

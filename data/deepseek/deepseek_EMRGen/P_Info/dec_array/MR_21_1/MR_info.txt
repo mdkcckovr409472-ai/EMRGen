@@ -1,0 +1,2 @@
+Operation 21: On parameter 'a' (int*): 将奇数索引位置的元素除3（整数除法）
+Invariant: return.result1[][0..0] == return.result2[][0..0] (elementwise)

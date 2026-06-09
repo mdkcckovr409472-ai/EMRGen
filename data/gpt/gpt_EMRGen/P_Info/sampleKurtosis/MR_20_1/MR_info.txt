@@ -1,0 +1,2 @@
+Operation 20: On parameter 'moment4' (double): ceil
+Invariant: return.result1 <= return.result2

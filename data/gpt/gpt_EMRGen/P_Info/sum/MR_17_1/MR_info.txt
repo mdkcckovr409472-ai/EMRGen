@@ -1,0 +1,2 @@
+Operation 17: On parameter 'values' (int*): decrement element at a random index by 10
+Invariant: return.result1 >= return.result2

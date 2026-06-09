@@ -1,0 +1,2 @@
+Operation 14: On parameter 'a' (array[int]): right circular shift array (move last element to front)
+Invariant: return.result1 == return.result2

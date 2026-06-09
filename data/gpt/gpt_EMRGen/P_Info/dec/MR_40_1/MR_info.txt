@@ -1,0 +1,2 @@
+Operation 40: On parameter 'array2' (array[int]): set a random element to 999 (when the element is less than 999)
+Invariant: return.result1[] > return.result2[] (lexically)

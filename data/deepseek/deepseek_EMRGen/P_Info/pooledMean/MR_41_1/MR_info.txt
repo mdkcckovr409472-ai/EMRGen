@@ -1,0 +1,2 @@
+Operation 41: On parameter 'data1' (double*): 将数组中后一半元素（索引在[ceil(n1/2), n1-1]内）减1.0
+Invariant: return.result1 >= return.result2

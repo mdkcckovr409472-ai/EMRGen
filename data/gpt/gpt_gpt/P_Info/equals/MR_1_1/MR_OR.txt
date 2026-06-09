@@ -1,0 +1,8 @@
+int check(TestCase tc) {
+    bool Os = equals(tc.x, tc.y, tc.nx, tc.ny);
+    TestCase Tf_case = change(tc);
+    bool Of = equals(Tf_case.x, Tf_case.y, Tf_case.nx, Tf_case.ny);
+    int is_valid = (Os == Of) ? 1 : 0;
+    delete[] Tf_case.y;
+    return is_valid;
+}

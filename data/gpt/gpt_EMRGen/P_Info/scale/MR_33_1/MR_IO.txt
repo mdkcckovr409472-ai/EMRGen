@@ -1,0 +1,14 @@
+TestCase z33Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy of the array
+    double* follow_case_arr = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_arr, t1.arr, t1.n * sizeof(double));
+    follow_case.arr = follow_case_arr;
+    // Defensive check for non‑empty array
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            follow_case.arr[i] *= 2.0;
+        }
+    }
+    return follow_case;
+}

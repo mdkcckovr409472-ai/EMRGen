@@ -1,0 +1,212 @@
+double safeNorm(double v[], int n) {
+    double rdwarf = 3.834e-20;
+    double rgiant = 1.304e+19;
+    double s1 = 0;
+    double s2 = 0;
+    double s3 = 0;
+    double x1max = 0;
+    double x3max = 0;
+    double floatn = n;
+    double agiant = rgiant / floatn;
+    
+    for (int i = 0; i < n; i++) {
+        double xabs = abs(v[i]);
+        if (xabs < rdwarf || xabs > agiant) {
+            if (xabs > rdwarf) {
+                if (xabs > x1max) {
+                    double r = x1max / xabs;
+                    s1 = 1 + s1 * r * r;
+                    x1max = xabs;
+                } else {
+                    double r = xabs / x1max;
+                    s1 += r * r;
+                }
+            } else {
+                if (xabs > x3max) {
+                    double r = x3max / xabs;
+                    s3 = 1 + s3 * r * r;
+                    x3max = xabs;
+                } else {
+                    if (xabs != 0) {
+                        double r = xabs / x3max;
+                        s3 += r * r;
+                    }
+                }
+            }
+        } else {
+            s2 += xabs * xabs;
+        }
+    }
+    double norm;
+    if (s1 != 0) {
+        norm = x1max * sqrt(s1 + s2 / x1max / x1max);
+    } else {
+        if (s2 == 0) {
+            norm = x3max * sqrt(s3);
+        } else {
+            if (s2 >= x3max) {
+                norm = sqrt(s2 * (1 + x3max / s2 * (x3max * s3)));
+            } else {
+                norm = sqrt(x3max * (s2 / x3max + x3max * s3));
+            }
+        }
+    }
+    return norm;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'v' (array[double]): multiply all elements by 2.0
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 4: On parameter 'v' (array[double]): divide all elements by 3.0
+Invariant: 
+return.result1 - 3 * return.result2 == 0 ✓ ○
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「divide all elements by 3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 3 * Of == 0
+Os >= Of
+
+----------------------------------------
+
+Operation 5: On parameter 'v' (array[double]): set first element to 0.0 (when element > 0.0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「set first element to 0.0 (when element > 0.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'v' (array[double]): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'v' (array[double]): reverse array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'v' (array[double]): left circular shift array (move first element to end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'v' (array[double]): right circular shift array (move last element to front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「right circular shift array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'v' (array[double]): sort array ascending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'v' (array[double]): sort array descending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'v' (array[double]): reverse subarray between two random indices (i < j)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「reverse subarray between two random indices (i < j)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'v' (array[double]): set random subarray elements to 0.0 (when elements > 0.0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「set random subarray elements to 0.0 (when elements > 0.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 16: On parameter 'v' (array[double]): multiply a random element by -1.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「multiply a random element by -1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 17: On parameter 'v' (array[double]): take absolute value of all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'v' (array[double]): clip elements to [0,1] range
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「clip elements to [0,1] range」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'v' (array[double]): set random position's element to -999.0 (when element > -999.0)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「set random position's element to -999.0 (when element > -999.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'v' (array[double]): randomly shuffle elements
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含v（array[double]）的函数，若对 v执行「randomly shuffle elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 16
+关系总数: 18

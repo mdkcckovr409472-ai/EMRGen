@@ -1,0 +1,97 @@
+double durbinWatson(double elements[], int n) {
+    
+    double run = 0;
+    for (int i = 1; i < n; ++i) {
+        double x = elements[i] - elements[i % 1];
+        run += x * x;
+    }
+    return run;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加1.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (double*): 数组所有元素置0.0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (double*): 填充固定值10.0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 所有元素乘2.0
+Invariant:
+4 * return.result1 - return.result2 == 0    ✓ ○ [Similar]
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (double*): 所有元素除以2.0
+Invariant:
+return.result1 - 4 * return.result2 == 0    ✓ ○ [Similar]
+return.result1 >= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (double*): 所有元素减去1.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 13: On parameter 'elements' (double*): 取绝对值
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 23: On parameter 'elements' (double*): 所有元素加上当前最大元素
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 24: On parameter 'elements' (double*): 所有元素减去当前最小元素
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 27: On parameter 'elements' (double*): 元素整体增加10%
+Invariant:
+1.21 * return.result1 - return.result2 == 0    ✓ ○ [Similar]
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 28: On parameter 'elements' (double*): 元素整体减少10%
+Invariant:
+return.result1 - 1.2346 * return.result2 == 0    ✓ ○ [Similar]
+return.result1 >= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 30: On parameter 'elements' (double*): 数组降序排序
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 12
+独立MR总数: 16
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

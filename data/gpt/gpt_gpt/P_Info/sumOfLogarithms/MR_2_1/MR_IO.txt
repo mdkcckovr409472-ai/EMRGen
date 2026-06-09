@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for modified elements
+    double* new_elements = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_elements[i] = tc.elements[i] - 1;
+    }
+    tf.elements = new_elements;
+    return tf;
+}

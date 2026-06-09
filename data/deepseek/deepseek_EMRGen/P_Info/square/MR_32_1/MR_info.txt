@@ -1,0 +1,2 @@
+Operation 32: On parameter 'data' (double*): 随机子数组（连续2个元素）所有元素乘10.0
+Invariant: return.result1[] <= return.result2[] (elementwise)

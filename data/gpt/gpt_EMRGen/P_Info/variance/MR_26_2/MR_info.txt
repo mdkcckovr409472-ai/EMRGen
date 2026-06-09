@@ -1,0 +1,2 @@
+Operation 26: On parameter 'x' (array[double]): randomly shuffle array
+Invariant: return.result1 - return.result2 == 0

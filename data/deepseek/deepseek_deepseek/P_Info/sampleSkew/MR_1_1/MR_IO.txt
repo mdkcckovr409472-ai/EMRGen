@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 2.0;
+    tf.moment3 = tc.moment3 * k;
+    return tf;
+}

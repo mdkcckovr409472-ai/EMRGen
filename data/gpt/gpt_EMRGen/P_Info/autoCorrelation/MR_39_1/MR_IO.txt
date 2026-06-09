@@ -1,0 +1,12 @@
+TestCase z39Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: no specific checks needed for scalar int
+
+    // Operation: set lag to absolute value of itself
+    if (follow_case.lag < 0) {
+        follow_case.lag = -follow_case.lag;
+    }
+
+    return follow_case;
+}

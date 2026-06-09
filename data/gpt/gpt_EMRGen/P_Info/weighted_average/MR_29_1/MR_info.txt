@@ -1,0 +1,2 @@
+Operation 29: On parameter 'a' (array[double]): set element at index n‑1 to DBL_MIN (when it is > DBL_MIN)
+Invariant: return.result1 >= return.result2

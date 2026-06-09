@@ -1,0 +1,14 @@
+int z18check(double result1, double result2) {
+    const double epsilon = 1e-5;
+
+    if (std::isnan(result1) || std::isnan(result2)) return 0;
+    if (std::isinf(result1) || std::isinf(result2)) {
+        if (result1 == result2) return 1;
+        else return 0;
+    }
+
+    double tol = epsilon * fmax(1.0, fmax(fabs(result1), fabs(result2)));
+    if (fabs(result1 - result2) > tol) return 0;
+
+    return 1;
+}

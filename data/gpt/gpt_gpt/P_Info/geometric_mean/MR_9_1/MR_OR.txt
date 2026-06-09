@@ -1,0 +1,15 @@
+int check(TestCase tc) {
+    // Get source output Os
+    double Os = geometric_mean(tc.a, tc.n);
+    // Get follow-up test case
+    TestCase Tf_case = change(tc);
+    // Get follow-up output Of
+    double Of = geometric_mean(Tf_case.a, Tf_case.n);
+    // Verify the metamorphic relation: Of <= Os
+    int is_valid = (Of <= Os) ? 1 : 0;
+    // Free dynamically allocated memory in Tf_case if any
+    if (Tf_case.a != nullptr && Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+    return is_valid;
+}

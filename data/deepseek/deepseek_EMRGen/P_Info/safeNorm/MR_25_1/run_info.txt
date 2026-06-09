@@ -1,0 +1,18 @@
+TestResult z25runTest(int test_case_id) { // MODIFIED: Return type
+    TestCase follow_case = z25Change(test_cases[test_case_id]);
+    // 原始调用
+    double source = safeNorm(test_cases[test_case_id].v, test_cases[test_case_id].n); // MODIFIED: Explicit type
+    // 变换后调用
+    double follow = safeNorm(follow_case.v, follow_case.n);
+    
+    double** memory_list = (double**)malloc(1 * sizeof(double*));
+    memory_list[0] = follow_case.v;
+    
+    TestResult test_result;
+    test_result.memory_to_free = memory_list;
+    test_result.memory_count = 1;
+    
+    test_result.result2 = follow; // MODIFIED    
+    test_result.result1 = source; // MODIFIED
+    return test_result; // MODIFIED: Return TestResult
+}

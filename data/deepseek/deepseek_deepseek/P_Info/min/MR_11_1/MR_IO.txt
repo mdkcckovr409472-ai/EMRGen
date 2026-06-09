@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double c = 5.0; // 示例常数，可根据需要调整或参数化
+    if (tf.n > 0 && tf.elements != nullptr) {
+        for (int i = 0; i < tf.n; ++i) {
+            tf.elements[i] = tc.elements[i] + c;
+        }
+    }
+    return tf;
+}

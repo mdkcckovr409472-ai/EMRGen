@@ -1,0 +1,9 @@
+TestCase z82Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 操作的目标参数是 int 类型，不是数组类型，因此不执行 malloc 和 memcpy 操作。
+    
+    // 根据规则5生成的具体操作代码：加一个随机小偏移（如+5）
+    // 这里使用固定偏移值 5 作为示例。如果需要真正的随机偏移，可以引入随机数生成，但根据描述，使用固定小偏移即可。
+    follow_case.upperLim = follow_case.upperLim + 5;
+    
+    return follow_case;}

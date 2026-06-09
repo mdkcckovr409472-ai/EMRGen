@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「divide each element in work by 2.0 (non-zero elements)」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Os == Of

@@ -1,0 +1,6 @@
+int z2check(int result1, int result2, int n) {
+    if (!(n == result1 - result2)) {
+        return 0;
+    }
+    return 1;
+}

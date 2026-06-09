@@ -1,0 +1,19 @@
+TestCase z52Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_sample2 = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_sample2, t1.sample2, t1.n * sizeof(double));
+follow_case.sample2 = follow_case_sample2;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<1时出错
+if (follow_case.n > 0) {
+    // 这是根据规则5生成的具体操作代码
+    for (int i = 0; i < follow_case.n / 2; i++) {
+        double temp = follow_case.sample2[i];
+        follow_case.sample2[i] = follow_case.sample2[follow_case.n - 1 - i];
+        follow_case.sample2[follow_case.n - 1 - i] = temp;
+    }
+}
+
+return follow_case;}

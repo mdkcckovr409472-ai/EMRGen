@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int start = tc.n / 2;
+    for (int i = start; i < tc.n; i++) {
+        tf.array2[i] = tc.array2[i] + 1;
+    }
+    return tf;
+}

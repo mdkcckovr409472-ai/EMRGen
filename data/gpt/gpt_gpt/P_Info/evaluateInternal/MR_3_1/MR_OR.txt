@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    // Source output Os
+    double Os = evaluateInternal(tc.x, tc.y, tc.z, tc.n);
+    // Follow-up test case
+    TestCase Tf_case = change(tc);
+    double Of = evaluateInternal(Tf_case.x, Tf_case.y, Tf_case.z, Tf_case.n);
+    // Metamorphic relation: Of >= Os
+    int is_valid = (Of >= Os) ? 1 : 0;
+    // Free dynamically allocated memory in Tf_case (only y allocated in change)
+    delete[] Tf_case.y;
+    return is_valid;
+}

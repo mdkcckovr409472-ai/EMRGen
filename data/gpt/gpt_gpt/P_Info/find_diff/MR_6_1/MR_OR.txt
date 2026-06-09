@@ -1,0 +1,17 @@
+int check(TestCase tc) {
+    int na = tc.na;
+    int* Os = find_diff(tc.a, tc.b, na);
+
+    TestCase Tf_case = change(tc);
+    int* Of = find_diff(Tf_case.a, Tf_case.b, na);
+
+    int is_valid = 1;
+    for (int i = 0; i < na; i++) {
+        if (Of[i] != Os[i] - 1) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    return is_valid;
+}

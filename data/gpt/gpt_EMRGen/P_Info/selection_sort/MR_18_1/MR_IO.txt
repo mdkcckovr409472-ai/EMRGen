@@ -1,0 +1,30 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_list = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_list, t1.list, t1.n * sizeof(int));
+    follow_case.list = follow_case_list;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element to sort
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Sort the array in descending order (selection sort)
+    for (int i = 0; i < follow_case.n - 1; ++i) {
+        int max_idx = i;
+        for (int j = i + 1; j < follow_case.n; ++j) {
+            if (follow_case.list[j] > follow_case.list[max_idx]) {
+                max_idx = j;
+            }
+        }
+        if (max_idx != i) {
+            int temp = follow_case.list[i];
+            follow_case.list[i] = follow_case.list[max_idx];
+            follow_case.list[max_idx] = temp;
+        }
+    }
+    
+    return follow_case;
+}

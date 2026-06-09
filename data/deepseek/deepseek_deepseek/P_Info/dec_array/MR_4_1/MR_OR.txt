@@ -1,0 +1,41 @@
+int check(TestCase tc) {
+    int is_valid = 0;
+    int* Os = nullptr;
+    int* Of = nullptr;
+    int* original_tf_a = nullptr;
+
+    if (tc.a == nullptr || tc.n <= 0) {
+        is_valid = 1;
+        goto cleanup;
+    }
+
+    Os = dec_array(tc.a, tc.k, tc.n);
+    if (Os == nullptr) {
+        goto cleanup;
+    }
+
+    TestCase Tf_case = change(tc);
+    original_tf_a = Tf_case.a;
+    if (Tf_case.a == nullptr) {
+        goto cleanup;
+    }
+
+    Of = dec_array(Tf_case.a, Tf_case.k, Tf_case.n);
+    if (Of == nullptr) {
+        goto cleanup;
+    }
+
+    is_valid = 1;
+    for (int i = 0; i < tc.n; ++i) {
+        if (Os[i] != Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+cleanup:
+    if (Os != nullptr) free(Os);
+    if (Of != nullptr) free(Of);
+    if (original_tf_a != nullptr && original_tf_a != tc.a) free(original_tf_a);
+    return is_valid;
+}

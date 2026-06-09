@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int index_to_change = 0;
+        tf.a = new int[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            tf.a[i] = tc.a[i];
+        }
+        tf.a[index_to_change] = -tf.a[index_to_change];
+    }
+    return tf;
+}

@@ -1,0 +1,2 @@
+Operation 21: On parameter 'x' (double*): 数组升序排序
+Invariant: return.result1 == return.result2

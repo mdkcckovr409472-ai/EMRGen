@@ -1,0 +1,7 @@
+TestCase z46Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 具体操作：取负
+follow_case.sampleVariance = -follow_case.sampleVariance;
+
+return follow_case;}

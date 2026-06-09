@@ -1,0 +1,8 @@
+TestCase z40Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive programming: ensure lag is non‑negative
+    if (follow_case.lag < 0) {
+        follow_case.lag = -follow_case.lag;
+    }
+    return follow_case;
+}

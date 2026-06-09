@@ -1,0 +1,2 @@
+Operation 4: On parameter 'data' (array[double]): divide all elements by 3.0 (when element != 0)
+Invariant: return.result1 - return.result2 == 0

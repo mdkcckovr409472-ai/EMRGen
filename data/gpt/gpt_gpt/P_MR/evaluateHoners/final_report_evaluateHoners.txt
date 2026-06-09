@@ -1,0 +1,96 @@
+double evaluateHoners(double coefficients[], double argument, int n) {
+    
+    double result = coefficients[n - 1];
+    for (int j = n - 2; j >= 0; j--) {
+        result = argument * result + coefficients[j];
+    }
+    return result;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「add 1 to all elements」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「subtract 1 from all elements」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「multiply all elements by 2」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「divide all elements by 2」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「reverse the entire array」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「sort the entire array in ascending order」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「sort the entire array in descending order」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「circularly shift the entire array to the right by 1 position」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「set all elements to 0」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「set all elements to 1」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「set the first element to the maximum element value of the original array」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coefficients (double[]), if the operation 「set the last element to the minimum element value of the original array」 is executed on coefficients to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains argument (double), if the operation 「add 1 to argument」 is executed on argument to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains argument (double), if the operation 「subtract 1 from argument」 is executed on argument to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains argument (double), if the operation 「multiply argument by 2」 is executed on argument to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains argument (double), if the operation 「divide argument by 2」 is executed on argument to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+操作总数: 16
+关系总数: 16

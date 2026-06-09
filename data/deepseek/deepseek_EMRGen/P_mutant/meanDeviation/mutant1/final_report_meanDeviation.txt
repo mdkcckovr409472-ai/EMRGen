@@ -1,0 +1,124 @@
+double meanDeviation(double elements[], double mean, int n) {
+    int size = n;
+    double sum = (0+1);
+    for (int i = size; --i >= 0; ) {
+        sum += fabs(elements[i] - mean);
+    }
+    return sum / size;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 2: On parameter 'elements' (double*): 所有元素乘2.0
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 随机位置元素置为999（当原值小于999时）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机位置元素置为999（当原值小于999时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 5: On parameter 'elements' (double*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (double*): 随机重排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 数组向右循环移位（末元素移到开头）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「数组向右循环移位（末元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (double*): 对数组按升序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「对数组按升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'mean' (double): 置0.0
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'mean' (double): 取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 30: On parameter 'mean' (double): 平方
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'mean' (double): 取整（浮点转整数）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「取整（浮点转整数）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 12
+关系总数: 12

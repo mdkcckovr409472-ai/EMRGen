@@ -1,0 +1,25 @@
+int check(TestCase tc) {
+    // Extract source inputs
+    double* data1 = tc.data1;
+    double* data2 = tc.data2;
+    int n1 = tc.n1;
+    int n2 = tc.n2;
+    // Compute source output Os
+    double Os = pooledMean(data1, data2, n1, n2);
+    // Construct follow-up test case input Tf
+    TestCase Tf_case = change(tc);
+    double* data2_tf = Tf_case.data2;
+    // Compute follow-up output Of
+    double Of = pooledMean(Tf_case.data1, data2_tf, Tf_case.n1, Tf_case.n2);
+    // Verify MR: Os == Of with tolerance for floating-point comparison
+    int is_valid = 0;
+    const double EPSILON = 1e-12;
+    if (std::abs(Os - Of) < EPSILON) {
+        is_valid = 1;
+    }
+    // Free dynamically allocated memory in Tf_case if any
+    if (Tf_case.data2 != tc.data2) {
+        delete[] Tf_case.data2;
+    }
+    return is_valid;
+}

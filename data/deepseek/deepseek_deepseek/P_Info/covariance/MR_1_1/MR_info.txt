@@ -1,0 +1,5 @@
+[Operation]
+MR ：对于初始输入Ts中包含elements1（double*）的函数，若对 elements1执行「所有元素加2.0」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+
+[Invariant]
+Os == Of

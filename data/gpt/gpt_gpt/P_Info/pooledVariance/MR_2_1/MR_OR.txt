@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    // Get source output Os
+    double Os = pooledVariance(tc.data1, tc.data2, tc.n1, tc.n2);
+    // Create follow-up input test case
+    TestCase Tf_case = change(tc);
+    // Get follow-up output Of
+    double Of = pooledVariance(Tf_case.data1, Tf_case.data2, Tf_case.n1, Tf_case.n2);
+    // Verify MR condition Os == Of with an epsilon for floating comparison
+    int is_valid = 0;
+    const double epsilon = 1e-12;
+    if (std::abs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    // Free any dynamically allocated memory in Tf_case
+    if (Tf_case.data1 != tc.data1) {
+        delete[] Tf_case.data1;
+    }
+    return is_valid;
+}

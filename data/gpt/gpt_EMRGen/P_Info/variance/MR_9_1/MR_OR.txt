@@ -1,0 +1,17 @@
+int z9check(double result1, double result2) {
+    const double epsilon = 1e-5;
+    // Rearranged: compare result1 and result2 directly (==)
+    double A = result1;
+    double B = result2;
+    // NaN check
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    // Inf check
+    if (std::isinf(A) || std::isinf(B)) {
+        return (A == B) ? 1 : 0;
+    }
+    // Calculate tolerance
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    // Compare with tolerance for equality
+    if (fabs(A - B) > tol) return 0;
+    return 1;
+}

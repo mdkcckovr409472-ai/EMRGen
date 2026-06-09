@@ -1,0 +1,30 @@
+int check(TestCase tc) {
+    int n = tc.n;
+    int* Os = dec(tc.array1, tc.array2, n);
+    if (Os == NULL) return 0;
+
+    TestCase Tf_case = change(tc);
+    int* Of = dec(tc.array1, Tf_case.array2, n);
+    if (Of == NULL) {
+        free(Os);
+        free(Tf_case.array2);
+        return 0;
+    }
+
+    int half = n / 2;
+    int valid = 1;
+    for (int i = 0; i < n; i++) {
+        int expected_Of = Os[i];
+        if (i >= half) expected_Of -= 3;
+        if (Of[i] != expected_Of) {
+            valid = 0;
+            break;
+        }
+    }
+
+    free(Os);
+    free(Of);
+    free(Tf_case.array2);
+
+    return valid;
+}

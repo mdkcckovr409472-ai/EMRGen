@@ -1,0 +1,21 @@
+TestCase z24Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_values = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_values, t1.values, t1.n * sizeof(int));
+    follow_case.values = follow_case_values;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n == 0
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Specific operation: set a random element to 999 when element < 999
+    int random_index = rand() % follow_case.n;
+    if (follow_case.values[random_index] < 999) {
+        follow_case.values[random_index] = 999;
+    }
+    
+    return follow_case;
+}

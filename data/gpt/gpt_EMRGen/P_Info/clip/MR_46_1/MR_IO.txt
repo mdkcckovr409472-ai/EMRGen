@@ -1,0 +1,12 @@
+TestCase z46Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive programming: none required for scalar operation
+
+    // Operation: set lowerLim to its square when result ≤ INT_MAX
+    long long sq = (long long)follow_case.lowerLim * (long long)follow_case.lowerLim;
+    if (sq <= INT_MAX) {
+        follow_case.lowerLim = (int)sq;
+    }
+
+    return follow_case;
+}

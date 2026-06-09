@@ -1,0 +1,154 @@
+double euc_Dist_m(double array1[], double array2[], int n) {
+    double Sum = 0.0;
+    for (int i = 0; i < n; i++) {
+        Sum = Sum + pow((array1[i] - array2[i]), 2.0);
+    }
+    return sqrt(Sum);
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「add 1 to all elements」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「subtract 1 from all elements」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「multiply all elements by 2」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+2 * Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「multiply all elements by 0.5」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「divide all elements by 2 (assume nonzero elements)」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「reverse the entire array」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「sort the entire array in ascending order」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「sort the entire array in descending order」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「set all elements to 0」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「set all elements to 1」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「set the first element to the maximum double value」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「set the first element to the minimum double value」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「add 1 to first half elements」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array1 (double[]), if the operation 「multiply last half elements by 0.5」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「add 1 to all elements」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「subtract 1 from all elements」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「multiply all elements by 2」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+2 * Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「multiply all elements by 0.5」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「divide all elements by 2 (assume nonzero elements)」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「reverse the entire array」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「sort the entire array in ascending order」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「sort the entire array in descending order」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「set all elements to 0」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「set all elements to 1」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「set the first element to the maximum double value」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「set the first element to the minimum double value」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「add 1 to first half elements」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains array2 (double[]), if the operation 「multiply last half elements by 0.5」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+操作总数: 28
+关系总数: 28

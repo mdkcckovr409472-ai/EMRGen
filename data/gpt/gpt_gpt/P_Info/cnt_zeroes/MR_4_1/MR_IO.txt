@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Sort the array in descending order as per MR rule
+    std::sort(tf.a, tf.a + tf.n, std::greater<int>());
+    return tf;
+}

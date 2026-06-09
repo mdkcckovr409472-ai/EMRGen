@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for follow-up input to modify last element without affecting original
+    int* new_a = (int*)malloc(tc.n * sizeof(int));
+    if (new_a == NULL) {
+        tf.a = NULL;
+        return tf;
+    }
+    memcpy(new_a, tc.a, tc.n * sizeof(int));
+    // Find minimum value in original array
+    int min_val = tc.a[0];
+    for (int i = 1; i < tc.n; i++) {
+        if (tc.a[i] < min_val) {
+            min_val = tc.a[i];
+        }
+    }
+    // Set last element to minimum value
+    new_a[tc.n - 1] = min_val;
+    tf.a = new_a;
+    return tf;
+}

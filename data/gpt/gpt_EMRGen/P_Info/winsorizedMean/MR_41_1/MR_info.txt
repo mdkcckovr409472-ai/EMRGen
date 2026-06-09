@@ -1,0 +1,2 @@
+Operation 41: On parameter 'left' (int): set left to n‑1 (when n > 0)
+Invariant: return.result1 <= return.result2

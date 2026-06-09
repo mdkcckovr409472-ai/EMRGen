@@ -1,0 +1,2 @@
+Operation 49: On parameter 'b' (int*): 中间三分之一元素（索引n/3到2n/3-1）减8
+Invariant: return.result1[] >= return.result2[] (elementwise)

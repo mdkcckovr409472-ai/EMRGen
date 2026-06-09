@@ -1,0 +1,16 @@
+int z1check(int* result1, int* result2, int n) {
+    // 1. Defensive programming (Length check first)
+    if (n <= 0) return 1;
+    // Null pointer check
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    // 2. Core evaluation logic (elementwise)
+    for (int i = 0; i < n; i++) {
+        if (!(result1[i] < result2[i])) {
+            return 0;
+        }
+    }
+
+    // 3. Fully satisfied, return 1
+    return 1;
+}

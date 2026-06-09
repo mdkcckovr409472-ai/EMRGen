@@ -1,0 +1,2 @@
+Operation 25: On parameter 'a' (array[int]): floor elements at minimum -1000 (if element < -1000 set to -1000)
+Invariant: return.result1 == return.result2

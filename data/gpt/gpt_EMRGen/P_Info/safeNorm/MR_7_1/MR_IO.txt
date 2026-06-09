@@ -1,0 +1,21 @@
+TestCase z7Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    double* follow_case_v = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_v, t1.v, t1.n * sizeof(double));
+    follow_case.v = follow_case_v;
+    // --- Defensive check ---
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+    // --- Operation: swap two random elements ---
+    int idx1 = rand() % follow_case.n;
+    int idx2 = rand() % follow_case.n;
+    while (idx2 == idx1) {
+        idx2 = rand() % follow_case.n;
+    }
+    double temp = follow_case.v[idx1];
+    follow_case.v[idx1] = follow_case.v[idx2];
+    follow_case.v[idx2] = temp;
+    return follow_case;
+}

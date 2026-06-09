@@ -1,0 +1,357 @@
+double weighted_average(double a[], double b[], int n) {
+    double sum1 = 0;
+    double sum2 = 0;
+    for(int i = 0; i < n; i++) {
+        sum1 *= a[i] * b[i];
+        sum2 += b[i];
+    }
+    return sum1 / sum2;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (double*): 所有元素加1.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (double*): 所有元素减0.5
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (double*): 所有元素乘2.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (double*): 所有元素除以2.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (double*): 随机位置置-999.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (double*): 数组升序排序
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (double*): 数组降序排序
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (double*): 数组向右循环移位（末元素移到开头）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (double*): 前n/2个元素置0.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (double*): 后n/2个元素置最大值1000.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (double*): 奇数索引元素乘1.5
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (double*): 偶数索引元素除0.5
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (double*): 所有元素取平方根
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (double*): 所有元素取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (double*): 所有元素加其索引值i
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (double*): 随机位置加10.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (double*): 随机位置减5.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (double*): 所有元素取负值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (double*): 所有元素替换为其平方
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (double*): 所有元素替换为其自然对数值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (double*): 所有元素替换为其以10为底的对数值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (double*): 将最小元素置为0.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (double*): 将最大元素置为500.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (double*): 数组前一半子数组反转
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (double*): 数组后一半子数组升序排序
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'b' (double*): 所有元素加2.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (double*): 所有元素减1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 32: On parameter 'b' (double*): 所有元素乘3.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 33: On parameter 'b' (double*): 所有元素除以3.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 34: On parameter 'b' (double*): 随机位置置-500.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 35: On parameter 'b' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 36: On parameter 'b' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 37: On parameter 'b' (double*): 数组升序排序
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 38: On parameter 'b' (double*): 数组降序排序
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 39: On parameter 'b' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 40: On parameter 'b' (double*): 数组向右循环移位（末元素移到开头）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 41: On parameter 'b' (double*): 前n/2个元素置1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 42: On parameter 'b' (double*): 后n/2个元素置最大值800.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 43: On parameter 'b' (double*): 奇数索引元素乘2.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 44: On parameter 'b' (double*): 偶数索引元素除2.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'b' (double*): 所有元素取平方根
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'b' (double*): 所有元素取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 47: On parameter 'b' (double*): 所有元素加其索引值i
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'b' (double*): 随机位置加5.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 50: On parameter 'b' (double*): 所有元素取负值
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 51: On parameter 'b' (double*): 所有元素替换为其平方
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 52: On parameter 'b' (double*): 所有元素替换为其指数值（e^x）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 53: On parameter 'b' (double*): 所有元素替换为其自然对数值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 54: On parameter 'b' (double*): 所有元素替换为其以10为底的对数值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 55: On parameter 'b' (double*): 将最小元素置为1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 56: On parameter 'b' (double*): 将最大元素置为600.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 57: On parameter 'b' (double*): 数组中间一半子数组反转
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 58: On parameter 'b' (double*): 数组前一半子数组升序排序
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 56
+独立MR总数: 56
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

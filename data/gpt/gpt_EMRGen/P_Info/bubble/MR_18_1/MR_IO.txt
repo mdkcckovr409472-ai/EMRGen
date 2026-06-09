@@ -1,0 +1,30 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // Defensive check for empty array
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    // Generate random subarray indices
+    int start = rand() % follow_case.n;
+    int end = rand() % follow_case.n;
+    if (start > end) {
+        int tmp = start;
+        start = end;
+        end = tmp;
+    }
+    // Sort the subarray [start, end] ascending (bubble sort)
+    for (int i = 0; i < (end - start); ++i) {
+        for (int j = start; j < end - i; ++j) {
+            if (follow_case.a[j] > follow_case.a[j + 1]) {
+                int temp = follow_case.a[j];
+                follow_case.a[j] = follow_case.a[j + 1];
+                follow_case.a[j + 1] = temp;
+            }
+        }
+    }
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 49: On parameter 'b' (array[int]): replace elements at odd indices by subtracting 2
+Invariant: return.result1[] >= return.result2[] (elementwise)

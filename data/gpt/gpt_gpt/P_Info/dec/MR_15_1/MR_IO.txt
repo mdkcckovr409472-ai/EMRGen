@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int half = tc.n / 2;
+    // allocate new array2 for follow-up input
+    int* new_array2 = (int*)malloc(tc.n * sizeof(int));
+    memcpy(new_array2, tc.array2, tc.n * sizeof(int));
+    for (int i = half; i < tc.n; i++) {
+        new_array2[i] += 3;
+    }
+    tf.array2 = new_array2;
+    return tf;
+}

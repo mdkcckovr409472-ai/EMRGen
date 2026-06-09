@@ -1,0 +1,30 @@
+#include <cmath>
+#include <cfloat>
+
+int z1check(double result1, double result2) {
+    // 浮点数比较的特殊处理
+    double epsilon = 1e-5;
+    
+    // 移项：从 return.result1 < return.result2 得到 result1 < result2
+    double A = result1;
+    double B = result2;
+    
+    // 防御NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    
+    // 处理无穷大情况
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A < B) return 1;
+        else return 0;
+    }
+    
+    // 计算动态容差
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 带容差的严格小于判断
+    // 对于 A < B，违反条件是 A >= B - tol
+    if (A >= B - tol) return 0;
+    
+    // 满足条件
+    return 1;
+}

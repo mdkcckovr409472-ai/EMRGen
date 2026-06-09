@@ -1,0 +1,10 @@
+TestCase z45Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: ensure lowerLim is non‑negative before applying sqrt
+    if (follow_case.lowerLim >= 0) {
+        follow_case.lowerLim = (int)sqrt((double)follow_case.lowerLim);  // floor(sqrt(...)) for non‑negative values
+    }
+
+    return follow_case;
+}

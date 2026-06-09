@@ -1,0 +1,26 @@
+#include <cmath>
+#include <cstddef>
+
+int z20check(int* result1, int* result2, int n) {
+    // 4a. Length validity check
+    if (n <= 0) return 1;
+    // 4b. Null pointer check
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    // 3. Special handling for floating-point does not apply since data_type is int*
+
+    // 2. Lexicographical comparison for return.result1[] >= return.result2[]
+    for (int i = 0; i < n; i++) {
+        int A = result1[i];
+        int B = result2[i];
+        if (A > B) {
+            return 1;
+        } else if (A < B) {
+            return 0;
+        }
+        // if equal continue to next element
+    }
+
+    // All elements equal, so result1 >= result2 holds true
+    return 1;
+}

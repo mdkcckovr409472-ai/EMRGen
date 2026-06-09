@@ -1,0 +1,2 @@
+Operation 24: On parameter 'a' (int*): 将数组中所有正数替换为其平方根（整数近似）
+Invariant: return.result1 >= return.result2

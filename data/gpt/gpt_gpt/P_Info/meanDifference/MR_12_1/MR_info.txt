@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「sort the entire array in ascending order」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Of == Os

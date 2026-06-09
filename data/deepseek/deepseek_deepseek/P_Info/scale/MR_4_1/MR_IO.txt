@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 2.0;
+    tf.val = tc.val - k;
+    return tf;
+}

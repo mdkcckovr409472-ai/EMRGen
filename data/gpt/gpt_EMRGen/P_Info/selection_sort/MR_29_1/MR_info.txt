@@ -1,0 +1,2 @@
+Operation 29: On parameter 'list' (int*): set element at random index to its factorial (if value ≤ 10)
+Invariant: return.result1[] <= return.result2[] (elementwise)

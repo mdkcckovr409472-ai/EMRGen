@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Create a new array to avoid modifying the original input array
+    int* new_a = new int[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        new_a[i] = tf.a[i];
+    }
+    new_a[0] += 2;  // add 2 to the first element only
+    tf.a = new_a;
+    return tf;
+}

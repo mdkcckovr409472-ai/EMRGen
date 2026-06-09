@@ -1,0 +1,827 @@
+int* clip(int a[], int lowerLim, int upperLim, int n) {
+    static int r[100];
+        for (int i = 0; i < n; i++) {
+            if (a[i] < lowerLim) {
+                r[i] = lowerLim;
+            } else {
+                if (a[i] > upperLim) {
+                    r[i] = upperLim;
+                } else {
+                    r[i] = a[i];
+                }
+            }
+        }
+        return r;
+    }
+    
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 2: On parameter 'a' (int*): left circular shift (move first element to end)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「left circular shift (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (int*): right circular shift (move last element to front)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「right circular shift (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (int*): sort ascending
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「sort ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (int*): sort descending
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「sort descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (int*): swap two random elements (indices within [0, n‑1])
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「swap two random elements (indices within [0, n‑1])」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (int*): set random element to 0 (when element ≠ 0)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「set random element to 0 (when element ≠ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (int*): set random element to INT_MIN (when element > INT_MIN)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「set random element to INT_MIN (when element > INT_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (int*): increment random element by 1 (when element < INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「increment random element by 1 (when element < INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (int*): add 5 to all elements (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「add 5 to all elements (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (int*): subtract 3 from all elements (when result ≥ INT_MIN)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「subtract 3 from all elements (when result ≥ INT_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (int*): multiply all elements by 2 (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「multiply all elements by 2 (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (int*): divide all elements by 2 (integer division)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「divide all elements by 2 (integer division)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (int*): replace subarray [i..j] with zeros (0 ≤ i ≤ j < n)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「replace subarray [i..j] with zeros (0 ≤ i ≤ j < n)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (int*): replace subarray [i..j] with random ints in [‑100, 100] (0 ≤ i ≤ j < n)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「replace subarray [i..j] with random ints in [‑100, 100] (0 ≤ i ≤ j < n)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (int*): set first element to lowerLim (when lowerLim within int range)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「set first element to lowerLim (when lowerLim within int range)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (int*): set last element to upperLim (when upperLim within int range)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「set last element to upperLim (when upperLim within int range)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (int*): take absolute value of each element
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「take absolute value of each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (int*): square each element (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「square each element (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (int*): sqrt each element (floor, when element ≥ 0)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「sqrt each element (floor, when element ≥ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (int*): negate each element (multiply by ‑1, when result ≥ INT_MIN)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「negate each element (multiply by ‑1, when result ≥ INT_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int*): randomly shuffle array (Fisher‑Yates)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「randomly shuffle array (Fisher‑Yates)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (int*): rotate subarray [i..j] left by 1 (0 ≤ i ≤ j < n)
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「rotate subarray [i..j] left by 1 (0 ≤ i ≤ j < n)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (int*): rotate subarray [i..j] right by 1 (0 ≤ i ≤ j < n)
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「rotate subarray [i..j] right by 1 (0 ≤ i ≤ j < n)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (int*): set random element to its cube (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「set random element to its cube (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (int*): set random element to its square root (floor, when element ≥ 0)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「set random element to its square root (floor, when element ≥ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 29: On parameter 'lowerLim' (int): add 1 (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「add 1 (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 30: On parameter 'lowerLim' (int): subtract 1 (when result ≥ INT_MIN)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「subtract 1 (when result ≥ INT_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 31: On parameter 'lowerLim' (int): multiply by 2 (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「multiply by 2 (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 32: On parameter 'lowerLim' (int): divide by 2 (integer division)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「divide by 2 (integer division)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 33: On parameter 'lowerLim' (int): set to 0
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 34: On parameter 'lowerLim' (int): set to -1
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to -1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 35: On parameter 'lowerLim' (int): set to 1
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 36: On parameter 'lowerLim' (int): set to INT_MAX
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] < return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to INT_MAX」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 37: On parameter 'lowerLim' (int): set to INT_MIN
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to INT_MIN」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 38: On parameter 'lowerLim' (int): set to absolute value of current (makes non‑negative)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to absolute value of current (makes non‑negative)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 39: On parameter 'lowerLim' (int): set to negative of current (when current ≠ INT_MIN)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to negative of current (when current ≠ INT_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 40: On parameter 'lowerLim' (int): take absolute value
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「take absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 41: On parameter 'lowerLim' (int): negate (multiply by ‑1, when result ≥ INT_MIN)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「negate (multiply by ‑1, when result ≥ INT_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 42: On parameter 'lowerLim' (int): modulo 10 (set to current % 10)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「modulo 10 (set to current % 10)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 43: On parameter 'lowerLim' (int): add random value in [‑5, 5] (when result within bounds)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「add random value in [‑5, 5] (when result within bounds)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 44: On parameter 'lowerLim' (int): subtract random value in [‑5, 5] (when result within bounds)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「subtract random value in [‑5, 5] (when result within bounds)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 45: On parameter 'lowerLim' (int): set to floor(sqrt(abs(current))) (when current ≥ 0)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to floor(sqrt(abs(current))) (when current ≥ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 46: On parameter 'lowerLim' (int): set to current² (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to current² (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 47: On parameter 'lowerLim' (int): set to random prime < 1000
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] < return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to random prime < 1000」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 48: On parameter 'lowerLim' (int): set to min(current, 100) (when current > 100)
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to min(current, 100) (when current > 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 49: On parameter 'lowerLim' (int): set to max(current, ‑100) (when current < ‑100)
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to max(current, ‑100) (when current < ‑100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 50: On parameter 'lowerLim' (int): set to current % 2 (0 or 1)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to current % 2 (0 or 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 51: On parameter 'lowerLim' (int): set to current divided by random divisor in [1, 5]
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to current divided by random divisor in [1, 5]」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 53: On parameter 'lowerLim' (int): set to current + 10 (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to current + 10 (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 54: On parameter 'lowerLim' (int): set to current ‑ 10 (when result ≥ INT_MIN)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to current ‑ 10 (when result ≥ INT_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 55: On parameter 'lowerLim' (int): cast to long then back to int (no effect)
+Invariant: 
+return.result1[] == return.result2[] ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「cast to long then back to int (no effect)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 56: On parameter 'lowerLim' (int): set to current modulo 2 (0 or 1)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to current modulo 2 (0 or 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 57: On parameter 'lowerLim' (int): set to current multiplied by 0 (result = 0)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含lowerLim（int）的函数，若对 lowerLim执行「set to current multiplied by 0 (result = 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 58: On parameter 'upperLim' (int): add 1 (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「add 1 (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 59: On parameter 'upperLim' (int): subtract 1 (when result ≥ INT_MIN)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「subtract 1 (when result ≥ INT_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 60: On parameter 'upperLim' (int): multiply by 2 (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「multiply by 2 (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 61: On parameter 'upperLim' (int): divide by 2 (integer division)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「divide by 2 (integer division)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 62: On parameter 'upperLim' (int): set to 0
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 63: On parameter 'upperLim' (int): set to -1
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to -1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 64: On parameter 'upperLim' (int): set to 1
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 65: On parameter 'upperLim' (int): set to INT_MAX
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to INT_MAX」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 66: On parameter 'upperLim' (int): set to INT_MIN
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to INT_MIN」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 67: On parameter 'upperLim' (int): set to absolute value of current (makes non‑negative)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to absolute value of current (makes non‑negative)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 69: On parameter 'upperLim' (int): take absolute value
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「take absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 70: On parameter 'upperLim' (int): negate (multiply by ‑1, when result ≥ INT_MIN)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「negate (multiply by ‑1, when result ≥ INT_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 71: On parameter 'upperLim' (int): modulo 10 (set to current % 10)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「modulo 10 (set to current % 10)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 72: On parameter 'upperLim' (int): add random value in [‑5, 5] (when result within bounds)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「add random value in [‑5, 5] (when result within bounds)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 73: On parameter 'upperLim' (int): subtract random value in [‑5, 5] (when result within bounds)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「subtract random value in [‑5, 5] (when result within bounds)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 74: On parameter 'upperLim' (int): set to floor(sqrt(abs(current))) (when current ≥ 0)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to floor(sqrt(abs(current))) (when current ≥ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 75: On parameter 'upperLim' (int): set to current² (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to current² (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 76: On parameter 'upperLim' (int): set to random prime < 1000
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to random prime < 1000」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 77: On parameter 'upperLim' (int): set to min(current, 200) (when current > 200)
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to min(current, 200) (when current > 200)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 78: On parameter 'upperLim' (int): set to max(current, ‑200) (when current < ‑200)
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to max(current, ‑200) (when current < ‑200)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 79: On parameter 'upperLim' (int): set to current % 2 (0 or 1)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to current % 2 (0 or 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 80: On parameter 'upperLim' (int): set to current divided by random divisor in [1, 5]
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to current divided by random divisor in [1, 5]」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 81: On parameter 'upperLim' (int): set to current × random factor in [0, 3] (when result within bounds)
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to current × random factor in [0, 3] (when result within bounds)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 82: On parameter 'upperLim' (int): set to current + 20 (when result ≤ INT_MAX)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to current + 20 (when result ≤ INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 84: On parameter 'upperLim' (int): cast to long then back to int (no effect)
+Invariant: 
+return.result1[] == return.result2[] ✓
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「cast to long then back to int (no effect)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 85: On parameter 'upperLim' (int): set to current modulo 3 (0, 1, or 2)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to current modulo 3 (0, 1, or 2)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 86: On parameter 'upperLim' (int): set to current multiplied by 0 (result = 0)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含upperLim（int）的函数，若对 upperLim执行「set to current multiplied by 0 (result = 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+
+操作总数: 80
+关系总数: 121

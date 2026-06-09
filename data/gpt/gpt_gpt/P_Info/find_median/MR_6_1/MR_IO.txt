@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    int* descArr = new int[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        descArr[i] = tf.a[i];
+    }
+    // Sort descArr in descending order
+    for(int i = 0; i < tf.n -1; i++) {
+        for(int j = 0; j < tf.n - 1 - i; j++) {
+            if(descArr[j] < descArr[j+1]) {
+                int temp = descArr[j];
+                descArr[j] = descArr[j+1];
+                descArr[j+1] = temp;
+            }
+        }
+    }
+    tf.a = descArr;
+
+    return tf;
+}

@@ -1,0 +1,23 @@
+TestCase z26Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array 'a'
+    int* follow_case_a = (int*)malloc(t1.na * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.na * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: need at least 2 elements to duplicate and shift
+    if (follow_case.na < 2) {
+        return follow_case;
+    }
+
+    // Duplicate element at index i (here i = 0) to index i+1 with shift
+    int i = 0; // chosen index for duplication
+    // Shift elements right from the end down to i+2
+    for (int j = follow_case.na - 1; j > i + 1; --j) {
+        follow_case.a[j] = follow_case.a[j - 1];
+    }
+    // Duplicate the element
+    follow_case.a[i + 1] = follow_case.a[i];
+
+    return follow_case;
+}

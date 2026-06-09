@@ -1,0 +1,2 @@
+Operation 67: On parameter 'data2' (double*): 所有元素置为负无穷大
+Invariant: return.result1 > return.result2

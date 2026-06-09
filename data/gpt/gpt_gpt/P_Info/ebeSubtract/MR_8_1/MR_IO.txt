@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.b != NULL && tf.n2 > 0) {
+        double* b_new = (double*)malloc(tf.n2 * sizeof(double));
+        if (b_new) {
+            b_new[0] = DBL_MIN;
+            for (int i = 1; i < tf.n2; i++) {
+                b_new[i] = tf.b[i];
+            }
+            tf.b = b_new;
+        }
+    }
+    return tf;
+}

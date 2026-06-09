@@ -1,0 +1,2 @@
+Operation 9: On parameter 'elements' (array[double]): replace all elements with positive infinity
+Invariant: return.result1 < return.result2

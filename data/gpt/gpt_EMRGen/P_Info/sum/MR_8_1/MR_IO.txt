@@ -1,0 +1,24 @@
+TestCase z8Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of the array
+    int* follow_case_values = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_values, t1.values, t1.n * sizeof(int));
+    follow_case.values = follow_case_values;
+
+    // Defensive check: need at least two elements to swap
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+
+    // Swap two random elements
+    int idx1 = rand() % follow_case.n;
+    int idx2 = rand() % follow_case.n;
+    while (idx2 == idx1) {
+        idx2 = rand() % follow_case.n;
+    }
+    int temp = follow_case.values[idx1];
+    follow_case.values[idx1] = follow_case.values[idx2];
+    follow_case.values[idx2] = temp;
+
+    return follow_case;
+}

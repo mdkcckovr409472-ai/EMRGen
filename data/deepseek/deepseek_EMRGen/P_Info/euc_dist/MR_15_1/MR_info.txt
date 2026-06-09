@@ -1,0 +1,2 @@
+Operation 15: On parameter 'array1' (double*): 所有元素向下取整
+Invariant: return.result1 <= return.result2

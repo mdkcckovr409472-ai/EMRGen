@@ -1,0 +1,35 @@
+TestCase z21Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_a = (double*)malloc(t1.n1 * sizeof(double));
+    if (t1.a != NULL && t1.n1 > 0) {
+        memcpy(follow_case_a, t1.a, t1.n1 * sizeof(double));
+    }
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n1 < 1
+    if (follow_case.n1 < 1) {
+        // No elements to modify, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    // Find indices of elements less than 999
+    int* candidates = (int*)malloc(follow_case.n1 * sizeof(int));
+    int count = 0;
+    for (int i = 0; i < follow_case.n1; i++) {
+        if (follow_case.a[i] < 999) {
+            candidates[count++] = i;
+        }
+    }
+    if (count > 0) {
+        // Select a random index among candidates
+        int idx_in_candidates = rand() % count;
+        int target_idx = candidates[idx_in_candidates];
+        follow_case.a[target_idx] = 999;
+    }
+    free(candidates);
+
+    return follow_case;
+}

@@ -1,0 +1,8 @@
+TestCase z72Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 防御性编程与边界检查：操作不依赖于数组元素，无需检查n
+// 具体操作代码：与数组长度n取模
+follow_case.right = follow_case.right % follow_case.n;
+
+return follow_case;}

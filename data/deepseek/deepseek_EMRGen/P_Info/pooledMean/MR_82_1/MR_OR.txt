@@ -1,0 +1,27 @@
+#include <math.h>
+#include <stddef.h>
+
+int z82check(double result1, double result2) {
+    // 1. 防御 NaN
+    if (isnan(result1) || isnan(result2)) return 0;
+    
+    // 2. 处理无穷大（动态容差对无穷大无效，需直接比较）
+    if (isinf(result1) || isinf(result2)) {
+        // 直接使用数学上的 > 比较
+        if (result1 > result2) return 1;
+        else return 0;
+    }
+    
+    // 3. 浮点数比较：移项后条件为 result1 > result2
+    //    即 A = result1, B = result2, 比较符为 >
+    double A = result1;
+    double B = result2;
+    double epsilon = 1e-5;
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 4. 带容差的 > 判断：若 A <= B + tol 则违反条件
+    if (A <= B + tol) return 0;
+    
+    // 5. 满足条件
+    return 1;
+}

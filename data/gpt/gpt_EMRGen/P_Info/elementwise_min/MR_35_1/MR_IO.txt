@@ -1,0 +1,22 @@
+TestCase z35Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0 && t1.b != NULL) {
+        int* follow_case_b = (int*)malloc(t1.n * sizeof(int));
+        memcpy(follow_case_b, t1.b, t1.n * sizeof(int));
+        follow_case.b = follow_case_b;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n < 1 || follow_case.b == NULL) {
+        // No elements or null pointer, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    // Add 1 to a random element - for determinism, add to the first element
+    follow_case.b[0] = follow_case.b[0] + 1;
+
+    return follow_case;
+}

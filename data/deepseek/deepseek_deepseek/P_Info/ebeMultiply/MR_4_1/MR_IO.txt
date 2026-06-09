@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.b != NULL && tf.n1 > 0) {
+        for (int i = 0; i < tf.n1; i++) {
+            tf.b[i] = -tf.b[i];
+        }
+    }
+    return tf;
+}

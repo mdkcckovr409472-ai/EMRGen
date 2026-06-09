@@ -1,0 +1,2 @@
+Operation 32: On parameter 'array2' (int[]): subtract 5 from all elements
+Invariant: return.result1[] > return.result2[] (elementwise)

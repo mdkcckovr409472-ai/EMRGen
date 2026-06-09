@@ -1,0 +1,14 @@
+int check(TestCase tc) {
+    int Os = sum(tc.values, tc.n);
+    TestCase Tf_case = change(tc);
+    int Of = sum(Tf_case.values, Tf_case.n);
+    int k = 5;
+    int is_valid = 0;
+    if (Os - k == Of) {
+        is_valid = 1;
+    }
+    if (Tf_case.values != nullptr && Tf_case.values != tc.values) {
+        delete[] Tf_case.values;
+    }
+    return is_valid;
+}

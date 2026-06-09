@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    // Compute source output Os
+    double Os = variance(tc.x, tc.n);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Compute follow-up output Of
+    double Of = variance(Tf_case.x, Tf_case.n);
+
+    // Verify the MR Os == Of with some tolerance for floating-point comparison
+    int is_valid = 0;
+    const double EPSILON = 1e-12;
+    if (std::abs(Os - Of) <= EPSILON) {
+        is_valid = 1;
+    }
+
+    // Free dynamically allocated memory in Tf_case
+    delete[] Tf_case.x;
+
+    return is_valid;
+}

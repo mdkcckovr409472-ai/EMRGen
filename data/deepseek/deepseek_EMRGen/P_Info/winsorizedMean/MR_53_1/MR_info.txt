@@ -1,0 +1,2 @@
+Operation 53: On parameter 'left' (int): 置为n-1
+Invariant: return.result1 <= return.result2

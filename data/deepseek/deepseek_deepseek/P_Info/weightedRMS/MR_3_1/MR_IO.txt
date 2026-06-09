@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 2.0; // 选择一个非零常数，例如 2.0
+    if (tf.weights != nullptr && tf.n > 0) {
+        // 为衍生用例的权重数组分配新内存
+        tf.weights = new double[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            tf.weights[i] = tc.weights[i] / k;
+        }
+    }
+    return tf;
+}

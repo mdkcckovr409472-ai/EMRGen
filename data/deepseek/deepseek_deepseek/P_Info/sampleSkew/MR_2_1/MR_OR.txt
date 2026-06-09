@@ -1,0 +1,10 @@
+int check(TestCase tc) {
+    double Os = sampleSkew(tc.moment3, tc.sampleVariance, tc.size);
+    TestCase Tf_case = change(tc);
+    double Of = sampleSkew(Tf_case.moment3, Tf_case.sampleVariance, Tf_case.size);
+    int is_valid = 0;
+    if ( -1.0 * Os == Of ) {
+        is_valid = 1;
+    }
+    return is_valid;
+}

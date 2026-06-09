@@ -1,0 +1,17 @@
+int check(TestCase tc) {
+    // Source output
+    double Os = sampleVariance(tc.elements, tc.mean, tc.n);
+
+    // Follow-up test case
+    TestCase tf = change(tc);
+    double Of = sampleVariance(tf.elements, tf.mean, tf.n);
+
+    // Verify MR: Os == Of, allow a small epsilon for floating-point comparison
+    const double epsilon = 1e-10;
+    int is_valid = (std::abs(Os - Of) < epsilon) ? 1 : 0;
+
+    // Clean up allocated memory in Tf
+    delete[] tf.elements;
+
+    return is_valid;
+}

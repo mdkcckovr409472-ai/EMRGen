@@ -1,0 +1,19 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* arr_copy = new int[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        arr_copy[i] = tc.a[i];
+    }
+    tf.a = arr_copy;
+    tf.n = tc.n;
+    for (int i = 0; i < tf.n - 1; ++i) {
+        for (int j = i + 1; j < tf.n; ++j) {
+            if (tf.a[i] < tf.a[j]) {
+                int temp = tf.a[i];
+                tf.a[i] = tf.a[j];
+                tf.a[j] = temp;
+            }
+        }
+    }
+    return tf;
+}

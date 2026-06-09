@@ -1,0 +1,22 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array to hold modified input
+    int* new_a = (int*)malloc(tc.n * sizeof(int));
+    memcpy(new_a, tc.a, tc.n * sizeof(int));
+
+    // Find max value in original array
+    int max_val = new_a[0];
+    for (int i = 1; i < tc.n; i++) {
+        if (new_a[i] > max_val) {
+            max_val = new_a[i];
+        }
+    }
+
+    // Set first element to max value
+    new_a[0] = max_val;
+
+    // Overwrite the pointer tf.a with new array pointer
+    tf.a = new_a;
+
+    return tf;
+}

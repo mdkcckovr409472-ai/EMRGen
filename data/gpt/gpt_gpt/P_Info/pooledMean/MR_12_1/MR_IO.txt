@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Sort data2 array in ascending order for follow-up input
+    // Allocate new memory for sorted data2
+    double* sortedData2 = new double[tc.n2];
+    for (int i = 0; i < tc.n2; i++) {
+        sortedData2[i] = tc.data2[i];
+    }
+    // Simple insertion sort for ascending order
+    for (int i = 1; i < tc.n2; i++) {
+        double key = sortedData2[i];
+        int j = i - 1;
+        while (j >= 0 && sortedData2[j] > key) {
+            sortedData2[j + 1] = sortedData2[j];
+            j--;
+        }
+        sortedData2[j + 1] = key;
+    }
+    tf.data2 = sortedData2;
+    return tf;
+}

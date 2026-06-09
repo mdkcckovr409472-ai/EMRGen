@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double* newArr = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        if (tc.arr[i] != 0) {
+            newArr[i] = tc.arr[i] / 2.0;
+        } else {
+            newArr[i] = 0;
+        }
+    }
+    tf.arr = newArr;
+    return tf;
+}

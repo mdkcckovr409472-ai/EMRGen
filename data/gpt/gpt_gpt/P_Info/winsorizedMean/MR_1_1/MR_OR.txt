@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    double Os = winsorizedMean(tc.elements, tc.left, tc.right, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = 0;
+    if (Tf_case.elements != nullptr) {
+        Of = winsorizedMean(Tf_case.elements, Tf_case.left, Tf_case.right, Tf_case.n);
+    } else {
+        // If elements pointer is null, we consider follow-up output same as source output to fail the MR
+        Of = Os;
+    }
+    int is_valid = 0;
+    if (Os < Of) {
+        is_valid = 1;
+    }
+    if (Tf_case.elements != nullptr && Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+    }
+    return is_valid;
+}

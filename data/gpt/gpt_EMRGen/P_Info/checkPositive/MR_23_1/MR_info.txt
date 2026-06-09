@@ -1,0 +1,2 @@
+Operation 23: On parameter 'a' (array[double]): clamp all elements to range [0.0, 10.0]
+Invariant: return.result1 == return.result2

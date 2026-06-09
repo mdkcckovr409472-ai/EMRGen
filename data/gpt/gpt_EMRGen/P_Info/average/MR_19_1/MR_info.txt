@@ -1,0 +1,2 @@
+Operation 19: On parameter 'a' (array[int]): set a random element to INT_MAX (when element < INT_MAX)
+Invariant: return.result1 < return.result2

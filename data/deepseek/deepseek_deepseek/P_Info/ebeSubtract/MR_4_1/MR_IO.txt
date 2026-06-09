@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 5.0; // 任意常数，示例值
+    if (tf.a != NULL) {
+        for (int i = 0; i < tf.n1; i++) {
+            tf.a[i] = tf.a[i] - k;
+        }
+    }
+    return tf;
+}

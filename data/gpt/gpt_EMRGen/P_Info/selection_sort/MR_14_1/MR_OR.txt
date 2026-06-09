@@ -1,0 +1,11 @@
+int z14check(int* result1, int* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    for (int i = 0; i < n; i++) {
+        if (!(result1[i] == result2[i])) {
+            return 0;
+        }
+    }
+    return 1;
+}

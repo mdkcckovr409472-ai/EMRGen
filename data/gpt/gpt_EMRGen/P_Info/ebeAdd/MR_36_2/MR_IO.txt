@@ -1,0 +1,19 @@
+TestCase z36Change(TestCase t1) {
+    TestCase follow_case = t1;
+    double* follow_case_b = (double*)malloc(t1.n2 * sizeof(double));
+    memcpy(follow_case_b, t1.b, t1.n2 * sizeof(double));
+    follow_case.b = follow_case_b;
+    
+    if (follow_case.n2 <= 0) {
+        return follow_case;
+    }
+    
+    // Select a random index safely
+    int idx = 0;
+    if (follow_case.n2 > 1) {
+        idx = rand() % follow_case.n2;
+    }
+    follow_case.b[idx] -= 2.0;
+    
+    return follow_case;
+}

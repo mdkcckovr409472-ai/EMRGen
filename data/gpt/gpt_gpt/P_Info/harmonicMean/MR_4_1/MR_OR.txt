@@ -1,0 +1,25 @@
+int check(TestCase tc) {
+    // Source input Ts
+    double* Ts = tc.data;
+    int n = tc.n;
+    // Execute function under test to get Os
+    double Os = harmonicMean(Ts, n);
+
+    // Construct follow-up test case Tf
+    TestCase Tf_case = change(tc);
+    double* Tf = Tf_case.data;
+
+    // Execute function under test to get Of
+    double Of = harmonicMean(Tf, n);
+
+    // Verify metamorphic relation Os == Of
+    int is_valid = 0;
+    constexpr double EPS = 1e-12;
+    if (std::abs(Os - Of) < EPS) {
+        is_valid = 1;
+    }
+
+    // No dynamic memory allocated inside change(), so no free needed here
+
+    return is_valid;
+}

@@ -1,0 +1,10 @@
+int z54check(int* result1, int* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    // Since the invariant is return.result1[0..0] == return.result2[0..0] (elementwise)
+    // The slice is [0..0], so check only index 0.
+    if (!(result1[0] == result2[0])) return 0;
+
+    return 1;
+}

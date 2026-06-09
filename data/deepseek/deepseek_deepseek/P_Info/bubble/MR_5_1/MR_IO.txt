@@ -1,0 +1,18 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.a != nullptr) {
+        int* new_a = (int*)malloc(tf.n * sizeof(int));
+        if (new_a != nullptr) {
+            memcpy(new_a, tf.a, tf.n * sizeof(int));
+            int first = new_a[0];
+            for (int i = 0; i < tf.n - 1; ++i) {
+                new_a[i] = new_a[i + 1];
+            }
+            new_a[tf.n - 1] = first;
+            tf.a = new_a;
+        } else {
+            tf.a = nullptr;
+        }
+    }
+    return tf;
+}

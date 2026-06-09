@@ -1,0 +1,208 @@
+double max(double elements[], int n) {
+    int size = n;
+    double max = elements[size - 1];
+    for (int i = size - 1; --i >= 0; ) {
+        if (elements[i] > max) {
+            max = elements[i];
+        }
+    }
+    return max;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1 - return.result2 + 1 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (array[double]): subtract 0.5 from all elements
+Invariant: 
+2 * return.result1 - 2 * return.result2 - 1 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「subtract 0.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - 2 * Of - 1 == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (array[double]): multiply all elements by 2.0
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (array[double]): divide all elements by 3.0
+Invariant: 
+return.result1 - 3 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「divide all elements by 3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 3 * Of == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (array[double]): set random element to DBL_MAX (when element < DBL_MAX)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「set random element to DBL_MAX (when element < DBL_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (array[double]): set random element to -DBL_MAX (when element > -DBL_MAX)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「set random element to -DBL_MAX (when element > -DBL_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (array[double]): replace each element with its absolute value
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「replace each element with its absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (array[double]): replace each element with its natural logarithm (when element > 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「replace each element with its natural logarithm (when element > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 12: On parameter 'elements' (array[double]): replace each element with its exponential
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「replace each element with its exponential」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 13: On parameter 'elements' (array[double]): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'elements' (array[double]): reverse entire array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「reverse entire array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 15: On parameter 'elements' (array[double]): left circular shift array (move first element to end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 17: On parameter 'elements' (array[double]): sort array in ascending order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'elements' (array[double]): sort array in descending order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「sort array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'elements' (array[double]): randomly shuffle array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「randomly shuffle array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'elements' (array[double]): increment a random element by 10.0 (when element <= DBL_MAX-10)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「increment a random element by 10.0 (when element <= DBL_MAX-10)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'elements' (array[double]): decrement a random element by 5.0 (when element >= -DBL_MAX+5)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「decrement a random element by 5.0 (when element >= -DBL_MAX+5)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (array[double]): replace each element with its floor value
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「replace each element with its floor value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 27: On parameter 'elements' (array[double]): replace each element with its ceil value
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「replace each element with its ceil value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'elements' (array[double]): set last element to median of array
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「set last element to median of array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 30: On parameter 'elements' (array[double]): remove a random element (shrink array by 1)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「remove a random element (shrink array by 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 21
+关系总数: 21

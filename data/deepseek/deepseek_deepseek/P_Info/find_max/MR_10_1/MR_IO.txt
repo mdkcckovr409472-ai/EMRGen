@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int max_val = find_max(tc.a, tc.n);
+    int d = 1;
+    int* new_a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_a[i] = tc.a[i];
+        if (new_a[i] != max_val) {
+            new_a[i] -= d;
+        }
+    }
+    tf.a = new_a;
+    return tf;
+}

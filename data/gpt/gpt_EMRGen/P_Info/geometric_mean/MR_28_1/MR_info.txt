@@ -1,0 +1,2 @@
+Operation 28: On parameter 'a' (array[int]): swap two elements in a subarray
+Invariant: return.result1 == return.result2

@@ -1,0 +1,31 @@
+TestCase z27Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive check: ensure there is at least one element to rotate
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Rotate a random sub‑array right by 1
+    int l = rand() % follow_case.n;
+    int r = rand() % follow_case.n;
+    if (r < l) {
+        int temp = l;
+        l = r;
+        r = temp;
+    }
+    
+    // Perform the rotation
+    int temp = follow_case.a[r];
+    for (int i = r; i > l; --i) {
+        follow_case.a[i] = follow_case.a[i - 1];
+    }
+    follow_case.a[l] = temp;
+    
+    return follow_case;
+}

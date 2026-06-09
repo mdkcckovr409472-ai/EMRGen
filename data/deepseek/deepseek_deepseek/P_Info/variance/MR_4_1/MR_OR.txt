@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    double Os = variance(tc.x, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = variance(Tf_case.x, Tf_case.n);
+    int is_valid = 0;
+    double c = 2.0;
+    double expected = Os / (c * c);
+    double tolerance = 1e-9;
+    if (fabs(expected - Of) < tolerance) {
+        is_valid = 1;
+    }
+    if (Tf_case.x != tc.x && Tf_case.x != nullptr) {
+        delete[] Tf_case.x;
+    }
+    return is_valid;
+}

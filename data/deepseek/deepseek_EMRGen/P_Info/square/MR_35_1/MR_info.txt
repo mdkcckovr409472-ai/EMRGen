@@ -1,0 +1,2 @@
+Operation 35: On parameter 'data' (double*): 随机子数组（连续2个元素）所有元素取相反数
+Invariant: return.result1[] == return.result2[]

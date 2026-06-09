@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    double Os = quantile(tc.sortedElements, tc.phi, tc.n);
+
+    TestCase Tf_case = change(tc);
+    double Of = quantile(Tf_case.sortedElements, Tf_case.phi, Tf_case.n);
+
+    int is_valid = 0;
+    if (Os == 0.0 && Of == 0.0) {
+        is_valid = 1;
+    } else if (Os != 0.0) {
+        double rel_err = (Of - 0.5 * Os);
+        if (rel_err <= 1e-9 && rel_err >= -1e-9) {
+            is_valid = 1;
+        }
+    }
+
+    if (Tf_case.sortedElements != tc.sortedElements) {
+        delete[] Tf_case.sortedElements;
+    }
+
+    return is_valid;
+}

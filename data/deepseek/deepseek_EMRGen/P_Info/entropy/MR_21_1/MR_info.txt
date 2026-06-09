@@ -1,0 +1,2 @@
+Operation 21: On parameter 'k' (double*): 数组元素随机重排
+Invariant: return.result1 == return.result2

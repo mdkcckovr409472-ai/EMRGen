@@ -1,0 +1,24 @@
+TestCase z7Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // -------------------------
+
+    // Defensive check: need at least two elements to swap
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+
+    // Swap two random elements
+    int idx1 = rand() % follow_case.n;
+    int idx2 = rand() % follow_case.n;
+    if (idx1 != idx2) {
+        double temp = follow_case.elements[idx1];
+        follow_case.elements[idx1] = follow_case.elements[idx2];
+        follow_case.elements[idx2] = temp;
+    }
+
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 51: On parameter 'k' (int): set k to min(k, 10)
+Invariant: return.result1[] >= return.result2[] (elementwise)

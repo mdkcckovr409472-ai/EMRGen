@@ -1,0 +1,39 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int Os = find_max2(tc.a, tc.n);
+    int max_i = 0;
+    int max_sum = tc.a[0] + tc.a[1];
+    for (int i = 0; i < tc.n - 1; i++) {
+        if (tc.a[i] + tc.a[i + 1] > max_sum) {
+            max_sum = tc.a[i] + tc.a[i + 1];
+            max_i = i;
+        }
+    }
+    int candidate_index = -1;
+    for (int i = 0; i < tc.n; i++) {
+        if (i != max_i && i != max_i + 1) {
+            candidate_index = i;
+            break;
+        }
+    }
+    if (candidate_index == -1) {
+        for (int i = 0; i < tc.n; i++) {
+            if (i != max_i && i != max_i + 1) {
+                candidate_index = i;
+                break;
+            }
+        }
+    }
+    if (candidate_index == -1) {
+        candidate_index = 0;
+    }
+    int* new_a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_a[i] = tc.a[i];
+    }
+    int p = 10;
+    new_a[candidate_index] += p;
+    tf.a = new_a;
+    tf.n = tc.n;
+    return tf;
+}

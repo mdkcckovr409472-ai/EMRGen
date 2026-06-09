@@ -1,0 +1,2 @@
+Operation 1: On parameter 'a' (array[int]): add 1 to all elements
+Invariant: return.result1[] < return.result2[] (elementwise)

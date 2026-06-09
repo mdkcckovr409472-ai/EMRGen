@@ -1,0 +1,2 @@
+Operation 46: On parameter 'mean' (double): set to 3.14159 (when mean != 3.14159)
+Invariant: return.result1 < return.result2

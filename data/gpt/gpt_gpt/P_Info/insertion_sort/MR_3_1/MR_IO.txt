@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Reverse the entire array in-place to construct follow-up input Tf
+    for (int i = 0, j = tf.n - 1; i < j; i++, j--) {
+        int tmp = tf.array[i];
+        tf.array[i] = tf.array[j];
+        tf.array[j] = tmp;
+    }
+    return tf;
+}

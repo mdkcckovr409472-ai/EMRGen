@@ -1,0 +1,26 @@
+TestCase z17Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_a = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(double));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+
+    // Defensive code: need at least 2 elements to swap
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+
+    // Operation: swap two random elements
+    int idx1 = rand() % follow_case.n;
+    int idx2 = rand() % follow_case.n;
+    // Ensure the two indices are different
+    while (idx2 == idx1 && follow_case.n > 1) {
+        idx2 = rand() % follow_case.n;
+    }
+    double temp = follow_case.a[idx1];
+    follow_case.a[idx1] = follow_case.a[idx2];
+    follow_case.a[idx2] = temp;
+
+    return follow_case;
+}

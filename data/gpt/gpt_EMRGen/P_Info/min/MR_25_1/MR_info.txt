@@ -1,0 +1,2 @@
+Operation 25: On parameter 'elements' (array[double]): reverse subarray between two random indices
+Invariant: return.result1 == return.result2

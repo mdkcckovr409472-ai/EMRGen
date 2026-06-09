@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int half_start = (tc.n + 1) / 2;
+    // Create a new array for b to apply the subtraction on last half elements
+    tf.b = new int[tc.n];
+    for (int i = 0; i < half_start; i++) {
+        tf.b[i] = tc.b[i];
+    }
+    for (int i = half_start; i < tc.n; i++) {
+        tf.b[i] = tc.b[i] - 3;
+    }
+    return tf;
+}

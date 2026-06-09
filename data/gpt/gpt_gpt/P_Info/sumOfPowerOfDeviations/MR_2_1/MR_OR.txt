@@ -1,0 +1,25 @@
+int check(TestCase tc) {
+    // Extract source input
+    double* Ts = tc.data;
+    int k = tc.k;
+    double c = tc.c;
+    int n = tc.n;
+    // Compute source output Os
+    double Os = sumOfPowerOfDeviations(Ts, k, c, n);
+    // Get follow-up test case Tf using change()
+    TestCase Tf = change(tc);
+    double* Tf_data = Tf.data;
+    // Compute follow-up output Of
+    double Of = sumOfPowerOfDeviations(Tf_data, k, c, n);
+    // Verify metamorphic relation Os == Of with tolerance for floating-point comparison
+    int is_valid = 0;
+    const double EPSILON = 1e-12;
+    if(fabs(Os - Of) < EPSILON) {
+        is_valid = 1;
+    }
+    // Free dynamically allocated memory in Tf
+    if(Tf_data != Ts) {
+        delete[] Tf_data;
+    }
+    return is_valid;
+}

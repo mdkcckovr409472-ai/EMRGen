@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double* new_sample2 = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        new_sample2[i] = tf.sample2[i];
+    }
+    std::sort(new_sample2, new_sample2 + tf.n);
+    tf.sample2 = new_sample2;
+    return tf;
+}

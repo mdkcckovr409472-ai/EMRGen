@@ -1,0 +1,2 @@
+Operation 25: On parameter 'a' (array[int]): set the last element to INT_MIN (if array not empty)
+Invariant: return.result1[] >= return.result2[] (elementwise)

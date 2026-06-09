@@ -1,0 +1,10 @@
+TestCase z25Change(TestCase t1) {
+    TestCase follow_case = t1;
+    
+    // Defensive check: ensure moment4 is positive before applying log
+    if (follow_case.moment4 > 0.0) {
+        follow_case.moment4 = log(follow_case.moment4);
+    }
+    
+    return follow_case;
+}

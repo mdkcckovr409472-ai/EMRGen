@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1 && tf.a != nullptr) {
+        int last_element = tf.a[tf.n - 1];
+        for (int i = tf.n - 1; i > 0; --i) {
+            tf.a[i] = tf.a[i - 1];
+        }
+        tf.a[0] = last_element;
+    }
+    return tf;
+}

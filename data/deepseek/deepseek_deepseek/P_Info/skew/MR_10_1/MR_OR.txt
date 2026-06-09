@@ -1,0 +1,17 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.data == nullptr) {
+        return 1;
+    }
+    double Os = skew(tc.data, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = skew(Tf_case.data, Tf_case.n);
+    int is_valid = 0;
+    const double epsilon = 1e-12;
+    if (fabs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    if (Tf_case.data != tc.data && Tf_case.data != nullptr) {
+        delete[] Tf_case.data;
+    }
+    return is_valid;
+}

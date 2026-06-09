@@ -1,0 +1,6 @@
+TestCase z2Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 根据规则5生成的具体操作代码
+    follow_case.moment4 = follow_case.moment4 - 0.5;
+    return follow_case;
+}

@@ -1,0 +1,9 @@
+int z5check(int result1, int result2) {
+    // 1. 核心判断逻辑 (标量直接比较)
+    if (!(result1 + result2 == 0)) {
+        return 0;
+    }
+    
+    // 2. 满足条件，返回 1
+    return 1;
+}

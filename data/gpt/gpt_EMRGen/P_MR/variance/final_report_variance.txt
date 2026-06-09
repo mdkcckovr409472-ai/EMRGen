@@ -1,0 +1,172 @@
+double variance(double x[], int n) {
+    double sum = 0;
+    double sum1 = 0;
+    double var = 0;
+    double avrg = 0;
+    for(int i = 0; i < n; i++) {
+        sum = sum + x[i];
+    }
+    
+    avrg = sum / (double)n;
+    for (int i = 0; i < n; i++) {
+        sum1 = sum1 + (x[i] - avrg) * (x[i] - avrg);
+    }
+    var = sum1 / (double) n;
+    return var;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'x' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 2: On parameter 'x' (array[double]): subtract 0.5 from all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「subtract 0.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 4: On parameter 'x' (array[double]): divide all elements by 2.0 (avoid division by zero)
+Invariant: 
+return.result1 - 4 * return.result2 == 0 ✓ ○
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「divide all elements by 2.0 (avoid division by zero)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 4 * Of == 0
+Os >= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'x' (array[double]): set a random element to 100.0 (when element < 100)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「set a random element to 100.0 (when element < 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 9: On parameter 'x' (array[double]): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'x' (array[double]): reverse array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 11: On parameter 'x' (array[double]): left circular shift array (move first element to end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 12: On parameter 'x' (array[double]): right circular shift array (move last element to front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「right circular shift array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'x' (array[double]): sort array ascending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'x' (array[double]): sort array descending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 15: On parameter 'x' (array[double]): reverse subarray between two random indices
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「reverse subarray between two random indices」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 22: On parameter 'x' (array[double]): apply sin to each element
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「apply sin to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'x' (array[double]): apply cos to each element
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「apply cos to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'x' (array[double]): randomly shuffle array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「randomly shuffle array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 29: On parameter 'x' (array[double]): clamp each element to range [0,10]
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「clamp each element to range [0,10]」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 15
+关系总数: 21

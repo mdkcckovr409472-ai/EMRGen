@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* reversed_array = (int*)malloc(tf.n * sizeof(int));
+    if (reversed_array == nullptr) {
+        return tf;
+    }
+    for (int i = 0; i < tf.n; i++) {
+        reversed_array[i] = tf.array[tf.n - 1 - i];
+    }
+    tf.array = reversed_array;
+    return tf;
+}

@@ -1,0 +1,26 @@
+int check(TestCase tc) {
+    // (1) Extract the source input
+    double* p1_s = tc.p1;
+    double* p2_s = tc.p2;
+    int n_s = tc.n;
+
+    // (2) Call the function under test with Ts to get Os
+    double Os = cosineDistance(p1_s, p2_s, n_s);
+
+    // (3) Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // (4) Call the function under test with Tf to get Of
+    double Of = cosineDistance(Tf_case.p1, Tf_case.p2, Tf_case.n);
+
+    // (5) Verify MR: Os != Of
+    int is_valid = (Os != Of) ? 1 : 0;
+
+    // (6) Free dynamic memory allocated in change()
+    if (Tf_case.p1 != tc.p1) {
+        delete[] Tf_case.p1;
+    }
+
+    // (7) Return the verification result
+    return is_valid;
+}

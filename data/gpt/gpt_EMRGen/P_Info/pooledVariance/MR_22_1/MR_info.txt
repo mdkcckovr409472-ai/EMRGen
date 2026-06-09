@@ -1,0 +1,2 @@
+Operation 22: On parameter 'data1' (double*): negate all elements
+Invariant: return.result1 == return.result2

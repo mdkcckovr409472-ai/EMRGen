@@ -1,0 +1,14 @@
+TestCase z34Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 操作的目标参数是 k，其类型为 int，不是数组类型。
+    // 根据规则4，只有当目标参数是数组类型时才执行 malloc 和 memcpy。
+    // 因此，此处无需为 k 创建深拷贝。
+
+    // 根据规则5，将“取绝对值”转换为具体的 C 语言代码。
+    // 操作于 follow_case 的副本上。
+    if (follow_case.k < 0) {
+        follow_case.k = -follow_case.k;
+    }
+
+    return follow_case;
+}

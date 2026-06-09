@@ -1,0 +1,2 @@
+Operation 21: On parameter 'list' (int*): 将元素替换为其与索引的和
+Invariant: return.result1[] <= return.result2[] (elementwise)

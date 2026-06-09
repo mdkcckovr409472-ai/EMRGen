@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = pooledVariance(tc.data1, tc.data2, tc.n1, tc.n2);
+    TestCase Tf_case = change(tc);
+    double Of = pooledVariance(Tf_case.data1, Tf_case.data2, Tf_case.n1, Tf_case.n2);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.data1;
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 34: On parameter 'theWeights' (array[double]): divide all weights by 2.0 (when weight ≠ 0)
+Invariant: return.result1 == return.result2

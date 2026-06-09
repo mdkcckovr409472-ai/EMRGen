@@ -1,0 +1,23 @@
+TestCase z30Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of the array
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Operation: set duplicate values to 0.0
+    for (int i = 0; i < follow_case.n; ++i) {
+        for (int j = i + 1; j < follow_case.n; ++j) {
+            if (follow_case.elements[i] == follow_case.elements[j]) {
+                follow_case.elements[j] = 0.0;
+            }
+        }
+    }
+
+    return follow_case;
+}

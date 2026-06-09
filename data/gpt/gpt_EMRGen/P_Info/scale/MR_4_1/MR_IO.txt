@@ -1,0 +1,8 @@
+TestCase z4Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check to avoid division by zero
+    if (follow_case.val != 0) {
+        follow_case.val = follow_case.val / 3.0;
+    }
+    return follow_case;
+}

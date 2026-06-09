@@ -1,0 +1,199 @@
+double euc_Dist_m(double array1[], double array2[], int n) {
+    double Sum = 0.0;
+    for (int i = 0; i < n; i++) {
+        Sum = Sum + pow((array1[i] + array2[i]), 2.0);
+    }
+    return sqrt(Sum);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 15: On parameter 'array1' (double*): 所有元素取指数
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'array2' (double*): 所有元素取指数
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 61: On parameter 'n' (int): 加1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 62: On parameter 'n' (int): 减1
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 63: On parameter 'n' (int): 乘2
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 64: On parameter 'n' (int): 除以2（向下取整）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 65: On parameter 'n' (int): 置0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 66: On parameter 'n' (int): 置1
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 67: On parameter 'n' (int): 置为数组实际长度（假设为10）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 68: On parameter 'n' (int): 取绝对值（若为负）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 69: On parameter 'n' (int): 加5
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 70: On parameter 'n' (int): 减10
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 71: On parameter 'n' (int): 乘3
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 72: On parameter 'n' (int): 除以3（向下取整）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 73: On parameter 'n' (int): 置为原始值+1
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 74: On parameter 'n' (int): 置为原始值-1
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 75: On parameter 'n' (int): 置为原始值*2
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 76: On parameter 'n' (int): 置为原始值/2
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 77: On parameter 'n' (int): 随机扰动（范围-2到2）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 78: On parameter 'n' (int): 加当前索引值（假设索引=5）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 79: On parameter 'n' (int): 减当前索引值（假设索引=5）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 80: On parameter 'n' (int): 置为100
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 81: On parameter 'n' (int): 置为-5
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 82: On parameter 'n' (int): 加当前元素值（取array1[0]值，假设为1.5，则加1.5）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 84: On parameter 'n' (int): 乘当前元素值（取array1[0]值，假设为1.5，则乘1.5）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 86: On parameter 'n' (int): 置为正无穷（假设此类型可）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 87: On parameter 'n' (int): 置为负无穷（假设此类型可）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 88: On parameter 'n' (int): 取平方
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 89: On parameter 'n' (int): 开平方（若为负取绝对值）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 90: On parameter 'n' (int): 取阶乘（若小整数如3）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+操作总数: 30
+独立MR总数: 30
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

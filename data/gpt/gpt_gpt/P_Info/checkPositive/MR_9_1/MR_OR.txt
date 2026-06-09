@@ -1,0 +1,25 @@
+int check(TestCase tc) {
+    // Source input
+    double* Ts = tc.a;
+    int n = tc.n;
+
+    // Source output
+    bool Os = checkPositive(Ts, n);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Follow-up output
+    bool Of = checkPositive(Tf_case.a, Tf_case.n);
+
+    // Verify metamorphic relation: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // Clean up dynamically allocated memory in Tf_case
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+        Tf_case.a = nullptr;
+    }
+
+    return is_valid;
+}

@@ -1,0 +1,17 @@
+TestCase change(TestCase tc) {
+    // Reuse the input test case
+    TestCase tf = tc;
+
+    // Find minimum value in work[begin ... end-1]
+    double min_val = tc.work[tc.begin];
+    for (int i = tc.begin + 1; i < tc.end; ++i) {
+        if (tc.work[i] < min_val) {
+            min_val = tc.work[i];
+        }
+    }
+
+    // Overwrite the element at pivot index with the minimum value
+    tf.work[tc.pivot] = min_val;
+
+    return tf;
+}

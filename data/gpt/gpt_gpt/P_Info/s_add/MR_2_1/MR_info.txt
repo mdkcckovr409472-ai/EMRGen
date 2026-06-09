@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains array1 (int[]), if the operation 「add 1 only to the first half of the elements」 is executed on array1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+For i in [0..n/2-1], Of[i] == Os[i] + 1 and For i in [n/2..n-1], Of[i] == Os[i]

@@ -1,0 +1,268 @@
+double quantile(double sortedElements[], double phi, int n) {      
+    double index = phi + (n - 1);
+    int lhs = (int) index;
+    double delta = index - lhs;
+    double result;
+    if (n == 0) {
+        return 0.0;
+    }
+    if (lhs == n - 1) {
+        result = sortedElements[lhs];
+    } else {
+        result = (1 - delta) * sortedElements[lhs] + delta * sortedElements[lhs + 1];
+    }
+    return result;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'sortedElements' (double*): 所有元素加1
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 2: On parameter 'sortedElements' (double*): 所有元素减1
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「所有元素减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 3: On parameter 'sortedElements' (double*): 所有元素乘2
+Invariant: 
+2 * return.result1 - return.result2 == 0
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'sortedElements' (double*): 所有元素除以2
+Invariant: 
+return.result1 - 2 * return.result2 == 0
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「所有元素除以2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'sortedElements' (double*): 随机两元素交换
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'sortedElements' (double*): 数组反转
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 8: On parameter 'sortedElements' (double*): 数组向右循环移位（末尾元素移到开头）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「数组向右循环移位（末尾元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 9: On parameter 'sortedElements' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 10: On parameter 'sortedElements' (double*): 对数组进行升序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「对数组进行升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'sortedElements' (double*): 对数组进行降序排序
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「对数组进行降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 13: On parameter 'sortedElements' (double*): 截取后一半元素（保留整数组长度不变）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「截取后一半元素（保留整数组长度不变）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 14: On parameter 'sortedElements' (double*): 元素平方
+Invariant: 
+return.result1 <= return.result2
+return.result2 == return.result1**2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+Of == Os**2
+
+----------------------------------------
+
+Operation 15: On parameter 'sortedElements' (double*): 元素开方
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「元素开方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 16: On parameter 'sortedElements' (double*): 取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 17: On parameter 'sortedElements' (double*): 随机位置元素加1
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「随机位置元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'sortedElements' (double*): 随机位置元素减1
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「随机位置元素减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'sortedElements' (double*): 随机位置元素乘2
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「随机位置元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 20: On parameter 'sortedElements' (double*): 随机位置元素除以2
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「随机位置元素除以2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'phi' (double): 除以2.0
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「除以2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'phi' (double): 置0.5
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「置0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'phi' (double): 取负数
+Invariant: 
+return.result1 + return.result2 == 0
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「取负数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+Operation 27: On parameter 'phi' (double): 平方
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'phi' (double): 开方
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「开方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 30: On parameter 'phi' (double): 取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'phi' (double): 取整操作
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「取整操作」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 34: On parameter 'phi' (double): 随机扰动加0.1
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「随机扰动加0.1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 35: On parameter 'phi' (double): 随机扰动减0.2
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「随机扰动减0.2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 27
+关系总数: 28

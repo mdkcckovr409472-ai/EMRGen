@@ -1,0 +1,33 @@
+int check(TestCase tc) {
+    // Source output Os
+    int* Os = dec(tc.array1, tc.array2, tc.n);
+
+    // Construct follow-up test case Tf
+    TestCase Tf = change(tc);
+
+    // Follow-up output Of
+    int* Of = dec(Tf.array1, Tf.array2, Tf.n);
+
+    // Calculate sum(array2)
+    long long sum_array2 = 0;
+    for (int i = 0; i < tc.n; ++i) {
+        sum_array2 += tc.array2[i];
+    }
+
+    // Verify Of == Os - sum(array2)
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; ++i) {
+        // Of[i] should be Os[i] - sum(array2)
+        if (Of[i] != Os[i] - sum_array2) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // Free dynamically allocated memory
+    free(Os);
+    free(Of);
+    free(Tf.array2);
+
+    return is_valid;
+}

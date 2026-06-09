@@ -1,0 +1,16 @@
+TestCase z32Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for sample2
+    double* follow_case_sample2 = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_sample2, t1.sample2, t1.n * sizeof(double));
+    follow_case.sample2 = follow_case_sample2;
+    // Defensive check for array length
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    // Subtract 2.5 from each element of sample2
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.sample2[i] -= 2.5;
+    }
+    return follow_case;
+}

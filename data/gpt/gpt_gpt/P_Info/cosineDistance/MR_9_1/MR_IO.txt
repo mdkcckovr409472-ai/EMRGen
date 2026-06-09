@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Modify p2 by setting all elements to 1
+    for(int i = 0; i < tf.n; i++) {
+        tf.p2[i] = 1.0;
+    }
+    return tf;
+}

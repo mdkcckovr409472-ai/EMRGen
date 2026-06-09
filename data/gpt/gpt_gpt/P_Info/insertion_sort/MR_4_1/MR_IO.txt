@@ -1,0 +1,19 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int* desc_array = (int*)malloc(tf.n * sizeof(int));
+        memcpy(desc_array, tf.array, tf.n * sizeof(int));
+        // Sort all elements in descending order
+        for(int i = 0; i < tf.n - 1; i++) {
+            for(int j = 0; j < tf.n - i - 1; j++) {
+                if(desc_array[j] < desc_array[j + 1]) {
+                    int temp = desc_array[j];
+                    desc_array[j] = desc_array[j + 1];
+                    desc_array[j + 1] = temp;
+                }
+            }
+        }
+        tf.array = desc_array;
+    }
+    return tf;
+}

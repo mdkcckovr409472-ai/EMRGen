@@ -1,0 +1,29 @@
+int z29check(double result1, double result2) {
+    // 1. 核心判断逻辑 (标量直接比较)
+    // 浮点数比较：移项后条件为 result1 == result2
+    // 提取左右操作数
+    double A = result1;
+    double B = result2;
+    
+    // 防御NaN
+    if (__builtin_isnan(A) || __builtin_isnan(B)) return 0;
+    
+    // 处理无穷大情况
+    if (__builtin_isinf(A) || __builtin_isinf(B)) {
+        if (A == B) return 1;
+        else return 0;
+    }
+    
+    // 定义基础容差
+    double epsilon = 1e-5;
+    // 计算动态容差
+    double tol = epsilon * __builtin_fmax(1.0, __builtin_fmax(__builtin_fabs(A), __builtin_fabs(B)));
+    
+    // 带容差的相等比较
+    if (__builtin_fabs(A - B) > tol) {
+        return 0;
+    }
+    
+    // 2. 满足条件，返回 1
+    return 1;
+}

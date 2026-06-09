@@ -1,0 +1,2 @@
+Operation 9: On parameter 'data' (double*): 所有元素取相反数
+Invariant: return.result2 % return.result1 == 0

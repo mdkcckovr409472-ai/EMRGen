@@ -1,0 +1,21 @@
+TestCase z33Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    follow_case.array1 = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case.array1, t1.array1, t1.n * sizeof(int));
+    // ------------------------------------
+
+    // Defensive code: ensure there is at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Apply cumulative product on array1
+    long long prod = 1;
+    for (int i = 0; i < follow_case.n; ++i) {
+        prod *= follow_case.array1[i];
+        follow_case.array1[i] = (int)prod;
+    }
+
+    return follow_case;
+}

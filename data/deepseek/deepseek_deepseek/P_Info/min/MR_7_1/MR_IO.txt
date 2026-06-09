@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int size = tf.n;
+    if (size > 0) {
+        double* sorted_elements = new double[size];
+        for (int i = 0; i < size; ++i) {
+            sorted_elements[i] = tf.elements[i];
+        }
+        for (int i = 0; i < size - 1; ++i) {
+            for (int j = 0; j < size - i - 1; ++j) {
+                if (sorted_elements[j] < sorted_elements[j + 1]) {
+                    double temp = sorted_elements[j];
+                    sorted_elements[j] = sorted_elements[j + 1];
+                    sorted_elements[j + 1] = temp;
+                }
+            }
+        }
+        tf.elements = sorted_elements;
+    }
+    return tf;
+}

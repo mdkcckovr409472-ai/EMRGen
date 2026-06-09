@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double m = 2.0; // 常数乘子，可根据需要调整
+    int n = tf.nc;
+    double* new_a = new double[n];
+    for (int i = 0; i < n; ++i) {
+        new_a[i] = m * tf.a[i];
+    }
+    tf.a = new_a;
+    return tf;
+}

@@ -1,0 +1,14 @@
+int check(TestCase tc) {
+    double Os = quantile(tc.sortedElements, tc.phi, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = quantile(Tf_case.sortedElements, Tf_case.phi, Tf_case.n);
+    double k = 10.0;
+    int is_valid = 0;
+    if (std::abs(Of - (Os + k)) < 1e-9) {
+        is_valid = 1;
+    }
+    if (Tf_case.sortedElements != nullptr && Tf_case.sortedElements != tc.sortedElements) {
+        delete[] Tf_case.sortedElements;
+    }
+    return is_valid;
+}

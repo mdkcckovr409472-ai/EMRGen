@@ -1,0 +1,98 @@
+double evaluateNewton(double a[], double c[], double z, int nc) {
+    int n = nc - 1;
+    double value = a[n];
+    for (int i = n - 1; i >= 0; i--) {
+        value = a[i] + (z - c[i]) * value;
+    }
+    return value;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (double*): 所有元素加1.0
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (double*): 所有元素乘2.0
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (double*): 所有元素减1.5
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素减1.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (double*): 所有元素除2.0
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素除2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (double*): 升序排序
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (double*): 前一半元素（若存在）加2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「前一半元素（若存在）加2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (double*): 后一半元素（若存在）减2.0
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「后一半元素（若存在）减2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 45: On parameter 'c' (double*): 升序排序
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含c（double*）的函数，若对 c执行「升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 9
+关系总数: 9

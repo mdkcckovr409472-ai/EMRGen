@@ -1,0 +1,21 @@
+TestCase z19Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Replace each element with its absolute value
+    for (int i = 0; i < follow_case.n; ++i) {
+        int val = follow_case.a[i];
+        follow_case.a[i] = (val < 0) ? -val : val;
+    }
+    
+    return follow_case;
+}

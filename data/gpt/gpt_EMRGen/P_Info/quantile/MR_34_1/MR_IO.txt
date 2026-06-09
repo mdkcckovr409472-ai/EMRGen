@@ -1,0 +1,6 @@
+TestCase z34Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Set phi to 0.0
+    follow_case.phi = 0.0;
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 39: On parameter 'elements' (double*): 数组所有元素除π
+Invariant: return.result1 > return.result2

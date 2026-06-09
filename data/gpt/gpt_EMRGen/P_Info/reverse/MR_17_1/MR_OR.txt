@@ -1,0 +1,23 @@
+#include <math.h>
+#include <stdbool.h>
+
+int z17check(int* result1, int* result2, int n) {
+    // 4a. Length validity check (FIRST)
+    if (n <= 0) return 1;
+    // 4b. Null pointer check (SECOND)
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    for (int i = 0; i < n; i++) {
+        int A = result1[i];
+        int B = result2[i];
+
+        // Lexicographical comparison for return.result1[] > return.result2[]
+        // Since data type is int*, no floating point tolerance needed
+
+        if (A > B) return 1;
+        else if (A < B) return 0;
+        // If equal, continue to next element
+    }
+    // Arrays are equal
+    return 0; // condition is strictly '>'
+}

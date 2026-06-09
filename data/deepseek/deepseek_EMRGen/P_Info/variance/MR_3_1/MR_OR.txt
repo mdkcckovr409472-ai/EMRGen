@@ -1,0 +1,38 @@
+#include <cmath>
+#include <cfloat>
+
+int z3check(double result1, double result2) {
+    // 浮点数比较的容差
+    const double epsilon = 1e-5;
+    
+    // 1. 代数移项：将 9 * result1 - result2 == 0 移项为 9 * result1 == result2
+    // 提取左右操作数，恢复真实量级
+    double A = 9.0 * result1;
+    double B = result2;
+    
+    // 2. 防御NaN
+    if (std::isnan(A) || std::isnan(B)) {
+        return 0;
+    }
+    
+    // 3. 处理无穷大（动态容差对Inf无效）
+    if (std::isinf(A) || std::isinf(B)) {
+        // 退化为精确数学比较
+        if (A == B) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    
+    // 4. 计算动态容差
+    double tol = epsilon * std::fmax(1.0, std::fmax(std::fabs(A), std::fabs(B)));
+    
+    // 5. 带容差的相等比较（移项后为 A == B）
+    if (std::fabs(A - B) > tol) {
+        return 0;
+    }
+    
+    // 6. 满足条件
+    return 1;
+}

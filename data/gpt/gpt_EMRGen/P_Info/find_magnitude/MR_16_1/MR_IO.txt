@@ -1,0 +1,23 @@
+TestCase z16Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code: ensure there are enough elements for a valid subarray (i < j)
+    if (follow_case.n < 3) {
+        // Not enough elements to have i < j within bounds, return unchanged copy
+        return follow_case;
+    }
+    
+    // Specific operation: replace subarray from index i to j with zeros (i < j)
+    int i = 1;                         // example start index
+    int j = follow_case.n - 2;         // example end index (ensures i < j and within bounds)
+    for (int k = i; k <= j; ++k) {
+        follow_case.a[k] = 0;
+    }
+    
+    return follow_case;
+}

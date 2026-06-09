@@ -1,0 +1,17 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int j = 0; // 选择索引 j，这里选择第一个元素作为示例
+    if (tf.n > j) {
+        // 为修改后的数组分配新内存
+        int* new_a = new int[tf.n];
+        // 复制原始数据
+        for (int i = 0; i < tf.n; i++) {
+            new_a[i] = tf.a[i];
+        }
+        // 执行操作：将索引 j 的元素修改为 lowerLim - 1
+        new_a[j] = tf.lowerLim - 1;
+        // 更新 tf 的 a 指针指向新数组
+        tf.a = new_a;
+    }
+    return tf;
+}

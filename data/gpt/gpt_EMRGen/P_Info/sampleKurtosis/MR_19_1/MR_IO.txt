@@ -1,0 +1,6 @@
+TestCase z19Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Apply floor operation to the target parameter
+    follow_case.moment4 = floor(follow_case.moment4);
+    return follow_case;
+}

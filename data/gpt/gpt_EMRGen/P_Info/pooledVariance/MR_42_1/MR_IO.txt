@@ -1,0 +1,24 @@
+TestCase z42Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for data2 (deep copy)
+    double* follow_case_data2 = (double*)malloc(t1.n2 * sizeof(double));
+    if (follow_case_data2 == nullptr) {
+        return follow_case;
+    }
+    memcpy(follow_case_data2, t1.data2, t1.n2 * sizeof(double));
+    follow_case.data2 = follow_case_data2;
+
+    // Defensive check: ensure there is at least one element to reverse
+    if (follow_case.n2 <= 0) {
+        return follow_case;
+    }
+
+    // Reverse the array data2 in place
+    for (int i = 0; i < follow_case.n2 / 2; ++i) {
+        double temp = follow_case.data2[i];
+        follow_case.data2[i] = follow_case.data2[follow_case.n2 - 1 - i];
+        follow_case.data2[follow_case.n2 - 1 - i] = temp;
+    }
+
+    return follow_case;
+}

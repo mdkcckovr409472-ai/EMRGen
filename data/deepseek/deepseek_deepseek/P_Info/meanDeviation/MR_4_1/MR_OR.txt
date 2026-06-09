@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.elements == nullptr) {
+        return 1;
+    }
+
+    double Os = meanDeviation(tc.elements, tc.mean, tc.n);
+
+    TestCase Tf_case = change(tc);
+
+    double Of = meanDeviation(Tf_case.elements, Tf_case.mean, Tf_case.n);
+
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (fabs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+
+    return is_valid;
+}

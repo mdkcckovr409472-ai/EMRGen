@@ -1,0 +1,2 @@
+Operation 33: On parameter 'key' (int): 取绝对值
+Invariant: return.result1 <= return.result2

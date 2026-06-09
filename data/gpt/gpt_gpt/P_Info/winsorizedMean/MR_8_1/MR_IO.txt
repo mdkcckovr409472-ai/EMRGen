@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    // Reuse input, create a new dynamically allocated array for circular shift
+    double* shifted_elements = new double[tc.n];
+    if (tc.n > 0) {
+        shifted_elements[0] = tc.elements[tc.n - 1];
+        for (int i = 1; i < tc.n; ++i) {
+            shifted_elements[i] = tc.elements[i - 1];
+        }
+    }
+
+    TestCase tf = tc;
+    tf.elements = shifted_elements;
+
+    return tf;
+}

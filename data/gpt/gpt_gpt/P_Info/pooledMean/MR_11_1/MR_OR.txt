@@ -1,0 +1,10 @@
+int check(TestCase tc) {
+    double Os = pooledMean(tc.data1, tc.data2, tc.n1, tc.n2);
+    TestCase Tf_case = change(tc);
+    double Of = pooledMean(Tf_case.data1, Tf_case.data2, Tf_case.n1, Tf_case.n2);
+    int is_valid = (Os == Of) ? 1 : 0;
+    if (Tf_case.data2 != tc.data2) {
+        delete[] Tf_case.data2;
+    }
+    return is_valid;
+}

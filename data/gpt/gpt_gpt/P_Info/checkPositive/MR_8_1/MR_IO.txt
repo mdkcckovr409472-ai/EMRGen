@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for sorting to not overwrite original input
+    double* sorted_array = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        sorted_array[i] = tf.a[i];
+    }
+    // Sort in ascending order
+    std::sort(sorted_array, sorted_array + tf.n);
+    tf.a = sorted_array;
+    return tf;
+}

@@ -1,0 +1,25 @@
+int check(TestCase tc) {
+    // (1) Extract the source input
+    double* Ts = tc.k;
+    int n = tc.n;
+    
+    // (2) Call the function under test to get the source output
+    double Os = entropy(Ts, n);
+    
+    // (3) Call change to construct follow-up test case
+    TestCase Tf_case = change(tc);
+    
+    // (4) Extract the follow-up input and get follow-up output
+    double* Tf = Tf_case.k;
+    double Of = entropy(Tf, n);
+    
+    // (5) Verify Os == Of according to MR
+    // Use a tolerance for floating point comparison
+    double epsilon = 1e-12;
+    int is_valid = (fabs(Os - Of) < epsilon) ? 1 : 0;
+    
+    // (6) No dynamic memory allocated in change(), so no deallocation required here
+    
+    // (7) Return verification result
+    return is_valid;
+}

@@ -1,0 +1,19 @@
+TestCase z15Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+
+    // 这是根据规则6a生成的防御性代码，防止n<1时出错
+    if (follow_case.n > 0) {
+        // 这是根据规则5生成的具体操作代码
+        int first_element = follow_case.a[0];
+        for (int i = 0; i < follow_case.n - 1; i++) {
+            follow_case.a[i] = follow_case.a[i + 1];
+        }
+        follow_case.a[follow_case.n - 1] = first_element;
+    }
+
+    return follow_case;}

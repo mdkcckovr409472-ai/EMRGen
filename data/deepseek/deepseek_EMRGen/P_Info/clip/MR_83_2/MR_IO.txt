@@ -1,0 +1,9 @@
+TestCase z83Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 根据规则5生成的具体操作代码
+// 减一个随机小偏移（如-5）
+// 这里使用固定偏移-5作为示例
+follow_case.upperLim = follow_case.upperLim - 5;
+
+return follow_case;}

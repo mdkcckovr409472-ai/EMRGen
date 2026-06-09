@@ -1,0 +1,2 @@
+Operation 22: On parameter 'a' (int*): 将数组中第一个大于50的元素（如果存在）置为0
+Invariant: return.result1 >= return.result2

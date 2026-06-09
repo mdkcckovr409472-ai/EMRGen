@@ -1,0 +1,13 @@
+TestCase z42Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    // 条件判断：目标参数 lowerLim 不是数组类型，因此不执行 malloc 和 memcpy 操作。
+    // ------------------------------------
+    
+    // 这是根据规则5生成的具体操作代码
+    // 取绝对值操作不涉及数组访问，因此无需边界检查。
+    if (follow_case.lowerLim < 0) {
+        follow_case.lowerLim = -follow_case.lowerLim;
+    }
+    
+    return follow_case;}

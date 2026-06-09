@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double* newExpected = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        newExpected[i] = tc.expected[i] * 2.0;
+    }
+    tf.expected = newExpected;
+    return tf;
+}

@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double d = 2.0; // 选择一个非零实数，例如 2.0
+    if (tf.data != nullptr && tf.n > 0) {
+        for (int i = 0; i < tf.n; i++) {
+            tf.data[i] = tf.data[i] / d;
+        }
+    }
+    return tf;
+}

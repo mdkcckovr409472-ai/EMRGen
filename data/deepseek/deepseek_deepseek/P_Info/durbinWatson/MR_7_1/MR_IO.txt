@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double epsilon = 0.001;
+    for (int i = 0; i < tf.n; ++i) {
+        tf.elements[i] = tc.elements[i] + epsilon;
+    }
+    return tf;
+}

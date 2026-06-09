@@ -1,0 +1,16 @@
+TestCase z16Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling code
+    double* follow_case_data1 = (double*)malloc(t1.n1 * sizeof(double));
+    memcpy(follow_case_data1, t1.data1, t1.n1 * sizeof(double));
+    follow_case.data1 = follow_case_data1;
+    // Defensive check
+    if (follow_case.n1 > 0) {
+        for (int i = 0; i < follow_case.n1 / 2; ++i) {
+            double temp = follow_case.data1[i];
+            follow_case.data1[i] = follow_case.data1[follow_case.n1 - 1 - i];
+            follow_case.data1[follow_case.n1 - 1 - i] = temp;
+        }
+    }
+    return follow_case;
+}

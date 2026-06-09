@@ -1,0 +1,12 @@
+TestCase z3Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    double* follow_case_arr = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_arr, t1.arr, t1.n * sizeof(double));
+    follow_case.arr = follow_case_arr;
+    // ------------------------------------
+    
+    // 这是根据规则5生成的具体操作代码
+    follow_case.val = follow_case.val * 2.0;
+    
+    return follow_case;}

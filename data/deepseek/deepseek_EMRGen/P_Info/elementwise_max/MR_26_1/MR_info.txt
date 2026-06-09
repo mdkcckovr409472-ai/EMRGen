@@ -1,0 +1,2 @@
+Operation 26: On parameter 'a' (int*): 将所有负数元素乘-2
+Invariant: return.result1[] <= return.result2[] (elementwise)

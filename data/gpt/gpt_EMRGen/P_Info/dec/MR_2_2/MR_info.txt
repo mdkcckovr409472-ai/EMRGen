@@ -1,0 +1,2 @@
+Operation 2: On parameter 'array1' (array[int]): subtract 5 from all elements
+Invariant: return.result1[] > return.result2[] (elementwise)

@@ -1,0 +1,35 @@
+int check(TestCase tc) {
+    if (!tc.array1 || !tc.array2 || tc.n <= 0) return 0;
+
+    // (2) Call function under test with source input (Os)
+    int* Os = dec(tc.array1, tc.array2, tc.n);
+    if (!Os) return 0;
+
+    // (3) Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // (4) Call function under test with follow-up input (Of)
+    int* Of = dec(Tf_case.array1, Tf_case.array2, Tf_case.n);
+    if (!Of) {
+        free(Os);
+        if (Tf_case.array1 != tc.array1) free(Tf_case.array1);
+        return 0;
+    }
+
+    // (5) Verify metamorphic relation Os == Of
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        if (Os[i] != Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // (6) Free dynamic memory
+    free(Os);
+    free(Of);
+    if (Tf_case.array1 != tc.array1) free(Tf_case.array1);
+
+    // (7) Return verification result
+    return is_valid;
+}

@@ -1,0 +1,25 @@
+int check(TestCase tc) {
+    double* Os = calculateAbsoluteDifferences(tc.z, tc.n);
+    if (Os == NULL && tc.n != 0) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    double* Of = calculateAbsoluteDifferences(Tf_case.z, Tf_case.n);
+    if (Of == NULL && Tf_case.n != 0) {
+        free(Os);
+        return 0;
+    }
+
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        if (Os[i] != Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    free(Os);
+    free(Of);
+    return is_valid;
+}

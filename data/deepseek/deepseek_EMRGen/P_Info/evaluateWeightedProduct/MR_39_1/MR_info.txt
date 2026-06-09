@@ -1,0 +1,2 @@
+Operation 39: On parameter 'weights' (double*): 所有元素加上自身（即乘2.0）
+Invariant: return.result2 == return.result1**2

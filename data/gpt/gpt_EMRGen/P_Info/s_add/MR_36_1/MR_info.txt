@@ -1,0 +1,2 @@
+Operation 36: On parameter 'array2' (int[]): set random element to 255 (when element < 255)
+Invariant: return.result1[] <= return.result2[] (elementwise)

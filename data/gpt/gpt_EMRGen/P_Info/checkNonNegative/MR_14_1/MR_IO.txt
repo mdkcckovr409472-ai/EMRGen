@@ -1,0 +1,22 @@
+TestCase z14Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_a = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(double));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n == 0
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Specific operation code: replace a random element with its reciprocal (when element ≠ 0)
+    int random_index = rand() % follow_case.n;
+    double value = follow_case.a[random_index];
+    if (value != 0.0) {
+        follow_case.a[random_index] = 1.0 / value;
+    }
+    
+    return follow_case;
+}

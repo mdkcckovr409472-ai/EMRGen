@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Set all elements of z to 0 for follow-up input
+    for (int i = 0; i < tf.n; i++) {
+        tf.z[i] = 0.0;
+    }
+    return tf;
+}

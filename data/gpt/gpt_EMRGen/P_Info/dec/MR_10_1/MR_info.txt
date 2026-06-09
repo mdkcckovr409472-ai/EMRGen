@@ -1,0 +1,2 @@
+Operation 10: On parameter 'array1' (array[int]): replace element at index i with its negative (when element > 0)
+Invariant: return.result1[] >= return.result2[] (elementwise)

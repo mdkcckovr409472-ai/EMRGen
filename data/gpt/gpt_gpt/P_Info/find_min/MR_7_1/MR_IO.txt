@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    // Reuse the original TestCase struct
+    TestCase tf = tc;
+    // Allocate new array for descending order
+    int* new_a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_a[i] = tc.a[i];
+    }
+    // Sort in descending order
+    for (int i = 0; i < tc.n - 1; i++) {
+        for (int j = i + 1; j < tc.n; j++) {
+            if (new_a[i] < new_a[j]) {
+                int temp = new_a[i];
+                new_a[i] = new_a[j];
+                new_a[j] = temp;
+            }
+        }
+    }
+    tf.a = new_a;  // overwrite the pointer to the new descending sorted array
+    return tf;
+}

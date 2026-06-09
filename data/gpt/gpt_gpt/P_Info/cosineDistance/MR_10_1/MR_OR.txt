@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    // Call target function on source input
+    double Os = cosineDistance(tc.p1, tc.p2, tc.n);
+
+    // Generate follow-up test case
+    TestCase Tf_case = change(tc);
+
+    double Of = cosineDistance(Tf_case.p1, Tf_case.p2, Tf_case.n);
+
+    // Verify the MR: Os != Of
+    int is_valid = (Os != Of) ? 1 : 0;
+
+    // No dynamic memory allocation in change(), so no freeing required
+
+    return is_valid;
+}

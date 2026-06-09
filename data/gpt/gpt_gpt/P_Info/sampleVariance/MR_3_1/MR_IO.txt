@@ -1,0 +1,20 @@
+TestCase change(TestCase tc) {
+    // Reuse the same elements pointer, sort the elements in descending order in place
+    double* arr = tc.elements;
+    int size = tc.n;
+    // Simple in-place sort descending (e.g. std::sort with custom comparator)
+    // Since only standard C++ code, implement a simple bubble sort descending
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - 1 - i; j++) {
+            if (arr[j] < arr[j + 1]) {
+                double tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+            }
+        }
+    }
+    // Construct tf with the same pointer but array now sorted descending
+    TestCase tf = tc;
+    // elements pointer reused but content reordered
+    return tf;
+}

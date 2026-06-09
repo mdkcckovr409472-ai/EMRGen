@@ -1,0 +1,5 @@
+[Operation]
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将最后一个元素修改为k」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+
+[Invariant]
+Os <= Of

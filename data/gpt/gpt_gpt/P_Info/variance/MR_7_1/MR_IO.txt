@@ -1,0 +1,20 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for the array to avoid modifying the original input (adhere to test reuse principle by overwriting tf.x)
+    double* new_arr = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_arr[i] = tc.x[i];
+    }
+    // Sort in descending order
+    for (int i = 0; i < tc.n - 1; i++) {
+        for (int j = i + 1; j < tc.n; j++) {
+            if (new_arr[i] < new_arr[j]) {
+                double tmp = new_arr[i];
+                new_arr[i] = new_arr[j];
+                new_arr[j] = tmp;
+            }
+        }
+    }
+    tf.x = new_arr;
+    return tf;
+}

@@ -1,0 +1,2 @@
+Operation 45: On parameter 'left' (int): set left to left * 0 (result 0)
+Invariant: return.result1 >= return.result2

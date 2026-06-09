@@ -1,0 +1,21 @@
+TestCase z34Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for theWeights
+    double* follow_case_theWeights = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_theWeights, t1.theWeights, t1.n * sizeof(double));
+    follow_case.theWeights = follow_case_theWeights;
+
+    // Defensive check for array length
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Operation: divide non‑zero weights by 2.0
+    for (int i = 0; i < follow_case.n; ++i) {
+        if (follow_case.theWeights[i] != 0.0) {
+            follow_case.theWeights[i] = follow_case.theWeights[i] / 2.0;
+        }
+    }
+
+    return follow_case;
+}

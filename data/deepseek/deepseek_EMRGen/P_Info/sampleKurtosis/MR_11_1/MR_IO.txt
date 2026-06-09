@@ -1,0 +1,8 @@
+TestCase z11Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // 这是根据规则5生成的具体操作代码
+    follow_case.moment4 = fabs(follow_case.moment4);
+
+    return follow_case;
+}

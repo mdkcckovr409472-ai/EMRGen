@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for a copy of data1 to sort it in descending order
+    double* sortedData1 = new double[tf.n1];
+    for (int i = 0; i < tf.n1; ++i) {
+        sortedData1[i] = tf.data1[i];
+    }
+    // Sort in descending order using std::sort with a custom comparator
+    std::sort(sortedData1, sortedData1 + tf.n1, [](double a, double b) { return a > b; });
+    tf.data1 = sortedData1;
+    return tf;
+}

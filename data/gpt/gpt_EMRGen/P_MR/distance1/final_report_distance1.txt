@@ -1,0 +1,25 @@
+double distance1(double p1[], double p2[], int n) {
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += abs(p1[i] - p2[i]);
+    }
+    return sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'p1' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 1
+关系总数: 1

@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n <= 1 || tf.x == nullptr) {
+        return tf;
+    }
+    int m = 1; // 循环左移1个位置
+    double* new_x = new double[tf.n];
+    for (int i = 0; i < tf.n; ++i) {
+        new_x[i] = tf.x[(i + m) % tf.n];
+    }
+    tf.x = new_x;
+    return tf;
+}

@@ -1,0 +1,110 @@
+double sumOfPowerOfDeviations(double data[], int k, double c, int n) {
+    double sum = 0;
+    for(int i = 0; i < n; i++) {
+        sum += pow(data[i] - c, k);
+        }
+    return sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「add 1 to all elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「subtract 1 from all elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「multiply all elements by 2」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「multiply all elements by -1」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of when k is even ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「divide all elements by 2 (assuming no element is zero)」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set all elements to 0」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set all elements to 1」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == n * pow(1 - c, k) ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「reverse the entire array」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「sort the array in ascending order」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「sort the array in descending order」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「circular right shift of array elements by 1 position」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set the first element to the maximum value in data」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set the last element to the minimum value in data」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains k (int), if the operation 「add 1 to k」 is executed on k to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains k (int), if the operation 「multiply k by 2」 is executed on k to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains k (int), if the operation 「set k to 0」 is executed on k to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == n ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains c (double), if the operation 「add 1 to c」 is executed on c to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains c (double), if the operation 「subtract 1 from c」 is executed on c to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains c (double), if the operation 「multiply c by 2」 is executed on c to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+操作总数: 19
+关系总数: 19

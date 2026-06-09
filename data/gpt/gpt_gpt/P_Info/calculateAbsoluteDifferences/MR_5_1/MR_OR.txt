@@ -1,0 +1,49 @@
+int check(TestCase tc) {
+    double* Os = NULL;
+    double* Of = NULL;
+    int n = tc.n;
+    if (n == 0) {
+        // For empty input, no meaningful MR check needed
+        return 1;
+    }
+
+    Os = calculateAbsoluteDifferences(tc.z, n);
+    if (!Os) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    if (Tf_case.n != n || Tf_case.z == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    Of = calculateAbsoluteDifferences(Tf_case.z, n);
+    if (!Of) {
+        free(Os);
+        if (Tf_case.z != tc.z) free(Tf_case.z);
+        return 0;
+    }
+
+    // Check MR:
+    // Of[0] >= 0 and Of[i] == Os[i] for i > 0
+    int is_valid = 1;
+    if (Of[0] < 0) {
+        is_valid = 0;
+    } else {
+        for (int i = 1; i < n; i++) {
+            if (Of[i] != Os[i]) {
+                is_valid = 0;
+                break;
+            }
+        }
+    }
+
+    free(Os);
+    free(Of);
+    if (Tf_case.z != tc.z) {
+        free(Tf_case.z);
+    }
+
+    return is_valid;
+}

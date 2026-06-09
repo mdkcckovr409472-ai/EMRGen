@@ -1,0 +1,2 @@
+Operation 65: On parameter 'upperLim' (int): set to INT_MAX
+Invariant: return.result1[] <= return.result2[] (elementwise)

@@ -1,0 +1,2 @@
+Operation 42: On parameter 'b' (int*): add 10 to every element
+Invariant: return.result1[] > return.result2[] (elementwise)

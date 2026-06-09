@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        // Allocate new array2 for tf to avoid modifying original array2
+        int* new_array2 = (int*)malloc(tf.n * sizeof(int));
+        memcpy(new_array2, tf.array2, tf.n * sizeof(int));
+        new_array2[0] = INT_MAX;
+        tf.array2 = new_array2;
+    }
+    return tf;
+}

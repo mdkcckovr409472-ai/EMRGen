@@ -1,0 +1,22 @@
+TestCase z21Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_values = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_values, t1.values, t1.n * sizeof(int));
+    follow_case.values = follow_case_values;
+    // ------------------------------------
+    
+    // Defensive check: need at least 1 element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Set a random element to its square (when result fits in int)
+    int idx = rand() % follow_case.n;
+    long long sq = 1LL * follow_case.values[idx] * follow_case.values[idx];
+    if (sq <= 2147483647LL && sq >= -2147483648LL) {
+        follow_case.values[idx] = (int)sq;
+    }
+    
+    return follow_case;
+}

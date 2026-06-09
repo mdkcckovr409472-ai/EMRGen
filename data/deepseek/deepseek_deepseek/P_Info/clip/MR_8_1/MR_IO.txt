@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int k = 10;
+    tf.lowerLim = tc.lowerLim - k;
+    return tf;
+}

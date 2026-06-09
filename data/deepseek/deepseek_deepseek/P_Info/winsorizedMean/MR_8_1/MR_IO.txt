@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.left > 0) {
+        tf.left = tf.left - 1;
+    }
+    return tf;
+}

@@ -1,0 +1,10 @@
+int check(TestCase tc) {
+    int Os = count_k(tc.a, tc.k, tc.n);
+    TestCase tf = change(tc);
+    int Of = count_k(tf.a, tf.k, tf.n);
+    int is_valid = (Os == Of) ? 1 : 0;
+    if (tf.a != tc.a) {
+        delete[] tf.a;
+    }
+    return is_valid;
+}

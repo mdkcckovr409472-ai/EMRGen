@@ -1,0 +1,2 @@
+Operation 12: On parameter 'list' (int*): square element at random index
+Invariant: return.result1[] <= return.result2[] (elementwise)

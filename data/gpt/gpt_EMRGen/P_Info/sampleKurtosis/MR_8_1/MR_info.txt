@@ -1,0 +1,2 @@
+Operation 8: On parameter 'moment4' (double): set to maximum double (1.7976931348623157e308)
+Invariant: return.result1 < return.result2

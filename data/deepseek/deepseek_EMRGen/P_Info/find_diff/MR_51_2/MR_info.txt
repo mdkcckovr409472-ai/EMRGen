@@ -1,0 +1,2 @@
+Operation 51: On parameter 'b' (int*): 所有奇数位置元素减5
+Invariant: return.result1[][0..0] == return.result2[][0..0] (elementwise)

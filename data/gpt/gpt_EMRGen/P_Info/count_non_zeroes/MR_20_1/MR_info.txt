@@ -1,0 +1,2 @@
+Operation 20: On parameter 'a' (array[int]): set elements at even indices to absolute value
+Invariant: return.result1 == return.result2

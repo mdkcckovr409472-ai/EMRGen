@@ -1,0 +1,23 @@
+double errorRate(double labels[], double predictions[], int n) {
+    double nberrors = 0;
+    double datasize = 0;
+    for (int index = 0; index < n; index++) {
+        if (predictions[index] == -1) {
+            continue;
+        }
+        if (predictions[index] != labels[index]) {
+            nberrors++;
+        }
+        datasize++;
+    }
+    return nberrors / datasize;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+
+操作总数: 0
+关系总数: 0

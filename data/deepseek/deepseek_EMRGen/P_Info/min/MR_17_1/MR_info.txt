@@ -1,0 +1,2 @@
+Operation 17: On parameter 'elements' (double*): 随机位置元素置无穷大（INFINITY）
+Invariant: return.result1 <= return.result2

@@ -1,0 +1,2 @@
+Operation 28: On parameter 'elements' (array[double]): apply natural logarithm to all positive elements (when element > 0)
+Invariant: return.result1 >= return.result2

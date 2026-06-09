@@ -1,0 +1,35 @@
+double evaluateWeightedProduct( double values[],  double weights[],  int begin, int lengths, int n) {
+    double product = 1.0;
+     
+    for (int i = begin; i < begin + lengths; i++) {
+        product *= pow(values[i], weights[i]);
+    }
+    return product;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 21: On parameter 'values' (array[double]): clip all elements to a minimum of -5.0 (if element < -5 set to -5)
+Invariant: 
+return.result2 == return.result1 ✗
+
+MR ：对于初始输入Ts中包含values（array[double]）的函数，若对 values执行「clip all elements to a minimum of -5.0 (if element < -5 set to -5)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Of == Os
+
+----------------------------------------
+
+Operation 54: On parameter 'weights' (array[double]): clip all elements to a maximum of 5.0 (if element > 5 set to 5)
+Invariant: 
+return.result2 == return.result1 ✗
+
+MR ：对于初始输入Ts中包含weights（array[double]）的函数，若对 weights执行「clip all elements to a maximum of 5.0 (if element > 5 set to 5)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Of == Os
+
+----------------------------------------
+
+
+操作总数: 2
+关系总数: 2

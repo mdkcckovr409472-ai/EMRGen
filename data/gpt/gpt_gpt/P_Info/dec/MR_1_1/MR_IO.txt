@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for reversed array1
+    int* rev_array1 = (int*)malloc(tc.n * sizeof(int));
+    for (int i = 0; i < tc.n; i++) {
+        rev_array1[i] = tc.array1[tc.n - 1 - i];
+    }
+    tf.array1 = rev_array1;
+    return tf;
+}

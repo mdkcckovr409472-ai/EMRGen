@@ -1,0 +1,2 @@
+Operation 6: On parameter 'elements' (array[double]): set all elements to DBL_MAX
+Invariant: return.result1 < return.result2

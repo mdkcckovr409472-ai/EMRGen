@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = variance(tc.x, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = variance(Tf_case.x, Tf_case.n);
+    int is_valid = 0;
+    double c = 2.0;
+    if (fabs(c * c * Os - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.x;
+    return is_valid;
+}

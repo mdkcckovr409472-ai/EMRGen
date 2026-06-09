@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    auto Os = geometric_mean(tc.a, tc.n);
+    TestCase Tf_case = change(tc);
+    auto Of = geometric_mean(Tf_case.a, Tf_case.n);
+    int is_valid = 0;
+    if (Of >= Os) {
+        is_valid = 1;
+    }
+    // No dynamic memory allocation in change() or check(), no cleanup needed
+    return is_valid;
+}

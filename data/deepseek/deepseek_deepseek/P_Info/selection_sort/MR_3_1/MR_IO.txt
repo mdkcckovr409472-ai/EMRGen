@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* sorted_list = selection_sort(tc.list, tc.n);
+    tf.list = sorted_list;
+    return tf;
+}

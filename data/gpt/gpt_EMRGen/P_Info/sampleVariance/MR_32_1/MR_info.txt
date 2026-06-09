@@ -1,0 +1,2 @@
+Operation 32: On parameter 'mean' (double): set to 0.0 (when mean != 0)
+Invariant: return.result1 <= return.result2

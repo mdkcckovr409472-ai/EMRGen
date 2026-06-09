@@ -1,0 +1,2 @@
+Operation 23: On parameter 'a' (int*): 将元素替换为其与10的最小值
+Invariant: return.result1[] >= return.result2[] (elementwise)

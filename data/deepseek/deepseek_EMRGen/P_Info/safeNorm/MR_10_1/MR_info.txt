@@ -1,0 +1,2 @@
+Operation 10: On parameter 'v' (double*): 所有元素加自身（即乘2）
+Invariant: 2 * return.result1 - return.result2 == 0

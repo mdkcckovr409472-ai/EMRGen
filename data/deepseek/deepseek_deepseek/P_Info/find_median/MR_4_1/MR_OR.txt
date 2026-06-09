@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    int* original_arr_copy = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        original_arr_copy[i] = tc.a[i];
+    }
+    double Os = find_median(original_arr_copy, tc.n);
+    delete[] original_arr_copy;
+
+    TestCase Tf_case = change(tc);
+    double Of = find_median(Tf_case.a, Tf_case.n);
+
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+
+    delete[] Tf_case.a;
+    return is_valid;
+}

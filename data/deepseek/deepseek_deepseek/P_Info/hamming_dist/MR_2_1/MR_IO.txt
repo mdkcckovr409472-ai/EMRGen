@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int index = rand() % tf.n;
+        int d = (rand() % 2 == 0) ? 1 : -1;
+        tf.b = new int[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            tf.b[i] = tc.b[i];
+        }
+        tf.b[index] += d;
+    }
+    return tf;
+}

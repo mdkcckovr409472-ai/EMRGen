@@ -1,0 +1,36 @@
+#include <cmath>
+#include <cfloat>
+
+int z26check(double result1, double result2) {
+    // 1. 防御性编程 (标量版本无需空指针和长度检查)
+    // 2. 核心判断逻辑 (标量直接比较)
+    
+    // 提取移项后的操作数 A 和 B
+    // 条件: result1 == result2
+    // 移项后: result1 == result2 (已满足两侧分布)
+    double A = result1;
+    double B = result2;
+    
+    // 第三步：防御NaN，处理Inf
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    
+    // 处理无穷大情况
+    if (std::isinf(A) || std::isinf(B)) {
+        // 无穷大时退化为数学直接比较
+        if (A == B) return 1;
+        else return 0;
+    }
+    
+    // 第四步：计算动态容差
+    double epsilon = 1e-5;
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 第五步：带容差的相等判定
+    // 移项后的条件是相等 (==)
+    if (fabs(A - B) > tol) {
+        return 0;
+    }
+    
+    // 3. 满足条件，返回 1
+    return 1;
+}

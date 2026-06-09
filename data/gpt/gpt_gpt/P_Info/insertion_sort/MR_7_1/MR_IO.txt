@@ -1,0 +1,17 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int min_val = tf.array[0];
+        for (int i = 1; i < tf.n; i++) {
+            if (tf.array[i] < min_val) {
+                min_val = tf.array[i];
+            }
+        }
+        // Allocate new array and copy original to reuse memory principle
+        int* new_array = (int*)malloc(tf.n * sizeof(int));
+        memcpy(new_array, tf.array, tf.n * sizeof(int));
+        new_array[tf.n - 1] = min_val;
+        tf.array = new_array;
+    }
+    return tf;
+}

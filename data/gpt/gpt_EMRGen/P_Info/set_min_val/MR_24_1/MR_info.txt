@@ -1,0 +1,2 @@
+Operation 24: On parameter 'a' (array[int]): set the first element to INT_MAX (if array not empty)
+Invariant: return.result1[] <= return.result2[] (elementwise)

@@ -1,0 +1,2 @@
+Operation 26: On parameter 'a' (array[int]): set each element to its absolute value
+Invariant: return.result1 <= return.result2

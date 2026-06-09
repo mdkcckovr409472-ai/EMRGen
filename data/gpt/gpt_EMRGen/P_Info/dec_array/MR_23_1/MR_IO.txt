@@ -1,0 +1,18 @@
+TestCase z23Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: ensure array has at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Operation: copy the first element's value to a random position
+    int rand_idx = rand() % follow_case.n;  // n > 0 guarantees no division by zero
+    follow_case.a[rand_idx] = follow_case.a[0];
+
+    return follow_case;
+}

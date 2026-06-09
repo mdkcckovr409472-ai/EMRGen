@@ -1,0 +1,16 @@
+int z53check(int* result1, int* result2, int n) {
+    // 1. 防御性编程 (空指针与长度检查)
+    if (result1 == NULL || result2 == NULL) return 0;
+    if (n <= 0) return 1;
+
+    // 2. 核心判断逻辑 (elementwise)
+    // 条件为 result1[][0..0] == result2[][0..0] (elementwise)
+    // 切片标识为 [0..0]，表示仅比较索引 0 处的单个元素。
+    // 因此不使用循环，直接进行单次判断。
+    if (!(result1[0] == result2[0])) {
+        return 0; // 一旦违反条件，立即返回 0
+    }
+
+    // 3. 全部满足，返回 1
+    return 1;
+}

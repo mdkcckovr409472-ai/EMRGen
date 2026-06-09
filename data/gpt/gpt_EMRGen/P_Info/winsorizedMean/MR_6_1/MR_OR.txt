@@ -1,0 +1,23 @@
+#include <math.h>
+#include <stdbool.h>
+
+int z6check(double result1, double result2) {
+    // Core evaluation logic (direct scalar comparison)
+
+    double epsilon = 1e-5;
+
+    double A = result1;
+    double B = result2;
+
+    if (isnan(A) || isnan(B)) return 0;
+    if (isinf(A) || isinf(B)) {
+        if (A >= B) return 1;
+        else return 0;
+    }
+
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    if (A < B - tol) return 0;
+
+    return 1;
+}

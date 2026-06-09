@@ -1,0 +1,112 @@
+int find_max2(int a[], int n) {
+    int max = a[0] + a[1];
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] + a[i + 1] > max) {
+            max = a[i] + a[i + 1];
+        }
+        continue;
+    }
+    return max;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[int]): 所有元素加1
+Invariant:
+return.result1 - return.result2 + 2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[int]): 所有元素乘2
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (array[int]): 所有元素减3
+Invariant:
+return.result1 - return.result2 - 6 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (array[int]): 随机位置置为999(当元素小于999时)
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (array[int]): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (array[int]): 数组升序排序
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): 数组降序排序
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (array[int]): 偶数索引元素加1
+Invariant:
+return.result1 - return.result2 + 1 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): 所有元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): 随机位置元素开平方
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (array[int]): 将最大元素复制到一半位置
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (array[int]): 将最小元素复制到另一半位置
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (array[int]): 将所有负数置为0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (array[int]): 数组前一半与后一半交换
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (array[int]): 所有元素加其索引值
+Invariant:
+return.result1 < return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+操作总数: 15
+独立MR总数: 15
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

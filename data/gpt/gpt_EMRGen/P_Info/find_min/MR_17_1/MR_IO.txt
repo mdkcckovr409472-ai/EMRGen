@@ -1,0 +1,23 @@
+TestCase z17Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 2
+    if (follow_case.n < 2) {
+        // Not enough elements to perform a swap, return replica directly
+        return follow_case;
+    }
+    
+    // Specific operation code: swap two random elements
+    int idx1 = rand() % follow_case.n;
+    int idx2 = rand() % follow_case.n;
+    int temp = follow_case.a[idx1];
+    follow_case.a[idx1] = follow_case.a[idx2];
+    follow_case.a[idx2] = temp;
+    
+    return follow_case;
+}

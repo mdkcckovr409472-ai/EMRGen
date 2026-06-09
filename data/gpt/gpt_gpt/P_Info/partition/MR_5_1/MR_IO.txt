@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc; 
+    // Find the maximum value in the work array between begin and end
+    double max_val = tf.work[tf.begin];
+    for (int i = tf.begin + 1; i < tf.end; ++i) {
+        if (tf.work[i] > max_val) {
+            max_val = tf.work[i];
+        }
+    }
+    // Set the element at pivot index to the maximum value
+    tf.work[tf.pivot] = max_val;
+    return tf;
+}

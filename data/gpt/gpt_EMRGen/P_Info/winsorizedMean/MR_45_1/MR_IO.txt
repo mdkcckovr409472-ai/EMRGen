@@ -1,0 +1,8 @@
+TestCase z45Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Operation: set left to left * 0
+    follow_case.left = follow_case.left * 0;
+
+    return follow_case;
+}

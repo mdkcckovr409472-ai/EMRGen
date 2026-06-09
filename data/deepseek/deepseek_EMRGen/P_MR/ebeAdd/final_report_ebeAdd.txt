@@ -1,0 +1,208 @@
+double* ebeAdd(double a[], double b[], int n1, int n2) {
+    if (n1 != n2) {
+        return NULL; 
+    }
+
+    double* result = (double*)malloc(n1 * sizeof(double));
+    if (result == NULL) {
+        return NULL;  
+    }
+
+    for (int i = 0; i < n1; i++) {
+        result[i] = a[i] + b[i];  
+    }
+
+
+   return result;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (double*): 所有元素加1.0
+Invariant: 
+return.result1[] - return.result2[] + 1 == 0 ✓ ○
+return.result1[] < return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 1 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (double*): 所有元素减2.5
+Invariant: 
+2 * return.result1[] - 2 * return.result2[] - 5 == 0 ✓ ○
+return.result1[] > return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素减2.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - 2 * Of[] - 5 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (double*): 数组升序排序
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (double*): 数组降序排序
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (double*): 随机重排序
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (double*): 元素取绝对值
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (double*): 元素加随机扰动（±0.1）
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「元素加随机扰动（±0.1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (double*): 子数组（前n1/2个元素）加10.0
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「子数组（前n1/2个元素）加10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (double*): 注入特殊值正无穷
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「注入特殊值正无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (double*): 注入特殊值负无穷
+Invariant: 
+return.result1[] > return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「注入特殊值负无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 29: On parameter 'b' (double*): 所有元素加0.5
+Invariant: 
+2 * return.result1[] - 2 * return.result2[] + 1 == 0 ✓ ○
+return.result1[] < return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素加0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - 2 * Of[] + 1 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 30: On parameter 'b' (double*): 所有元素减1.5
+Invariant: 
+2 * return.result1[] - 2 * return.result2[] - 3 == 0 ✓ ○
+return.result1[] > return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素减1.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - 2 * Of[] - 3 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 40: On parameter 'b' (double*): 数组升序排序
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 41: On parameter 'b' (double*): 数组降序排序
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 45: On parameter 'b' (double*): 元素取绝对值
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 48: On parameter 'b' (double*): 元素加随机扰动（±0.05）
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「元素加随机扰动（±0.05）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 49: On parameter 'b' (double*): 子数组（前n2/2个元素）减5.0
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「子数组（前n2/2个元素）减5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 55: On parameter 'b' (double*): 注入特殊值正无穷
+Invariant: 
+return.result1[] < return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「注入特殊值正无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 56: On parameter 'b' (double*): 注入特殊值负无穷
+Invariant: 
+return.result1[] > return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「注入特殊值负无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+
+
+操作总数: 20
+关系总数: 24

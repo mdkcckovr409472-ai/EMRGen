@@ -1,0 +1,2 @@
+Operation 16: On parameter 'a' (int*): set last element to maximum int value
+Invariant: return.result1[] <= return.result2[] (elementwise)

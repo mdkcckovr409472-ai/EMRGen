@@ -1,0 +1,97 @@
+int find_max2(int a[], int n) {
+    int max = a[0] + a[1];
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] + a[i + 1] > max) {
+            max = a[i] + a[i + 1];
+        }
+    }
+    return max;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「add 1 to all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「subtract 1 from all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「multiply all elements by 2」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+2 * Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「divide all elements by 2 (integer division)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os / 2 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「reverse the entire array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「sort the array in ascending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「sort the array in descending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「perform a circular right shift by 1 on the array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「set all elements to 0」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「set all elements to 1」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 2 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「set the first element to the maximum value in the original array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「set the first element to the minimum value in the original array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「add 2 to the first element only」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「subtract 2 from the first element only」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「multiply the first element by 2」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「divide the first element by 2 (integer division)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✗
+
+----------------------------------------
+
+操作总数: 16
+关系总数: 16

@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1 && tf.values != nullptr) {
+        int p = 1; // 循环左移1个位置
+        int* new_values = new int[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            new_values[i] = tf.values[(i + p) % tf.n];
+        }
+        tf.values = new_values;
+    }
+    return tf;
+}

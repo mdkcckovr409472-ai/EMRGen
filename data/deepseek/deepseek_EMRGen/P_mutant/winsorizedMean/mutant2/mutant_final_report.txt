@@ -1,0 +1,217 @@
+double winsorizedMean(double elements[], int left, int right, int n) {
+    qsort(elements, n, sizeof(double), [](const void *a, const void *b) -> int {
+        double diff = *(double *)a - *(double *)b;
+        if (diff > 0) return 1;
+        else if (diff < (0-1)) return -1;
+        else return 0;
+    });
+
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += elements[i];
+    }
+
+    double mean = sum / n;
+
+    if (n > 0 && left >= 0 && left < n) {
+        double leftElement = elements[left];
+        for (int i = 0; i < left; ++i) {
+            mean += (leftElement - elements[i]) / n;
+        }
+    }
+
+    if (n > 0 && right >= 0 && right < n && (n - 1 - right) >= 0) {
+        double rightElement = elements[n - 1 - right];
+        for (int i = 0; i < right; ++i) {
+            mean += (rightElement - elements[n - 1 - i]) / n;
+        }
+    }
+
+    return mean;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加3.0
+Invariant:
+return.result1 - return.result2 + 3 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (double*): 所有元素乘0.5
+Invariant:
+return.result1 - 2 * return.result2 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (double*): 所有元素除以2.0
+Invariant:
+return.result1 - 2 * return.result2 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 所有元素减1.0
+Invariant:
+return.result1 - return.result2 - 1 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (double*): 两随机元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (double*): 数组左循环移位（首元素移至末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (double*): 数组右循环移位（末元素移至开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 17: On parameter 'elements' (double*): 随机重排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 20: On parameter 'elements' (double*): 所有元素向上取整
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 21: On parameter 'elements' (double*): 所有元素向下取整
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (double*): 首元素与末元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (double*): 相邻元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 28: On parameter 'left' (int): 减3
+Invariant:
+return.result1 >= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 30: On parameter 'left' (int): 除2
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 31: On parameter 'left' (int): 置0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 33: On parameter 'left' (int): 置-1
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 34: On parameter 'left' (int): 取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 36: On parameter 'left' (int): 置为最大值
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 37: On parameter 'left' (int): 置为最小值
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 39: On parameter 'left' (int): 加n的0.8
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 40: On parameter 'left' (int): 置为n-1
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 43: On parameter 'right' (int): 减3
+Invariant:
+return.result1 <= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 46: On parameter 'right' (int): 置0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 48: On parameter 'right' (int): 置-1
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 49: On parameter 'right' (int): 取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 51: On parameter 'right' (int): 置为最大值
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 52: On parameter 'right' (int): 置为最小值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 55: On parameter 'right' (int): 置为n-1
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+操作总数: 29
+独立MR总数: 29
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

@@ -1,0 +1,15 @@
+int check(TestCase tc) {
+    // source output
+    bool Os = checkNonNegative(tc.a, tc.n);
+    // create follow-up test case by sorting array
+    TestCase Tf_case = change(tc);
+    // follow-up output
+    bool Of = checkNonNegative(Tf_case.a, Tf_case.n);
+    // check MR invariant Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+    // free dynamically allocated memory in Tf_case.a if different from original array
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+    return is_valid;
+}

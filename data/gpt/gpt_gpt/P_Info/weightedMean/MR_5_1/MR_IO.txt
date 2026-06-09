@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        double maxVal = tf.elements[0];
+        for (int i = 1; i < tf.n; ++i) {
+            if (tf.elements[i] > maxVal) {
+                maxVal = tf.elements[i];
+            }
+        }
+        // Reuse original elements array, overwrite first element with maxVal
+        tf.elements[0] = maxVal;
+    }
+    return tf;
+}

@@ -1,0 +1,6 @@
+TestCase z44Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Apply ceil operation to the mean field
+    follow_case.mean = ceil(follow_case.mean);
+    return follow_case;
+}

@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int max_val = tf.array[0];
+    for (int i = 1; i < tf.n; i++) {
+        if (tf.array[i] > max_val) {
+            max_val = tf.array[i];
+        }
+    }
+    tf.array[0] = max_val;
+    return tf;
+}

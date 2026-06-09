@@ -1,0 +1,2 @@
+Operation 45: On parameter 'b' (array[double]): set all negative elements to 0
+Invariant: return.result1[] >= return.result2[] (elementwise)

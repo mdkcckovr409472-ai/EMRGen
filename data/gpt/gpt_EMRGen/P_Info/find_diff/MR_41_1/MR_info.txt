@@ -1,0 +1,2 @@
+Operation 41: On parameter 'b' (int*): decrement every element by 3
+Invariant: return.result1[] - return.result2[] + 3 == 0

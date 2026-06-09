@@ -1,0 +1,2 @@
+Operation 36: On parameter 'left' (int): 置为-1
+Invariant: return.result1 >= return.result2

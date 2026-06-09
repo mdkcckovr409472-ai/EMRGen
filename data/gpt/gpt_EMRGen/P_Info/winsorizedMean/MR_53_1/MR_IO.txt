@@ -1,0 +1,6 @@
+TestCase z53Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive checks not required for setting an int value
+    follow_case.right = 0;
+    return follow_case;
+}

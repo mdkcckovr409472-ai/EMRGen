@@ -1,0 +1,19 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 5.0; // 任意常数，此处示例为5.0
+    int n = tf.n1;
+    double* new_b = (double*)malloc(n * sizeof(double));
+    if (new_b == NULL) {
+        // 如果分配失败，保持原样返回，check函数会处理NULL
+        return tf;
+    }
+    for (int i = 0; i < n; i++) {
+        new_b[i] = tf.b[i] + k;
+    }
+    // 注意：这里我们创建了一个新的数组，但tf.b可能指向原始用例的内存。
+    // 根据约束，我们需要复用tc的数据。但为了构造衍生输入，我们必须修改b。
+    // 我们选择分配新内存给tf.b，并覆盖指针。原始tc.b的内存将在check中释放。
+    tf.b = new_b;
+    // 注意：tf.a 和 tc.a 指向相同的内存，我们不会修改它。
+    return tf;
+}

@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    double Os = 0.0, Of = 0.0;
+
+    // Compute Os with original input
+    Os = sumOfLogarithms(tc.elements, tc.n);
+
+    // Generate follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Compute Of with follow-up input
+    Of = sumOfLogarithms(Tf_case.elements, Tf_case.n);
+
+    // Verify MR: Of < Os
+    int is_valid = (Of < Os) ? 1 : 0;
+
+    // Clean up any dynamic memory allocated in change()
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+    }
+
+    return is_valid;
+}

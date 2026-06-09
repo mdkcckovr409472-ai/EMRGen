@@ -1,0 +1,24 @@
+int check(TestCase tc) {
+    double Os = product(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = product(Tf_case.elements, Tf_case.n);
+
+    double scale = 1.0;
+    for (int i = 0; i < tc.n; i++) {
+        scale *= 0.5;
+    }
+
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (fabs(Of - scale * Os) <= epsilon) {
+        is_valid = 1;
+    }
+
+    // Free the dynamically allocated memory if any
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+        Tf_case.elements = nullptr;
+    }
+
+    return is_valid;
+}

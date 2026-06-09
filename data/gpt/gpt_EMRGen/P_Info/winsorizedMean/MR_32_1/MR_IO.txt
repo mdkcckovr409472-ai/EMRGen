@@ -1,0 +1,8 @@
+TestCase z32Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check and operation: decrement left by 1 when left > 0
+    if (follow_case.left > 0) {
+        follow_case.left -= 1;
+    }
+    return follow_case;
+}

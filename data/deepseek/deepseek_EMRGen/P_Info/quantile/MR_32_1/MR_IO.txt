@@ -1,0 +1,12 @@
+TestCase z32Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_sortedElements = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_sortedElements, t1.sortedElements, t1.n * sizeof(double));
+follow_case.sortedElements = follow_case_sortedElements;
+// ------------------------------------
+
+// 这是根据规则5生成的具体操作代码
+follow_case.phi = follow_case.phi / 2.0;
+
+return follow_case;}

@@ -1,0 +1,10 @@
+TestCase z43Change(TestCase t1) {
+    TestCase follow_case = t1;
+    
+    // Defensive checks (none required for squaring a scalar)
+    
+    // Square the phi parameter
+    follow_case.phi = follow_case.phi * follow_case.phi;
+    
+    return follow_case;
+}

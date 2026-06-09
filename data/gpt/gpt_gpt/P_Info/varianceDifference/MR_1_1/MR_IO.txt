@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for sample1 with +1 added to each element
+    double* new_sample1 = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_sample1[i] = tc.sample1[i] + 1.0;
+    }
+    tf.sample1 = new_sample1;
+    return tf;
+}

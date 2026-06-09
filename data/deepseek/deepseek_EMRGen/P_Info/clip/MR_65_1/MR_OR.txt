@@ -1,0 +1,32 @@
+int z65check(int* result1, int* result2, int n) {
+    // 1. 防御性编程 (空指针与长度检查)
+    if (result1 == NULL || result2 == NULL) return 0;
+    if (n <= 0) return 1;
+
+    // 2. 核心判断逻辑 (字典序比较)
+    for (int i = 0; i < n; i++) {
+        // 找到第一个不相等的元素对
+        if (result1[i] != result2[i]) {
+            // 根据这一对元素的大小关系决定最终结果
+            // 条件要求 result1[] > result2[] (lexically)
+            if (result1[i] > result2[i]) {
+                // 第一个不相等处 result1[i] > result2[i]，字典序上 result1 > result2，满足条件
+                // 继续检查后续元素（根据字典序规则，此时结果已定，但需检查完所有元素以确保没有违反其他约束？）
+                // 根据规则2字典序逻辑说明：“只要发现第一个不相等的元素并得出结果，绝对不要再检查后续任何元素！”
+                // 因此这里应直接返回结果。
+                // 注意：对于 > 比较，当发现 result1[i] > result2[i] 时，已经可以确定 result1 字典序大于 result2，满足条件。
+                // 循环结束后的完全相等情况会在下面处理。
+                // 所以这里应该立即返回 1。
+                return 1;
+            } else {
+                // result1[i] < result2[i]，字典序上 result1 < result2，不满足 > 条件
+                return 0;
+            }
+        }
+        // 如果相等，继续循环
+    }
+
+    // 3. 循环结束，所有元素都相等
+    // 对于严格大于 (>) 的字典序比较，两数组完全相等意味着 result1 不大于 result2
+    return 0;
+}

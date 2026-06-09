@@ -1,0 +1,35 @@
+#include <cmath>
+#include <cstddef>
+
+int z21check(double result1, double result2) {
+    // 1. 防御性编程 (标量版本无需空指针和长度检查)
+    // 2. 核心判断逻辑 (标量直接比较)
+    // 浮点数比较的特殊处理
+    const double epsilon = 1e-5;
+    
+    // 提取左右操作数 (根据条件 return.result1 < return.result2)
+    // 移项后：result1 < result2
+    double A = result1;
+    double B = result2;
+    
+    // 防御 NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    
+    // 处理无穷大
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A < B) return 1;
+        else return 0;
+    }
+    
+    // 计算动态容差
+    double tol = epsilon * std::fmax(1.0, std::fmax(std::fabs(A), std::fabs(B)));
+    
+    // 带容差的比较判定 (条件: A < B)
+    // 如果 A >= B - tol，则违反条件
+    if (A >= B - tol) {
+        return 0;
+    }
+    
+    // 3. 满足条件，返回 1
+    return 1;
+}

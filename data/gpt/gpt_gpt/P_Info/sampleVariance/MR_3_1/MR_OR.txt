@@ -1,0 +1,20 @@
+int check(TestCase tc) {
+    // Extract source input Ts
+    double* Ts_elements = tc.elements;
+    double mean = tc.mean;
+    int n = tc.n;
+    // Calculate source output Os
+    double Os = sampleVariance(Ts_elements, mean, n);
+    // Construct follow-up input Tf
+    TestCase Tf_case = change(tc);
+    double* Tf_elements = Tf_case.elements;
+    double Of = sampleVariance(Tf_elements, mean, n);
+    // Verify metamorphic relation Os == Of with a tolerance (due to double precision)
+    int is_valid = 0;
+    const double EPSILON = 1e-12;
+    if ((Os - Of) < EPSILON && (Of - Os) < EPSILON) {
+        is_valid = 1;
+    }
+    // No dynamic memory allocated in change(), nothing to free here
+    return is_valid;
+}

@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = variance(tc.x, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = variance(Tf_case.x, Tf_case.n);
+    delete[] Tf_case.x;
+    const double epsilon = 1e-9;
+    if (std::abs(0.25 * Os - Of) < epsilon) {
+        return 1;
+    } else {
+        return 0;
+    }
+}

@@ -1,0 +1,44 @@
+int check(TestCase tc) {
+    int is_valid = 1;
+    int* Os = NULL;
+    int* Of = NULL;
+    int* reversed_a_in_tf = NULL;
+
+    if (tc.a == NULL || tc.n <= 0) {
+        is_valid = 0;
+        goto cleanup;
+    }
+
+    Os = array_calc1(tc.a, tc.k, tc.n);
+    if (Os == NULL) {
+        is_valid = 0;
+        goto cleanup;
+    }
+
+    TestCase Tf_case = change(tc);
+    reversed_a_in_tf = Tf_case.a;
+
+    if (reversed_a_in_tf == NULL) {
+        is_valid = 0;
+        goto cleanup;
+    }
+
+    Of = array_calc1(reversed_a_in_tf, Tf_case.k, Tf_case.n);
+    if (Of == NULL) {
+        is_valid = 0;
+        goto cleanup;
+    }
+
+    for (int i = 0; i < tc.n; i++) {
+        if (Os[i] != Of[tc.n - 1 - i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+cleanup:
+    if (Os != NULL) free(Os);
+    if (Of != NULL) free(Of);
+    if (reversed_a_in_tf != NULL && reversed_a_in_tf != tc.a) free(reversed_a_in_tf);
+    return is_valid;
+}

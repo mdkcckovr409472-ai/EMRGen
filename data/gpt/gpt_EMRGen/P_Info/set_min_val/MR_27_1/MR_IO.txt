@@ -1,0 +1,21 @@
+TestCase z27Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(follow_case.n * sizeof(int));
+    memcpy(follow_case_a, follow_case.a, follow_case.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code: need at least 3 elements to have two neighbors
+    if (follow_case.n < 3) {
+        // Not enough elements, cannot perform the operation
+        return follow_case;
+    }
+    
+    // Specific operation: set a random element (with both neighbors) to the average of its neighbors
+    int idx = rand() % (follow_case.n - 2) + 1;  // idx in [1, n-2]
+    // Compute average of neighbors; denominator 2 is non‑zero
+    follow_case.a[idx] = (follow_case.a[idx - 1] + follow_case.a[idx + 1]) / 2;
+    
+    return follow_case;
+}

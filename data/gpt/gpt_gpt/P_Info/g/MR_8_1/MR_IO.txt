@@ -1,0 +1,17 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double minVal = tc.expected[0];
+    for (int i = 1; i < tc.n; i++) {
+        if (tc.expected[i] < minVal) {
+            minVal = tc.expected[i];
+        }
+    }
+    // Allocate new expected array for tf to avoid modifying original
+    double* newExpected = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        newExpected[i] = tc.expected[i];
+    }
+    newExpected[tc.n - 1] = minVal;
+    tf.expected = newExpected;
+    return tf;
+}

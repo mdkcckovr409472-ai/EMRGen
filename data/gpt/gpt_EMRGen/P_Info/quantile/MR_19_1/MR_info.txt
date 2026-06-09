@@ -1,0 +1,2 @@
+Operation 19: On parameter 'sortedElements' (array[double]): replace elements greater than 10.0 with 10.0
+Invariant: return.result1 >= return.result2

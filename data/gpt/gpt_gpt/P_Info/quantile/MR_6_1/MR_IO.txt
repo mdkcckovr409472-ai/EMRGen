@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        double maxVal = tf.sortedElements[0];
+        for (int i = 1; i < tf.n; ++i) {
+            if (tf.sortedElements[i] > maxVal) {
+                maxVal = tf.sortedElements[i];
+            }
+        }
+        // Overwrite the last element to the maximum value
+        tf.sortedElements[tf.n - 1] = maxVal;
+    }
+    return tf;
+}

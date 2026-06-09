@@ -1,0 +1,18 @@
+int check(TestCase tc) {
+    double Os = product(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = product(Tf_case.elements, Tf_case.n);
+
+    double expected_Of = Os;
+    for (int i = 0; i < tc.n; ++i) {
+        expected_Of *= 2;
+    }
+
+    bool is_valid = (fabs(Of - expected_Of) < 1e-9);
+
+    if (Tf_case.elements != tc.elements && Tf_case.elements != nullptr) {
+        delete[] Tf_case.elements;
+    }
+
+    return is_valid ? 1 : 0;
+}

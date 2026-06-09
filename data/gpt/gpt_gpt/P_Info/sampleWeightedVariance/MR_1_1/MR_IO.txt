@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new data array for follow-up input
+    double* newData = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        newData[i] = tc.data[i] * 2;
+    }
+    tf.data = newData;
+    // weights and n remain the same, reuse original pointers
+    return tf;
+}

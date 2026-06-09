@@ -1,0 +1,15 @@
+TestCase z29Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 操作描述为对参数k进行"加1"，k是int类型，不是数组类型。
+// 根据规则4，仅当目标参数是数组类型时才执行malloc和memcpy深拷贝。
+// 因此，此处无需进行数组内存深拷贝操作。
+
+// 根据规则6a，检查数组长度。
+// 操作"加1"仅作用于单个int参数k，不涉及数组访问或循环。
+// 因此，无需基于数组长度n进行边界检查。
+
+// 根据规则5，将"加1"转换为C语言代码。
+follow_case.k = follow_case.k + 1;
+
+return follow_case;}

@@ -1,0 +1,24 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入 (Ts)
+    // tc 本身就是 Ts
+    // (2) 获取初始输出 (Os)
+    int Os = count_k(tc.a, tc.k, tc.n);
+    
+    // (3) 构造衍生用例对象
+    TestCase Tf_case = change(tc);
+    
+    // (4) 获取衍生输出 (Of)
+    int Of = count_k(Tf_case.a, Tf_case.k, Tf_case.n);
+    
+    // (5) 验证蜕变关系 Os <= Of
+    int is_valid = 0;
+    if (Os <= Of) {
+        is_valid = 1;
+    }
+    
+    // (6) 释放 change 函数中为衍生数组分配的内存
+    delete[] Tf_case.a;
+    
+    // (7) 返回验证结果
+    return is_valid;
+}

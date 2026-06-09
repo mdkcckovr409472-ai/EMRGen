@@ -1,0 +1,2 @@
+Operation 24: On parameter 'k' (double*): 将数组中所有正数置为1.0，非正数置为0.0
+Invariant: return.result1 <= return.result2

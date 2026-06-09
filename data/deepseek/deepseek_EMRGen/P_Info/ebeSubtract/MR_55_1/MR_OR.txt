@@ -1,0 +1,49 @@
+#include <cmath>
+#include <cfloat>
+
+int z55check(double* result1, double* result2, int n) {
+    // 1. 防御性编程 (空指针与长度检查)
+    if (result1 == NULL || result2 == NULL) return 0;
+    if (n <= 0) return 1;
+
+    // 2. 字典序比较逻辑
+    double epsilon = 1e-5;
+    
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+        
+        // 防御 NaN
+        if (std::isnan(A) || std::isnan(B)) return 0;
+        
+        // 处理无穷大
+        if (std::isinf(A) || std::isinf(B)) {
+            if (A > B) {
+                // 发现第一个不相等的元素对，且 A > B，满足字典序 >=，继续检查下一个元素
+                continue;
+            } else if (A < B) {
+                // 发现第一个不相等的元素对，且 A < B，违反字典序 >=，立即返回
+                return 0;
+            } else {
+                // A == B (包括 Inf == Inf 的情况)，继续检查下一个元素
+                continue;
+            }
+        }
+        
+        // 常规浮点数比较（带容差）
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        
+        if (A < B - tol) {
+            // 发现第一个不相等的元素对，且 A < B（超出容差），违反字典序 >=
+            return 0;
+        } else if (A > B + tol) {
+            // 发现第一个不相等的元素对，且 A > B（超出容差），满足字典序 >=
+            // 字典序比较已完成，可以立即返回成功
+            return 1;
+        }
+        // 如果 A 和 B 在容差范围内相等，继续检查下一个元素
+    }
+    
+    // 3. 循环结束，所有元素在容差范围内相等，满足字典序 >=
+    return 1;
+}

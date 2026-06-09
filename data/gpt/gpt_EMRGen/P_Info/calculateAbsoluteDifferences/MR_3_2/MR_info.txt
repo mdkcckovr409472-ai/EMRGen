@@ -1,0 +1,2 @@
+Operation 3: On parameter 'z' (array[double]): multiply all elements by 2.0
+Invariant: return.result1[] <= return.result2[] (elementwise)

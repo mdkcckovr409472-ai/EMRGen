@@ -1,0 +1,24 @@
+int check(TestCase tc) {
+    // Extract source input
+    double* Ts = tc.work;
+    int begin = tc.begin;
+    int end = tc.end;
+    int pivot = tc.pivot;
+
+    // Call the function under test to get Os
+    int Os = partition(Ts, begin, end, pivot);
+
+    // Construct follow-up test case Tf
+    TestCase Tf_case = change(tc);
+
+    // Call the function under test with follow-up input to get Of
+    int Of = partition(Tf_case.work, Tf_case.begin, Tf_case.end, Tf_case.pivot);
+
+    // Verify the metamorphic relation Os >= Of
+    int is_valid = 0;
+    if (Os >= Of) {
+        is_valid = 1;
+    }
+
+    return is_valid;
+}

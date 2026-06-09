@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double c = 2.0;
+    if (tf.n > 0 && tf.x != nullptr) {
+        double* new_x = new double[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            new_x[i] = tf.x[i] / c;
+        }
+        tf.x = new_x;
+    }
+    return tf;
+}

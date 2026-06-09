@@ -1,0 +1,2 @@
+Operation 54: On parameter 'b' (int*): 将所有零值元素置为1
+Invariant: return.result1[] <= return.result2[] (elementwise)

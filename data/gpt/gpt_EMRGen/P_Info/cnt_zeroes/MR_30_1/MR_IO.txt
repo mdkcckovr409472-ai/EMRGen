@@ -1,0 +1,19 @@
+TestCase z30Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array a
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: need at least 2 elements to swap
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+
+    // Swap first and last elements
+    int temp = follow_case.a[0];
+    follow_case.a[0] = follow_case.a[follow_case.n - 1];
+    follow_case.a[follow_case.n - 1] = temp;
+
+    return follow_case;
+}

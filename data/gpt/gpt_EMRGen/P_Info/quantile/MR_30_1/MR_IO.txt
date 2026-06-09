@@ -1,0 +1,10 @@
+TestCase z30Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive checks (none required for scalar phi)
+
+    // Operation: add 0.1 to phi
+    follow_case.phi += 0.1;
+
+    return follow_case;
+}

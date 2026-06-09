@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf;
+    tf.n = tc.n;
+    if (tc.n > 0) {
+        tf.elements = new double[tc.n];
+        for (int i = 0; i < tc.n; ++i) {
+            tf.elements[i] = tc.elements[i] - 1.0;
+        }
+    } else {
+        tf.elements = nullptr;
+    }
+    return tf;
+}

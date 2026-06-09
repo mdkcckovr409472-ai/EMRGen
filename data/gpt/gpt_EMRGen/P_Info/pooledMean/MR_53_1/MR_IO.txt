@@ -1,0 +1,21 @@
+TestCase z53Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_data2 = (double*)malloc(t1.n2 * sizeof(double));
+    memcpy(follow_case_data2, t1.data2, t1.n2 * sizeof(double));
+    follow_case.data2 = follow_case_data2;
+    // ------------------------------------
+    
+    // Defensive check for array length
+    if (follow_case.n2 < 1) {
+        return follow_case;
+    }
+    
+    // Set a random position’s element to -500.0 when the element is greater than -500.0
+    int random_idx = rand() % follow_case.n2;
+    if (follow_case.data2[random_idx] > -500.0) {
+        follow_case.data2[random_idx] = -500.0;
+    }
+    
+    return follow_case;
+}

@@ -1,0 +1,153 @@
+int sequential_search(int a[], int key, int n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        if (a[i] == key) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 6: On parameter 'a' (array[int]): set last element to INT_MAX (when it is less than INT_MAX)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set last element to INT_MAX (when it is less than INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): decrement a random element by 5
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「decrement a random element by 5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (array[int]): multiply a random element by -1 (negate)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「multiply a random element by -1 (negate)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[int]): replace a random element with its absolute value
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「replace a random element with its absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (array[int]): take square root of all elements (when element >= 0)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「take square root of all elements (when element >= 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (array[int]): take absolute value of all elements
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (array[int]): halve elements at odd indices
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「halve elements at odd indices」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (array[int]): fill entire array with random numbers in [-1000,1000]
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「fill entire array with random numbers in [-1000,1000]」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (array[int]): remove element at a random index (if length > 1)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「remove element at a random index (if length > 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 30: On parameter 'a' (array[int]): duplicate a random element at its position
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「duplicate a random element at its position」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 38: On parameter 'key' (int): set key to -999 (when key > -999)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「set key to -999 (when key > -999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'key' (int): negate key (multiply by -1)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「negate key (multiply by -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 40: On parameter 'key' (int): take absolute value of key
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「take absolute value of key」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 42: On parameter 'key' (int): set key to INT_MAX (when key < INT_MAX)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「set key to INT_MAX (when key < INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 43: On parameter 'key' (int): set key to INT_MIN (when key > INT_MIN)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「set key to INT_MIN (when key > INT_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 15
+关系总数: 15

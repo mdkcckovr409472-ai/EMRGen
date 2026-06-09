@@ -1,0 +1,8 @@
+TestCase z48Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check before modifying 'right'
+    if (follow_case.right > 0) {
+        follow_case.right--;
+    }
+    return follow_case;
+}

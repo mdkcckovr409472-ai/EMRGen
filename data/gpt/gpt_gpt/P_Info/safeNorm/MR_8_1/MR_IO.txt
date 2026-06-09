@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for follow-up input to avoid modifying the original input array
+    double* new_v = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_v[i] = tc.v[i];
+    }
+    if (tc.n > 0) {
+        new_v[0] = new_v[0] * 2;
+    }
+    tf.v = new_v;
+    return tf;
+}

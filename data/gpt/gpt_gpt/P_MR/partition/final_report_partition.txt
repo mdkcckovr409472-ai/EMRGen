@@ -1,0 +1,123 @@
+int partition(double work[], int begin, int end, int pivot) {
+    double value = work[pivot];
+    work[pivot] = work[begin];
+    int i = begin + 1;
+    int j = end - 1;
+    while (i < j) {
+        while (i < j && work[j] > value) {
+            --j;
+        }
+        while (i < j && work[i] < value) {
+            ++i;
+        }
+        if (i < j) {
+            double tmp = work[i];
+            work[i++] = work[j];
+            work[j--] = tmp;
+        }
+    }
+    if (i >= end || work[i] > value) {
+        --i;
+    }
+    work[begin] = work[i];
+    work[i] = value;
+    return i;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「add 1.0 to each element in work」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「subtract 1.0 from each element in work」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「multiply each element in work by 2.0」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「divide each element in work by 2.0 (non-zero elements)」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「reverse the entire array work」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「sort the entire array work in ascending order」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「sort the entire array work in descending order」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「circular right shift the entire array work by one position」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「set all elements in work to 0」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「set all elements in work to 1」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「set the element at the pivot index to the maximum value of work」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os <= Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「set the element at the pivot index to the minimum value of work」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「add 0.5 to elements from begin to end-1 in work」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains work (double*), if the operation 「reverse the sub-array of work from begin to end-1」 is executed on work to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains pivot (int), if the operation 「add 1 to pivot when pivot+1 < end」 is executed on pivot to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains pivot (int), if the operation 「subtract 1 from pivot when pivot-1 >= begin」 is executed on pivot to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains pivot (int), if the operation 「set pivot to begin」 is executed on pivot to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains pivot (int), if the operation 「set pivot to end - 1」 is executed on pivot to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+操作总数: 18
+关系总数: 18

@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Overwrite the first element of p2 to the minimum double value
+    if (tf.n > 0 && tf.p2 != nullptr) {
+        tf.p2[0] = -std::numeric_limits<double>::max();
+    }
+    return tf;
+}

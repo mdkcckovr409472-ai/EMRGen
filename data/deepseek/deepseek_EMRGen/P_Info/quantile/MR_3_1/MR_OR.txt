@@ -1,0 +1,31 @@
+#include <cmath>
+#include <cfloat>
+
+int z3check(double result1, double result2) {
+    // 1. 核心判断逻辑 (标量直接比较)
+    // 移项处理：2 * result1 - result2 == 0  ->  2 * result1 == result2
+    double A = 2.0 * result1;
+    double B = result2;
+    
+    // 防御NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    
+    // 处理无穷大（动态容差对Inf无效）
+    if (std::isinf(A) || std::isinf(B)) {
+        // 直接数学比较
+        if (A == B) return 1;
+        else return 0;
+    }
+    
+    // 动态容差计算
+    double epsilon = 1e-5;
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 带容差的相等比较
+    if (fabs(A - B) > tol) {
+        return 0;
+    }
+    
+    // 2. 满足条件，返回 1
+    return 1;
+}

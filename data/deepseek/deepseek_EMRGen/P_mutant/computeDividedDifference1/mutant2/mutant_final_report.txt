@@ -1,0 +1,360 @@
+double* computeDividedDifference1(double x[], double y[], int n) {
+    static double a[100];
+    if (n <= 0) return nullptr;
+
+    a[0] = y[0];
+    for (int i = 1; i < n; i++) {
+        for (int j = 0; j < n - i; j--) {
+            double denominator = x[j + i] - x[j];
+            if (denominator == 0.0) {
+                for (int k = 0; k < n; k++) a[k] = 0.0;
+                return a;
+            }
+            y[j] = (y[j + 1] - y[j]) / denominator;
+        }
+        a[i] = y[0];
+    }
+    return a;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'x' (double*): 所有元素加1.0
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 2: On parameter 'x' (double*): 所有元素乘2.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 3: On parameter 'x' (double*): 随机位置元素置为999（当元素小于999时）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 4: On parameter 'x' (double*): 随机两元素交换
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 5: On parameter 'x' (double*): 数组反转
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 6: On parameter 'x' (double*): 数组向右循环移位（末尾元素移到开头）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 7: On parameter 'x' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 8: On parameter 'x' (double*): 前一半元素置为0.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 9: On parameter 'x' (double*): 后一半元素置为1.5
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 10: On parameter 'x' (double*): 所有元素减0.5
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 11: On parameter 'x' (double*): 所有元素除以2.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 12: On parameter 'x' (double*): 所有元素取平方
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'x' (double*): 所有元素取平方根
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 14: On parameter 'x' (double*): 所有元素取绝对值
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 15: On parameter 'x' (double*): 所有元素加随机数（范围-1.0到1.0）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 16: On parameter 'x' (double*): 随机位置元素乘以2.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'x' (double*): 随机位置元素除以2.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'x' (double*): 所有元素加一个固定值3.0
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'x' (double*): 所有元素减一个固定值2.0
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'x' (double*): 所有元素乘以一个固定值0.5
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'x' (double*): 所有元素除以一个固定值4.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'x' (double*): 偶数索引元素加1.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 23: On parameter 'x' (double*): 奇数索引元素乘0.5
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'x' (double*): 排序（升序）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 25: On parameter 'x' (double*): 排序（降序）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'x' (double*): 随机重排序
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'x' (double*): 替换部分元素为最大值（即数组中最大元素值）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'x' (double*): 替换部分元素为最小值（即数组中最小元素值）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'y' (double*): 所有元素加1.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 31: On parameter 'y' (double*): 所有元素乘2.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 32: On parameter 'y' (double*): 随机位置元素置为-5.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 33: On parameter 'y' (double*): 随机两元素交换
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 34: On parameter 'y' (double*): 数组反转
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 35: On parameter 'y' (double*): 数组向右循环移位（末尾元素移到开头）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 36: On parameter 'y' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 38: On parameter 'y' (double*): 后一半元素置为2.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 39: On parameter 'y' (double*): 所有元素减0.5
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 40: On parameter 'y' (double*): 所有元素除以2.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 41: On parameter 'y' (double*): 所有元素取平方
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 42: On parameter 'y' (double*): 所有元素取平方根
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 43: On parameter 'y' (double*): 所有元素取绝对值
+Invariant:
+return.result1[] == return.result2[]    ✗ [Same]
+
+----------------------------------------
+
+Operation 44: On parameter 'y' (double*): 所有元素加随机数（范围-0.5到0.5）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'y' (double*): 随机位置元素减去3.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'y' (double*): 随机位置元素乘以1.5
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'y' (double*): 所有元素加一个固定值1.5
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'y' (double*): 所有元素减一个固定值1.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 49: On parameter 'y' (double*): 所有元素乘以一个固定值1.2
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 50: On parameter 'y' (double*): 所有元素除以一个固定值2.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 51: On parameter 'y' (double*): 偶数索引元素乘2.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 52: On parameter 'y' (double*): 奇数索引元素加1.0
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 53: On parameter 'y' (double*): 排序（升序）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 54: On parameter 'y' (double*): 排序（降序）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 55: On parameter 'y' (double*): 随机重排序
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 57: On parameter 'y' (double*): 替换部分元素为最大值（即数组中最大元素值）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+Operation 58: On parameter 'y' (double*): 替换部分元素为最小值（即数组中最小元素值）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 55
+独立MR总数: 55
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

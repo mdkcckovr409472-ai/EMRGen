@@ -1,0 +1,2 @@
+Operation 17: On parameter 'array' (array[int]): rotate subarray (indices i..j) by k positions (within bounds)
+Invariant: return.result1[] == return.result2[]

@@ -1,0 +1,2 @@
+Operation 53: On parameter 'y' (double*): 所有元素向下取整
+Invariant: return.result1[] >= return.result2[] (lexically)

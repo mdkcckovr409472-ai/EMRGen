@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = kurtosis(tc.data, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = kurtosis(Tf_case.data, Tf_case.n);
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (fabs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.data;
+    return is_valid;
+}

@@ -1,0 +1,11 @@
+TestCase z70Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// --- 这是根据规则4生成的内存处理代码 ---
+// 条件: 当且仅当 int 是数组类型时执行。目标参数是upperLim，类型为int，不是数组。因此不执行malloc和memcpy。
+// ------------------------------------
+
+// 这是根据规则5生成的具体操作代码
+follow_case.upperLim = follow_case.upperLim * follow_case.upperLim;
+
+return follow_case;}

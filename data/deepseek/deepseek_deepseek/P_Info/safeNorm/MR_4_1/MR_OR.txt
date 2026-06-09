@@ -1,0 +1,14 @@
+int check(TestCase tc) {
+    double Os = safeNorm(tc.v, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = safeNorm(Tf_case.v, Tf_case.n);
+    int is_valid = 0;
+    const double epsilon = 1e-12;
+    if (std::abs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    if (Tf_case.v != tc.v && Tf_case.v != nullptr) {
+        delete[] Tf_case.v;
+    }
+    return is_valid;
+}

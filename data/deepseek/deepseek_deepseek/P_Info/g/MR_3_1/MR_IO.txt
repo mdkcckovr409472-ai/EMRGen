@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.expected != nullptr) {
+        double* new_expected = new double[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            new_expected[i] = tf.expected[i] / 2.0;
+        }
+        tf.expected = new_expected;
+    }
+    return tf;
+}

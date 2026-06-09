@@ -1,0 +1,20 @@
+int check(TestCase tc) {
+    // Compute source output
+    double Os = sampleWeightedVariance(tc.data, tc.weights, tc.n);
+
+    // Generate follow-up test case
+    TestCase Tf = change(tc);
+
+    // Compute follow-up output
+    double Of = sampleWeightedVariance(Tf.data, Tf.weights, Tf.n);
+
+    // Verify MR: Of != Os
+    int is_valid = (Of != Os) ? 1 : 0;
+
+    // Free dynamically allocated memory in Tf
+    if (Tf.data != tc.data) {
+        delete[] Tf.data;
+    }
+
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 62: On parameter 'array2' (array[int]): decrement every sixth element by 4
+Invariant: return.result1[] <= return.result2[] (elementwise)

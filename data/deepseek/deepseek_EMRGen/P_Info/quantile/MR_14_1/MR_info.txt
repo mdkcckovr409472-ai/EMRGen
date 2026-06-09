@@ -1,0 +1,2 @@
+Operation 14: On parameter 'sortedElements' (double*): 随机位置元素置最小值（-DBL_MAX）
+Invariant: return.result1 >= return.result2

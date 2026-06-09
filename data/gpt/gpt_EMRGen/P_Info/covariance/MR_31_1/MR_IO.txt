@@ -1,0 +1,20 @@
+TestCase z31Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling for elements2 ---
+    double* follow_case_elements2 = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements2, t1.elements2, t1.n * sizeof(double));
+    follow_case.elements2 = follow_case_elements2;
+    // -----------------------------------------
+
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Operation: multiply all elements by 0.5
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.elements2[i] *= 0.5;
+    }
+
+    return follow_case;
+}

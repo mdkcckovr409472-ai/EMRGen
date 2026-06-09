@@ -1,0 +1,30 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.a == nullptr) {
+        return 0;
+    }
+    int* source_copy = new int[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        source_copy[i] = tc.a[i];
+    }
+    double Os = find_median(source_copy, tc.n);
+    delete[] source_copy;
+    TestCase Tf_case = change(tc);
+    if (Tf_case.a == nullptr) {
+        // no valid follow-up input
+        return 0;
+    }
+    int* followup_copy = new int[Tf_case.n];
+    for (int i = 0; i < Tf_case.n; ++i) {
+        followup_copy[i] = Tf_case.a[i];
+    }
+    double Of = find_median(followup_copy, Tf_case.n);
+    delete[] followup_copy;
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+    int is_valid = 0;
+    if (Os < Of) {
+        is_valid = 1;
+    }
+    return is_valid;
+}

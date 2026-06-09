@@ -1,0 +1,34 @@
+TestCase z9Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0) {
+        int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+        if (follow_case_a != NULL) {
+            memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+            follow_case.a = follow_case_a;
+        } else {
+            // malloc failed, return original to avoid crash
+            return follow_case;
+        }
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 2
+    if (follow_case.n < 2) {
+        // Less than 2 elements, no need to reverse, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    int left = 0;
+    int right = follow_case.n - 1;
+    while (left < right) {
+        int temp = follow_case.a[left];
+        follow_case.a[left] = follow_case.a[right];
+        follow_case.a[right] = temp;
+        left++;
+        right--;
+    }
+
+    return follow_case;
+}

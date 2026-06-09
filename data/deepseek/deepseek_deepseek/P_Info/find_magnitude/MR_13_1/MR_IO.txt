@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n % 2 == 0 && tf.n > 0) {
+        int half = tf.n / 2;
+        int* new_a = new int[tf.n];
+        for (int i = 0; i < half; ++i) {
+            new_a[i] = tf.a[half + i];
+            new_a[half + i] = tf.a[i];
+        }
+        tf.a = new_a;
+    }
+    return tf;
+}

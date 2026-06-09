@@ -1,0 +1,86 @@
+int* dec_array(int a[], int k, int n) {
+    int* cp1 = (int*)malloc(n * sizeof(int));
+    memcpy(cp1,a,n*sizeof(int));
+    for (int i = 0; i < n; i++) {
+        cp1[i] -= k;
+    }
+    return cp1;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「add 1 to all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os + n == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「subtract 1 from all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os - n == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「multiply all elements by 2」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+2 * Os - k * n == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「divide all elements by 2」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os / 2 - k * n == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「reverse the entire array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「sort the array in ascending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「sort the array in descending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「circular right shift the array by 1 position」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set all elements to 0」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == - k * n ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set all elements to 1」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == n * (1 - k) ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set the first element to the maximum int value」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set the first element to the minimum int value」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of < Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「add 2 to the middle element, if n is odd」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os + 2 - k ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「subtract 2 from the middle element, if n is odd」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os - 2 - k ✗
+
+----------------------------------------
+
+操作总数: 14
+关系总数: 14

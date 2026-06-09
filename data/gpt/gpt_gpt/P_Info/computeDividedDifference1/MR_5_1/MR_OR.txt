@@ -1,0 +1,36 @@
+int check(TestCase tc) {
+    if (tc.n <= 0) return 0;
+
+    // Copy y array to avoid modification in original input for the function under test
+    double* y_copy_source = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        y_copy_source[i] = tc.y[i];
+    }
+    // Call function under test on source input
+    double* Os = computeDividedDifference1(tc.x, y_copy_source, tc.n);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Copy y array of follow-up input since function modifies y
+    double* y_copy_followup = new double[Tf_case.n];
+    for (int i = 0; i < Tf_case.n; i++) {
+        y_copy_followup[i] = Tf_case.y[i];
+    }
+    // Call function under test on follow-up input
+    double* Of = computeDividedDifference1(Tf_case.x, y_copy_followup, Tf_case.n);
+
+    int is_valid = 0;
+    if (Os != nullptr && Of != nullptr) {
+        // Check the MR relation: Of[0] == 2 * Os[0]
+        if (Of[0] == 2.0 * Os[0]) {
+            is_valid = 1;
+        }
+    }
+
+    // Clean up dynamic memory
+    delete[] y_copy_source;
+    delete[] y_copy_followup;
+
+    return is_valid;
+}

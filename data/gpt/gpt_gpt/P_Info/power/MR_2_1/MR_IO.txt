@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for the divided data to avoid modifying the original input data
+    double* new_data = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_data[i] = tc.data[i] / 2.0;
+    }
+    tf.data = new_data;
+    return tf;
+}

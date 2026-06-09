@@ -1,0 +1,2 @@
+Operation 25: On parameter 'moment4' (double): apply natural log (if >0)
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    double Os = entropy(tc.k, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = entropy(Tf_case.k, Tf_case.n);
+    // Compare Os and Of for equality within a reasonable tolerance
+    int is_valid = 0;
+    const double EPSILON = 1e-12;
+    if (std::abs(Os - Of) <= EPSILON) {
+        is_valid = 1;
+    }
+    // Free dynamically allocated memory in Tf_case
+    if (Tf_case.k != tc.k) {
+        delete[] Tf_case.k;
+    }
+    return is_valid;
+}

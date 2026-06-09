@@ -1,0 +1,111 @@
+double find_median(int a[], int n) {
+    int k = n / 2 + 1;
+    int minIndex = 0;
+    int minValue = a[0];
+    for (int i = 0; i < k; i++) {
+        minIndex = i;
+        minValue = a[i];
+        for (int j = i + 1; j < n; j++) {
+            if (a[j] < minValue) {
+                minIndex = j;
+                minValue = a[j];
+            }
+        }
+        int temp = a[i];
+        a[i] = a[minIndex];
+        a[minIndex] = temp;
+    }
+    if (n % 2 == 0) {
+        return (double) (a[n / 2 - 1] + a[n / 2]) / 2;
+    } else {
+        return a[n / 2];
+    }
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「add 1 to all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「subtract 1 from all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「multiply all elements by 2」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+2 * Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「integer divide all elements by 2 (using floor division)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「reverse the entire array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「sort the entire array in ascending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「sort the entire array in descending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「circularly shift all elements one position to the right」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「set all elements to 0」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == 0 && Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「set all elements to 1」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == 1 && Of == 1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「set the first element to the minimum value in the original array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「set the first element to the maximum value in the original array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「add 5 to the first half of the array elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「subtract 5 from the last half of the array elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「multiply the middle element by 3 (when n is odd)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+If n is odd: Of == 3 * Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「set the middle element to 0 (when n is odd)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+If n is odd: Of <= Os ✗
+
+----------------------------------------
+
+操作总数: 16
+关系总数: 16

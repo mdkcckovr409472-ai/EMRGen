@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // 交换 a 和 b 数组指针
+    int* temp = tf.a;
+    tf.a = tf.b;
+    tf.b = temp;
+    return tf;
+}

@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 1) {
+        double* shifted_v = new double[tc.n];
+        for (int i = 0; i < tc.n; ++i) {
+            shifted_v[i] = tc.v[(i + 1) % tc.n];
+        }
+        tf.v = shifted_v;
+    }
+    return tf;
+}

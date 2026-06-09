@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for sample2 for Tf and subtract 1 from all elements
+    double* new_sample2 = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        new_sample2[i] = tf.sample2[i] - 1;
+    }
+    // Overwrite sample2 pointer to point to new_sample2, reuse sample1 and n
+    tf.sample2 = new_sample2;
+    return tf;
+}

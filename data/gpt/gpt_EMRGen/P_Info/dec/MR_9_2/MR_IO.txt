@@ -1,0 +1,19 @@
+TestCase z9Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_array1 = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_array1, t1.array1, t1.n * sizeof(int));
+    follow_case.array1 = follow_case_array1;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element to modify
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Specific operation: decrement element at a random valid index by 1
+    int random_index = rand() % follow_case.n;
+    follow_case.array1[random_index] -= 1;
+    
+    return follow_case;
+}

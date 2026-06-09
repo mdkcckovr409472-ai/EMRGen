@@ -1,0 +1,29 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入 (Ts)
+    double* Ts_data = tc.data;
+    int Ts_n = tc.n;
+
+    // (2) 调用待测函数，获取初始输出 (Os)
+    double Os = harmonicMean(Ts_data, Ts_n);
+
+    // (3) 调用 change 函数，构造衍生用例对象
+    TestCase Tf_case = change(tc);
+
+    // (4) 提取衍生输入并获取衍生输出 (Of)
+    double* Tf_data = Tf_case.data;
+    int Tf_n = Tf_case.n;
+    double Of = harmonicMean(Tf_data, Tf_n);
+
+    // (5) 根据蜕变关系验证 Os 和 Of 是否相等
+    int is_valid = 0;
+    const double EPSILON = 1e-9;
+    if (std::abs(Os - Of) < EPSILON) {
+        is_valid = 1;
+    }
+
+    // (6) 释放 Tf_case 中分配的动态内存
+    delete[] Tf_case.data;
+
+    // (7) 返回验证结果
+    return is_valid;
+}

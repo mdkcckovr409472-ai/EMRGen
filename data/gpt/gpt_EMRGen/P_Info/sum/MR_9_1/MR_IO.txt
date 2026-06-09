@@ -1,0 +1,19 @@
+TestCase z9Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_values = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_values, t1.values, t1.n * sizeof(int));
+    follow_case.values = follow_case_values;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n == 0
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n / 2; ++i) {
+            int temp = follow_case.values[i];
+            follow_case.values[i] = follow_case.values[follow_case.n - 1 - i];
+            follow_case.values[follow_case.n - 1 - i] = temp;
+        }
+    }
+    
+    return follow_case;
+}

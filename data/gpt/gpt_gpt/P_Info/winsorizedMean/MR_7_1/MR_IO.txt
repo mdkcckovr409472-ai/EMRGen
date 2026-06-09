@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    if (tf.n > 0) {
+        double minVal = tf.elements[0];
+        for (int i = 1; i < tf.n; ++i) {
+            if (tf.elements[i] < minVal) {
+                minVal = tf.elements[i];
+            }
+        }
+        tf.elements[tf.n - 1] = minVal;
+    }
+
+    return tf;
+}

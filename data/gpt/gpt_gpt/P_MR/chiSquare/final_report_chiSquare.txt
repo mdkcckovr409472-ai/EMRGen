@@ -1,0 +1,153 @@
+double chiSquate(double expected[], double observed[], int n){
+    double sumExpected = 0;
+    double sumObserved = 0;
+    for (int i = 0; i < n; i++) {
+        sumExpected += expected[i];
+        sumObserved += observed[i];
+        }
+    double ratio = 1.0;
+    bool rescale = false;
+    if (abs(sumExpected - sumObserved) > 10E-6) {
+        ratio = sumObserved / sumExpected;
+        rescale = true;
+    }
+    double sumSq = 0.0;
+    for (int i = 0; i < n; i++) {
+        if (rescale) {
+            double dev = observed[i] - ratio * expected[i];
+            sumSq += dev * dev / (ratio * expected[i]);
+        } else {
+            double dev = observed[i] - expected[i];
+            sumSq += dev * dev / expected[i];
+            }
+        }
+        return sumSq;
+    }
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「add 1 to all elements」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「subtract 1 from all elements」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「multiply all elements by 2」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「divide all elements by 2」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「reverse the entire array」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「sort the array in ascending order」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「sort the array in descending order」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「circularly shift the array to the right by 1 position」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「set all elements to 0」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「set all elements to 1」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「set the first element to the maximum element value in expected」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains expected (double*), if the operation 「multiply the first half elements by 2」 is executed on expected to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「add 1 to all elements」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「subtract 1 from all elements」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「multiply all elements by 2」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「divide all elements by 2」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「reverse the entire array」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「sort the array in ascending order」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「sort the array in descending order」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「circularly shift the array to the right by 1 position」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「set all elements to 0」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「set all elements to 1」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「set the first element to the minimum element value in observed」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains observed (double*), if the operation 「multiply the last half elements by 0.5」 is executed on observed to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✗
+
+----------------------------------------
+
+操作总数: 24
+关系总数: 24

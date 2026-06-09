@@ -1,0 +1,19 @@
+TestCase z24Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy of the array to ensure safe modifications
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: ensure there is at least one element to process
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Square every odd-indexed element (0‑based indexing)
+    for (int i = 1; i < follow_case.n; i += 2) {
+        follow_case.a[i] = follow_case.a[i] * follow_case.a[i];
+    }
+
+    return follow_case;
+}

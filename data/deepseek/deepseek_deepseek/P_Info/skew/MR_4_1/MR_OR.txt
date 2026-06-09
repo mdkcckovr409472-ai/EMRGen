@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = skew(tc.data, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = skew(Tf_case.data, Tf_case.n);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.data;
+    return is_valid;
+}

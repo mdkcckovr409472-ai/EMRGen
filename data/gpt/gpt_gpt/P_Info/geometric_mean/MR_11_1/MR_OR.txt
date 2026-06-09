@@ -1,0 +1,7 @@
+int check(TestCase tc) {
+    double Os = geometric_mean(tc.a, tc.n);
+    TestCase tf = change(tc);
+    double Of = geometric_mean(tf.a, tf.n);
+    int is_valid = (Os < Of) ? 1 : 0;
+    return is_valid;
+}

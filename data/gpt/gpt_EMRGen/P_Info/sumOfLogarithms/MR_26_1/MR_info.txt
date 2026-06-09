@@ -1,0 +1,2 @@
+Operation 26: On parameter 'elements' (array[double]): apply sqrt to each non‑negative element (when element ≥ 0)
+Invariant: return.result1 - 2 * return.result2 == 0

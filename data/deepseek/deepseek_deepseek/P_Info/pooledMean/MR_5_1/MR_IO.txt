@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 10.0; // 示例常数k，可根据需要调整
+    if (tf.data2 != nullptr && tf.n2 > 0) {
+        double* new_data2 = new double[tf.n2];
+        for (int i = 0; i < tf.n2; i++) {
+            new_data2[i] = tf.data2[i] + k;
+        }
+        tf.data2 = new_data2;
+    }
+    return tf;
+}

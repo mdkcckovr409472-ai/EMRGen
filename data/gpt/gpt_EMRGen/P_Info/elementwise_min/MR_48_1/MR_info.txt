@@ -1,0 +1,2 @@
+Operation 48: On parameter 'b' (array[int]): replace elements at even indices by adding 2
+Invariant: return.result1[] <= return.result2[] (elementwise)

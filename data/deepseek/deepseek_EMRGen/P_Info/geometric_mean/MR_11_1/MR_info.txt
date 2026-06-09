@@ -1,0 +1,2 @@
+Operation 11: On parameter 'a' (int*): 所有元素加其索引值
+Invariant: return.result1 < return.result2

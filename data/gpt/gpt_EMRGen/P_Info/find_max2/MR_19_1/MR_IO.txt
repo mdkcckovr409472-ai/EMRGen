@@ -1,0 +1,21 @@
+TestCase z19Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array a
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Operation: set elements at odd indices to their absolute value
+    for (int i = 1; i < follow_case.n; i += 2) {
+        if (follow_case.a[i] < 0) {
+            follow_case.a[i] = -follow_case.a[i];
+        }
+    }
+
+    return follow_case;
+}

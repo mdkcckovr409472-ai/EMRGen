@@ -1,0 +1,6 @@
+TestCase z66Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // No array handling required for scalar upperLim
+    follow_case.upperLim = INT_MIN;
+    return follow_case;
+}

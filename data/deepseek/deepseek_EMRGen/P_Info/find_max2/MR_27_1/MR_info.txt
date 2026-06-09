@@ -1,0 +1,2 @@
+Operation 27: On parameter 'a' (int*): 数组前半部分元素加5
+Invariant: return.result1 <= return.result2

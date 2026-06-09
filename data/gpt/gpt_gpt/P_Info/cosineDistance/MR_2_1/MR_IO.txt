@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory to hold modified p1 (subtract 1 from each element)
+    double* new_p1 = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_p1[i] = tc.p1[i] - 1.0;
+    }
+    tf.p1 = new_p1;
+    return tf;
+}

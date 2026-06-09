@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 10.0;
+    if (tf.data2 != nullptr && tf.n2 > 0) {
+        for (int i = 0; i < tf.n2; i++) {
+            tf.data2[i] = tc.data2[i] - k;
+        }
+    }
+    return tf;
+}

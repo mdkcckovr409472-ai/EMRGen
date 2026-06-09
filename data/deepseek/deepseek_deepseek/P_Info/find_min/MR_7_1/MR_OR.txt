@@ -1,0 +1,28 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入 (Ts)
+    int* Ts_a = tc.a;
+    int Ts_n = tc.n;
+    
+    // (2) 调用待测函数，获取初始输出 (Os)
+    int Os = find_min(Ts_a, Ts_n);
+    
+    // (3) 调用 change 函数，构造衍生用例对象
+    TestCase Tf_case = change(tc);
+    
+    // (4) 提取衍生输入并获取衍生输出 (Of)
+    int* Tf_a = Tf_case.a;
+    int Tf_n = Tf_case.n;
+    int Of = find_min(Tf_a, Tf_n);
+    
+    // (5) 根据蜕变关系验证 Os 和 Of 是否相等
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    
+    // (6) 释放 Tf_case 中分配的动态内存
+    delete[] Tf_case.a;
+    
+    // (7) 返回验证结果
+    return is_valid;
+}

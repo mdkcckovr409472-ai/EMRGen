@@ -1,0 +1,6 @@
+TestCase z37Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Operation: set left to minimum (0)
+    follow_case.left = 0;
+    return follow_case;
+}

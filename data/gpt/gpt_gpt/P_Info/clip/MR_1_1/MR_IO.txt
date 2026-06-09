@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    // Reuse the input array pointer and other fields, only modify lowerLim by adding 1
+    TestCase tf = tc;
+    tf.lowerLim = tc.lowerLim + 1;
+    return tf;
+}

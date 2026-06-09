@@ -1,0 +1,2 @@
+Operation 17: On parameter 'a' (int*): 数组向右循环移位（末元素移到开头）
+Invariant: return.result1 == return.result2

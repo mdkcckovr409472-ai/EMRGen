@@ -1,0 +1,2 @@
+Operation 9: On parameter 'x' (array[double]): swap two random elements
+Invariant: return.result1 == return.result2

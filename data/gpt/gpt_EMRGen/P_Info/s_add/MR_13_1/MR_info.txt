@@ -1,0 +1,2 @@
+Operation 13: On parameter 'array1' (int[]): sort array ascending
+Invariant: return.result1[] >= return.result2[] (lexically)

@@ -1,0 +1,2 @@
+Operation 23: On parameter 'array1' (int[]): square each element
+Invariant: return.result1[] <= return.result2[] (elementwise)

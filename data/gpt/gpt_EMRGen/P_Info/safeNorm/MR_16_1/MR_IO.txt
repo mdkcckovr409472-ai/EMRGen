@@ -1,0 +1,20 @@
+TestCase z16Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_v = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_v, t1.v, t1.n * sizeof(double));
+    follow_case.v = follow_case_v;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n < 1) {
+        // No elements to modify, return replica directly
+        return follow_case;
+    }
+    
+    // Specific operation code: multiply a random element by -1.0
+    int random_idx = rand() % follow_case.n;
+    follow_case.v[random_idx] *= -1.0;
+    
+    return follow_case;
+}

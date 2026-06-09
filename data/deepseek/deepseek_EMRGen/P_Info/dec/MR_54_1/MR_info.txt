@@ -1,0 +1,2 @@
+Operation 54: On parameter 'array2' (int*): 将数组元素替换为其相邻元素的差值（从索引1开始，每个元素为当前值减前一个值，索引0保持不变）
+Invariant: return.result1[][0..0] == return.result2[][0..0] (elementwise)

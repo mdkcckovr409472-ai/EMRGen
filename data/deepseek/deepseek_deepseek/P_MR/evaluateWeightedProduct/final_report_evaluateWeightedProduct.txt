@@ -1,0 +1,66 @@
+double evaluateWeightedProduct( double values[],  double weights[],  int begin, int lengths, int n) {
+    double product = 1.0;
+     
+    for (int i = begin; i < begin + lengths; i++) {
+        product *= pow(values[i], weights[i]);
+    }
+    return product;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：对于初始输入Ts中包含values（double*）的函数，若对 values执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+pow(2, sum(weights[begin:begin+lengths])) * Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含values（double*）的函数，若对 values执行「反转数组在[begin, begin+lengths)区间内的元素顺序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含values（double*）的函数，若对 values执行「将数组在[begin, begin+lengths)区间内的元素按升序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含values（double*）的函数，若对 values执行「将数组在[begin, begin+lengths)区间内的元素循环左移一位」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含weights（double*）的函数，若对 weights执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+pow(product(values[begin:begin+lengths]), 2) * Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含weights（double*）的函数，若对 weights执行「反转数组在[begin, begin+lengths)区间内的元素顺序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含weights（double*）的函数，若对 weights执行「将数组在[begin, begin+lengths)区间内的元素按升序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「加1」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「减1」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「乘2」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+操作总数: 10
+关系总数: 10

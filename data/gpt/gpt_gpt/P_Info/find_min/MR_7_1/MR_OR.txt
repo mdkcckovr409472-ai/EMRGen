@@ -1,0 +1,24 @@
+int check(TestCase tc) {
+    // Extract source input
+    int* source_a = tc.a;
+    int source_n = tc.n;
+    // Call function under test to get source output
+    int Os = find_min(source_a, source_n);
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    // Extract follow-up input
+    int* follow_a = Tf_case.a;
+    int follow_n = Tf_case.n;
+    // Call function under test on follow-up input
+    int Of = find_min(follow_a, follow_n);
+    // Verify the metamorphic relation
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    // Clean up dynamic memory allocated in change()
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+    return is_valid;
+}

@@ -1,0 +1,18 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for data1
+    double* follow_case_data1 = (double*)malloc(t1.n1 * sizeof(double));
+    memcpy(follow_case_data1, t1.data1, t1.n1 * sizeof(double));
+    follow_case.data1 = follow_case_data1;
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n1 < 1) {
+        return follow_case;
+    }
+    // Right circular shift of data1 (move last element to front)
+    double last = follow_case.data1[follow_case.n1 - 1];
+    for (int i = follow_case.n1 - 1; i > 0; --i) {
+        follow_case.data1[i] = follow_case.data1[i - 1];
+    }
+    follow_case.data1[0] = last;
+    return follow_case;
+}

@@ -1,0 +1,16 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            if (follow_case.elements[i] < 0) {
+                follow_case.elements[i] = -follow_case.elements[i];
+            }
+        }
+    }
+    return follow_case;
+}

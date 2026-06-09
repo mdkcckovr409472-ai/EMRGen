@@ -1,0 +1,36 @@
+TestCase z26Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element to rotate
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Operation: rotate subarray (the whole array) right by k positions, where k is random within length
+    int k = rand() % follow_case.n;  // k ∈ [0, n-1]
+    if (k > 0) {
+        // Helper lambda to reverse a segment in‑place
+        auto reverse_segment = [&](int start, int end) {
+            while (start < end) {
+                int tmp = follow_case.a[start];
+                follow_case.a[start] = follow_case.a[end];
+                follow_case.a[end] = tmp;
+                ++start;
+                --end;
+            }
+        };
+        // Reverse whole array
+        reverse_segment(0, follow_case.n - 1);
+        // Reverse first k elements
+        reverse_segment(0, k - 1);
+        // Reverse remaining elements
+        reverse_segment(k, follow_case.n - 1);
+    }
+    
+    return follow_case;
+}

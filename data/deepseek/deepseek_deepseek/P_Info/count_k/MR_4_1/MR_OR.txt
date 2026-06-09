@@ -1,0 +1,30 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入 (Ts)
+    int* a_initial = tc.a;
+    int k_initial = tc.k;
+    int n_initial = tc.n;
+    
+    // (2) 获取初始输出 (Os)
+    int Os = count_k(a_initial, k_initial, n_initial);
+    
+    // (3) 构造衍生用例对象
+    TestCase Tf_case = change(tc);
+    
+    // (4) 提取衍生输入并获取衍生输出 (Of)
+    int* a_follow = Tf_case.a;
+    int k_follow = Tf_case.k;
+    int n_follow = Tf_case.n;
+    int Of = count_k(a_follow, k_follow, n_follow);
+    
+    // (5) 验证蜕变关系 Os == Of
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    
+    // (6) 释放衍生用例中动态分配的数组内存
+    delete[] Tf_case.a;
+    
+    // (7) 返回验证结果
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 7: On parameter 'a' (int*): 所有元素置为1
+Invariant: return.result1 >= return.result2

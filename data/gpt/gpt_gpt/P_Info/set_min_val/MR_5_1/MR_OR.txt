@@ -1,0 +1,39 @@
+int check(TestCase tc) {
+    // (1) Extract source input Ts
+    int* Ts = tc.a;
+    int k = tc.k;
+    int n = tc.n;
+
+    // (2) Call function under test for source output Os
+    int* Os = set_min_val(Ts, k, n);
+    if (!Os) return 0;
+
+    // (3) Construct follow-up test case Tf
+    TestCase Tf = change(tc);
+
+    // (4) Extract follow-up input and get follow-up output Of
+    int* Tf_a = Tf.a;
+    int* Of = set_min_val(Tf_a, k, n);
+    if (!Of) {
+        free(Os);
+        if (Tf_a != Ts) free(Tf_a);
+        return 0;
+    }
+
+    // (5) Verify metamorphic relation: Os <= Of element-wise
+    int is_valid = 1;
+    for (int i = 0; i < n; ++i) {
+        if (Os[i] > Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // (6) Free all dynamically allocated memory
+    free(Os);
+    free(Of);
+    if (Tf_a != Ts) free(Tf_a);
+
+    // (7) Return verification result
+    return is_valid;
+}

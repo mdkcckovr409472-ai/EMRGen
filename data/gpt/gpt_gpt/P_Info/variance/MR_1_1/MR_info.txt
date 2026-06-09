@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains x (double[]), if the operation 「add 1 to all elements」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Os == Of

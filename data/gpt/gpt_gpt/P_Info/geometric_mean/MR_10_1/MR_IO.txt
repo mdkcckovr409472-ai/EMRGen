@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for follow-up input to avoid modifying original
+    int* new_a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_a[i] = tc.a[i];
+    }
+    // Add 1 to first half elements
+    int half = tc.n / 2;
+    for (int i = 0; i < half; i++) {
+        new_a[i] += 1;
+    }
+    tf.a = new_a;
+    return tf;
+}

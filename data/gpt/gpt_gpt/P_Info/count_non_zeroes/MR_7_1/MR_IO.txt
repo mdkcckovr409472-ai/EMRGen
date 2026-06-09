@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc; 
+    // Reuse the original array by allocating a new array for modification
+    int* new_a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_a[i] = tc.a[i];
+    }
+    if (tf.n > 0) {
+        new_a[0] = INT_MAX;
+    }
+    tf.a = new_a;
+    return tf;
+}

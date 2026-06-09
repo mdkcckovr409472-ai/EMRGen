@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = polevl(tc.x, tc.coef, tc.N);
+    TestCase Tf_case = change(tc);
+    double Of = polevl(Tf_case.x, Tf_case.coef, Tf_case.N);
+    int is_valid = 0;
+    if (fabs(0.5 * Os - Of) < 1e-12) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.coef;
+    return is_valid;
+}

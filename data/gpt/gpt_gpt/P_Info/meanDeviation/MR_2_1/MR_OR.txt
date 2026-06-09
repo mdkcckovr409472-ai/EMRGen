@@ -1,0 +1,30 @@
+int check(TestCase tc) {
+    // (1) Extract the source input (Ts)
+    double* Ts = tc.elements;
+    int n = tc.n;
+    double mean = tc.mean;
+
+    // (2) Call the function under test to get the source output (Os)
+    double Os = meanDeviation(Ts, mean, n);
+
+    // (3) Call change() to construct the follow-up test case object
+    TestCase Tf_case = change(tc);
+
+    // (4) Extract the follow-up input and get the follow-up output (Of)
+    double* Tf = Tf_case.elements;
+    double Of = meanDeviation(Tf, mean, n);
+
+    // (5) Verify whether Os and Of satisfy MR: Os == Of
+    // Because double equality can be unstable, use a small epsilon for comparison
+    const double EPSILON = 1e-12;
+    int is_valid = (fabs(Os - Of) < EPSILON) ? 1 : 0;
+
+    // (6) Free dynamic memory allocated in change()
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+        Tf_case.elements = nullptr;
+    }
+
+    // (7) Return verification result
+    return is_valid;
+}

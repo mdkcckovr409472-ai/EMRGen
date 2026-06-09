@@ -1,0 +1,74 @@
+double sampleKurtosis(double moment4, double sampleVariance,int size) {
+    int n = size;
+    double s2 = sampleVariance;
+    double m4 = moment4 * n;
+    return m4 * n * (n + 1) / ((n - 1) * (n - 2) * (n - 3) * s2 * s2) - 3.0 * (n - 1) * (n - 1) / ((n - 2) * (n - 3));
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「加1」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os < Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「减1」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os > Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「乘2」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+2 * Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「乘0.5」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+0.5 * Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「加0」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「加1」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os > Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「减1」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os < Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「乘2」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+0.25 * Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「乘0.5」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+4 * Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「加0」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「置为1」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os * (sampleVariance * sampleVariance) == Of * (1 * 1) ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含size（int）的函数，若对 size执行「加0」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+操作总数: 12
+关系总数: 12

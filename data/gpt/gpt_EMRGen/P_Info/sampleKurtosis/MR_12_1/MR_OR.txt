@@ -1,0 +1,6 @@
+int z12check(double result1, double result2) {
+    if (!(result1 > result2)) {
+        return 0;
+    }
+    return 1;
+}

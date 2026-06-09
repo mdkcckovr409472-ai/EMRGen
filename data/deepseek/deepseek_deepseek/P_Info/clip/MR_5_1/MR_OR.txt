@@ -1,0 +1,35 @@
+int check(TestCase tc) {
+    // 获取初始输出 Os
+    int* Os = clip(tc.a, tc.lowerLim, tc.upperLim, tc.n);
+
+    // 构造衍生用例
+    TestCase Tf_case = change(tc);
+
+    // 获取衍生输出 Of
+    int* Of = clip(Tf_case.a, Tf_case.lowerLim, Tf_case.upperLim, Tf_case.n);
+
+    int is_valid = 1;
+    int j = 0; // 与 change 函数中使用的索引一致
+
+    // 验证 Of[j] == lowerLim
+    if (Of[j] != Tf_case.lowerLim) {
+        is_valid = 0;
+    }
+
+    // 验证对于所有 i != j, Of[i] == Os[i]
+    for (int i = 0; i < tc.n; i++) {
+        if (i != j) {
+            if (Of[i] != Os[i]) {
+                is_valid = 0;
+                break;
+            }
+        }
+    }
+
+    // 释放 change 函数中分配的内存
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+
+    return is_valid;
+}

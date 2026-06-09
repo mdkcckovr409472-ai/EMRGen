@@ -1,0 +1,2 @@
+Operation 30: On parameter 'elements' (double*): 数组随机重排序
+Invariant: return.result1 == return.result2

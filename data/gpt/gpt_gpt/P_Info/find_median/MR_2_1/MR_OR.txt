@@ -1,0 +1,45 @@
+int check(TestCase tc) {
+    // Extract the source input
+    int* Ts = tc.a;
+    int n = tc.n;
+    if (Ts == nullptr || n <= 0) {
+        return 0;
+    }
+    // Call the function under test to get Os
+    // Note: The function modifies the input array a[], so copy input before call to prevent altering it
+    int* Ts_copy = new int[n];
+    for (int i = 0; i < n; i++) {
+        Ts_copy[i] = Ts[i];
+    }
+    double Os = find_median(Ts_copy, n);
+    delete[] Ts_copy;
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    if (Tf_case.a == nullptr || Tf_case.n != n) {
+        // Free any allocated memory if any
+        if (Tf_case.a != tc.a) {
+            delete[] Tf_case.a;
+        }
+        return 0;
+    }
+
+    // Call function under test with follow-up input, copy it to avoid modifying original
+    int* Tf_copy = new int[n];
+    for (int i = 0; i < n; i++) {
+        Tf_copy[i] = Tf_case.a[i];
+    }
+    double Of = find_median(Tf_copy, n);
+    delete[] Tf_copy;
+
+    // Verify MR: Os > Of
+    int is_valid = (Os > Of) ? 1 : 0;
+
+    // Free dynamic memory from change()
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+
+    return is_valid;
+}

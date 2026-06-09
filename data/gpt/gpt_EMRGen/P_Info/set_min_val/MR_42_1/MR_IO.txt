@@ -1,0 +1,9 @@
+TestCase z42Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check for integer overflow when squaring k
+    long long result = (long long)follow_case.k * (long long)follow_case.k;
+    if (result <= 2147483647LL && result >= -2147483648LL) {
+        follow_case.k = (int)result;
+    }
+    return follow_case;
+}

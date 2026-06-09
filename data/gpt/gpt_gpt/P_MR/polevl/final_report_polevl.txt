@@ -1,0 +1,107 @@
+double polevl(double x, double coef[], int N){    
+    double ans1;
+    ans1 = coef[0];
+    
+    for (int i = 1; i <= N; i++) {
+        ans1 = ans1 * x + coef[i];
+    }
+    return ans1;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains x (double), if the operation 「add 1 to x」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double), if the operation 「subtract 1 from x」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double), if the operation 「multiply x by 2」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double), if the operation 「divide x by 2 (x ≠ 0)」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「add 1 to all elements」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「subtract 1 from all elements」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「multiply all elements by 2」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「divide all elements by 2 (no zero elements)」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「reverse the entire array」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「sort the entire array in ascending order」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「sort the entire array in descending order」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「circular right shift by 1 position」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「set all elements to 0」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「set all elements to 1」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「set coef[0] to the maximum value in coef」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「set coef[0] to the minimum value in coef」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「add 1 to the first half elements」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains coef (double[]), if the operation 「multiply the last element by 2」 is executed on coef to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+操作总数: 18
+关系总数: 18

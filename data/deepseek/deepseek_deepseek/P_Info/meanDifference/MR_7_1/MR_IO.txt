@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.sample2 != nullptr && tf.n > 0) {
+        double* sorted_sample2 = new double[tf.n];
+        for (int i = 0; i < tf.n; ++i) {
+            sorted_sample2[i] = tf.sample2[i];
+        }
+        std::sort(sorted_sample2, sorted_sample2 + tf.n);
+        tf.sample2 = sorted_sample2;
+    }
+    return tf;
+}

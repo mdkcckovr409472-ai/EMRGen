@@ -1,0 +1,2 @@
+Operation 44: On parameter 'left' (int): set left to -left (when sign change allowed)
+Invariant: return.result1 >= return.result2

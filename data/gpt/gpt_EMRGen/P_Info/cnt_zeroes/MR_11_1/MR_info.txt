@@ -1,0 +1,2 @@
+Operation 11: On parameter 'a' (array[int]): replace all negative elements with their absolute value
+Invariant: return.result1 == return.result2

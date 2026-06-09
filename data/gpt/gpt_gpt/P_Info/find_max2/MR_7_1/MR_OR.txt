@@ -1,0 +1,21 @@
+int check(TestCase tc) {
+    // source input
+    int* Ts = tc.a;
+    int n = tc.n;
+
+    int Os = find_max2(Ts, n);
+
+    // construct follow-up test case
+    TestCase Tf_case = change(tc);
+    int Of = find_max2(Tf_case.a, n);
+
+    int is_valid = 0;
+    if (Of >= Os) {
+        is_valid = 1;
+    }
+
+    // free dynamically allocated memory in Tf_case
+    delete[] Tf_case.a;
+
+    return is_valid;
+}

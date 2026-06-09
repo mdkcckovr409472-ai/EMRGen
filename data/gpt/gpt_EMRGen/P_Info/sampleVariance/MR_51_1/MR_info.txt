@@ -1,0 +1,2 @@
+Operation 51: On parameter 'mean' (double): set to -0.5
+Invariant: return.result1 <= return.result2

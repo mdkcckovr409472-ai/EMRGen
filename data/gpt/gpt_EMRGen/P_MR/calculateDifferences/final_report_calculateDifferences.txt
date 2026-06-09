@@ -1,0 +1,258 @@
+double* calculateDifferences(double x[], double y[], int n){
+
+    double* z = (double*)malloc(n * sizeof(double));
+
+    for (int i = 0; i < n; i++)
+    {
+        z[i] = y[i] - x[i];
+    }
+
+    return z;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'x' (double*): add 1.0 to all elements
+Invariant: 
+return.result1[] - return.result2[] - 1 == 0 ✓ ○
+return.result1[] > return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 1 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 2: On parameter 'x' (double*): subtract 0.5 from all elements
+Invariant: 
+2 * return.result1[] - 2 * return.result2[] + 1 == 0 ✓ ○
+return.result1[] < return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「subtract 0.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - 2 * Of[] + 1 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 6: On parameter 'x' (double*): set last element to 100.0 (when it is less than 100.0)
+Invariant: 
+return.result1[] > return.result2[] (lexically) ✓ ○
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「set last element to 100.0 (when it is less than 100.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 7: On parameter 'x' (double*): set a random position's element to -999.9 (when current value > -999.9)
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「set a random position's element to -999.9 (when current value > -999.9)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 8: On parameter 'x' (double*): increment a random element by 1.0
+Invariant: 
+return.result1[] > return.result2[] (lexically) ✓ ○
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「increment a random element by 1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 9: On parameter 'x' (double*): decrement a random element by 1.0
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「decrement a random element by 1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 14: On parameter 'x' (double*): sort array in ascending order
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 15: On parameter 'x' (double*): sort array in descending order
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「sort array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 16: On parameter 'x' (double*): replace each element with its absolute value
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「replace each element with its absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 19: On parameter 'x' (double*): apply natural logarithm to each positive element
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「apply natural logarithm to each positive element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 23: On parameter 'x' (double*): set every element greater than 50.0 to 50.0 (clamp high values)
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「set every element greater than 50.0 to 50.0 (clamp high values)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 24: On parameter 'x' (double*): set every element less than -50.0 to -50.0 (clamp low values)
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「set every element less than -50.0 to -50.0 (clamp low values)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 25: On parameter 'y' (double*): add 2.0 to all elements
+Invariant: 
+return.result1[] - return.result2[] + 2 == 0 ✓ ○
+return.result1[] < return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「add 2.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 2 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 26: On parameter 'y' (double*): subtract 1.0 from all elements
+Invariant: 
+return.result1[] - return.result2[] - 1 == 0 ✓ ○
+return.result1[] > return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「subtract 1.0 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 1 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 30: On parameter 'y' (double*): set last element to -1.0 (when it is greater than -1.0)
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「set last element to -1.0 (when it is greater than -1.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 31: On parameter 'y' (double*): set a random position's element to 777.7 (when current value < 777.7)
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「set a random position's element to 777.7 (when current value < 777.7)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 32: On parameter 'y' (double*): increment a random element by 0.5
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「increment a random element by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 33: On parameter 'y' (double*): decrement a random element by 0.5
+Invariant: 
+return.result1[] > return.result2[] (lexically) ✓ ○
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「decrement a random element by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 38: On parameter 'y' (double*): sort array in ascending order
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 39: On parameter 'y' (double*): sort array in descending order
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「sort array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 40: On parameter 'y' (double*): replace each element with its absolute value
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「replace each element with its absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 43: On parameter 'y' (double*): apply natural logarithm to each positive element
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「apply natural logarithm to each positive element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 47: On parameter 'y' (double*): set every element greater than 200.0 to 200.0 (clamp high values)
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「set every element greater than 200.0 to 200.0 (clamp high values)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 48: On parameter 'y' (double*): set every element less than -200.0 to -200.0 (clamp low values)
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「set every element less than -200.0 to -200.0 (clamp low values)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+
+操作总数: 24
+关系总数: 35

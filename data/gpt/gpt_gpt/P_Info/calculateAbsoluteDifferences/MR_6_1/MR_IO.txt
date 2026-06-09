@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        for (int i = tf.n / 2; i < tf.n; i++) {
+            tf.z[i] = tf.z[i] * 3;
+        }
+    }
+    return tf;
+}

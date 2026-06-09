@@ -1,0 +1,119 @@
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cfloat>
+#include <cctype>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+
+bool equals(double x[], double y[], int nx, int ny) {
+
+    if (nx != ny) {
+        return false;
+    }
+    for (int i = 0; i < nx; ++i) {
+        if (abs(y[i] - x[i]) > 0.0001) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+typedef struct {
+    double* x; double* y; int nx; int ny;
+} TestCase;
+
+TestCase test_cases[] = {
+    {(double[]){1.23, -45.6, 789.0}, (double[]){1.23005, -45.59995, 789.0001}, 3, 3},
+    {(double[]){1000.0, 0.0001, -300.5}, (double[]){999.9999, 0.0002, -300.50005}, 3, 3},
+    {(double[]){42.5, -150.2, 300.0, 23.1}, (double[]){42.50009, -150.19995, 300.0001, 23.1}, 4, 4},
+    {(double[]){-100.0, 0.0, 100.0}, (double[]){-100.00005, -0.00005, 100.00005}, 3, 3},
+    {(double[]){3.1415, 2.7182, -1.618}, (double[]){3.14159, 2.71828, -1.61803}, 3, 3},
+    {(double[]){500.5, 400.4, 300.3, 200.2, 100.1}, (double[]){500.50001, 400.39999, 300.30005, 200.2, 100.1}, 5, 5},
+    {(double[]){1.0, -1.0, 0.5, -0.5}, (double[]){1.00005, -1.0001, 0.50002, -0.49998}, 4, 4},
+    {(double[]){123.456, 654.321, -987.654}, (double[]){123.45595, 654.3209, -987.6541}, 3, 3},
+    {(double[]){0.001, 0.002, 0.003, 1000.0}, (double[]){0.00101, 0.00205, 0.003, 999.9999}, 4, 4},
+    {(double[]){-2000.0, 3000.0}, (double[]){-1999.99995, 2999.9999}, 2, 2},
+    {(double[]){7.777, 8.888, 9.999}, (double[]){7.77705, 8.88795, 9.99901}, 3, 3},
+    {(double[]){222.222, -333.333}, (double[]){222.22201, -333.3329}, 2, 2},
+    {(double[]){1.1, 2.2, 3.3, 4.4, 5.5}, (double[]){1.10009, 2.20005, 3.29995, 4.39998, 5.5001}, 5, 5},
+    {(double[]){-0.0001, 0.0001}, (double[]){-0.00009, 0.00011}, 2, 2},
+    {(double[]){100000.0, 200000.0}, (double[]){99999.9999, 200000.0001}, 2, 2},
+    {(double[]){-99999.9, 12345.6}, (double[]){-99999.8999, 12345.60005}, 2, 2},
+    {(double[]){9.876, 5.432, 1.234}, (double[]){9.87595, 5.4321, 1.23405}, 3, 3},
+    {(double[]){400.0, -400.0, 0.0}, (double[]){400.00005, -399.99995, 0.0}, 3, 3},
+    {(double[]){11.11, 22.22, 33.33}, (double[]){11.11005, 22.2199, 33.3299}, 3, 3},
+    {(double[]){101.1, 202.2}, (double[]){101.1, 202.1999}, 2, 2},
+    {(double[]){-345.6, 789.0, 123.4}, (double[]){-345.5999, 788.99995, 123.40005}, 3, 3},
+    {(double[]){6.6, 7.7, 8.8, 9.9}, (double[]){6.60004, 7.69996, 8.79999, 9.89995}, 4, 4},
+    {(double[]){1111.1, 2222.2, 3333.3}, (double[]){1111.09, 2222.19, 3333.29}, 3, 3},
+    {(double[]){-0.1, 0.1, -0.2, 0.2}, (double[]){-0.10005, 0.1001, -0.20002, 0.19998}, 4, 4},
+    {(double[]){50.0, 150.0, 250.0}, (double[]){49.99995, 150.00005, 250.0001}, 3, 3},
+    {(double[]){1.414, 2.236, 3.605}, (double[]){1.4141, 2.2360, 3.60495}, 3, 3},
+    {(double[]){700.7, 800.8, 900.9, 1000.0}, (double[]){700.69995, 800.8, 900.8999, 999.9999}, 4, 4},
+    {(double[]){-555.5, 666.6, -777.7}, (double[]){-555.4999, 666.6001, -777.69995}, 3, 3},
+    {(double[]){13.7, 14.8, 15.9}, (double[]){13.70005, 14.79995, 15.9001}, 3, 3}
+};
+int num_test_cases = 29;
+
+
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Since dividing all elements of tf.y by 1.0 does not change values, no modification needed
+    // But to strictly follow the MR operation, we mimic the operation explicitly
+    for (int i = 0; i < tf.ny; ++i) {
+        tf.y[i] = tf.y[i] / 1.0;
+    }
+    return tf;
+}
+
+int check(TestCase tc) {
+    // (1) Extract the source input (Ts)
+    double* x_s = tc.x;
+    double* y_s = tc.y;
+    int nx_s = tc.nx;
+    int ny_s = tc.ny;
+
+    // (2) Call equals to get the source output Os
+    bool Os = equals(x_s, y_s, nx_s, ny_s);
+
+    // (3) Call change to get the follow-up input Tf_case
+    TestCase Tf_case = change(tc);
+
+    // (4) Extract follow-up input and get follow-up output Of
+    double* x_f = Tf_case.x;
+    double* y_f = Tf_case.y;
+    int nx_f = Tf_case.nx;
+    int ny_f = Tf_case.ny;
+
+    bool Of = equals(x_f, y_f, nx_f, ny_f);
+
+    // (5) Verify MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // (6) Free dynamically allocated memory if any (no new allocation done here)
+    // No dynamically allocated memory created inside change or here, so nothing to free
+
+    // (7) Return verification result
+    return is_valid;
+}
+
+int main() {
+    int status_end = 1;
+    for (int i = 0; i < num_test_cases; i++) {
+        int is_valid = check(test_cases[i]);
+        if (is_valid == 0) {
+            status_end = 0; 
+        }
+    }
+    std::cout << status_end << std::endl;
+    return 0;
+}

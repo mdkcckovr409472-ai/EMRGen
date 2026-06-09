@@ -1,0 +1,6 @@
+TestCase z78Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 具体操作代码：加100
+    follow_case.end = follow_case.end + 100;
+    return follow_case;
+}

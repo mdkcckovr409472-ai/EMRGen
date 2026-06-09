@@ -1,0 +1,2 @@
+Operation 26: On parameter 'elements' (array[double]): replace each element with its floor value
+Invariant: return.result1 >= return.result2

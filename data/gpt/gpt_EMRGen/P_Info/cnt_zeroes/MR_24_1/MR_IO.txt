@@ -1,0 +1,22 @@
+TestCase z24Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Operation: replace every non‑zero with 0
+    for (int i = 0; i < follow_case.n; ++i) {
+        if (follow_case.a[i] != 0) {
+            follow_case.a[i] = 0;
+        }
+    }
+    
+    return follow_case;
+}

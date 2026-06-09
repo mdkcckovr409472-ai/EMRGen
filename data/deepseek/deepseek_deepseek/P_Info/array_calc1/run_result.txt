@@ -1,0 +1,56 @@
+[MR_1_1]: 运行成功, 输出: 0
+
+[MR_3_1]: 编译失败
+Error:
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp: In function ‘TestCase change(TestCase)’:
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp:71:14: error: ‘iota’ is not a member of ‘std’
+   71 |         std::iota(indices.begin(), indices.end(), 0);
+      |              ^~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp: In function ‘int check(TestCase)’:
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp:101:10: error: ‘multiset’ is not a member of ‘std’
+  101 |     std::multiset<int> multiset_Os(Os, Os + tc.n);
+      |          ^~~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp:13:1: note: ‘std::multiset’ is defined in header ‘<set>’; did you forget to ‘#include <set>’?
+   12 | #include <algorithm>
+  +++ |+#include <set>
+   13 | using namespace std;
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp:101:19: error: expected primary-expression before ‘int’
+  101 |     std::multiset<int> multiset_Os(Os, Os + tc.n);
+      |                   ^~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp:102:10: error: ‘multiset’ is not a member of ‘std’
+  102 |     std::multiset<int> multiset_Of(Of, Of + tc.n);
+      |          ^~~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp:102:10: note: ‘std::multiset’ is defined in header ‘<set>’; did you forget to ‘#include <set>’?
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp:102:19: error: expected primary-expression before ‘int’
+  102 |     std::multiset<int> multiset_Of(Of, Of + tc.n);
+      |                   ^~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp:103:9: error: ‘multiset_Os’ was not declared in this scope
+  103 |     if (multiset_Os == multiset_Of) {
+      |         ^~~~~~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_3_1/MR_combined.cpp:103:24: error: ‘multiset_Of’ was not declared in this scope
+  103 |     if (multiset_Os == multiset_Of) {
+      |                        ^~~~~~~~~~~
+
+[MR_2_1]: 编译失败
+Error:
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_2_1/MR_combined.cpp: In function ‘int check(TestCase)’:
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_2_1/MR_combined.cpp:119:1: error: jump to label ‘cleanup’
+  119 | cleanup:
+      | ^~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_2_1/MR_combined.cpp:95:14: note:   from here
+   95 |         goto cleanup;
+      |              ^~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_2_1/MR_combined.cpp:98:14: note:   crosses initialization of ‘TestCase Tf_case’
+   98 |     TestCase Tf_case = change(tc);
+      |              ^~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_2_1/MR_combined.cpp:119:1: error: jump to label ‘cleanup’
+  119 | cleanup:
+      | ^~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_2_1/MR_combined.cpp:89:14: note:   from here
+   89 |         goto cleanup;
+      |              ^~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/test/EMR_LLM_TEST/array_calc1/MR_2_1/MR_combined.cpp:98:14: note:   crosses initialization of ‘TestCase Tf_case’
+   98 |     TestCase Tf_case = change(tc);
+      |              ^~~~~~~
+
+[MR_4_1]: 运行成功, 输出: 0

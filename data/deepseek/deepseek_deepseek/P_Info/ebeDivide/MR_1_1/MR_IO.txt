@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int n = tf.n1;
+    double* new_a = (double*)malloc(n * sizeof(double));
+    if (new_a == NULL) {
+        return tf;
+    }
+    for (int i = 0; i < n; i++) {
+        new_a[i] = tf.a[i] * 0.5;
+    }
+    tf.a = new_a;
+    return tf;
+}

@@ -1,0 +1,5 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    std::sort(tf.a, tf.a + tf.n);
+    return tf;
+}

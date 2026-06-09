@@ -1,0 +1,20 @@
+TestCase z22Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of the array
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: need at least 3 elements to reverse a subarray of length 3
+    if (follow_case.n < 3) {
+        return follow_case;
+    }
+
+    // Reverse a random subarray of length 3
+    int start = rand() % (follow_case.n - 2);  // valid start index: 0 .. n-3
+    int temp = follow_case.a[start];
+    follow_case.a[start] = follow_case.a[start + 2];
+    follow_case.a[start + 2] = temp;
+
+    return follow_case;
+}

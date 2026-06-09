@@ -1,0 +1,20 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for sorted data
+    int* sorted_array = new int[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        sorted_array[i] = tf.a[i];
+    }
+    // Sort the array in ascending order
+    for (int i = 0; i < tf.n - 1; i++) {
+        for (int j = i + 1; j < tf.n; j++) {
+            if (sorted_array[i] > sorted_array[j]) {
+                int temp = sorted_array[i];
+                sorted_array[i] = sorted_array[j];
+                sorted_array[j] = temp;
+            }
+        }
+    }
+    tf.a = sorted_array;
+    return tf;
+}

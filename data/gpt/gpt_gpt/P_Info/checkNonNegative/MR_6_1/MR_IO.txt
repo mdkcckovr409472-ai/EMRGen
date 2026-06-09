@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    if (tf.n > 0) {
+        double* rotated = new double[tf.n];
+        rotated[0] = tf.a[tf.n - 1];
+        for (int i = 1; i < tf.n; i++) {
+            rotated[i] = tf.a[i - 1];
+        }
+        tf.a = rotated;
+    }
+    return tf;
+}

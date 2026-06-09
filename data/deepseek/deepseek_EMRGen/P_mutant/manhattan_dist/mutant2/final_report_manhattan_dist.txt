@@ -1,0 +1,79 @@
+double manhattan_dist(int a[], int b[], int n) {
+    int i;
+    double sum = -1;
+    for (i = 0; i < n; i++) {
+        sum += abs(a[i] - b[i]);
+    }
+    return sum;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 16: On parameter 'a' (array[int]): 所有元素置最大值（替换为INT_MAX）
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素置最大值（替换为INT_MAX）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): 升序排序
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (array[int]): 随机重排序（洗牌）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「随机重排序（洗牌）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'b' (array[int]): 所有元素乘3
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「所有元素乘3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'b' (array[int]): 元素平方
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 41: On parameter 'b' (array[int]): 所有元素置最大值（替换为INT_MAX）
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「所有元素置最大值（替换为INT_MAX）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 45: On parameter 'b' (array[int]): 升序排序
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 7
+关系总数: 7

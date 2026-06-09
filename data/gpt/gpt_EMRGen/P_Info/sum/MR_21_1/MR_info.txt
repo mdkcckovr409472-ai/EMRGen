@@ -1,0 +1,2 @@
+Operation 21: On parameter 'values' (int*): set random element to its square (when result fits in int)
+Invariant: return.result1 <= return.result2

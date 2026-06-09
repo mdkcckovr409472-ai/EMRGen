@@ -1,0 +1,2 @@
+Operation 34: On parameter 'arr' (array[double]): divide all elements by 3.0 (when element ≠ 0)
+Invariant: return.result1[] - 3 * return.result2[] == 0

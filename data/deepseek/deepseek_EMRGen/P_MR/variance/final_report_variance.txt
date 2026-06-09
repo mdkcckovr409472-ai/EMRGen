@@ -1,0 +1,233 @@
+double variance(double x[], int n) {
+    double sum = 0;
+    double sum1 = 0;
+    double var = 0;
+    double avrg = 0;
+    for(int i = 0; i < n; i++) {
+        sum = sum + x[i];
+    }
+    
+    avrg = sum / (double)n;
+    for (int i = 0; i < n; i++) {
+        sum1 = sum1 + (x[i] - avrg) * (x[i] - avrg);
+    }
+    var = sum1 / (double) n;
+    return var;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'x' (double*): 所有元素加1.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'x' (double*): 所有元素减2.5
+Invariant: 
+return.result1 == return.result2✓ ○
+return.result1 - return.result2 == 0✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素减2.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'x' (double*): 所有元素乘3.0
+Invariant: 
+9 * return.result1 - return.result2 == 0 ✓ ○
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+9 * Os - Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 4: On parameter 'x' (double*): 所有元素除4.0
+Invariant: 
+return.result1 - 16 * return.result2 == 0 ✓ ○
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 16 * Of == 0
+Os >= Of
+
+----------------------------------------
+
+Operation 5: On parameter 'x' (double*): 所有元素取相反数
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 6: On parameter 'x' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 10: On parameter 'x' (double*): 所有元素加自身（即乘2）
+Invariant: 
+4 * return.result1 - return.result2 == 0 ✓ ○
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素加自身（即乘2）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+4 * Os - Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 11: On parameter 'x' (double*): 所有元素置0.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 12: On parameter 'x' (double*): 所有元素置1.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素置1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 13: On parameter 'x' (double*): 所有元素置-1.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素置-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 14: On parameter 'x' (double*): 所有元素置最大值（如1e6）
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素置最大值（如1e6）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'x' (double*): 所有元素置最小值（如-1e6）
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素置最小值（如-1e6）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'x' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 20: On parameter 'x' (double*): 数组随机重排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「数组随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'x' (double*): 数组升序排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 22: On parameter 'x' (double*): 数组降序排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 23: On parameter 'x' (double*): 交换数组首尾元素
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「交换数组首尾元素」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 24: On parameter 'x' (double*): 交换数组中两个随机位置的元素（确保索引有效）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「交换数组中两个随机位置的元素（确保索引有效）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'x' (double*): 将数组所有元素向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「将数组所有元素向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 26: On parameter 'x' (double*): 将数组所有元素向右循环移位（末尾元素移到首部）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「将数组所有元素向右循环移位（末尾元素移到首部）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'x' (double*): 将数组前半部分与后半部分交换（若长度为奇数，前半部分多一个元素）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「将数组前半部分与后半部分交换（若长度为奇数，前半部分多一个元素）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'x' (double*): 将数组中所有正数置为0.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「将数组中所有正数置为0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 22
+关系总数: 27

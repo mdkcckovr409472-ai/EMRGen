@@ -1,0 +1,2 @@
+Operation 30: On parameter 'b' (array[double]): divide all elements by 2.0 (only if element != 0)
+Invariant: 2 * return.result1[] - return.result2[] == 0

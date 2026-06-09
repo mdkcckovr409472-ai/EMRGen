@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int index = 0; // 选择第一个元素进行平方操作
+        tf.a = new int[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            tf.a[i] = tc.a[i];
+        }
+        tf.a[index] = tf.a[index] * tf.a[index];
+    }
+    return tf;
+}

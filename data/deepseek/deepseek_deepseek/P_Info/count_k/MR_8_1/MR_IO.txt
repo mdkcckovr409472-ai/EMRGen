@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        tf.a[tf.n - 1] = tf.k;
+    }
+    return tf;
+}

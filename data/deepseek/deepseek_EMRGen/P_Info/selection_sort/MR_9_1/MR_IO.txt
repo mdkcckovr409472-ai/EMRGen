@@ -1,0 +1,19 @@
+TestCase z9Change(TestCase t1) {
+TestCase follow_case = t1;
+int* follow_case_list = (int*)malloc(t1.n * sizeof(int));
+memcpy(follow_case_list, t1.list, t1.n * sizeof(int));
+follow_case.list = follow_case_list;
+
+if (follow_case.n > 0) {
+    int start = 0;
+    int end = follow_case.n - 1;
+    while (start < end) {
+        int temp = follow_case.list[start];
+        follow_case.list[start] = follow_case.list[end];
+        follow_case.list[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+return follow_case;}

@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for sorted data
+    double* sorted_k = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        sorted_k[i] = tf.k[i];
+    }
+    std::sort(sorted_k, sorted_k + tf.n);
+    tf.k = sorted_k;
+    return tf;
+}

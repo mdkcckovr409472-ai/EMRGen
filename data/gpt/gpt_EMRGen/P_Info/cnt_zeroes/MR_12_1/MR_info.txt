@@ -1,0 +1,2 @@
+Operation 12: On parameter 'a' (array[int]): replace all elements with their squares
+Invariant: return.result1 == return.result2

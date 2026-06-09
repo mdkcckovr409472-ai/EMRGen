@@ -1,0 +1,53 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0) {
+        int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+        memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+        follow_case.a = follow_case_a;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n < 1) {
+        // No elements in array, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    // Replace element at random index with its integer square root (floor)
+    // Random index must be within [0, n-1]
+    int idx = 0;
+    if (follow_case.n > 1) {
+        // simple pseudo-random index using modulus (not truly random, but fulfills requirements)
+        idx = (follow_case.a[0] + follow_case.n) % follow_case.n;
+    }
+    else {
+        idx = 0;
+    }
+
+    int val = follow_case.a[idx];
+    if (val >= 0) {
+        // Compute integer floor square root using standard method
+        // since we cannot use sqrt() from math.h per instructions, use simple integer sqrt
+        int low = 0, high = val, mid;
+        while (low <= high) {
+            mid = (low + high) / 2;
+            int mid_sq = mid * mid;
+            if (mid_sq == val) {
+                follow_case.a[idx] = mid;
+                goto done_sqrt;
+            }
+            else if (mid_sq < val) {
+                low = mid + 1;
+            }
+            else {
+                high = mid - 1;
+            }
+        }
+        follow_case.a[idx] = high; // floor sqrt
+    }
+
+done_sqrt:
+    return follow_case;
+}

@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.observed == nullptr || tc.n <= 0) {
+        // Just return the original if invalid input
+        return tf;
+    }
+    double* newObserved = new double[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        newObserved[i] = tc.observed[i] - 1.0;
+    }
+    tf.observed = newObserved;
+    return tf;
+}

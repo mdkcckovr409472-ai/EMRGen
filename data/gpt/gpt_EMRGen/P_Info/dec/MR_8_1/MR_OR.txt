@@ -1,0 +1,19 @@
+int z8check(int* result1, int* result2, int n) {
+    // 4a) Length validity check (FIRST)
+    if (n <= 0) return 1;
+    // 4b) Null pointer check (SECOND)
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    for (int i = 0; i < n; i++) {
+        if (result1[i] < result2[i]) {
+            // result1[i] < result2[i], condition satisfied, lex order determines result 1
+            return 1;
+        } else if (result1[i] > result2[i]) {
+            // result1[i] > result2[i], condition violated
+            return 0;
+        }
+        // if equal, continue to next element
+    }
+    // all elements equal, condition is strictly <
+    return 0;
+}

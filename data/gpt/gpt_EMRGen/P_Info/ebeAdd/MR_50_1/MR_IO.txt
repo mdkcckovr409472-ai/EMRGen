@@ -1,0 +1,27 @@
+TestCase z50Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n2 > 0 && t1.b != NULL) {
+        double* follow_case_b = (double*)malloc(t1.n2 * sizeof(double));
+        memcpy(follow_case_b, t1.b, t1.n2 * sizeof(double));
+        follow_case.b = follow_case_b;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n2 < 1
+    if (follow_case.n2 < 1 || follow_case.b == NULL) {
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    // Select a random index between 0 and n2-1
+    int rand_index = 0;
+    if (follow_case.n2 > 1) {
+        rand_index = rand() % follow_case.n2;
+    }
+    if (follow_case.b[rand_index] < 999.0) {
+        follow_case.b[rand_index] = 999.0;
+    }
+
+    return follow_case;
+}

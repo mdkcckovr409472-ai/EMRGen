@@ -1,0 +1,2 @@
+Operation 73: On parameter 'upperLim' (int): 置为INT_MAX
+Invariant: return.result1[][0..0] == return.result2[][0..0] (elementwise)

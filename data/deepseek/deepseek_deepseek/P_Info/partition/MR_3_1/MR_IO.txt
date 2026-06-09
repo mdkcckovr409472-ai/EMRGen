@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 5.0;
+    int length = tf.end - tf.begin;
+    double* new_work = new double[length];
+    for (int idx = 0; idx < length; ++idx) {
+        new_work[idx] = tf.work[tf.begin + idx] - k;
+    }
+    tf.work = new_work;
+    return tf;
+}

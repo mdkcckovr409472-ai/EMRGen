@@ -1,0 +1,98 @@
+double min(double elements[], int n) {
+    int size = n;
+    double min = elements[size - 1];
+    for (int i = size - 1; --i >= 0; ) {
+        if (elements[i] < min) {
+            min = elements[i];
+        }
+    }
+    return min;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「add 1 to all elements」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os + 1 == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「subtract 1 from all elements」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os - 1 == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「multiply all elements by 2」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+2 * Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「divide all elements by 2」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os / 2 == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「reverse the entire array」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「sort the entire array in ascending order」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「sort the entire array in descending order」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「perform a circular right shift by 1 position on the array」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「set all elements to 0」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「set all elements to 1」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「set the first element to the maximum value in the original array」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os <= Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「set the last element to the minimum value in the original array」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「add 1 only to the minimum element in the array」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「multiply only the minimum element in the array by 0.5」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「set the minimum element in the array to 0」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains elements (double*), if the operation 「set the minimum element in the array to 1」 is executed on elements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+If 1 > Os then Os < Of else Os >= Of ✗
+
+----------------------------------------
+
+操作总数: 16
+关系总数: 16

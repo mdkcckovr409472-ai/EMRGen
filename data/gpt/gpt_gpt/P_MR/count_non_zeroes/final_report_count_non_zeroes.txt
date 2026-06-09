@@ -1,0 +1,102 @@
+int count_non_zeroes(int a[], int n) {
+    int cnt = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] != 0) {
+            cnt++;
+        }
+    }
+    return cnt;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「add 1 to all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os <= Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「subtract 1 from all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「multiply all elements by 2」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「divide all non-zero elements by 2 using integer division (discard remainder)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「reverse the entire array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「sort the entire array in ascending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「sort the entire array in descending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「circularly shift the array elements to the right by 1 position」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「circularly shift the array elements to the left by 1 position」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set all elements to 0」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set all elements to 1」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == n ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set the first element to the maximum integer value (e.g., INT_MAX)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set the last element to the minimum integer value (e.g., INT_MIN)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set a single non-zero element to 0」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os - 1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set a single zero element to a non-zero value (e.g., 1)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os + 1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set the middle element (if exists) to zero」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set the middle element (if exists) to a non-zero value (e.g., 1)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✓
+
+----------------------------------------
+
+操作总数: 17
+关系总数: 17

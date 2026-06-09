@@ -1,0 +1,15 @@
+int check(TestCase tc) {
+    double* Ts = tc.x;
+    int n = tc.n;
+    double Os = variance(Ts, n);
+
+    TestCase Tf_case = change(tc);
+    double* Tf = Tf_case.x;
+    double Of = variance(Tf, Tf_case.n);
+
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // No memory was dynamically allocated in change(), so no freeing needed here
+
+    return is_valid;
+}

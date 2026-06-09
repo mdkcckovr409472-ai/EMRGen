@@ -1,0 +1,2 @@
+Operation 11: On parameter 'a' (int*): 将数组元素全部置为参数k的值
+Invariant: return.result1[] >= return.result2[] (elementwise)

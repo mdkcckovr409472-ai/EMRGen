@@ -1,0 +1,2 @@
+Operation 17: On parameter 'a' (array[int]): replace a random element with its square (multiply element by itself)
+Invariant: return.result1 <= return.result2

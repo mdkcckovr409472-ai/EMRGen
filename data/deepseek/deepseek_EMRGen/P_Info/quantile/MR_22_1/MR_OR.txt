@@ -1,0 +1,36 @@
+#include <cmath>
+#include <cstddef>
+
+int z22check(double result1, double result2) {
+    // 1. 防御性编程 (针对标量，无需空指针和长度检查)
+    // 2. 核心判断逻辑 (标量直接比较)
+    // 浮点数比较特殊处理
+    // 条件: result1 >= result2
+    // 移项后: A = result1, B = result2, 比较符 >=
+    
+    double A = result1;
+    double B = result2;
+    
+    // 防御 NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    
+    // 处理无穷大情况
+    if (std::isinf(A) || std::isinf(B)) {
+        // 无穷大时，直接使用数学比较
+        if (A >= B) return 1;
+        else return 0;
+    }
+    
+    // 定义基础容差
+    double epsilon = 1e-5;
+    // 计算动态宽容度
+    double tol = epsilon * std::fmax(1.0, std::fmax(std::fabs(A), std::fabs(B)));
+    
+    // 带容差的比较判定: 若 A < B - tol，则违反 A >= B
+    if (A < B - tol) {
+        return 0;
+    }
+    
+    // 3. 满足条件，返回 1
+    return 1;
+}

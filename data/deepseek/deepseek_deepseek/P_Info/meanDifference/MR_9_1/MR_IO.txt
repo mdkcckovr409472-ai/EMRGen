@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1) {
+        int idx1 = rand() % tf.n;
+        int idx2 = rand() % tf.n;
+        while (idx2 == idx1) {
+            idx2 = rand() % tf.n;
+        }
+        double temp = tf.sample1[idx1];
+        tf.sample1[idx1] = tf.sample1[idx2];
+        tf.sample1[idx2] = temp;
+    }
+    return tf;
+}

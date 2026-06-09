@@ -1,0 +1,14 @@
+TestCase z23Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* new_a = (int*)malloc((t1.n + 1) * sizeof(int));
+    if (!new_a) {
+        return follow_case;
+    }
+    memcpy(new_a, t1.a, t1.n * sizeof(int));
+    new_a[t1.n] = 0;
+    follow_case.a = new_a;
+    follow_case.n = t1.n + 1;
+    // ------------------------------------
+    return follow_case;
+}

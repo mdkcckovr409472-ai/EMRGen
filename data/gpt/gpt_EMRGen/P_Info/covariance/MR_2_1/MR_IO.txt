@@ -1,0 +1,16 @@
+TestCase z2Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of elements1
+    double* follow_case_elements1 = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements1, t1.elements1, t1.n * sizeof(double));
+    follow_case.elements1 = follow_case_elements1;
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    // Subtract 2.0 from all elements of elements1
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.elements1[i] -= 2.0;
+    }
+    return follow_case;
+}

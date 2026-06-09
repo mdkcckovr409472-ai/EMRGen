@@ -1,0 +1,2 @@
+Operation 26: On parameter 'a' (array[int]): subtract element index from each element (element = element - index)
+Invariant: return.result1 > return.result2

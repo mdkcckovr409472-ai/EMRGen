@@ -1,0 +1,155 @@
+int find_max2(int a[], int n) {
+    int max = a[0] + a[1];
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] + a[i + 1] >= max) {
+            max = a[i] + a[i + 1];
+        }
+    }
+    return max;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (int*): 所有元素加1
+Invariant:
+return.result1 - return.result2 + 2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (int*): 所有元素减2
+Invariant:
+return.result1 - return.result2 - 4 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (int*): 所有元素乘3
+Invariant:
+3 * return.result1 - return.result2 == 0    ✓ ○ [Similar]
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (int*): 所有元素除以4（整数除法）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (int*): 随机位置元素置为999（当当前值小于999）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (int*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (int*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (int*): 取所有元素的绝对值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (int*): 所有元素平方
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (int*): 所有元素加当前数组最大值
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (int*): 所有奇数索引元素加10
+Invariant:
+return.result1 - return.result2 + 10 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (int*): 所有偶数索引元素减5
+Invariant:
+return.result1 - return.result2 - 5 == 0    ✓ ○ [Similar]
+n == return.result1 - return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (int*): 最大元素置为0
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (int*): 最小元素置为0
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (int*): 将最大元素的值复制给最小元素（当最大元素不等于最小元素）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (int*): 将最小元素的值复制给最大元素（当最大元素不等于最小元素）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int*): 将数组中所有负数替换为0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (int*): 将所有正数置为1
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (int*): 原地平方根（仅对非负元素取整）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (int*): 随机将某个元素乘以当前数组元素平均值（取整）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (int*): 第0个元素和第n-1个元素互换位置后，再将第1个元素和第n-2个元素互换位置
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'n' (int): 无（长度控制器，禁止修改）
+Invariant:
+return.result1 == return.result2    ✓ [Different]
+
+----------------------------------------
+
+操作总数: 22
+独立MR总数: 24
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

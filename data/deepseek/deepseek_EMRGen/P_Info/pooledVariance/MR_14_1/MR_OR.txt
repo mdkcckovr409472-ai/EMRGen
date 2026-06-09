@@ -1,0 +1,41 @@
+#include <math.h>
+#include <stddef.h>
+
+int z14check(double result1, double result2) {
+    // 1. 防御性编程 (标量版本无需空指针和长度检查)
+    
+    // 2. 核心判断逻辑 (标量直接比较)
+    // 条件为 return.result1 == return.result2，即 result1 == result2
+    // 由于数据类型是 double，必须使用浮点数比较的特殊处理
+    
+    // 第一步：定义基础容差
+    double epsilon = 1e-5;
+    
+    // 第二步：提取左右操作数 A 和 B（代数移项）
+    // 原始条件：result1 == result2
+    // 移项后：result1 == result2（无需移项）
+    double A = result1;
+    double B = result2;
+    
+    // 第三步：防御 NaN，并对 Inf 进行特殊放行
+    if (isnan(A) || isnan(B)) return 0;
+    
+    // 如果出现无穷大，动态容差会失效(Inf-Inf=NaN)，此时应退化为数学上的直接比较
+    if (isinf(A) || isinf(B)) {
+        // 根据移项后的条件直接比较 A 和 B
+        if (A == B) return 1;
+        else return 0;
+    }
+    
+    // 第四步：计算动态宽容度
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 第五步：带容差的比较判定
+    // 移项后的条件是相等 (==)
+    if (fabs(A - B) > tol) {
+        return 0;
+    }
+    
+    // 3. 满足条件，返回 1
+    return 1;
+}

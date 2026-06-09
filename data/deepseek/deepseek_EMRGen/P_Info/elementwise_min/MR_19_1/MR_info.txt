@@ -1,0 +1,2 @@
+Operation 19: On parameter 'a' (int*): 前一半元素加10
+Invariant: return.result1[] <= return.result2[] (elementwise)

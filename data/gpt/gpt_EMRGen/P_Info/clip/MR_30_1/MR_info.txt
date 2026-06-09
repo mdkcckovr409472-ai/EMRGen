@@ -1,0 +1,2 @@
+Operation 30: On parameter 'lowerLim' (int): subtract 1 (when result ≥ INT_MIN)
+Invariant: return.result1[] >= return.result2[] (elementwise)

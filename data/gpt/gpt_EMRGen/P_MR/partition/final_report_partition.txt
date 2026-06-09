@@ -1,0 +1,88 @@
+int partition(double work[], int begin, int end, int pivot) {
+    double value = work[pivot];
+    work[pivot] = work[begin];
+    int i = begin + 1;
+    int j = end - 1;
+    while (i < j) {
+        while (i < j && work[j] > value) {
+            --j;
+        }
+        while (i < j && work[i] < value) {
+            ++i;
+        }
+        if (i < j) {
+            double tmp = work[i];
+            work[i++] = work[j];
+            work[j--] = tmp;
+        }
+    }
+    if (i >= end || work[i] > value) {
+        --i;
+    }
+    work[begin] = work[i];
+    work[i] = value;
+    return i;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'work' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含work（array[double]）的函数，若对 work执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'work' (array[double]): set last element to -1.0 (when it is < -1.0)
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含work（array[double]）的函数，若对 work执行「set last element to -1.0 (when it is < -1.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'work' (array[double]): decrement first element by 0.2
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含work（array[double]）的函数，若对 work执行「decrement first element by 0.2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 41: On parameter 'begin' (int): set begin to random even integer between 0 and 200
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「set begin to random even integer between 0 and 200」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 43: On parameter 'begin' (int): set begin to (begin + 5)
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「set begin to (begin + 5)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 52: On parameter 'begin' (int): set begin to 50
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「set begin to 50」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+
+操作总数: 6
+关系总数: 6

@@ -1,0 +1,2 @@
+Operation 47: On parameter 'sampleVariance' (double): 指数变换
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,2 @@
+Operation 5: On parameter 'data1' (double*): set first element to 0.0 (when the original element > 0)
+Invariant: return.result1 >= return.result2

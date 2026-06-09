@@ -1,0 +1,46 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入 (Ts)
+    double* Ts_data = tc.data;
+    int Ts_n = tc.n;
+
+    // (2) 调用待测函数，获取初始输出 (Os)
+    double* Os = standardize(Ts_data, Ts_n);
+    if (Os == nullptr) {
+        // 函数执行失败，直接返回测试失败
+        return 0;
+    }
+
+    // (3) 调用 change 函数，构造衍生用例对象
+    TestCase Tf_case = change(tc);
+    if (Tf_case.data == nullptr) {
+        free(Os);
+        return 0;
+    }
+
+    // (4) 提取衍生输入并获取衍生输出 (Of)
+    double* Of = standardize(Tf_case.data, Tf_case.n);
+    if (Of == nullptr) {
+        free(Os);
+        free(Tf_case.data);
+        return 0;
+    }
+
+    // (5) 根据蜕变关系验证 Os 和 Of 是否相等
+    int is_valid = 1;
+    for (int i = 0; i < Ts_n; i++) {
+        // 使用一个小的容差值进行浮点数比较
+        if (fabs(Os[i] - Of[i]) > 1e-12) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // (6) 释放动态内存
+    free(Os);
+    free(Of);
+    free(Tf_case.data);
+    // 注意：tc.data 由调用者管理，这里不释放
+
+    // (7) 返回验证结果
+    return is_valid;
+}

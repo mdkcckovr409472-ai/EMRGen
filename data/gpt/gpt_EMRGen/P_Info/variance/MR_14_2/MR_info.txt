@@ -1,0 +1,2 @@
+Operation 14: On parameter 'x' (array[double]): sort array descending
+Invariant: return.result1 - return.result2 == 0

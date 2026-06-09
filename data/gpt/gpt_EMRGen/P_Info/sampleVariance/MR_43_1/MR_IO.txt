@@ -1,0 +1,5 @@
+TestCase z43Change(TestCase t1) {
+    TestCase follow_case = t1;
+    follow_case.mean = floor(follow_case.mean);
+    return follow_case;
+}

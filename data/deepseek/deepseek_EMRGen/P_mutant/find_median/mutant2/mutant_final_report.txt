@@ -1,0 +1,213 @@
+double find_median(int a[], int n) {
+    int k = n / 2 + 1;
+    int minIndex = 0;
+    int minValue = a[0];
+    for (int i = 0; i < k; i++) {
+    continue;
+        minIndex = i;
+        minValue = a[i];
+        for (int j = i + 1; j < n; j++) {
+            if (a[j] < minValue) {
+                minIndex = j;
+                minValue = a[j];
+            }
+        }
+        int temp = a[i];
+        a[i] = a[minIndex];
+        a[minIndex] = temp;
+    }
+    if (n % 2 == 0) {
+        return (double) (a[n / 2 - 1] + a[n / 2]) / 2;
+    } else {
+        return a[n / 2];
+    }
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[int]): 所有元素加10
+Invariant:
+return.result1 - return.result2 + 10 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[int]): 所有元素减3
+Invariant:
+return.result1 - return.result2 - 3 == 0    ✓ ○ [Similar]
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (array[int]): 所有元素乘2
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (array[int]): 随机位置置为999（若元素小于999）
+Invariant:
+return.result1 <= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[int]): 随机位置置为-999（若元素大于-999）
+Invariant:
+return.result1 >= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (array[int]): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): 前一半元素减5
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (array[int]): 后一半元素加7
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (array[int]): 所有偶数索引元素加1
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[int]): 所有奇数索引元素减1
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): 数组元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (array[int]): 所有元素取负数
+Invariant:
+return.result1 + return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[int]): 所有正元素置为1（若原元素>0）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): 所有负元素置为-1（若原元素<0）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (array[int]): 数组元素增加其索引值的2倍
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (array[int]): 数组元素减少其索引值的3倍
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (array[int]): 所有元素加1后溢出检查（确保int范围）
+Invariant:
+return.result1 - return.result2 + 1 == 0    ✓ ○ [Same]
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'a' (array[int]): 所有元素质数替换为101（若元素为质数）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 31: On parameter 'n' (int): 加3
+Invariant:
+return.result1 - return.result2 + 3 == 0    ✗ [Different]
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 33: On parameter 'n' (int): 乘2
+Invariant:
+2 * return.result1 - return.result2 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 39: On parameter 'n' (int): 取绝对值
+Invariant:
+return.result1 <= return.result2    ✓ [Different]
+
+----------------------------------------
+
+Operation 40: On parameter 'n' (int): 加10
+Invariant:
+return.result1 - return.result2 + 10 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 41: On parameter 'n' (int): 减5
+Invariant:
+return.result1 - return.result2 - 5 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 42: On parameter 'n' (int): 乘3
+Invariant:
+3 * return.result1 - return.result2 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 44: On parameter 'n' (int): 加n自身（即n*2）
+Invariant:
+2 * return.result1 - return.result2 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'n' (int): 平方
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'n' (int): 平方根（向下取整）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'n' (int): 取模7（即n%7）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 49: On parameter 'n' (int): 加1后再减1（无变化，但作为操作占位）
+Invariant:
+return.result1 == return.result2    ✓ [Different]
+
+----------------------------------------
+
+操作总数: 29
+独立MR总数: 32
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

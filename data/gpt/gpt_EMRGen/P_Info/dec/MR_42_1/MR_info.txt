@@ -1,0 +1,2 @@
+Operation 42: On parameter 'array2' (array[int]): increment element at a random valid index by 2
+Invariant: return.result1[] > return.result2[] (lexically)

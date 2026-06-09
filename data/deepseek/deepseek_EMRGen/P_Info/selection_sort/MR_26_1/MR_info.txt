@@ -1,0 +1,2 @@
+Operation 26: On parameter 'list' (int*): 随机重排序
+Invariant: return.result1[] == return.result2[]

@@ -1,0 +1,2 @@
+Operation 43: On parameter 'observed' (array[double]): divide all elements by 3.0
+Invariant: return.result1 - 3 * return.result2 == 0

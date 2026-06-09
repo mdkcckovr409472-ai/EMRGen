@@ -1,0 +1,2 @@
+Operation 26: On parameter 'sortedElements' (array[double]): take ceil of each element
+Invariant: return.result1 <= return.result2

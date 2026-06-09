@@ -1,0 +1,20 @@
+TestCase z29Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_y = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_y, t1.y, t1.n * sizeof(double));
+    follow_case.y = follow_case_y;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n < 1) {
+        return follow_case;
+    }
+    
+    // Specific operation code: add -2.0 to all elements of y
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.y[i] += -2.0;
+    }
+    
+    return follow_case;
+}

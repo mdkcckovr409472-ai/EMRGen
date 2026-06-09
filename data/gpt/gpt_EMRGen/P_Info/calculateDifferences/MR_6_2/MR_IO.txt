@@ -1,0 +1,16 @@
+TestCase z6Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy of x array
+    double* follow_case_x = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_x, t1.x, t1.n * sizeof(double));
+    follow_case.x = follow_case_x;
+    // Defensive check for array length
+    if (follow_case.n < 1) {
+        return follow_case;
+    }
+    // Set last element to 100.0 if it is less than 100.0
+    if (follow_case.x[follow_case.n - 1] < 100.0) {
+        follow_case.x[follow_case.n - 1] = 100.0;
+    }
+    return follow_case;
+}

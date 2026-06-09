@@ -1,0 +1,17 @@
+TestCase z24Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_expected = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_expected, t1.expected, t1.n * sizeof(double));
+follow_case.expected = follow_case_expected;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<=0时出错
+if (follow_case.n > 0) {
+    // 这是根据规则5生成的具体操作代码
+    srand(time(NULL));
+    int random_index = rand() % follow_case.n;
+    follow_case.expected[random_index] = DBL_MAX;
+}
+
+return follow_case;}

@@ -1,0 +1,15 @@
+TestCase z25Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array
+    int* follow_case_array = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_array, t1.array, t1.n * sizeof(int));
+    follow_case.array = follow_case_array;
+    // Defensive check: ensure array is non‑empty
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    // Increment element at a random index by 10
+    int random_index = rand() % follow_case.n;
+    follow_case.array[random_index] += 10;
+    return follow_case;
+}

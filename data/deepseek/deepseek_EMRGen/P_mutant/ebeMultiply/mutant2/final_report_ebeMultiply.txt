@@ -1,0 +1,350 @@
+double* ebeMultiply(double a[], double b[], int n1, int n2) {
+    if (n1 != n2) {
+        return NULL;  
+    }
+
+    double* result = (double*)malloc(n1 * sizeof(double));
+    if (result == NULL) {
+        return NULL;  
+    }
+
+    for (int i = 0; i <= n1; i++) {
+        result[i] = a[i] * b[i];  
+    }
+
+    return result;  
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'a' (double*): 所有元素乘2.0
+Invariant: 
+2 * return.result1[] - return.result2[] == 0
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - Of[] == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (double*): 所有元素除2.0
+Invariant: 
+return.result1[] - 2 * return.result2[] == 0
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素除2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 2 * Of[] == 0
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (double*): 随机子段（连续10个元素）置0.0
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「随机子段（连续10个元素）置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (double*): 位于阈值< -100.0的元素置0.0
+Invariant: 
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「位于阈值< -100.0的元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 30: On parameter 'a' (double*): 元素除以3.14
+Invariant: 
+return.result1[] - 3.14 * return.result2[] == 0
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「元素除以3.14」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 3.14 * Of[] == 0
+
+----------------------------------------
+
+Operation 33: On parameter 'b' (double*): 所有元素乘2.0
+Invariant: 
+2 * return.result1[] - return.result2[] == 0
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - Of[] == 0
+
+----------------------------------------
+
+Operation 34: On parameter 'b' (double*): 所有元素除2.0
+Invariant: 
+return.result1[] - 2 * return.result2[] == 0
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素除2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 2 * Of[] == 0
+
+----------------------------------------
+
+Operation 57: On parameter 'b' (double*): 随机子段（连续10个元素）置0.0
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「随机子段（连续10个元素）置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 58: On parameter 'b' (double*): 位于阈值>100.0的元素置0.0
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「位于阈值>100.0的元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 59: On parameter 'b' (double*): 位于阈值< -100.0的元素置0.0
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「位于阈值< -100.0的元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 60: On parameter 'b' (double*): 元素除以3.14
+Invariant: 
+return.result1[] - 3.14 * return.result2[] == 0
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「元素除以3.14」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 3.14 * Of[] == 0
+
+----------------------------------------
+
+Operation 64: On parameter 'n1' (int): 除2
+Invariant: 
+return.result1[] - 2 * return.result2[] == 0
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「除2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 2 * Of[] == 0
+
+----------------------------------------
+
+Operation 72: On parameter 'n1' (int): 绝对值
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 74: On parameter 'n1' (int): 平方根取整
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+return.result1[] is the reverse of return.result2[]
+return.result1[i] == -return.result2[size(return.result2[])-1-i]
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「平方根取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+Os[] is the reverse of Of[]
+Os[i] == -Of[size(Of[])-1-i]
+
+----------------------------------------
+
+Operation 80: On parameter 'n1' (int): 与字符串长度关联（置为当前字符串"a"长度，若无字符串则保持原值）
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「与字符串长度关联（置为当前字符串"a"长度，若无字符串则保持原值）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+
+----------------------------------------
+
+Operation 81: On parameter 'n1' (int): 置为偶数（n1 = n1 + (n1%2)）
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「置为偶数（n1 = n1 + (n1%2)）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+
+----------------------------------------
+
+Operation 82: On parameter 'n1' (int): 置为奇数（n1 = n1 + (1 - n1%2)）
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「置为奇数（n1 = n1 + (1 - n1%2)）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+
+----------------------------------------
+
+Operation 83: On parameter 'n1' (int): 设为n2值（越界操作，不符合规范，故移除）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「设为n2值（越界操作，不符合规范，故移除）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 86: On parameter 'n1' (int): 设为数组a长度
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「设为数组a长度」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 87: On parameter 'n1' (int): 设为数组b长度
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「设为数组b长度」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 89: On parameter 'n1' (int): 减随机值（0至100）
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+return.result1[] is the reverse of return.result2[]
+return.result1[i] == -return.result2[size(return.result2[])-1-i]
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「减随机值（0至100）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+Os[] is the reverse of Of[]
+Os[i] == -Of[size(Of[])-1-i]
+
+----------------------------------------
+
+Operation 92: On parameter 'n2' (int): 乘2
+Invariant: 
+2 * return.result1[] - return.result2[] == 0
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - Of[] == 0
+
+----------------------------------------
+
+Operation 93: On parameter 'n2' (int): 除2
+Invariant: 
+return.result1[] - 2 * return.result2[] == 0
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「除2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 2 * Of[] == 0
+
+----------------------------------------
+
+Operation 95: On parameter 'n2' (int): 置1
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+return.result1[] is the reverse of return.result2[]
+return.result1[i] == -return.result2[size(return.result2[])-1-i]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+Os[] is the reverse of Of[]
+Os[i] == -Of[size(Of[])-1-i]
+
+----------------------------------------
+
+Operation 101: On parameter 'n2' (int): 绝对值
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 102: On parameter 'n2' (int): 取平方
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+return.result1[] is the reverse of return.result2[]
+return.result1[i] == -return.result2[size(return.result2[])-1-i]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「取平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+Os[] is the reverse of Of[]
+Os[i] == -Of[size(Of[])-1-i]
+
+----------------------------------------
+
+Operation 103: On parameter 'n2' (int): 平方根取整
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+return.result1[] is the reverse of return.result2[]
+return.result1[i] == -return.result2[size(return.result2[])-1-i]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「平方根取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+Os[] is the reverse of Of[]
+Os[i] == -Of[size(Of[])-1-i]
+
+----------------------------------------
+
+Operation 105: On parameter 'n2' (int): 取负
+Invariant: 
+return.result1[] + return.result2[] == 0
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「取负」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] + Of[] == 0
+
+----------------------------------------
+
+Operation 109: On parameter 'n2' (int): 与字符串长度关联（置为当前字符串"b"长度，若无字符串则保持原值）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「与字符串长度关联（置为当前字符串"b"长度，若无字符串则保持原值）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 110: On parameter 'n2' (int): 置为偶数（n2 = n2 + (n2%2)）
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为偶数（n2 = n2 + (n2%2)）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+
+----------------------------------------
+
+Operation 111: On parameter 'n2' (int): 置为奇数（n2 = n2 + (1 - n2%2)）
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为奇数（n2 = n2 + (1 - n2%2)）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+
+----------------------------------------
+
+Operation 112: On parameter 'n2' (int): 设为n1值（越界操作，不符合规范，故移除）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「设为n1值（越界操作，不符合规范，故移除）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 115: On parameter 'n2' (int): 设为数组a长度
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「设为数组a长度」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 116: On parameter 'n2' (int): 设为数组b长度
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「设为数组b长度」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+
+操作总数: 34
+关系总数: 44

@@ -1,0 +1,8 @@
+TestCase z40Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive checks: none required for absolute value operation
+    if (follow_case.lowerLim < 0) {
+        follow_case.lowerLim = -follow_case.lowerLim;
+    }
+    return follow_case;
+}

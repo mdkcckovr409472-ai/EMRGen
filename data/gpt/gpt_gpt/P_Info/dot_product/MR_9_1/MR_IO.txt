@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for b to avoid modifying original input
+    tf.b = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.b[i] = tc.b[i];
+    }
+    tf.b[tc.n - 1] = INT_MIN;
+    return tf;
+}

@@ -1,0 +1,8 @@
+int check(TestCase tc) {
+    double Os = pooledMean(tc.data1, tc.data2, tc.n1, tc.n2);
+    TestCase Tf_case = change(tc);
+    double Of = pooledMean(Tf_case.data1, Tf_case.data2, Tf_case.n1, Tf_case.n2);
+    int is_valid = (Of >= Os) ? 1 : 0;
+    // No dynamic memory allocated in change(), so no deallocation needed here
+    return is_valid;
+}

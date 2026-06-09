@@ -1,0 +1,26 @@
+#include <math.h>
+#include <stdbool.h>
+
+int z9check(double* result1, double* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    double epsilon = 1e-5;
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+        if (isnan(A) || isnan(B)) return 0;
+        if (isinf(A) || isinf(B)) {
+            if (A < B) return 1;
+            else if (A > B) return 0;
+            else return 0; // equal infinite values mean not strictly less
+        }
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        double diff = A - B;
+        if (fabs(diff) <= tol) continue;
+        else if (diff > tol) return 0;
+        else return 1;
+    }
+    // All elements equal within tolerance
+    return 0;
+}

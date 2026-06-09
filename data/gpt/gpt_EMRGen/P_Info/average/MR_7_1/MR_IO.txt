@@ -1,0 +1,21 @@
+TestCase z7Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Set a random element to -1 when the element is greater than -1
+    int idx = rand() % follow_case.n;
+    if (follow_case.a[idx] > -1) {
+        follow_case.a[idx] = -1;
+    }
+    
+    return follow_case;
+}

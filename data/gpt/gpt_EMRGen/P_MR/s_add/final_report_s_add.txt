@@ -1,0 +1,618 @@
+int* s_add(int array1[], int array2[], int n) {
+    int* cp1 = (int*)malloc(n * sizeof(int));
+    memcpy(cp1,array1,n*sizeof(int));
+    for (int index = 0; index < n; index++) {
+        cp1[index] += array2[index];
+    }
+    return cp1;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'array1' (int[]): add 1 to all elements
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] - return.result2[] + 1 == 0 ✓ ○
+return.result1[] < return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「add 1 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] - Of[] + 1 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 2: On parameter 'array1' (int[]): subtract 1 from all elements
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] - return.result2[] - 1 == 0 ✓ ○
+return.result1[] > return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「subtract 1 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] - Of[] - 1 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 3: On parameter 'array1' (int[]): multiply all elements by 2
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「multiply all elements by 2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 4: On parameter 'array1' (int[]): divide all elements by 2
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「divide all elements by 2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 5: On parameter 'array1' (int[]): set random element to 0 (when element != 0)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「set random element to 0 (when element != 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 6: On parameter 'array1' (int[]): set random element to 100 (when element < 100)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「set random element to 100 (when element < 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 7: On parameter 'array1' (int[]): increment element at random index by 1
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「increment element at random index by 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 8: On parameter 'array1' (int[]): decrement element at random index by 1
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] > return.result2[] (lexically) ✓ ○
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「decrement element at random index by 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 9: On parameter 'array1' (int[]): swap two random elements
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 10: On parameter 'array1' (int[]): reverse array order
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「reverse array order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 11: On parameter 'array1' (int[]): left circular shift array (move first element to end)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 12: On parameter 'array1' (int[]): right circular shift array (move last element to front)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「right circular shift array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 13: On parameter 'array1' (int[]): sort array ascending
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 14: On parameter 'array1' (int[]): sort array descending
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 15: On parameter 'array1' (int[]): replace subarray with zeros
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「replace subarray with zeros」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 16: On parameter 'array1' (int[]): replace subarray with ones
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「replace subarray with ones」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 17: On parameter 'array1' (int[]): duplicate element at random index to next position (if within bounds)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[0..0] == return.result2[0..0] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「duplicate element at random index to next position (if within bounds)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[0..0] == Of[0..0] (elementwise)
+
+----------------------------------------
+
+Operation 18: On parameter 'array1' (int[]): remove element at random index (set to 0)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「remove element at random index (set to 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 19: On parameter 'array1' (int[]): set first element to INT_MAX
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「set first element to INT_MAX」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 20: On parameter 'array1' (int[]): set last element to INT_MIN
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「set last element to INT_MIN」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 21: On parameter 'array1' (int[]): take absolute value of all elements
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 22: On parameter 'array1' (int[]): negate all elements
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「negate all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 23: On parameter 'array1' (int[]): square each element
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「square each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 24: On parameter 'array1' (int[]): integer square root of each element (if non-negative)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「integer square root of each element (if non-negative)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 25: On parameter 'array1' (int[]): random perturbation: add random value between -5 and 5 to each element
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「random perturbation: add random value between -5 and 5 to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 26: On parameter 'array1' (int[]): fill entire array with constant 42
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「fill entire array with constant 42」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 27: On parameter 'array1' (int[]): set every even index element to 7
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「set every even index element to 7」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 28: On parameter 'array1' (int[]): set every odd index element to -7
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[0..0] == return.result2[0..0] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「set every odd index element to -7」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[0..0] == Of[0..0] (elementwise)
+
+----------------------------------------
+
+Operation 29: On parameter 'array1' (int[]): multiply elements at even indices by 3
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「multiply elements at even indices by 3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 30: On parameter 'array1' (int[]): divide elements at odd indices by 3 (integer)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[0..0] == return.result2[0..0] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array1（int[]）的函数，若对 array1执行「divide elements at odd indices by 3 (integer)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[0..0] == Of[0..0] (elementwise)
+
+----------------------------------------
+
+Operation 31: On parameter 'array2' (int[]): add 5 to all elements
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] - return.result2[] + 5 == 0 ✓ ○
+return.result1[] < return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「add 5 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] - Of[] + 5 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 32: On parameter 'array2' (int[]): subtract 5 from all elements
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] - return.result2[] - 5 == 0 ✓ ○
+return.result1[] > return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「subtract 5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] - Of[] - 5 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 33: On parameter 'array2' (int[]): multiply all elements by -1
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「multiply all elements by -1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 34: On parameter 'array2' (int[]): divide all elements by 3
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「divide all elements by 3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 35: On parameter 'array2' (int[]): set random element to -1 (when element != -1)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「set random element to -1 (when element != -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 36: On parameter 'array2' (int[]): set random element to 255 (when element < 255)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「set random element to 255 (when element < 255)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 37: On parameter 'array2' (int[]): increment element at random index by 2
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「increment element at random index by 2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 38: On parameter 'array2' (int[]): decrement element at random index by 2
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] > return.result2[] (lexically) ✓ ○
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「decrement element at random index by 2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 39: On parameter 'array2' (int[]): swap two random elements
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 40: On parameter 'array2' (int[]): reverse array order
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「reverse array order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 41: On parameter 'array2' (int[]): left circular shift array (move first element to end)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 42: On parameter 'array2' (int[]): right circular shift array (move last element to front)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「right circular shift array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 43: On parameter 'array2' (int[]): sort array ascending
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 44: On parameter 'array2' (int[]): sort array descending
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 45: On parameter 'array2' (int[]): replace subarray with -1
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「replace subarray with -1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 46: On parameter 'array2' (int[]): replace subarray with 0
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「replace subarray with 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 47: On parameter 'array2' (int[]): duplicate element at random index to previous position (if index > 0)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「duplicate element at random index to previous position (if index > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 48: On parameter 'array2' (int[]): remove element at random index (set to -1)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「remove element at random index (set to -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 49: On parameter 'array2' (int[]): set first element to 0
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「set first element to 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 50: On parameter 'array2' (int[]): set last element to 0
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「set last element to 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 51: On parameter 'array2' (int[]): take absolute value of all elements
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 52: On parameter 'array2' (int[]): negate all elements
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「negate all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 53: On parameter 'array2' (int[]): cube each element
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「cube each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 54: On parameter 'array2' (int[]): integer cube root of each element (if perfect cube)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「integer cube root of each element (if perfect cube)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 55: On parameter 'array2' (int[]): random perturbation: add random value between -10 and 10 to each element
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「random perturbation: add random value between -10 and 10 to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 56: On parameter 'array2' (int[]): fill entire array with constant -3
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「fill entire array with constant -3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 57: On parameter 'array2' (int[]): set every even index element to 0
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「set every even index element to 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 58: On parameter 'array2' (int[]): set every odd index element to 1
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[0..0] == return.result2[0..0] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「set every odd index element to 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[0..0] == Of[0..0] (elementwise)
+
+----------------------------------------
+
+Operation 59: On parameter 'array2' (int[]): multiply elements at even indices by -2
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「multiply elements at even indices by -2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 60: On parameter 'array2' (int[]): divide elements at odd indices by 2 (integer)
+Invariant: 
+size(return.result1[]) == size(return.result2[]) ✓
+return.result1[0..0] == return.result2[0..0] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含array2（int[]）的函数，若对 array2执行「divide elements at odd indices by 2 (integer)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[0..0] == Of[0..0] (elementwise)
+
+----------------------------------------
+
+
+操作总数: 60
+关系总数: 91

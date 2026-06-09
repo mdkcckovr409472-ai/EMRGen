@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    double* sortedElements = tc.sortedElements;
+    double phi_s = tc.phi;
+    int n = tc.n;
+    double Os = quantile(sortedElements, phi_s, n);
+
+    TestCase Tf_case = change(tc);
+    double phi_f = Tf_case.phi;
+    double Of = quantile(sortedElements, phi_f, n);
+
+    int is_valid = 0;
+    if (Of <= Os) {
+        is_valid = 1;
+    }
+
+    // No dynamic memory was allocated dynamically in change() so no cleanup needed here
+
+    return is_valid;
+}

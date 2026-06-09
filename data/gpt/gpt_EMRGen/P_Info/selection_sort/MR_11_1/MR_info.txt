@@ -1,0 +1,2 @@
+Operation 11: On parameter 'list' (int*): replace element at random index with its absolute value
+Invariant: return.result1[] <= return.result2[] (elementwise)

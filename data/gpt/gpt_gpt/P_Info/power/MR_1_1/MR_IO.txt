@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    // Reuse original struct, modify data elements by multiplying by 2 in place
+    for (int i = 0; i < tc.n; i++) {
+        tc.data[i] = 2.0 * tc.data[i];
+    }
+    return tc;
+}

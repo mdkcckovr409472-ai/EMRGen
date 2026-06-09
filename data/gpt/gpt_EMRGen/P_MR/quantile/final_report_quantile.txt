@@ -1,0 +1,258 @@
+double quantile(double sortedElements[], double phi, int n) {      
+    double index = phi * (n - 1);
+    int lhs = (int) index;
+    double delta = index - lhs;
+    double result;
+    if (n == 0) {
+        return 0.0;
+    }
+    if (lhs == n - 1) {
+        result = sortedElements[lhs];
+    } else {
+        result = (1 - delta) * sortedElements[lhs] + delta * sortedElements[lhs + 1];
+    }
+    return result;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'sortedElements' (array[double]): add 1.0 to every element
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「add 1.0 to every element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 2: On parameter 'sortedElements' (array[double]): subtract 0.5 from every element
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「subtract 0.5 from every element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 3: On parameter 'sortedElements' (array[double]): multiply every element by 2.0
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「multiply every element by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'sortedElements' (array[double]): divide every element by 3.0
+Invariant: 
+return.result1 - 3 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「divide every element by 3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 3 * Of == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'sortedElements' (array[double]): set random element to 100.0 (when element < 100.0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「set random element to 100.0 (when element < 100.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'sortedElements' (array[double]): set random element to -100.0 (when element > -100.0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「set random element to -100.0 (when element > -100.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 12: On parameter 'sortedElements' (array[double]): sort array in ascending order
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'sortedElements' (array[double]): take absolute value of each element
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「take absolute value of each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'sortedElements' (array[double]): replace elements greater than 10.0 with 10.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「replace elements greater than 10.0 with 10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 20: On parameter 'sortedElements' (array[double]): replace elements less than -10.0 with -10.0
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「replace elements less than -10.0 with -10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'sortedElements' (array[double]): take floor of each element
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「take floor of each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'sortedElements' (array[double]): take ceil of each element
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「take ceil of each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'sortedElements' (array[double]): apply modulo 5.0 to each element (element = fmod(element,5.0))
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含sortedElements（array[double]）的函数，若对 sortedElements执行「apply modulo 5.0 to each element (element = fmod(element,5.0))」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 30: On parameter 'phi' (double): add 0.1 to phi
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「add 0.1 to phi」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'phi' (double): divide phi by 3.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「divide phi by 3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 34: On parameter 'phi' (double): set phi to 0.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「set phi to 0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 35: On parameter 'phi' (double): set phi to 1.0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「set phi to 1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 38: On parameter 'phi' (double): set phi to DBL_MIN (when phi > DBL_MIN)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「set phi to DBL_MIN (when phi > DBL_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 40: On parameter 'phi' (double): set phi to +Infinity (when phi is finite)
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「set phi to +Infinity (when phi is finite)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 41: On parameter 'phi' (double): take absolute value of phi
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「take absolute value of phi」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 43: On parameter 'phi' (double): square phi
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「square phi」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 44: On parameter 'phi' (double): take square root of phi (when phi >= 0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「take square root of phi (when phi >= 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 46: On parameter 'phi' (double): floor phi
+Invariant:
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「floor phi」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 47: On parameter 'phi' (double): ceil phi
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「ceil phi」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 48: On parameter 'phi' (double): truncate phi to integer part
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「truncate phi to integer part」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 49: On parameter 'phi' (double): cast phi to int and back to double (preserving sign)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含phi（double）的函数，若对 phi执行「cast phi to int and back to double (preserving sign)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 26
+关系总数: 26

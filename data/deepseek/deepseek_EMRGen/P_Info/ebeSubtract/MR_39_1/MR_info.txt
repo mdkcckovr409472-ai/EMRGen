@@ -1,0 +1,2 @@
+Operation 39: On parameter 'b' (double*): 所有元素取自然对数（ln）
+Invariant: return.result1[] <= return.result2[] (elementwise)

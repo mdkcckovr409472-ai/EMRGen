@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    // Source output
+    double Os = varianceDifference(tc.sample1, tc.sample2, tc.n);
+
+    // Follow-up test case
+    TestCase Tf_case = change(tc);
+
+    double Of = varianceDifference(Tf_case.sample1, Tf_case.sample2, Tf_case.n);
+
+    int is_valid = 0;
+    if (Of > Os) {
+        is_valid = 1;
+    }
+
+    // Free dynamically allocated memory in Tf_case.sample1
+    delete[] Tf_case.sample1;
+
+    return is_valid;
+}

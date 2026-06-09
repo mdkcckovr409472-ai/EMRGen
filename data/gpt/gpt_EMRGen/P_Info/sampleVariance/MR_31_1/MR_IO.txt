@@ -1,0 +1,10 @@
+TestCase z31Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: none required for dividing by a constant
+
+    // Operation: divide mean by 2.0
+    follow_case.mean = follow_case.mean / 2.0;
+
+    return follow_case;
+}

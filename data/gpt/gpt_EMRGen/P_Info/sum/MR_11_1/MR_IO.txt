@@ -1,0 +1,27 @@
+TestCase z11Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array
+    int* follow_case_values = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_values, t1.values, t1.n * sizeof(int));
+    follow_case.values = follow_case_values;
+
+    // Defensive check: ensure there is at least one element to sort
+    if (follow_case.n > 0) {
+        // Sort array in descending order (selection sort)
+        for (int i = 0; i < follow_case.n - 1; ++i) {
+            int maxIdx = i;
+            for (int j = i + 1; j < follow_case.n; ++j) {
+                if (follow_case.values[j] > follow_case.values[maxIdx]) {
+                    maxIdx = j;
+                }
+            }
+            if (maxIdx != i) {
+                int temp = follow_case.values[i];
+                follow_case.values[i] = follow_case.values[maxIdx];
+                follow_case.values[maxIdx] = temp;
+            }
+        }
+    }
+
+    return follow_case;
+}

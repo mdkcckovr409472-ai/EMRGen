@@ -1,0 +1,6 @@
+TestCase z31Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive checks not required for simple integer subtraction
+    follow_case.k = follow_case.k - 1;
+    return follow_case;
+}

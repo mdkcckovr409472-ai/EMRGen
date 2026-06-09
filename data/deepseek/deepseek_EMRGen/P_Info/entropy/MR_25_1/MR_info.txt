@@ -1,0 +1,2 @@
+Operation 25: On parameter 'k' (double*): 将数组中所有元素置为0.0
+Invariant: return.result1 >= return.result2

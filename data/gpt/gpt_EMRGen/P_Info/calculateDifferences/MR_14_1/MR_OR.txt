@@ -1,0 +1,39 @@
+#include <cmath>
+
+int z14check(double* result1, double* result2, int n) {
+    // 4a. Length validity check
+    if (n <= 0) return 1;
+    // 4b. Null pointer check
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    const double epsilon = 1e-5;
+
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+
+        if (std::isnan(A) || std::isnan(B)) return 0;
+        if (std::isinf(A) || std::isinf(B)) {
+            if (A <= B) continue;
+            else return 0;
+        }
+
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+        if (fabs(A - B) <= tol) {
+            // Equal within tolerance, continue checking next element
+            continue;
+        } else if (A > B + tol) {
+            return 0;
+        } else {
+            // A < B - tol, lexically result1 < result2 -> condition satisfied, so check next elements not needed?
+            // But need to continue to ensure lex order until first difference found
+            // However, per rule, once first unequal element is found and result concluded, return immediately.
+            // Here A < B means result1 < result2, so condition result1[] <= result2[] lexically satisfied.
+            return 1;
+        }
+    }
+
+    // Loop ended, all elements equal within tolerance, lex order allows equality for <=
+    return 1;
+}

@@ -1,0 +1,187 @@
+double pooledMean(double data1[], double data2[] , int n2, int n1) {
+    double sum1 = 0;
+    for (int i = 0; i < n1; i++) {
+        sum1 += data1[i];
+    }
+    double mean1 = sum1 / n1;
+    double sum2 = 0;
+    for (int i = 0; i < n2; i++) {
+        sum2 += data2[i];
+    }
+    double mean2 = sum2 / n2;
+    return (n1 * mean1 + n2 * mean2) / (n1 + n2);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'data1' (double*): 所有元素加2.0
+Invariant:
+return.result1 < return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 2: On parameter 'data1' (double*): 所有元素减1.5
+Invariant:
+return.result1 > return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 6: On parameter 'data1' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'data1' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 8: On parameter 'data1' (double*): 数组升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'data1' (double*): 数组降序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 10: On parameter 'data1' (double*): 取前一半元素
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'data1' (double*): 所有元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 17: On parameter 'data1' (double*): 所有元素取对数
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 18: On parameter 'data1' (double*): 所有元素取指数
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'data1' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 23: On parameter 'data1' (double*): 随机两元素互换并同时加减调整
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'data1' (double*): 随机元素加1.0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'data1' (double*): 随机元素减1.0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'data2' (double*): 所有元素加2.0
+Invariant:
+return.result1 < return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 31: On parameter 'data2' (double*): 所有元素减1.5
+Invariant:
+return.result1 > return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 35: On parameter 'data2' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 36: On parameter 'data2' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 37: On parameter 'data2' (double*): 数组升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 38: On parameter 'data2' (double*): 数组降序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 42: On parameter 'data2' (double*): 所有元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 46: On parameter 'data2' (double*): 所有元素取对数
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 47: On parameter 'data2' (double*): 所有元素取指数
+Invariant:
+return.result1 < return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 51: On parameter 'data2' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 52: On parameter 'data2' (double*): 随机两元素互换并同时加减调整
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 55: On parameter 'data2' (double*): 随机元素加1.0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 56: On parameter 'data2' (double*): 随机元素减1.0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+操作总数: 27
+独立MR总数: 27
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

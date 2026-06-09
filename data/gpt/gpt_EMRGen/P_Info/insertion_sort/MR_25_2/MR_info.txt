@@ -1,0 +1,2 @@
+Operation 25: On parameter 'array' (array[int]): increment element at random index by 10 (when safe)
+Invariant: return.result1[] <= return.result2[] (elementwise)

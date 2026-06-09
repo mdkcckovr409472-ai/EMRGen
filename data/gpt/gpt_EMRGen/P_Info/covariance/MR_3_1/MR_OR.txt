@@ -1,0 +1,22 @@
+int z3check(double result1, double result2) {
+    // Core evaluation logic (direct scalar comparison)
+    double epsilon = 1e-5;
+
+    // Rearranged equation: return.result1 - 2 * return.result2 == 0 means result1 == 2*result2
+    // So we compare A = result1, B = 2*result2
+    double A = result1;
+    double B = 2.0 * result2;
+    
+    #include <cmath>
+    
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B) return 1;
+        else return 0;
+    }
+    
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    if (fabs(A - B) > tol) return 0;
+
+    return 1;
+}

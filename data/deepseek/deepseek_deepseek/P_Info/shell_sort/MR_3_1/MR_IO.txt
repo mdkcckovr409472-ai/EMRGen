@@ -1,0 +1,20 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* sorted_a = (int*)malloc(tc.n * sizeof(int));
+    memcpy(sorted_a, tc.a, tc.n * sizeof(int));
+    for (int m = tc.n/2; m > 0; m /= 2) {
+        for (int j = m; j < tc.n; j++) {
+            for (int i = j - m; i >= 0; i -= m) {
+                if (sorted_a[i + m] >= sorted_a[i]) {
+                    break;
+                } else {
+                    int mid = sorted_a[i];
+                    sorted_a[i] = sorted_a[i + m];
+                    sorted_a[i + m] = mid;
+                }
+            }
+        }
+    }
+    tf.a = sorted_a;
+    return tf;
+}

@@ -1,0 +1,9 @@
+[MR_1_1]: 运行成功, 输出: 0
+
+[MR_2_1]: 编译失败
+Error:
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/llm/1_gpt_project/MR/P_Info/chiSquare/MR_2_1/MR_combined.cpp: In function ‘int check(TestCase)’:
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/llm/1_gpt_project/MR/P_Info/chiSquare/MR_2_1/MR_combined.cpp:105:26: error: ‘Tc_case’ was not declared in this scope; did you mean ‘Tf_case’?
+  105 |     double* observed_f = Tc_case.observed; // observed unchanged
+      |                          ^~~~~~~
+      |                          Tf_case

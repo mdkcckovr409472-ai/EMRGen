@@ -1,0 +1,225 @@
+int count_non_zeroes(int a[], int n) {
+    int cnt = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] != 0) {
+            cnt++;
+        }
+    }
+    return cnt;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'a' (array[int]): multiply all elements by 2
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「multiply all elements by 2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (array[int]): divide all elements by 2 (when element is even)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「divide all elements by 2 (when element is even)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (array[int]): set first element to 0 (when it is non‑zero)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set first element to 0 (when it is non‑zero)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[int]): set last element to INT_MAX (when it is less than INT_MAX)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set last element to INT_MAX (when it is less than INT_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (array[int]): set a random element to -1 (when it is greater than -1)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set a random element to -1 (when it is greater than -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (array[int]): set a random element to 999 (when the element is less than 999)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set a random element to 999 (when the element is less than 999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (array[int]): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (array[int]): reverse array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): left circular shift array (move first element to the end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「left circular shift array (move first element to the end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (array[int]): right circular shift array (move last element to the front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「right circular shift array (move last element to the front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (array[int]): sort array ascending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[int]): sort array descending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (array[int]): randomly shuffle array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「randomly shuffle array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[int]): decrement element at a random position by 3 (when element >3)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「decrement element at a random position by 3 (when element >3)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): set elements at even indices to absolute value
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set elements at even indices to absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (array[int]): set elements at odd indices to their negative (when element >0)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set elements at odd indices to their negative (when element >0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (array[int]): take absolute value of all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (array[int]): cap elements at maximum 1000 (if element >1000 set to 1000)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「cap elements at maximum 1000 (if element >1000 set to 1000)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (array[int]): floor elements at minimum -1000 (if element < -1000 set to -1000)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「floor elements at minimum -1000 (if element < -1000 set to -1000)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (array[int]): set all elements to zero
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set all elements to zero」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (array[int]): set all elements to one
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set all elements to one」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (array[int]): square each element (multiply by itself)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「square each element (multiply by itself)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'a' (array[int]): apply modulo 5 to each element (element = element % 5)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「apply modulo 5 to each element (element = element % 5)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 23
+关系总数: 23

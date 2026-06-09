@@ -1,0 +1,34 @@
+#include <math.h>
+#include <stddef.h>
+
+int z30check(double result1, double result2) {
+    // 1. 核心判断逻辑 (标量直接比较)
+    // 条件: return.result1 == return.result2
+    // 移项后: result1 == result2
+
+    // 第三步：防御 NaN，并对 Inf 进行特殊放行
+    if (isnan(result1) || isnan(result2)) return 0;
+    if (isinf(result1) || isinf(result2)) {
+        // 无穷大时退化为数学直接比较
+        if (result1 == result2) return 1;
+        else return 0;
+    }
+
+    // 第一步：定义基础容差
+    double epsilon = 1e-5;
+    // 第二步：提取移项后的操作数
+    double A = result1;
+    double B = result2;
+
+    // 第四步：计算动态宽容度
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    // 第五步：带容差的比较判定 (若违反则 return 0)
+    // 条件为相等 (==)
+    if (fabs(A - B) > tol) {
+        return 0;
+    }
+
+    // 2. 满足条件，返回 1
+    return 1;
+}

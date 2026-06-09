@@ -1,0 +1,21 @@
+int check(TestCase tc) {
+    // Extract source input
+    int* Ts = tc.a;
+    int n = tc.n;
+
+    // Get the source output
+    int Os = cnt_zeroes(Ts, n);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Get the follow-up output
+    int Of = cnt_zeroes(Tf_case.a, Tf_case.n);
+
+    // Verify MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // No dynamic memory allocated in change(), so no deallocation needed
+
+    return is_valid;
+}

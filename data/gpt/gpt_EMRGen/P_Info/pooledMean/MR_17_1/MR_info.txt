@@ -1,0 +1,2 @@
+Operation 17: On parameter 'data1' (double*): left circular shift of array (move first element to the end)
+Invariant: return.result1 == return.result2

@@ -1,0 +1,29 @@
+int check(TestCase tc) {
+    double* Os = ebeMultiply(tc.a, tc.b, tc.n1, tc.n2);
+    if (Os == NULL) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    double* Of = ebeMultiply(Tf_case.a, Tf_case.b, Tf_case.n1, Tf_case.n2);
+    if (Of == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    int is_valid = 1;
+    if (tc.n1 == Tf_case.n1) {
+        for (int i = 0; i < tc.n1; i++) {
+            if (Os[i] != -Of[i]) {
+                is_valid = 0;
+                break;
+            }
+        }
+    } else {
+        is_valid = 0;
+    }
+
+    free(Os);
+    free(Of);
+    return is_valid;
+}

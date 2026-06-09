@@ -1,0 +1,48 @@
+TestCase z17Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_array = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_array, t1.array, t1.n * sizeof(int));
+    follow_case.array = follow_case_array;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element to rotate
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Define rotation parameters (example: rotate whole array by 1 position)
+    int i = 0;
+    int j = follow_case.n - 1;
+    int k = 1;
+    
+    // Validate indices and rotation length
+    if (i < 0 || j >= follow_case.n || i > j) {
+        // Invalid sub‑array bounds, skip rotation
+        return follow_case;
+    }
+    
+    int sub_len = j - i + 1;
+    if (sub_len == 0) {
+        return follow_case;
+    }
+    
+    // Normalize k to avoid unnecessary work and division by zero
+    k = k % sub_len;
+    if (k == 0) {
+        return follow_case; // No effective rotation needed
+    }
+    
+    // Perform rotation of subarray [i..j] to the right by k positions
+    int* temp = (int*)malloc(sub_len * sizeof(int));
+    for (int idx = 0; idx < sub_len; ++idx) {
+        int src_idx = (idx - k + sub_len) % sub_len; // element that moves to position idx
+        temp[idx] = follow_case.array[i + src_idx];
+    }
+    for (int idx = 0; idx < sub_len; ++idx) {
+        follow_case.array[i + idx] = temp[idx];
+    }
+    free(temp);
+    
+    return follow_case;
+}

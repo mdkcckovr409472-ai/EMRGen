@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入并获取初始输出 (Os)
+    double Os = min(tc.elements, tc.n);
+    
+    // (2) 构造衍生用例对象
+    TestCase Tf_case = change(tc);
+    
+    // (3) 提取衍生输入并获取衍生输出 (Of)
+    double Of = min(Tf_case.elements, Tf_case.n);
+    
+    // (4) 验证 Os 和 Of 是否满足蜕变关系
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    
+    // (5) 释放 Tf_case 中动态分配的内存
+    delete[] Tf_case.elements;
+    
+    // (6) 返回验证结果
+    return is_valid;
+}

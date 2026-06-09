@@ -1,0 +1,2 @@
+Operation 12: On parameter 'a' (array[int]): rotate array left by 1 position (circular shift)
+Invariant: return.result1 == return.result2

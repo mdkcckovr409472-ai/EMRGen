@@ -1,0 +1,32 @@
+#include <cmath>
+#include <cfloat>
+
+int z12check(double result1, double result2) {
+    // 浮点数比较需要特殊处理
+    double epsilon = 1e-5;
+    
+    // 移项处理：return.result1 <= return.result2 等价于 result1 <= result2
+    // 所以 A = result1, B = result2
+    double A = result1;
+    double B = result2;
+    
+    // 防御NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    
+    // 处理无穷大情况（动态容差对Inf无效）
+    if (std::isinf(A) || std::isinf(B)) {
+        // 直接进行数学比较
+        if (A <= B) return 1;
+        else return 0;
+    }
+    
+    // 计算动态容差
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 带容差的 <= 比较
+    // 如果 A > B + tol，则违反条件
+    if (A > B + tol) return 0;
+    
+    // 满足条件
+    return 1;
+}

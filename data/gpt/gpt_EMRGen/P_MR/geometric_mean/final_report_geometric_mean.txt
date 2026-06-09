@@ -1,0 +1,252 @@
+double geometric_mean(int a[], int n) {
+    long product = 1;
+    for (int i = 0; i < n; i++) {
+        product *= a[i];
+    }
+    return pow(product, (double) 1 / n);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[int]): add 1 to all elements
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「add 1 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[int]): subtract 1 from all elements (only if elements > 1)
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「subtract 1 from all elements (only if elements > 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (array[int]): multiply all elements by 2
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「multiply all elements by 2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+Os < Of
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (array[int]): divide all elements by 2 (only if elements divisible by 2)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「divide all elements by 2 (only if elements divisible by 2)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (array[int]): set a random element to 0
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set a random element to 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[int]): set a random element to 1
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set a random element to 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (array[int]): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (array[int]): reverse array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (array[int]): sort array ascending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): sort array descending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (array[int]): rotate array left by 1 position (circular shift)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「rotate array left by 1 position (circular shift)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (array[int]): rotate array right by 1 position (circular shift)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「rotate array right by 1 position (circular shift)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[int]): set all elements to 1
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set all elements to 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (array[int]): set all elements to 0
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set all elements to 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): increment element at a random position by 1
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「increment element at a random position by 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (array[int]): decrement element at a random position by 1 (only if element > 0)
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「decrement element at a random position by 1 (only if element > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): take square root of elements (only if elements >= 0)
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「take square root of elements (only if elements >= 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (array[int]): replace element at random position with product of two other elements (distinct positions)
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「replace element at random position with product of two other elements (distinct positions)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (array[int]): multiply first element by 3
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「multiply first element by 3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (array[int]): divide last element by 3 (only if divisible by 3)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「divide last element by 3 (only if divisible by 3)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (array[int]): set elements in a subarray (contiguous segment within bounds) to 1
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set elements in a subarray (contiguous segment within bounds) to 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (array[int]): shuffle a subarray within bounds randomly
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「shuffle a subarray within bounds randomly」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (array[int]): reverse a subarray within bounds
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「reverse a subarray within bounds」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (array[int]): swap two elements in a subarray
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「swap two elements in a subarray」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (array[int]): randomly shuffle entire array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「randomly shuffle entire array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'a' (array[int]): take absolute value of all elements
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 26
+关系总数: 27

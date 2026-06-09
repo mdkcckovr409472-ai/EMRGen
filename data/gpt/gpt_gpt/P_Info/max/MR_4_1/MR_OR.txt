@@ -1,0 +1,17 @@
+int check(TestCase tc) {
+    double Os = max(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = max(Tf_case.elements, Tf_case.n);
+
+    // Verify Os / 2 == Of within a small epsilon due to floating point precision
+    int is_valid = 0;
+    double epsilon = 1e-8;
+    if (fabs((Os / 2.0) - Of) < epsilon) {
+        is_valid = 1;
+    }
+
+    // Free dynamically allocated memory in Tf_case
+    delete[] Tf_case.elements;
+
+    return is_valid;
+}

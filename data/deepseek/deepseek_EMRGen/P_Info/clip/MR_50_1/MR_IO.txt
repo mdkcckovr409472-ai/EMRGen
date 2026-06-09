@@ -1,0 +1,9 @@
+TestCase z50Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 操作目标参数 lowerLim 是 int 类型，不是数组，因此不执行 malloc 和 memcpy 操作。
+    
+    // 根据规则5，将“自增1”转换为C代码，操作于 follow_case 的副本上。
+    follow_case.lowerLim = follow_case.lowerLim + 1;
+    
+    return follow_case;
+}

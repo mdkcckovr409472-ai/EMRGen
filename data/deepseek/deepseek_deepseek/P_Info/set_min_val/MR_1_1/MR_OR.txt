@@ -1,0 +1,25 @@
+int check(TestCase tc) {
+    // 获取初始输出 Os
+    int* Os = set_min_val(tc.a, tc.k, tc.n);
+    
+    // 构造衍生用例
+    TestCase Tf_case = change(tc);
+    // 获取衍生输出 Of
+    int* Of = set_min_val(Tf_case.a, Tf_case.k, Tf_case.n);
+    
+    int is_valid = 1;
+    // 验证 Os <= Of (每个元素)
+    for (int i = 0; i < tc.n; ++i) {
+        if (Os[i] > Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+    
+    // 释放动态内存
+    free(Os);
+    free(Of);
+    // 注意：tc.a 和 Tf_case.a 指向同一块内存，由调用者管理，此处不释放
+    
+    return is_valid;
+}

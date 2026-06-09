@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double* sorted_v = new double[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        sorted_v[i] = tc.v[i];
+    }
+    std::sort(sorted_v, sorted_v + tc.n);
+    tf.v = sorted_v;
+    return tf;
+}

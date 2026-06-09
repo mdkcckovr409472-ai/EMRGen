@@ -1,0 +1,118 @@
+double safeNorm(double v[], int n) {
+    double rdwarf = 3.834e-20;
+    double rgiant = 1.304e+19;
+    double s1 = 0;
+    double s2 = 0;
+    double s3 = 0;
+    double x1max = 0;
+    double x3max = 0;
+    double floatn = n;
+    double agiant = rgiant / floatn;
+    
+    for (int i = 0; i < n; i++) {
+        double xabs = abs(v[i]);
+        if (xabs < rdwarf || xabs > agiant) {
+            if (xabs > rdwarf) {
+                if (xabs > x1max) {
+                    double r = x1max / xabs;
+                    s1 = 1 + s1 * r * r;
+                    x1max = xabs;
+                } else {
+                    double r = xabs / x1max;
+                    s1 += r * r;
+                }
+            } else {
+                if (xabs > x3max) {
+                    double r = x3max / xabs;
+                    s3 = 1 + s3 * r * r;
+                    x3max = xabs;
+                } else {
+                    if (xabs != 0) {
+                        double r = xabs / x3max;
+                        s3 += r * r;
+                    }
+                }
+            }
+        } else {
+            s2 += xabs * xabs;
+        }
+    }
+    double norm;
+    if (s1 != 0) {
+        norm = x1max * sqrt(s1 + s2 / x1max / x1max);
+    } else {
+        if (s2 == 0) {
+            norm = x3max * sqrt(s3);
+        } else {
+            if (s2 >= x3max) {
+                norm = sqrt(s2 * (1 + x3max / s2 * (x3max * s3)));
+            } else {
+                norm = sqrt(x3max * (s2 / x3max + x3max * s3));
+            }
+        }
+    }
+    return norm;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「所有元素乘0.5」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+0.5 * Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「反转整个数组」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「将数组元素按绝对值升序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「将数组元素按绝对值降序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「将数组循环左移一位」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「将所有元素乘以-1」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「将所有元素除以2」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+0.5 * Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「随机打乱数组元素的顺序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「将所有元素替换为其绝对值」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「将所有元素乘以一个相同的正常数k（k>0且k≠1）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+k * Os == Of ✓
+
+----------------------------------------
+
+操作总数: 11
+关系总数: 11

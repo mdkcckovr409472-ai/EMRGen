@@ -1,0 +1,96 @@
+double* standardize(double data[], int n) {
+    double* cp1 = (double*)malloc(n * sizeof(double));
+    memcpy(cp1,data,n*sizeof(double));
+    double sum = 0;
+    double sumSq = 0;
+    for (int i = 0; i < n; i++) {
+        sum += cp1[i];
+        sumSq += cp1[i] * cp1[i];
+    }
+    double mean = sum / n;
+    double sd = sqrt((sumSq - mean * sum) / n);
+    for (int i = 0; i < n; i++) {
+        cp1[i] = (cp1[i] - mean) / sd;
+    }
+    return cp1;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'data' (double*): 所有元素加1.0
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+return.result1[] <= return.result2[] (lexically) ✓ ○
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+Os[] <= Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 2: On parameter 'data' (double*): 所有元素减1.0
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+return.result1[] <= return.result2[] (lexically) ✓ ○
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+Os[] <= Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 3: On parameter 'data' (double*): 所有元素乘2.0
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 4: On parameter 'data' (double*): 所有元素除2.0
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素除2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 6: On parameter 'data' (double*): 所有元素取绝对值
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 15: On parameter 'data' (double*): 数组升序排序
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 16: On parameter 'data' (double*): 数组降序排序
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+
+操作总数: 7
+关系总数: 11

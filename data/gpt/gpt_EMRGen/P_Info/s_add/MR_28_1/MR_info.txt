@@ -1,0 +1,2 @@
+Operation 28: On parameter 'array1' (int[]): set every odd index element to -7
+Invariant: return.result1[0..0] == return.result2[0..0] (elementwise)

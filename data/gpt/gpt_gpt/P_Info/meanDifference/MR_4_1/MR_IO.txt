@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for sample1 copy and sort it
+    double* sorted_sample1 = new double[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        sorted_sample1[i] = tc.sample1[i];
+    }
+    std::sort(sorted_sample1, sorted_sample1 + tc.n);
+    tf.sample1 = sorted_sample1;
+    return tf;
+}

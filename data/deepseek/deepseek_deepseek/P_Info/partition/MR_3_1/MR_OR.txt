@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    double* original_work_copy = new double[tc.end - tc.begin];
+    for (int idx = 0; idx < tc.end - tc.begin; ++idx) {
+        original_work_copy[idx] = tc.work[tc.begin + idx];
+    }
+    int Os = partition(original_work_copy, 0, tc.end - tc.begin, tc.pivot - tc.begin);
+    TestCase Tf_case = change(tc);
+    int Of = partition(Tf_case.work, 0, Tf_case.end - Tf_case.begin, Tf_case.pivot - Tf_case.begin);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    delete[] original_work_copy;
+    delete[] Tf_case.work;
+    return is_valid;
+}

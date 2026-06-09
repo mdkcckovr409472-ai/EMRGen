@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for b array in tf to store b[i] - 1 for each element
+    double* new_b = (double*)malloc(tf.n2 * sizeof(double));
+    if (new_b == NULL) {
+        // On malloc failure, keep original b pointer (ideally should report error)
+        return tf;
+    }
+    for (int i = 0; i < tf.n2; i++) {
+        new_b[i] = tf.b[i] - 1.0;
+    }
+    // Overwrite b pointer of tf to point to the new array
+    tf.b = new_b;
+    return tf;
+}

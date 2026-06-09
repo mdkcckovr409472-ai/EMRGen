@@ -1,0 +1,2 @@
+Operation 20: On parameter 'list' (int*): reverse subarray from index i to j (0 ≤ i ≤ j < n)
+Invariant: return.result1[] == return.result2[]

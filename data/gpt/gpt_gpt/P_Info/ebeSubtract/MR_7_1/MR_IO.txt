@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for b to modify first element, reuse a as is
+    if (tc.b != NULL && tc.n2 > 0) {
+        double* new_b = (double*)malloc(tc.n2 * sizeof(double));
+        if (new_b != NULL) {
+            new_b[0] = DBL_MAX;
+            for (int i = 1; i < tc.n2; i++) {
+                new_b[i] = tc.b[i];
+            }
+            tf.b = new_b;
+        } else {
+            // Allocation failed, tf.b remains unchanged (possibly NULL)
+            tf.b = NULL;
+        }
+    } else {
+        // If b is NULL or n2 == 0, just keep as is
+        tf.b = tc.b;
+    }
+    return tf;
+}

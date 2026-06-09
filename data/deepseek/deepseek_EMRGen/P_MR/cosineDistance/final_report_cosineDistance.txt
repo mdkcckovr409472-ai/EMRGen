@@ -1,0 +1,89 @@
+double cosineDistance(double p1[], double p2[], int n) {
+    double dotProduct = 0.0;
+    double lengthSquaredp1 = 0.0;
+    double lengthSquaredp2 = 0.0;
+
+    for (int i = 0; i < n; i++) {
+        lengthSquaredp1 += p1[i] * p1[i];
+        lengthSquaredp2 += p2[i] * p2[i];
+        dotProduct += p1[i] * p2[i];
+    }
+    
+    double denominator = sqrt(lengthSquaredp1) * sqrt(lengthSquaredp2);
+    if (denominator < dotProduct) {
+        denominator = dotProduct;
+    }
+    if (denominator == 0 && dotProduct == 0) {
+        return 0;
+    }
+    return 1.0 - dotProduct / denominator;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'p1' (double*): 所有元素乘3.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'p1' (double*): 所有元素除4.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'p1' (double*): 每个元素乘以一个小的固定因子（如1.001）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「每个元素乘以一个小的固定因子（如1.001）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 31: On parameter 'p2' (double*): 所有元素乘3.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 32: On parameter 'p2' (double*): 所有元素除4.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 56: On parameter 'p2' (double*): 每个元素乘以一个小的固定因子（如1.001）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「每个元素乘以一个小的固定因子（如1.001）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+
+操作总数: 6
+关系总数: 9

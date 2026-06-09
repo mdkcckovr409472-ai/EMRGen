@@ -1,0 +1,2 @@
+Operation 4: On parameter 'moment4' (double): 除2.0
+Invariant: return.result1 >= return.result2

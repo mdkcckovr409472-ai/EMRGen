@@ -1,0 +1,167 @@
+double find_median(int a[], int n) {
+    int k = n / 2 + 1;
+    int minIndex = (0-1);
+    int minValue = a[0];
+    for (int i = 0; i < k; i++) {
+        minIndex = i;
+        minValue = a[i];
+        for (int j = i + 1; j < n; j++) {
+            if (a[j] < minValue) {
+                minIndex = j;
+                minValue = a[j];
+            }
+        }
+        int temp = a[i];
+        a[i] = a[minIndex];
+        a[minIndex] = temp;
+    }
+    if (n % 2 == 0) {
+        return (double) (a[n / 2 - 1] + a[n / 2]) / 2;
+    } else {
+        return a[n / 2];
+    }
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[int]): 所有元素加5
+Invariant:
+return.result1 - return.result2 + 5 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[int]): 所有元素减3
+Invariant:
+return.result1 - return.result2 - 3 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (array[int]): 所有元素乘2
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[int]): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (array[int]): 数组向右循环移位（末元素移到开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (array[int]): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (array[int]): 数组升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (array[int]): 数组降序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): 所有元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (array[int]): 所有元素平方
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (array[int]): 指定位置（如索引0）元素置最大值（999）
+Invariant:
+return.result1 <= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[int]): 指定位置（如索引n-1）元素置最小值（-999）
+Invariant:
+return.result1 >= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (array[int]): 随机位置元素加10（当元素小于990时）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (array[int]): 随机位置元素减5（当元素大于5时）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[int]): 前一半元素加2
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): 后一半元素减2
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (array[int]): 数组自身拼接一次（长度翻倍，但需注意原始n不变）
+Invariant:
+return.result1 == return.result2    ✓ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (array[int]): 所有元素加索引值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (array[int]): 所有元素减索引值
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (array[int]): 数组内相邻两元素交换（如a[0]与a[1]，a[2]与a[3]等）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (array[int]): 数组内对称位置元素交换（如a[0]和a[n-1]，a[1]和a[n-2]等）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 30: On parameter 'a' (array[int]): 所有元素取相反数
+Invariant:
+return.result1 + return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+操作总数: 22
+独立MR总数: 22
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

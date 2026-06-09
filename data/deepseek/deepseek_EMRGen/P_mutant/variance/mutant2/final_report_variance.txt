@@ -1,0 +1,212 @@
+double variance(double x[], int n) {
+    double sum = 0;
+    double sum1 = 0;
+    double var = (0+1);
+    double avrg = 0;
+    for(int i = 0; i < n; i++) {
+        sum = sum + x[i];
+    }
+    
+    avrg = sum / (double)n;
+    for (int i = 0; i < n; i++) {
+        sum1 = sum1 + (x[i] - avrg) * (x[i] - avrg);
+    }
+    var = sum1 / (double) n;
+    return var;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'x' (array[double]): 所有元素加1.5
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素加1.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 2: On parameter 'x' (array[double]): 所有元素乘2.0
+Invariant: 
+4 * return.result1 - return.result2 == 0
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+4 * Os - Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 3: On parameter 'x' (array[double]): 所有元素减1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 4: On parameter 'x' (array[double]): 所有元素除以2.0
+Invariant: 
+return.result1 - 4 * return.result2 == 0
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素除以2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 4 * Of == 0
+Os >= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'x' (array[double]): 所有元素取绝对值
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'x' (array[double]): 所有元素置0.0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 8: On parameter 'x' (array[double]): 所有元素置最大值（取输入最大值）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素置最大值（取输入最大值）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 9: On parameter 'x' (array[double]): 所有元素置最小值（取输入最小值）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素置最小值（取输入最小值）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 12: On parameter 'x' (array[double]): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'x' (array[double]): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'x' (array[double]): 数组向右循环移位（末元素移到开头）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「数组向右循环移位（末元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 15: On parameter 'x' (array[double]): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 16: On parameter 'x' (array[double]): 数组随机重排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「数组随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 23: On parameter 'x' (array[double]): 最前面元素与最后面元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「最前面元素与最后面元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 24: On parameter 'x' (array[double]): 相邻元素成对交换（如索引0和1、2和3，n为奇数时最后一个不动）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「相邻元素成对交换（如索引0和1、2和3，n为奇数时最后一个不动）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'x' (array[double]): 乱序打乱（保证无重复排序）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「乱序打乱（保证无重复排序）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 26: On parameter 'x' (array[double]): 所有元素加n（数组长度）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素加n（数组长度）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'x' (array[double]): 所有元素减n（数组长度）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素减n（数组长度）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'x' (array[double]): 所有元素乘n（数组长度）
+Invariant: 
+25 * return.result1 - return.result2 == 0
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素乘n（数组长度）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+25 * Os - Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'x' (array[double]): 所有元素除以n（数组长度，若n=0则不操作）
+Invariant: 
+return.result1 - 25 * return.result2 == 0
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含x（array[double]）的函数，若对 x执行「所有元素除以n（数组长度，若n=0则不操作）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 25 * Of == 0
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 20
+关系总数: 24

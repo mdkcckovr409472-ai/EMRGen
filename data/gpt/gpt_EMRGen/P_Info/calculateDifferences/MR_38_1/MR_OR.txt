@@ -1,0 +1,37 @@
+#include <cmath>
+int z38check(double* result1, double* result2, int n) {
+    // 4.a Defensive check: length validity
+    if (n <= 0) return 1;
+    // 4.b Defensive check: null pointer check
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    const double epsilon = 1e-5;
+    // Invariant: result1[] >= result2[] (lexically)
+
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+
+        if (std::isnan(A) || std::isnan(B)) return 0;
+        if (std::isinf(A) || std::isinf(B)) {
+            if (A >= B) return 1;
+            else return 0;
+        }
+
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        double diff = A - B;
+
+        if (fabs(diff) <= tol) {
+            // equal within tolerance, continue to next element
+            continue;
+        } else if (diff > tol) {
+            // result1[i] > result2[i], so invariant is satisfied at this element => return 1
+            return 1;
+        } else {
+            // result1[i] < result2[i], invariant violated => return 0
+            return 0;
+        }
+    }
+    // All elements equal within tolerance, condition allows equality => return 1
+    return 1;
+}

@@ -1,0 +1,2 @@
+Operation 42: On parameter 'array2' (double*): 所有元素四舍五入取整
+Invariant: return.result1 <= return.result2

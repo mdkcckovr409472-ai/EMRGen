@@ -1,0 +1,2 @@
+Operation 22: On parameter 'v' (double*): 随机两个元素交换
+Invariant: return.result1 == return.result2

@@ -1,0 +1,2 @@
+Operation 55: On parameter 'y' (double*): 所有元素加一个随机小数
+Invariant: return.result1[] < return.result2[] (lexically)

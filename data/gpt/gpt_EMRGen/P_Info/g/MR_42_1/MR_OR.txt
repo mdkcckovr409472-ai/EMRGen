@@ -1,0 +1,32 @@
+#include <cmath>
+
+int z42check(double result1, double result2) {
+    double epsilon = 1e-5;
+
+    // Algebraic rearrangement of return.result1 - 2 * return.result2 == 0:
+    // This is equivalent to result1 == 2 * result2
+    // So set A = result1, B = 2 * result2 to restore true magnitudes.
+    double A = result1;
+    double B = 2.0 * result2;
+
+    // Defend against NaN
+    if (std::isnan(A) || std::isnan(B))
+        return 0;
+
+    // Handle infinity
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B)
+            return 1;
+        else
+            return 0;
+    }
+
+    // Dynamic tolerance
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    // Tolerance-based equality
+    if (fabs(A - B) > tol)
+        return 0;
+
+    return 1;
+}

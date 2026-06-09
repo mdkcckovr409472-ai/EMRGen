@@ -1,0 +1,14 @@
+TestCase z78Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    // 条件: 当且仅当 int 是数组类型时执行。
+    // 操作: 使用 malloc 和 memcpy 为 follow_case 中的目标参数创建并填充一个深拷贝。
+    // 目标参数是 upperLim，其类型为 int，不是数组类型。因此，不执行内存处理代码。
+    // ------------------------------------
+
+    // 这是根据规则6a生成的防御性代码，防止n<2时出错
+    // 操作描述为“自减1”，不涉及数组元素访问或循环，因此不需要检查数组长度。
+    // 这是根据规则5生成的具体操作代码
+    follow_case.upperLim = follow_case.upperLim - 1;
+
+    return follow_case;}

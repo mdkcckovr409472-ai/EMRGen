@@ -1,0 +1,26 @@
+TestCase z29Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    int* follow_case_list = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_list, t1.list, t1.n * sizeof(int));
+    follow_case.list = follow_case_list;
+    // ----------------------------
+
+    // Defensive check: need at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Set element at random index to its factorial (if value ≤ 10)
+    int idx = rand() % follow_case.n;
+    int val = follow_case.list[idx];
+    if (val <= 10) {
+        int fact = 1;
+        for (int i = 2; i <= val; ++i) {
+            fact *= i;
+        }
+        follow_case.list[idx] = fact;
+    }
+
+    return follow_case;
+}

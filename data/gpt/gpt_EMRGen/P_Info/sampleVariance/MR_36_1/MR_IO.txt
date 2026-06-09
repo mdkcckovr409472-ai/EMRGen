@@ -1,0 +1,9 @@
+TestCase z36Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive checks (none needed for setting mean to INF)
+
+    // Operation: set mean to INF
+    follow_case.mean = INFINITY;
+
+    return follow_case;
+}

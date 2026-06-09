@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1 && tf.a != nullptr) {
+        int p = 1;
+        int* new_a = new int[tf.n];
+        for (int i = 0; i < tf.n; ++i) {
+            new_a[i] = tf.a[(i + p) % tf.n];
+        }
+        tf.a = new_a;
+    }
+    return tf;
+}

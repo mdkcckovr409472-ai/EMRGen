@@ -1,0 +1,2 @@
+Operation 54: On parameter 'phi' (double): 向上取整
+Invariant: return.result1 <= return.result2

@@ -1,0 +1,6 @@
+TestCase z29Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Operation: subtract 0.5 from mean
+    follow_case.mean -= 0.5;
+    return follow_case;
+}

@@ -1,0 +1,15 @@
+int check(TestCase tc) {
+    // Source output Os
+    double Os = sampleVariance(tc.elements, tc.mean, tc.n);
+    
+    // Follow-up test case
+    TestCase Tf_case = change(tc);
+    double Of = sampleVariance(Tf_case.elements, Tf_case.mean, Tf_case.n);
+    
+    // Check the MR: Os < Of
+    int is_valid = (Os < Of) ? 1 : 0;
+
+    // No dynamic memory allocated, no free needed
+    
+    return is_valid;
+}

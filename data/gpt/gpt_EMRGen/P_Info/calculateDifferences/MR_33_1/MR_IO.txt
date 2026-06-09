@@ -1,0 +1,18 @@
+TestCase z33Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy of y array
+    double* follow_case_y = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_y, t1.y, t1.n * sizeof(double));
+    follow_case.y = follow_case_y;
+
+    // Defensive check for empty array
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Decrement a random element by 0.5
+    int idx = rand() % follow_case.n;
+    follow_case.y[idx] -= 0.5;
+
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 4: On parameter 'val' (double): divide by 3.0 (when val != 0)
+Invariant: return.result1[] - 3 * return.result2[] == 0

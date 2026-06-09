@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int n = tf.n;
+    if (n > 0) {
+        double* sorted_elements = new double[n];
+        for (int i = 0; i < n; ++i) {
+            sorted_elements[i] = tf.elements[i];
+        }
+        std::sort(sorted_elements, sorted_elements + n);
+        tf.elements = sorted_elements;
+    }
+    return tf;
+}

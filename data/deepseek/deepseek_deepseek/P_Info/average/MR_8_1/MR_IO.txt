@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1) {
+        for (int i = 0; i < tf.n - 1; ++i) {
+            int j = i + rand() % (tf.n - i);
+            int temp = tf.a[i];
+            tf.a[i] = tf.a[j];
+            tf.a[j] = temp;
+        }
+    }
+    return tf;
+}

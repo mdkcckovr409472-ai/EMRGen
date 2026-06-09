@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    
+    // Allocate new memory for p2 to set all elements to 0 
+    double* new_p2 = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        new_p2[i] = 0.0;
+    }
+    tf.p2 = new_p2;
+    
+    return tf;
+}

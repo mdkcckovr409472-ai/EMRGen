@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.arr != nullptr) {
+        std::vector<double> vec(tf.arr, tf.arr + tf.n);
+        std::sort(vec.begin(), vec.end(), std::greater<double>());
+        double* newArr = new double[tf.n];
+        std::copy(vec.begin(), vec.end(), newArr);
+        tf.arr = newArr;
+    }
+    return tf;
+}

@@ -1,0 +1,98 @@
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cfloat>
+#include <cctype>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+
+bool check_equal_tolerance(double a[], double b[], double tol, int n1, int n2){
+    if (n1 != n2)
+    {
+        return false;
+    }
+    for (int i = 0; i < n1; i++)
+    {
+        if (abs(a[i] - b[i]) >= tol)
+        {
+            return false;
+        }
+    }
+    return true; 
+}
+
+
+typedef struct {
+    double* a; double* b; double tol; int n1; int n2;
+} TestCase;
+
+TestCase test_cases[] = {
+    {(double[]){1.0, 2.0, 3.0}, (double[]){1.0, 2.0, 3.0}, 0.001, 3, 3},
+    {(double[]){0.0}, (double[]){0.0}, 0.0001, 1, 1},
+    {(double[]){-1.5, 2.2}, (double[]){-1.5, 2.2}, 0.01, 2, 2},
+    {(double[]){100.0, 200.0, 300.0}, (double[]){100.001, 199.999, 300.0}, 0.01, 3, 3},
+    {(double[]){3.14159}, (double[]){3.14}, 0.1, 1, 1},
+    {(double[]){1.0, 2.0, 3.0, 4.0}, (double[]){1.0, 2.0, 3.0, 4.0}, 1e-10, 4, 4},
+    {(double[]){}, (double[]){}, 0.5, 0, 0},
+    {(double[]){0.1, 0.2, 0.3}, (double[]){0.1, 0.2, 0.3}, 0.0, 3, 3},
+    {(double[]){-10.0, -20.0}, (double[]){-10.0, -20.0}, 0.001, 2, 2},
+    {(double[]){1.23456789}, (double[]){1.23456788}, 1e-8, 1, 1},
+    {(double[]){5.0}, (double[]){5.1}, 0.2, 1, 1},
+    {(double[]){1.0, 2.0, 3.0}, (double[]){1.0, 2.0, 3.0}, -0.1, 3, 3},
+    {(double[]){2.0, 4.0, 6.0}, (double[]){2.0, 4.0, 6.0}, 0.001, 3, 3},
+    {(double[]){0.333333}, (double[]){0.333334}, 0.000001, 1, 1},
+    {(double[]){1.0, 1.0, 1.0}, (double[]){1.0, 1.0, 1.0}, 0.0, 3, 3},
+    {(double[]){10.5, 20.5}, (double[]){10.5, 20.5}, 0.05, 2, 2},
+    {(double[]){-0.001, 0.001}, (double[]){-0.001, 0.001}, 0.00001, 2, 2},
+    {(double[]){7.0, 8.0, 9.0}, (double[]){7.0, 8.0, 9.0}, 1.0, 3, 3},
+    {(double[]){1.0, 2.0}, (double[]){1.0, 2.0, 3.0}, 0.1, 2, 3},
+    {(double[]){1.0, 2.0, 3.0}, (double[]){1.0, 2.0}, 0.1, 3, 2},
+    {(double[]){}, (double[]){1.0}, 0.1, 0, 1},
+    {(double[]){1.0}, (double[]){}, 0.1, 1, 0},
+    {(double[]){1.0, 2.0, 3.0}, (double[]){1.01, 2.01, 3.01}, 0.015, 3, 3},
+    {(double[]){1.0, 2.0, 3.0}, (double[]){1.01, 2.01, 3.01}, 0.005, 3, 3},
+    {(double[]){9.8, 7.6}, (double[]){9.8, 7.6}, 0.000001, 2, 2},
+    {(double[]){0.0, 0.0, 0.0}, (double[]){0.0, 0.0, 0.0}, 0.0, 3, 3},
+    {(double[]){-1.0, -2.0, -3.0}, (double[]){-1.0001, -2.0001, -3.0001}, 0.001, 3, 3},
+    {(double[]){1.5}, (double[]){1.5000001}, 1e-7, 1, 1},
+    {(double[]){2.71828}, (double[]){2.71828}, 1e-6, 1, 1},
+    {(double[]){1.0, 3.0, 5.0}, (double[]){1.0, 3.0, 5.0}, 0.5, 3, 3}
+};
+int num_test_cases = 30;
+
+
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    tf.tol = tc.tol * 2.0;
+    return tf;
+}
+
+int check(TestCase tc) {
+    bool Os = check_equal_tolerance(tc.a, tc.b, tc.tol, tc.n1, tc.n2);
+    TestCase Tf_case = change(tc);
+    bool Of = check_equal_tolerance(Tf_case.a, Tf_case.b, Tf_case.tol, Tf_case.n1, Tf_case.n2);
+    int is_valid = 0;
+    if (Os <= Of) {
+        is_valid = 1;
+    }
+    return is_valid;
+}
+
+int main() {
+    int status_end = 1;
+    for (int i = 0; i < num_test_cases; i++) {
+        int is_valid = check(test_cases[i]);
+        if (is_valid == 0) {
+            status_end = 0; 
+        }
+    }
+    std::cout << status_end << std::endl;
+    return 0;
+}

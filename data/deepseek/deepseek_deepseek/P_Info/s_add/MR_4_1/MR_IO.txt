@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int k = 5;
+    int* new_array2 = (int*)malloc(tf.n * sizeof(int));
+    for (int i = 0; i < tf.n; i++) {
+        new_array2[i] = tf.array2[i] + k;
+    }
+    tf.array2 = new_array2;
+    return tf;
+}

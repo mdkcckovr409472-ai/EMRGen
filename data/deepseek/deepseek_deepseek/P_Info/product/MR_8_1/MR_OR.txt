@@ -1,0 +1,15 @@
+#include <cmath>
+#define EPSILON 1e-9
+
+int check(TestCase tc) {
+    double Os = product(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = product(Tf_case.elements, Tf_case.n);
+    
+    int is_valid = 0;
+    if (std::fabs(Os - Of) < EPSILON) {
+        is_valid = 1;
+    }
+    
+    return is_valid;
+}

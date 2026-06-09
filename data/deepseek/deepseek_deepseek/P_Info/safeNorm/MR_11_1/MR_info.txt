@@ -1,0 +1,5 @@
+[Operation]
+MR ：对于初始输入Ts中包含v（double*）的函数，若对 v执行「将所有元素乘以一个相同的正常数k（k>0且k≠1）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+
+[Invariant]
+k * Os == Of

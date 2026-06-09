@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for the modified array1 to avoid changing original input
+    int* new_array1 = (int*)malloc(tc.n * sizeof(int));
+    memcpy(new_array1, tc.array1, tc.n * sizeof(int));
+    new_array1[tc.n - 1] = INT_MIN;
+    tf.array1 = new_array1;
+    return tf;
+}

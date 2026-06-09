@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n % 2 == 1 && tf.data != nullptr) {
+        int mid = tf.n / 2;
+        // Allocate new array for tf.data with copied content to reuse the original data per requirement
+        double* new_data = (double*)malloc(tf.n * sizeof(double));
+        if (new_data != nullptr) {
+            memcpy(new_data, tf.data, tf.n * sizeof(double));
+            new_data[mid] = 0.0; // set middle element to 0 for odd-length
+            tf.data = new_data;
+        }
+        // else keep tf.data unchanged if malloc fails, no change applied
+    }
+    return tf;
+}

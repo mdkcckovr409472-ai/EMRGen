@@ -1,0 +1,2 @@
+Operation 1: On parameter 'sortedElements' (array[double]): add 1.0 to every element
+Invariant: return.result1 <= return.result2

@@ -1,0 +1,2 @@
+Operation 20: On parameter 'a' (array[int]): set a random element to INT_MIN (when element > INT_MIN)
+Invariant: return.result1 > return.result2

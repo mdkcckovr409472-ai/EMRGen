@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 1.0; // 示例值，k > 0。也可以根据策略选择其他非零值，例如 -1.0。
+    if (tf.sortedElements != nullptr && tf.n > 0) {
+        for (int i = 0; i < tf.n; ++i) {
+            tf.sortedElements[i] += k;
+        }
+    }
+    return tf;
+}

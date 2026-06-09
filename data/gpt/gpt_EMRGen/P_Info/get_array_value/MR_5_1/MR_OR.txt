@@ -1,0 +1,6 @@
+int z5check(int result1, int result2) {
+    if (!(2 * result1 - result2 == 0)) {
+        return 0;
+    }
+    return 1;
+}

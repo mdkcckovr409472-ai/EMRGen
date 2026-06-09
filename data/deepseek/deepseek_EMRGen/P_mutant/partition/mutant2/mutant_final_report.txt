@@ -1,0 +1,99 @@
+int partition(double work[], int begin, int end, int pivot) {
+    double value = work[pivot];
+    work[pivot] = work[begin];
+    int i = begin + 1;
+    int j = end - 1;
+    while (i < j) {
+        while (i < j && work[j] > value) {
+            --j;
+        }
+        while (i < j && work[i] == value) {
+            ++i;
+        }
+        if (i < j) {
+            double tmp = work[i];
+            work[i++] = work[j];
+            work[j--] = tmp;
+        }
+    }
+    if (i >= end || work[i] > value) {
+        --i;
+    }
+    work[begin] = work[i];
+    work[i] = value;
+    return i;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'work' (double*): 所有元素加10
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 4: On parameter 'work' (double*): 所有元素乘2
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 5: On parameter 'work' (double*): 所有元素减5
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 6: On parameter 'work' (double*): 所有元素除以2
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'work' (double*): 将后一半元素减1
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+return.result1 - return.result2 + begin == 0    ✗ [Different]
+return.result1 - return.result2 - end + 5 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'work' (double*): 每个元素取整
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 39: On parameter 'begin' (int): 减随机值（范围1-5）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 40: On parameter 'begin' (int): 与整数最大值交换可能无效，忽略
+Invariant:
+return.result1 == return.result2    ✓ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'begin' (int): 置为随机值（确保在数组范围内）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 57: On parameter 'end' (int): 加10
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 10
+独立MR总数: 12
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

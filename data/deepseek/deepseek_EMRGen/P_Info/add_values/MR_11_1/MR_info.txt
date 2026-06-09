@@ -1,0 +1,2 @@
+Operation 11: On parameter 'a' (int*): 所有元素减一个随机值（如3）
+Invariant: return.result1 > return.result2

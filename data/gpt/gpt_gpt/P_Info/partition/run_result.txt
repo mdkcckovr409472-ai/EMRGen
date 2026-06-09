@@ -1,0 +1,19 @@
+[MR_5_1]: 运行成功, 输出: 0
+
+[MR_6_1]: 运行成功, 输出: 0
+
+[MR_7_1]: 运行成功, 输出: 0
+
+[MR_1_1]: 编译失败
+Error:
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/llm/1_gpt_project/MR/P_Info/partition/MR_1_1/MR_combined.cpp: In function ‘int check(TestCase)’:
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/llm/1_gpt_project/MR/P_Info/partition/MR_1_1/MR_combined.cpp:125:17: error: ‘tf’ was not declared in this scope; did you mean ‘Of’?
+  125 |     for(int i = tf.begin; i < tf.end; ++i) {
+      |                 ^~
+      |                 Of
+
+[MR_3_1]: 运行成功, 输出: 0
+
+[MR_2_1]: 运行成功, 输出: 0
+
+[MR_4_1]: 运行成功, 输出: 0

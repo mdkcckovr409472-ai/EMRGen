@@ -1,0 +1,89 @@
+double* computeDividedDifference1(double x[], double y[], int n) {
+    static double a[100];
+    if (n <= 0) return nullptr;
+
+    a[0] = y[0];
+    for (int i = 1; i < n; i++) {
+        for (int j = 0; j < n - i; j++) {
+            double denominator = x[j + i] - x[j];
+            if (denominator == 0.0) {
+                for (int k = 0; k < n; k++) a[k] = 0.0;
+                return a;
+            }
+            y[j] = (y[j + 1] - y[j]) / denominator;
+        }
+        a[i] = y[0];
+    }
+    return a;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 29: On parameter 'y' (array[double]): add -2.0 to all elements
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含y（array[double]）的函数，若对 y执行「add -2.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 30: On parameter 'y' (array[double]): subtract 1.0 from all elements
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含y（array[double]）的函数，若对 y执行「subtract 1.0 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 31: On parameter 'y' (array[double]): multiply all elements by 0.5
+Invariant: 
+return.result1[] - 2 * return.result2[] == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含y（array[double]）的函数，若对 y执行「multiply all elements by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 2 * Of[] == 0
+
+----------------------------------------
+
+Operation 34: On parameter 'y' (array[double]): set first element to -1e308 (when it is greater)
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含y（array[double]）的函数，若对 y执行「set first element to -1e308 (when it is greater)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 42: On parameter 'y' (array[double]): sort array in ascending order
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含y（array[double]）的函数，若对 y执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 48: On parameter 'y' (array[double]): take absolute value of all elements
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含y（array[double]）的函数，若对 y执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 49: On parameter 'y' (array[double]): cap values above 10.0 to 10.0 and below -10.0 to -10.0
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含y（array[double]）的函数，若对 y执行「cap values above 10.0 to 10.0 and below -10.0 to -10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+
+操作总数: 7
+关系总数: 7

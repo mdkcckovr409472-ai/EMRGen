@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory to modify elements for the follow-up input
+    double* new_elements = new double[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        new_elements[i] = tc.elements[i];
+    }
+    // Set the first element to a value greater than Os (e.g. Os + 1),
+    // since Os is not accessible here, we conservatively set it greater than the original first element
+    new_elements[0] = tc.elements[0] + 1.0;
+    tf.elements = new_elements;
+    return tf;
+}

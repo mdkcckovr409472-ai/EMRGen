@@ -1,0 +1,2 @@
+Operation 16: On parameter 'z' (double*): 所有元素平方
+Invariant: return.result2[] == return.result1[]**2 (elementwise)

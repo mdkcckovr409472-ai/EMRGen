@@ -1,0 +1,98 @@
+double* calculateAbsoluteDifferences(double z[], int n){
+    if (n == 0)
+    {
+        return NULL;
+    }
+
+    double* zAbs = (double*)malloc(n * sizeof(double));
+    for (int i = 0; i < n; i++)
+    {
+        zAbs[i] = fabs(z[i]);
+    }
+    return zAbs;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'z' (array[double]): multiply all elements by 2.0
+Invariant: 
+2 * return.result1[] - return.result2[] == 0 ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含z（array[double]）的函数，若对 z执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - Of[] == 0
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 4: On parameter 'z' (array[double]): divide all elements by 2.0
+Invariant: 
+return.result1[] - 2 * return.result2[] == 0 ✓ ○
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含z（array[double]）的函数，若对 z执行「divide all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 2 * Of[] == 0
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 11: On parameter 'z' (array[double]): set a random position's element to -999.0 (when the element is greater than -999)
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含z（array[double]）的函数，若对 z执行「set a random position's element to -999.0 (when the element is greater than -999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 13: On parameter 'z' (array[double]): reverse the entire array
+Invariant: 
+return.result1[] is the reverse of return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含z（array[double]）的函数，若对 z执行「reverse the entire array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] is the reverse of Of[]
+
+----------------------------------------
+
+Operation 22: On parameter 'z' (array[double]): multiply elements at even indices by -1
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含z（array[double]）的函数，若对 z执行「multiply elements at even indices by -1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 23: On parameter 'z' (array[double]): multiply elements at odd indices by -1
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含z（array[double]）的函数，若对 z执行「multiply elements at odd indices by -1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 26: On parameter 'z' (array[double]): increase first half elements by 10% (multiply by 1.1)
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含z（array[double]）的函数，若对 z执行「increase first half elements by 10% (multiply by 1.1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 27: On parameter 'z' (array[double]): decrease second half elements by 10% (multiply by 0.9)
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含z（array[double]）的函数，若对 z执行「decrease second half elements by 10% (multiply by 0.9)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+
+操作总数: 8
+关系总数: 10

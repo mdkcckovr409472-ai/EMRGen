@@ -1,0 +1,24 @@
+#include <cmath>
+#include <cfloat>
+
+int z4check(double result1, double result2) {
+    // 防御性编程：检查 NaN
+    if (std::isnan(result1) || std::isnan(result2)) return 0;
+
+    // 移项：将 return.result1 - 2 * return.result2 == 0 移项为 result1 == 2 * result2
+    double A = result1;
+    double B = 2.0 * result2;
+
+    // 处理无穷大
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B) return 1;
+        else return 0;
+    }
+
+    // 动态容差比较
+    double epsilon = 1e-5;
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    if (fabs(A - B) > tol) return 0;
+
+    return 1;
+}

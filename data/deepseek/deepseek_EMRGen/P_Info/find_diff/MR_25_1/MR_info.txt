@@ -1,0 +1,2 @@
+Operation 25: On parameter 'a' (int*): 后一半元素（若na为偶数）加10
+Invariant: return.result1[] <= return.result2[] (elementwise)

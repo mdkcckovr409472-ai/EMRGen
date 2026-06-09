@@ -1,0 +1,98 @@
+double sumOfPowerOfDeviations(double data[], int k, double c, int n) {
+    double sum = 0;
+    for(int i = 0; i <= n; i++) {
+        sum += pow(data[i] - c, k);
+        }
+    return sum;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 6: On parameter 'data' (double*): 随机两个元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机两个元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 7: On parameter 'data' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'data' (double*): 数组升序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'data' (double*): 数组降序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'data' (double*): 数组向右循环移位（末尾元素移到开头）
+Invariant: 
+return.result1 == return.result2
+return.result1 - return.result2 == 0
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组向右循环移位（末尾元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 23: On parameter 'data' (double*): 随机位置元素置为999.9（当元素小于999.9时）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机位置元素置为999.9（当元素小于999.9时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 44: On parameter 'k' (int): 类型转换为double(保持不变)
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「类型转换为double(保持不变)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 61: On parameter 'c' (double): 取整操作（floor）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含c（double）的函数，若对 c执行「取整操作（floor）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 69: On parameter 'c' (double): 置负无穷
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含c（double）的函数，若对 c执行「置负无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+
+操作总数: 9
+关系总数: 10

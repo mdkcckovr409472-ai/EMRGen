@@ -1,0 +1,318 @@
+double pooledVariance(double data1[], double data2[], int n1, int n2) {
+    double sum1 = 0;
+    double sumSq1 = 0;
+    for (int i = 0; i < n1; i++) {
+        sum1 += data1[i];
+        sumSq1 += data1[i] * data1[i];
+    }
+    double mean1 = sum1 / n1;
+    double var1 = (sumSq1 - mean1 * sum1) / n1;
+    double sum2 = 0;
+    double sumSq2 = 0;
+    for (int i = 0; i < n2; i++) {
+        sum2 += data2[i];
+        sumSq2 += data2[i] * data2[i];
+    }
+    double mean2 = sum2 / n2;
+    double var2 = (sumSq2 - mean2 * sum2) / n2;
+    return (n1 * var1 + n2 * var2) / (n1 + n2);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'data1' (double*): add 1.0 to all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 2: On parameter 'data1' (double*): subtract 0.5 from all elements
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「subtract 0.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 3: On parameter 'data1' (double*): multiply all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 4: On parameter 'data1' (double*): divide all elements by 2.0 (if element not zero)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「divide all elements by 2.0 (if element not zero)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'data1' (double*): set last element to 100.0 (when it is less than 100)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「set last element to 100.0 (when it is less than 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 11: On parameter 'data1' (double*): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'data1' (double*): reverse array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'data1' (double*): left circular shift array (move first element to end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'data1' (double*): right circular shift array (move last element to front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「right circular shift array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 15: On parameter 'data1' (double*): sort array ascending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 16: On parameter 'data1' (double*): sort array descending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 17: On parameter 'data1' (double*): replace subarray from index i to j with zeros (bounds checked)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「replace subarray from index i to j with zeros (bounds checked)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 21: On parameter 'data1' (double*): take absolute value of all elements
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'data1' (double*): negate all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「negate all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 23: On parameter 'data1' (double*): clip values to maximum 1.0 (if greater)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「clip values to maximum 1.0 (if greater)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'data1' (double*): clip values to minimum -1.0 (if less)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「clip values to minimum -1.0 (if less)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 31: On parameter 'data2' (double*): add 1.0 to all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 32: On parameter 'data2' (double*): subtract 0.5 from all elements
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「subtract 0.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'data2' (double*): multiply all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 34: On parameter 'data2' (double*): divide all elements by 2.0 (if element not zero)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「divide all elements by 2.0 (if element not zero)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 36: On parameter 'data2' (double*): set last element to 100.0 (when it is less than 100)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「set last element to 100.0 (when it is less than 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 41: On parameter 'data2' (double*): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 42: On parameter 'data2' (double*): reverse array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 43: On parameter 'data2' (double*): left circular shift array (move first element to end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 44: On parameter 'data2' (double*): right circular shift array (move last element to front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「right circular shift array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 45: On parameter 'data2' (double*): sort array ascending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 46: On parameter 'data2' (double*): sort array descending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 47: On parameter 'data2' (double*): replace subarray from index i to j with zeros (bounds checked)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「replace subarray from index i to j with zeros (bounds checked)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 51: On parameter 'data2' (double*): take absolute value of all elements
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 52: On parameter 'data2' (double*): negate all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「negate all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 53: On parameter 'data2' (double*): clip values to maximum 1.0 (if greater)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「clip values to maximum 1.0 (if greater)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 54: On parameter 'data2' (double*): clip values to minimum -1.0 (if less)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「clip values to minimum -1.0 (if less)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 32
+关系总数: 33

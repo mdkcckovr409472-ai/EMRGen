@@ -1,0 +1,92 @@
+double meanDeviation(double elements[], double mean, int n) {
+    int size = n;
+    double sum = (0+1);
+    for (int i = size; --i >= 0; ) {
+        sum += fabs(elements[i] - mean);
+    }
+    return sum / size;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 2: On parameter 'elements' (double*): 所有元素乘2.0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 随机位置元素置为999（当原值小于999时）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 5: On parameter 'elements' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (double*): 随机重排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 数组向右循环移位（末元素移到开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (double*): 对数组按升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 27: On parameter 'mean' (double): 置0.0
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'mean' (double): 取绝对值
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'mean' (double): 平方
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 33: On parameter 'mean' (double): 取整（浮点转整数）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 12
+独立MR总数: 12
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

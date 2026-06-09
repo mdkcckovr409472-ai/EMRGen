@@ -1,0 +1,33 @@
+int z56check(double* result1, double* result2, int n) {
+    // 1. 防御性编程 (空指针与长度检查)
+    if (result1 == NULL || result2 == NULL) return 0;
+    if (n <= 0) return 1;
+
+    // 2. 核心判断逻辑 (elementwise)
+    for (int i = 0; i < n; i++) {
+        // 浮点数比较特殊处理
+        double epsilon = 1e-5;
+        
+        // 移项：result1[i] > result2[i]  -> A = result1[i], B = result2[i]
+        double A = result1[i];
+        double B = result2[i];
+        
+        // 防御NaN
+        if (__builtin_isnan(A) || __builtin_isnan(B)) return 0;
+        
+        // 处理无穷大
+        if (__builtin_isinf(A) || __builtin_isinf(B)) {
+            if (A > B) continue;  // 满足条件，继续检查下一个元素
+            else return 0;         // 违反条件
+        }
+        
+        // 计算动态容差
+        double tol = epsilon * __builtin_fmax(1.0, __builtin_fmax(__builtin_fabs(A), __builtin_fabs(B)));
+        
+        // 判断 A > B 是否成立（带容差）
+        if (A <= B + tol) return 0;  // 违反条件
+    }
+
+    // 3. 全部满足，返回 1
+    return 1;
+}

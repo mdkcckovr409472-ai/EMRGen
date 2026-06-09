@@ -1,0 +1,5 @@
+[Operation]
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「将数组b中所有元素替换为其相反数」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+
+[Invariant]
+-1 * Os == Of

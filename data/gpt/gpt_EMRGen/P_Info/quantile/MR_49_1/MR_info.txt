@@ -1,0 +1,2 @@
+Operation 49: On parameter 'phi' (double): cast phi to int and back to double (preserving sign)
+Invariant: return.result1 >= return.result2

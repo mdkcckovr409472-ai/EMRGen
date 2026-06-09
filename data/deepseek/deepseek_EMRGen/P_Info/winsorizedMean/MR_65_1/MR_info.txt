@@ -1,0 +1,2 @@
+Operation 65: On parameter 'right' (int): 置为最大值（INT_MAX）
+Invariant: return.result1 <= return.result2

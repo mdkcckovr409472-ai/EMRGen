@@ -1,0 +1,145 @@
+double safeNorm(double v[], int n) {
+    double rdwarf = 3.834e-20;
+    double rgiant = 1.304e+19;
+    double s1 = 0;
+    double s2 = 0;
+    double s3 = 0;
+    double x1max = 0;
+    double x3max = 0;
+    double floatn = n;
+    double agiant = rgiant / floatn;
+    
+    for (int i = 0; i < n; i++) {
+        double xabs = abs(v[i]);
+        if (xabs < rdwarf || xabs > agiant) {
+            if (xabs > rdwarf) {
+                if (xabs > x1max) {
+                    double r = x1max / xabs;
+                    s1 = 1 + s1 * r * r;
+                    x1max = xabs;
+                } else {
+                    double r = xabs / x1max;
+                    s1 += r * r;
+                }
+            } else {
+                if (xabs > x3max) {
+                    double r = x3max / xabs;
+                    s3 = 1 + s3 * r * r;
+                    x3max = xabs;
+                } else {
+                    if (xabs != 0) {
+                        double r = xabs / x3max;
+                        s3 += r * r;
+                    }
+                }
+            }
+        } else {
+            s2 += xabs * xabs;
+        }
+    }
+    double norm;
+    if (s1 != 0) {
+        norm = x1max * sqrt(s1 + s2 / x1max / x1max);
+    /*} else {*/
+        if (s2 == 0) {
+            norm = x3max * sqrt(s3);
+        } else {
+            if (s2 >= x3max) {
+                norm = sqrt(s2 * (1 + x3max / s2 * (x3max * s3)));
+            } else {
+                norm = sqrt(x3max * (s2 / x3max + x3max * s3));
+            }
+        }
+    }
+    return norm;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 2: On parameter 'v' (double[]): 所有元素乘2.0
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 6: On parameter 'v' (double[]): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'v' (double[]): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 8: On parameter 'v' (double[]): 数组顺序随机重排
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'v' (double[]): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 10: On parameter 'v' (double[]): 数组向右循环移位（末元素移到开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 11: On parameter 'v' (double[]): 排序（从小到大）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 12: On parameter 'v' (double[]): 排序（从大到小）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 13: On parameter 'v' (double[]): 随机位置元素值加10.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'v' (double[]): 奇数索引元素乘3.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'v' (double[]): 所有元素取绝对值
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 25: On parameter 'v' (double[]): 数组长度截断为一半（保留前半部分）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'v' (double[]): 数组长度截断为一半（保留后半部分）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 13
+独立MR总数: 13
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

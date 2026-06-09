@@ -1,0 +1,35 @@
+#include <cmath>
+#include <cfloat>
+
+int z32check(double* result1, double* result2, int n) {
+    // 1. 防御性编程 (空指针与长度检查)
+    if (result1 == NULL || result2 == NULL) return 0;
+    if (n <= 0) return 1;
+
+    // 2. 核心判断逻辑 (elementwise)
+    for (int i = 0; i < n; i++) {
+        // 移项：result1[i] - 2 * result2[i] == 0  => result1[i] == 2 * result2[i]
+        double A = result1[i];
+        double B = 2.0 * result2[i];
+
+        // 防御 NaN
+        if (std::isnan(A) || std::isnan(B)) return 0;
+
+        // 处理无穷大
+        if (std::isinf(A) || std::isinf(B)) {
+            if (A != B) return 0; // 移项后是 ==，所以直接比较
+            // 如果相等，继续循环
+            continue;
+        }
+
+        // 动态容差比较
+        const double epsilon = 1e-5;
+        double tol = epsilon * std::fmax(1.0, std::fmax(std::fabs(A), std::fabs(B)));
+        if (std::fabs(A - B) > tol) {
+            return 0;
+        }
+    }
+
+    // 3. 全部满足，返回 1
+    return 1;
+}

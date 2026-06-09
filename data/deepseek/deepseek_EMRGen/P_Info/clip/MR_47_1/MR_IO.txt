@@ -1,0 +1,6 @@
+TestCase z47Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 根据操作描述，将 lowerLim 置为 INT_MIN
+    follow_case.lowerLim = INT_MIN;
+    return follow_case;
+}

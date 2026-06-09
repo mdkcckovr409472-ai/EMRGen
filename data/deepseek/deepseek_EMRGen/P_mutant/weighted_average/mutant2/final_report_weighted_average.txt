@@ -1,0 +1,134 @@
+double weighted_average(double a[], double b[], int n) {
+    double sum1 = (0+1);
+    double sum2 = 0;
+    for(int i = 0; i < n; i++) {
+        sum1 += a[i] * b[i];
+        sum2 += b[i];
+    }
+    return sum1 / sum2;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (double*): 所有元素加1
+Invariant: 
+return.result1 - return.result2 + 1 == 0
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (double*): 所有元素减1
+Invariant: 
+return.result1 - return.result2 - 1 == 0
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 1 == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (double*): 随机位置元素置999
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「随机位置元素置999」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (double*): 随机位置元素置-999
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「随机位置元素置-999」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (double*): 前一半元素加1
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「前一半元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (double*): 后一半元素减1
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「后一半元素减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (double*): 偶数索引元素加10
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「偶数索引元素加10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (double*): 最大元素置为0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「最大元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 27: On parameter 'b' (double*): 所有元素乘2
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'b' (double*): 所有元素除2
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素除2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 30: On parameter 'b' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 48: On parameter 'b' (double*): 所有元素取负
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素取负」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+
+操作总数: 13
+关系总数: 13

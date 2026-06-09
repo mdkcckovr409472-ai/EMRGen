@@ -1,0 +1,2 @@
+Operation 28: On parameter 'values' (int*): replace every negative element with its absolute value
+Invariant: return.result1 <= return.result2

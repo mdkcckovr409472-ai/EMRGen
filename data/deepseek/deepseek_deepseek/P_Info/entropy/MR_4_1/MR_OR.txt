@@ -1,0 +1,10 @@
+int check(TestCase tc) {
+    double Os = entropy(tc.k, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = entropy(Tf_case.k, Tf_case.n);
+    int is_valid = 0;
+    if (std::abs(Os - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    return is_valid;
+}

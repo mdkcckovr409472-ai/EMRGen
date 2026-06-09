@@ -1,0 +1,5 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    tf.a[0] = tf.a[0] + 1;
+    return tf;
+}

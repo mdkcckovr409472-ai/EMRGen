@@ -1,0 +1,6 @@
+TestCase z12Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive programming: no checks needed for scalar double
+    follow_case.moment4 = -std::numeric_limits<double>::infinity();
+    return follow_case;
+}

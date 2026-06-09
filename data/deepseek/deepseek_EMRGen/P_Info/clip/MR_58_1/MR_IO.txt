@@ -1,0 +1,12 @@
+TestCase z58Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 操作目标参数为 int 类型（非数组），无需进行数组深拷贝。
+    
+    // 防御性编程：检查参数有效性（针对减1操作，无需特殊边界检查）
+    // 减1操作对任何 int 值都是安全的，无需额外检查。
+    
+    // 具体操作：对 follow_case.upperLim 执行减1
+    follow_case.upperLim = follow_case.upperLim - 1;
+    
+    return follow_case;
+}

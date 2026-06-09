@@ -1,0 +1,2 @@
+Operation 7: On parameter 'data1' (double*): increment a random element by 1.0 (when the element < maximum double)
+Invariant: return.result1 < return.result2

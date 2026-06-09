@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1) {
+        double min_val = min(tf.elements, tf.n);
+        int idx1 = -1, idx2 = -1;
+        for (int i = 0; i < tf.n; ++i) {
+            if (tf.elements[i] != min_val) {
+                if (idx1 == -1) {
+                    idx1 = i;
+                } else if (idx2 == -1) {
+                    idx2 = i;
+                    break;
+                }
+            }
+        }
+        if (idx1 != -1 && idx2 != -1) {
+            std::swap(tf.elements[idx1], tf.elements[idx2]);
+        }
+    }
+    return tf;
+}

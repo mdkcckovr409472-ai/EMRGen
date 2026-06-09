@@ -1,0 +1,7 @@
+TestCase z38Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // No memory handling needed as target parameter k is not an array
+    // Defensive checks not needed for simple increment
+    follow_case.k = follow_case.k + 1;
+    return follow_case;
+}

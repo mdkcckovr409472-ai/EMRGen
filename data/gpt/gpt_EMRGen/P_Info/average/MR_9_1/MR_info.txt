@@ -1,0 +1,2 @@
+Operation 9: On parameter 'a' (array[int]): decrement a random element by 3
+Invariant: return.result1 > return.result2

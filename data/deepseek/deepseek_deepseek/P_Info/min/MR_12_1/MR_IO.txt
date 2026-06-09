@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 2.0; // 正常数k，示例值，可根据需要调整
+    int n = tf.n;
+    double* new_elements = new double[n];
+    for (int i = 0; i < n; ++i) {
+        new_elements[i] = tf.elements[i] * k;
+    }
+    tf.elements = new_elements;
+    return tf;
+}

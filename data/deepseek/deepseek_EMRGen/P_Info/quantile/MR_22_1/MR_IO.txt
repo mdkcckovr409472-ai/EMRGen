@@ -1,0 +1,20 @@
+TestCase z22Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_sortedElements = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_sortedElements, t1.sortedElements, t1.n * sizeof(double));
+follow_case.sortedElements = follow_case_sortedElements;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<=0时出错
+if (follow_case.n > 0) {
+    // 这是根据规则5生成的具体操作代码
+    for (int i = 0; i < follow_case.n; i++) {
+        // 这是根据规则6c生成的防御性代码，保护log10函数域
+        if (follow_case.sortedElements[i] > 0) {
+            follow_case.sortedElements[i] = log10(follow_case.sortedElements[i]);
+        }
+    }
+}
+
+return follow_case;}

@@ -1,0 +1,2 @@
+Operation 22: On parameter 'array1' (int*): 所有元素与自身索引相加
+Invariant: return.result1[][0..0] == return.result2[][0..0] (elementwise)

@@ -1,0 +1,23 @@
+TestCase z23Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array a
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: ensure there is at least one element before sorting
+    if (follow_case.n > 0) {
+        // Sort array a in descending order
+        for (int i = 0; i < follow_case.n - 1; ++i) {
+            for (int j = i + 1; j < follow_case.n; ++j) {
+                if (follow_case.a[i] < follow_case.a[j]) {
+                    int temp = follow_case.a[i];
+                    follow_case.a[i] = follow_case.a[j];
+                    follow_case.a[j] = temp;
+                }
+            }
+        }
+    }
+
+    return follow_case;
+}

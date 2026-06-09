@@ -1,0 +1,2 @@
+Operation 14: On parameter 'x' (double*): 所有元素置为最大值（DBL_MAX）
+Invariant: return.result1[] > return.result2[] (elementwise)

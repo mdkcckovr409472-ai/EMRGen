@@ -1,0 +1,21 @@
+TestCase z8Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_list = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_list, t1.list, t1.n * sizeof(int));
+    follow_case.list = follow_case_list;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Operation: set element at random index to INT_MAX when element < INT_MAX
+    int random_index = rand() % follow_case.n;
+    if (follow_case.list[random_index] < INT_MAX) {
+        follow_case.list[random_index] = INT_MAX;
+    }
+    
+    return follow_case;
+}

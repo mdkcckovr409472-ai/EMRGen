@@ -1,0 +1,2 @@
+Operation 15: On parameter 'a' (int*): set first element to minimum int value
+Invariant: return.result1[] >= return.result2[] (elementwise)

@@ -1,0 +1,26 @@
+#include <cmath>
+#include <cstddef>
+
+int z12check(int* result1, int* result2, int n) {
+    // 4.a) Length validity check
+    if (n <= 0) return 1;
+    // 4.b) Null pointer check
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    // Lexicographical comparison for: return.result1[] >= return.result2[] (lexically)
+    // This means: result1 lexicographically greater or equal to result2.
+    // For lexicographical:
+    //   - Find first index i where result1[i] != result2[i]
+    //   - If result1[i] > result2[i], return 1
+    //   - If result1[i] < result2[i], return 0
+    //   - If all equal, return 1 (because >= includes equality)
+    for (int i = 0; i < n; i++) {
+        int A = result1[i];
+        int B = result2[i];
+        if (A > B) return 1;
+        if (A < B) return 0;
+        // else continue if equal
+    }
+    // All equal
+    return 1;
+}

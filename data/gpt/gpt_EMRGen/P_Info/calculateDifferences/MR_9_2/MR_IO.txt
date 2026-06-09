@@ -1,0 +1,18 @@
+TestCase z9Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for target parameter x
+    double* follow_case_x = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_x, t1.x, t1.n * sizeof(double));
+    follow_case.x = follow_case_x;
+
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Decrement a random element of x by 1.0
+    int random_index = rand() % follow_case.n;
+    follow_case.x[random_index] -= 1.0;
+
+    return follow_case;
+}

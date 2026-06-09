@@ -1,0 +1,2 @@
+Operation 1: On parameter 'a' (int*): reverse array
+Invariant: return.result1[] == return.result2[]

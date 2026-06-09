@@ -1,0 +1,2 @@
+Operation 47: On parameter 'b' (int*): take absolute value of each element
+Invariant: return.result1[] >= return.result2[] (elementwise)

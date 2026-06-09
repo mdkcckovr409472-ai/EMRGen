@@ -1,0 +1,17 @@
+int check(TestCase tc) {
+    // Get source output (Os)
+    int* Os = clip(tc.a, tc.lowerLim, tc.upperLim, tc.n);
+    // Change input according to MR
+    TestCase Tf = change(tc);
+    // Get follow-up output (Of)
+    int* Of = clip(Tf.a, Tf.lowerLim, Tf.upperLim, Tf.n);
+
+    // Verify MR: Os[i] <= Of[i] for all i in [0, n)
+    for (int i = 0; i < tc.n; i++) {
+        if (!(Os[i] <= Of[i])) {
+            return 0;
+        }
+    }
+
+    return 1;
+}

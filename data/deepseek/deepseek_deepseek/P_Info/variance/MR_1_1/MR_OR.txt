@@ -1,0 +1,14 @@
+int check(TestCase tc) {
+    double Os = variance(tc.x, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = variance(Tf_case.x, Tf_case.n);
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (fabs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    if (Tf_case.x != tc.x && Tf_case.x != nullptr) {
+        delete[] Tf_case.x;
+    }
+    return is_valid;
+}

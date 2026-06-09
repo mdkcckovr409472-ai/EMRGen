@@ -1,0 +1,2 @@
+Operation 44: On parameter 'array2' (int*): 数组降序排序
+Invariant: return.result1[] <= return.result2[] (lexically)

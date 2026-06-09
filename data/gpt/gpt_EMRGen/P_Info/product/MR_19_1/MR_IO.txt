@@ -1,0 +1,28 @@
+TestCase z19Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+
+    // Defensive code: ensure there are at least 2 elements to perform a reversal
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+
+    // Operation: reverse subarray from index a to b (bounds‑checked)
+    int a = 0;                         // start index (can be adjusted as needed)
+    int b = follow_case.n - 1;         // end index (must satisfy a < b)
+    if (a < 0) a = 0;
+    if (b >= follow_case.n) b = follow_case.n - 1;
+    while (a < b) {
+        double temp = follow_case.elements[a];
+        follow_case.elements[a] = follow_case.elements[b];
+        follow_case.elements[b] = temp;
+        ++a;
+        --b;
+    }
+
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 12: On parameter 'data1' (double*): reverse array
+Invariant: return.result1 == return.result2

@@ -1,0 +1,2 @@
+Operation 52: On parameter 'right' (int): divide right by 2 (integer division, when right > 0)
+Invariant: return.result1 <= return.result2

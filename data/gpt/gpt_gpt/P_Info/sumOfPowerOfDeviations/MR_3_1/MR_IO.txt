@@ -1,0 +1,20 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for sorting
+    double* sorted_data = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        sorted_data[i] = tc.data[i];
+    }
+    // Sort in descending order
+    for (int i = 0; i < tc.n - 1; i++) {
+        for (int j = i + 1; j < tc.n; j++) {
+            if (sorted_data[i] < sorted_data[j]) {
+                double temp = sorted_data[i];
+                sorted_data[i] = sorted_data[j];
+                sorted_data[j] = temp;
+            }
+        }
+    }
+    tf.data = sorted_data;
+    return tf;
+}

@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 1 && tc.elements != nullptr) {
+        double* shifted = new double[tc.n];
+        for (int i = 0; i < tc.n - 1; ++i) {
+            shifted[i] = tc.elements[i + 1];
+        }
+        shifted[tc.n - 1] = tc.elements[0];
+        tf.elements = shifted;
+    }
+    return tf;
+}

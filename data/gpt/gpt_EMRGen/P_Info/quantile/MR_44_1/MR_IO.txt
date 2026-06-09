@@ -1,0 +1,10 @@
+TestCase z44Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: protect sqrt domain
+    if (follow_case.phi >= 0) {
+        follow_case.phi = sqrt(follow_case.phi);
+    }
+
+    return follow_case;
+}

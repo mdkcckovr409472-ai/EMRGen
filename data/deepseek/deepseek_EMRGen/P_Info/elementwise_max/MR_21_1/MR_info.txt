@@ -1,0 +1,2 @@
+Operation 21: On parameter 'a' (int*): 后一半元素（索引n/2到n-1）加10
+Invariant: return.result1[] <= return.result2[] (elementwise)

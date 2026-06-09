@@ -1,0 +1,2 @@
+Operation 43: On parameter 'data2' (double*): take exponential of each element
+Invariant: return.result1 < return.result2

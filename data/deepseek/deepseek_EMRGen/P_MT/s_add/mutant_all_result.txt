@@ -1,0 +1,37 @@
+=== Global Aggregated Results ===
+Total Mutants Generated: 99
+Total Mutants Compiled: 32
+Total Mutants Detected_All: 24
+Global Mutation Score: 24/32 (75.00%)
+All Detected Mutant IDs: 4, 21, 25, 30, 37, 38, 45, 52, 54, 57, 59, 61, 66, 68, 69, 76, 77, 78, 79, 82, 86, 89, 95, 96
+
+=== Individual T Folder Scores ===
+Folder [MR_16_1]: 8/32 (25.00%) | Avg Violation Rate: 0.1896 | Avg Violation Rate(No Zero): 0.7583
+Folder [MR_17_1]: 8/32 (25.00%) | Avg Violation Rate: 0.1958 | Avg Violation Rate(No Zero): 0.7833
+Folder [MR_1_1]: 14/32 (43.75%) | Avg Violation Rate: 0.4271 | Avg Violation Rate(No Zero): 0.9762
+Folder [MR_1_2]: 13/32 (40.62%) | Avg Violation Rate: 0.3750 | Avg Violation Rate(No Zero): 0.9231
+Folder [MR_21_1]: 8/32 (25.00%) | Avg Violation Rate: 0.1938 | Avg Violation Rate(No Zero): 0.7750
+Folder [MR_22_1]: 12/32 (37.50%) | Avg Violation Rate: 0.3292 | Avg Violation Rate(No Zero): 0.8778
+Folder [MR_22_2]: 10/32 (31.25%) | Avg Violation Rate: 0.2167 | Avg Violation Rate(No Zero): 0.6933
+Folder [MR_23_1]: 8/32 (25.00%) | Avg Violation Rate: 0.1958 | Avg Violation Rate(No Zero): 0.7833
+Folder [MR_24_1]: 7/32 (21.88%) | Avg Violation Rate: 0.1896 | Avg Violation Rate(No Zero): 0.8667
+Folder [MR_26_1]: 8/32 (25.00%) | Avg Violation Rate: 0.1948 | Avg Violation Rate(No Zero): 0.7792
+Folder [MR_27_1]: 8/32 (25.00%) | Avg Violation Rate: 0.1990 | Avg Violation Rate(No Zero): 0.7958
+Folder [MR_28_1]: 18/32 (56.25%) | Avg Violation Rate: 0.5563 | Avg Violation Rate(No Zero): 0.9889
+Folder [MR_28_2]: 18/32 (56.25%) | Avg Violation Rate: 0.5375 | Avg Violation Rate(No Zero): 0.9556
+Folder [MR_29_1]: 18/32 (56.25%) | Avg Violation Rate: 0.5563 | Avg Violation Rate(No Zero): 0.9889
+Folder [MR_29_2]: 18/32 (56.25%) | Avg Violation Rate: 0.5375 | Avg Violation Rate(No Zero): 0.9556
+Folder [MR_2_1]: 14/32 (43.75%) | Avg Violation Rate: 0.4281 | Avg Violation Rate(No Zero): 0.9786
+Folder [MR_2_2]: 13/32 (40.62%) | Avg Violation Rate: 0.3750 | Avg Violation Rate(No Zero): 0.9231
+Folder [MR_33_1]: 8/32 (25.00%) | Avg Violation Rate: 0.1958 | Avg Violation Rate(No Zero): 0.7833
+Folder [MR_34_1]: 8/32 (25.00%) | Avg Violation Rate: 0.2219 | Avg Violation Rate(No Zero): 0.8875
+Folder [MR_43_1]: 10/32 (31.25%) | Avg Violation Rate: 0.2083 | Avg Violation Rate(No Zero): 0.6667
+Folder [MR_44_1]: 10/32 (31.25%) | Avg Violation Rate: 0.2292 | Avg Violation Rate(No Zero): 0.7333
+Folder [MR_48_1]: 8/32 (25.00%) | Avg Violation Rate: 0.2188 | Avg Violation Rate(No Zero): 0.8750
+Folder [MR_49_2]: 8/32 (25.00%) | Avg Violation Rate: 0.2260 | Avg Violation Rate(No Zero): 0.9042
+Folder [MR_50_1]: 8/32 (25.00%) | Avg Violation Rate: 0.2219 | Avg Violation Rate(No Zero): 0.8875
+Folder [MR_51_1]: 7/32 (21.88%) | Avg Violation Rate: 0.1969 | Avg Violation Rate(No Zero): 0.9000
+Folder [MR_53_1]: 8/32 (25.00%) | Avg Violation Rate: 0.2188 | Avg Violation Rate(No Zero): 0.8750
+Folder [MR_54_1]: 8/32 (25.00%) | Avg Violation Rate: 0.2188 | Avg Violation Rate(No Zero): 0.8750
+Folder [MR_6_1]: 9/32 (28.12%) | Avg Violation Rate: 0.2000 | Avg Violation Rate(No Zero): 0.7111
+Folder [MR_7_1]: 9/32 (28.12%) | Avg Violation Rate: 0.2083 | Avg Violation Rate(No Zero): 0.7407

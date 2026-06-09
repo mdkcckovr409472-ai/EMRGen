@@ -1,0 +1,34 @@
+#include <cmath>
+#include <cfloat>
+
+int z26check(double result1, double result2) {
+    // 1. 防御 NaN
+    if (std::isnan(result1) || std::isnan(result2)) return 0;
+    
+    // 2. 处理无穷大（动态容差对无穷大无效，需直接比较）
+    if (std::isinf(result1) || std::isinf(result2)) {
+        // 根据移项后的条件 result1 <= result2 直接比较
+        if (result1 <= result2) return 1;
+        else return 0;
+    }
+    
+    // 3. 定义基础容差
+    const double epsilon = 1e-5;
+    
+    // 4. 提取移项后的操作数（条件已为 result1 <= result2）
+    double A = result1;
+    double B = result2;
+    
+    // 5. 计算动态容差
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 6. 带容差的比较判定（若违反则返回0）
+    // 条件：A <= B
+    // 违反条件：A > B + tol
+    if (A > B + tol) {
+        return 0;
+    }
+    
+    // 7. 满足条件，返回1
+    return 1;
+}

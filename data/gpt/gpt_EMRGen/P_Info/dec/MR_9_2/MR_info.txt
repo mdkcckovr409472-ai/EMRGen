@@ -1,0 +1,2 @@
+Operation 9: On parameter 'array1' (array[int]): decrement element at a random valid index by 1
+Invariant: return.result1[] >= return.result2[] (elementwise)

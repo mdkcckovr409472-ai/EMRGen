@@ -1,0 +1,28 @@
+int z36check(double* result1, double* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    double epsilon = 1e-5;
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+        if (std::isnan(A) || std::isnan(B)) return 0;
+        if (std::isinf(A) || std::isinf(B)) {
+            // Condition: result1[i] > result2[i]
+            if (A > B)
+                return 1;
+            else
+                return 0;
+        }
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        double diff = A - B;
+        if (fabs(diff) <= tol)
+            continue; // equal within tolerance, check next element
+        else if (diff > tol)
+            return 1; // result1[i] > result2[i], lex order satisfied here
+        else
+            return 0; // result1[i] <= result2[i] at first difference, fail
+    }
+    // all elements equal within tolerance, so no element greater, fail for strictly greater
+    return 0;
+}

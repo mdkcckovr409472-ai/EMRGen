@@ -1,0 +1,21 @@
+TestCase z30Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 2
+    if (follow_case.n < 2) {
+        // Not enough elements to swap, return replica directly
+        return follow_case;
+    }
+    
+    // Specific operation code: swap first and last elements
+    double temp = follow_case.elements[0];
+    follow_case.elements[0] = follow_case.elements[follow_case.n - 1];
+    follow_case.elements[follow_case.n - 1] = temp;
+    
+    return follow_case;
+}

@@ -1,0 +1,28 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.a == nullptr) return 0;
+
+    // Make a copy of original array for computing Os since find_median modifies input
+    int* originalCopy = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        originalCopy[i] = tc.a[i];
+    }
+    double Os = find_median(originalCopy, tc.n);
+    delete[] originalCopy;
+
+    // Construct follow-up test case input
+    TestCase Tf_case = change(tc);
+
+    // Make a copy of follow-up array for computing Of since find_median modifies input
+    int* followupCopy = new int[Tf_case.n];
+    for (int i = 0; i < Tf_case.n; i++) {
+        followupCopy[i] = Tf_case.a[i];
+    }
+    double Of = find_median(followupCopy, Tf_case.n);
+    delete[] followupCopy;
+
+    int is_valid = 0;
+    if (Of <= Os) {
+        is_valid = 1;
+    }
+    return is_valid;
+}

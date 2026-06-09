@@ -1,0 +1,2 @@
+Operation 24: On parameter 'a' (array[int]): set every even index element to its square
+Invariant: return.result1 <= return.result2

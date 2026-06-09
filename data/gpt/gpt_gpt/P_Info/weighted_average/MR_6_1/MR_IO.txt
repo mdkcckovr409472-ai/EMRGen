@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    // Allocate new memory for b array to hold divided elements
+    tf.b = new double[tc.n];
+    for(int i = 0; i < tc.n; i++) {
+        tf.b[i] = tc.b[i] / 2.0;
+    }
+
+    return tf;
+}

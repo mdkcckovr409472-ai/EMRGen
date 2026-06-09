@@ -1,0 +1,37 @@
+#include <math.h>
+#include <stddef.h>
+
+int z13check(double result1, double result2) {
+    // 1. 防御性编程 (针对浮点数的特殊处理)
+    // 定义基础容差
+    double epsilon = 1e-5;
+    
+    // 提取移项后的操作数 A 和 B
+    // 条件: result1 >= result2
+    // 移项后: result1 >= result2 (无需移项)
+    double A = result1;
+    double B = result2;
+    
+    // 检查 NaN
+    if (isnan(A) || isnan(B)) return 0;
+    
+    // 处理无穷大情况
+    if (isinf(A) || isinf(B)) {
+        // 对于无穷大，退化为数学直接比较
+        if (A >= B) return 1;
+        else return 0;
+    }
+    
+    // 计算动态容差
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 2. 核心判断逻辑 (带容差的 >= 比较)
+    // 条件: A >= B
+    // 违反条件: A < B - tol
+    if (A < B - tol) {
+        return 0;
+    }
+    
+    // 3. 满足条件，返回 1
+    return 1;
+}

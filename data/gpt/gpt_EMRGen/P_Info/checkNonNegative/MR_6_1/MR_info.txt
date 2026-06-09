@@ -1,0 +1,2 @@
+Operation 6: On parameter 'a' (array[double]): set random element to 0.0 (when element > 0.0)
+Invariant: return.result1 == return.result2

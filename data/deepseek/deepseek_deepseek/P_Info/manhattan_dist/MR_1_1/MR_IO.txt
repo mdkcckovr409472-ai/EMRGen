@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // 根据 MR 规则，将数组 a 的第 i 个元素设置为 b[i]
+    // 这里选择 i = 0 作为示例，也可以根据需求修改为其他索引
+    int i = 0;
+    if (tf.n > i) {
+        tf.a[i] = tf.b[i];
+    }
+    return tf;
+}

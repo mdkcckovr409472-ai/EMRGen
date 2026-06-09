@@ -1,0 +1,20 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* sorted_array = (int*)malloc(tf.n * sizeof(int));
+    if (sorted_array == nullptr) {
+        tf.array = nullptr;
+        return tf;
+    }
+    memcpy(sorted_array, tf.array, tf.n * sizeof(int));
+    for (int i = 1; i < tf.n; i++) {
+        int j = i;
+        int B = sorted_array[i];
+        while (j > 0 && sorted_array[j - 1] > B) {
+            sorted_array[j] = sorted_array[j - 1];
+            j--;
+        }
+        sorted_array[j] = B;
+    }
+    tf.array = sorted_array;
+    return tf;
+}

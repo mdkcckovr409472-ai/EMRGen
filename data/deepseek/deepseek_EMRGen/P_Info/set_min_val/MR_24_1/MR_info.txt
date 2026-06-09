@@ -1,0 +1,2 @@
+Operation 24: On parameter 'a' (int*): 将数组所有偶数索引位置的元素加10
+Invariant: return.result1[] <= return.result2[] (elementwise)

@@ -1,0 +1,2 @@
+Operation 3: On parameter 'a' (double*): 所有元素乘3.0
+Invariant: 3 * return.result1 - return.result2 == 0

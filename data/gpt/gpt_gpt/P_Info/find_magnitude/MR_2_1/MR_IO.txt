@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    if (tc.n > 1 && tc.a != nullptr) {
+        int* reversed_array = new int[tc.n];
+        for (int i = 0; i < tc.n; i++) {
+            reversed_array[i] = tc.a[tc.n - 1 - i];
+        }
+        tf.a = reversed_array;
+    } else {
+        // If array is empty or size <=1, reversed array is same as original
+        tf.a = tc.a;
+    }
+    return tf;
+}

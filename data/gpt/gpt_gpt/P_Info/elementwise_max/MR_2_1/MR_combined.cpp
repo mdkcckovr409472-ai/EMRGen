@@ -1,0 +1,150 @@
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cfloat>
+#include <cctype>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+
+int* elementwise_max(int a[], int b[], int n) {
+    if (a == NULL || b == NULL || n <= 0) {
+        return NULL;
+    }
+
+
+    int* result = (int*)malloc(n * sizeof(int));
+    if (result == NULL) {
+        return NULL;  
+    }
+
+
+    for (int i = 0; i < n; i++) {
+        result[i] = (a[i] > b[i]) ? a[i] : b[i];
+    }
+
+    return result;
+}
+
+
+typedef struct {
+    int* a; int* b; int n;
+} TestCase;
+
+TestCase test_cases[] = {
+    {(int[]){1, 5, 3}, (int[]){4, 2, 6}, 3},
+    {(int[]){10, -50, 30, 200}, (int[]){100, 20, -300, 150}, 4},
+    {(int[]){0, -1, 99, 1000}, (int[]){1, -5, 100, 500}, 4},
+    {(int[]){-100, 55, 42, 33, 77}, (int[]){-90, 60, 40, 50, 70}, 5},
+    {(int[]){300, 200, -300, 0, 800}, (int[]){100, 1000, -500, 1, 700}, 5},
+    {(int[]){-10, -20, 30, 40, 50}, (int[]){-30, 50, 25, 35, 60}, 5},
+    {(int[]){13, 17, 9, 5, 0, 20}, (int[]){12, 14, 15, 6, -1, 19}, 6},
+    {(int[]){1000, -1000, 300, 400, -500}, (int[]){-100, 1000, 500, -300, 0}, 5},
+    {(int[]){42, 600, 1200, 50}, (int[]){43, 590, 1000, 100}, 4},
+    {(int[]){-999, 0, 999, 123}, (int[]){-1000, 1, 800, 200}, 4},
+    {(int[]){700, 800, 900}, (int[]){800, 700, 1000}, 3},
+    {(int[]){1, -1, 2, -2, 3, -3}, (int[]){1, 1, -2, 2, -3, 3}, 6},
+    {(int[]){214, 0, -214}, (int[]){200, 100, -250}, 3},
+    {(int[]){-600, 700, 800, -900, 1000}, (int[]){-700, 600, 900, -800, 1100}, 5},
+    {(int[]){50, 49, 48, 47, 46}, (int[]){46, 47, 48, 49, 50}, 5},
+    {(int[]){150, -150, 0}, (int[]){-150, 150, 0}, 3},
+    {(int[]){333, 444, 555}, (int[]){555, 444, 333}, 3},
+    {(int[]){20, -20, 30, -30}, (int[]){-20, 20, -30, 30}, 4},
+    {(int[]){100, 200, 300, 400, 500}, (int[]){500, 400, 300, 200, 100}, 5},
+    {(int[]){-123, 456, -789, 1011, -1213}, (int[]){-321, 654, -987, 1110, -1312}, 5},
+    {(int[]){5, 10, 15, 20, 25}, (int[]){25, 20, 15, 10, 5}, 5},
+    {(int[]){3000, -3000, 1500}, (int[]){-1500, 3000, -3000}, 3},
+    {(int[]){123, 312, 231, 132}, (int[]){321, 213, 312, 123}, 4},
+    {(int[]){-555, 555, -444, 444}, (int[]){444, -444, 555, -555}, 4},
+    {(int[]){700, 900, 1100}, (int[]){800, 1000, 1200}, 3},
+    {(int[]){-1, -2, -3, -4, -5}, (int[]){-5, -4, -3, -2, -1}, 5},
+    {(int[]){0, 1000, 2000, 3000}, (int[]){1000, 0, 3000, 2000}, 4},
+    {(int[]){11, 22, 33, 44, 55}, (int[]){55, 44, 33, 22, 11}, 5},
+    {(int[]){999, -999, 888, -888}, (int[]){-888, 888, -999, 999}, 4}
+};
+int num_test_cases = 29;
+
+
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    // Allocate new array for tf.a to hold elements of tc.a minus 1
+    if (tc.a == NULL || tc.n <= 0) {
+        tf.a = NULL;
+        return tf;
+    }
+
+    int* new_a = (int*)malloc(tc.n * sizeof(int));
+    if (new_a == NULL) {
+        tf.a = NULL;
+        return tf;
+    }
+
+    for (int i = 0; i < tc.n; i++) {
+        new_a[i] = tc.a[i] - 1;
+    }
+
+    tf.a = new_a;
+    return tf;
+}
+
+int check(TestCase tc) {
+    if (tc.a == NULL || tc.b == NULL || tc.n <= 0) {
+        return 0;
+    }
+
+    int* Os = elementwise_max(tc.a, tc.b, tc.n);
+    if (Os == NULL) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+
+    // If change allocated a new a, but returned NULL, treat as failure
+    if (tc.a != Tf_case.a && Tf_case.a == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    int* Of = elementwise_max(Tf_case.a, Tf_case.b, Tf_case.n);
+
+    if (Of == NULL) {
+        free(Os);
+        if (tc.a != Tf_case.a) free(Tf_case.a);
+        return 0;
+    }
+
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        if (Os[i] < Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    free(Os);
+    free(Of);
+    if (tc.a != Tf_case.a) {
+        free(Tf_case.a);
+    }
+
+    return is_valid;
+}
+
+int main() {
+    int status_end = 1;
+    for (int i = 0; i < num_test_cases; i++) {
+        int is_valid = check(test_cases[i]);
+        if (is_valid == 0) {
+            status_end = 0; 
+        }
+    }
+    std::cout << status_end << std::endl;
+    return 0;
+}

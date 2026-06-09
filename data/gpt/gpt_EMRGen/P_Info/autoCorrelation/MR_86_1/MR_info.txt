@@ -1,0 +1,2 @@
+Operation 86: On parameter 'variance' (double): negate variance (multiply by -1)
+Invariant: return.result1 + return.result2 == 0

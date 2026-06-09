@@ -1,0 +1,10 @@
+TestCase z78Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: no array-dependent checks needed for scalar variance
+
+    // Operation: multiply variance by 2.0
+    follow_case.variance = follow_case.variance * 2.0;
+
+    return follow_case;
+}

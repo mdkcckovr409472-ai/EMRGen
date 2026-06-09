@@ -1,0 +1,12 @@
+TestCase z19Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 指数变换操作
+    // 检查分母 sampleVariance 是否为零
+    if (follow_case.sampleVariance != 0.0) {
+        // 计算指数变换
+        follow_case.moment4 = exp(follow_case.moment4);
+    }
+    // 如果分母为零，则跳过变换，保持原值
+    
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 47: On parameter 'k' (int): 平方根（取整）
+Invariant: return.result1[] <= return.result2[] (elementwise)

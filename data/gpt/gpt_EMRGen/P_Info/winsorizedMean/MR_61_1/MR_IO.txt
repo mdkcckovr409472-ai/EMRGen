@@ -1,0 +1,11 @@
+TestCase z61Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // No memory handling required for non‑array parameter 'right'
+
+    // Defensive checks (none needed for this simple assignment)
+
+    // Operation: set right to right * 0 (result 0)
+    follow_case.right = follow_case.right * 0;
+
+    return follow_case;
+}

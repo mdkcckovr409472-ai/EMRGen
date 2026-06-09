@@ -1,0 +1,2 @@
+Operation 21: On parameter 'elements' (array[double]): increment a random element by 10.0 (when element <= DBL_MAX-10)
+Invariant: return.result1 <= return.result2

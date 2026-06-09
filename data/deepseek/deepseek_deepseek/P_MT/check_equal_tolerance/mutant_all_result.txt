@@ -1,0 +1,11 @@
+=== Global Aggregated Results ===
+Total Mutants Generated: 103
+Total Mutants Compiled: 48
+Total Mutants Detected_All: 10
+Global Mutation Score: 10/48 (20.83%)
+All Detected Mutant IDs: 15, 19, 22, 40, 52, 74, 80, 87, 96, 98
+
+=== Individual T Folder Scores ===
+Folder [MR_1_1]: 7/48 (14.58%) | Avg Violation Rate: 0.0312 | Avg Violation Rate(No Zero): 0.2143
+Folder [MR_2_1]: 8/48 (16.67%) | Avg Violation Rate: 0.0840 | Avg Violation Rate(No Zero): 0.5042
+Folder [MR_3_1]: 9/48 (18.75%) | Avg Violation Rate: 0.0674 | Avg Violation Rate(No Zero): 0.3592

@@ -1,0 +1,31 @@
+TestCase z13Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if(t1.n > 0 && t1.a != NULL) {
+        int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+        memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+        follow_case.a = follow_case_a;
+    } else {
+        follow_case.a = NULL;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n < 1 || follow_case.a == NULL) {
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    int found_index = -1;
+    for (int i = 0; i < follow_case.n; i++) {
+        if (follow_case.a[i] > -999) {
+            found_index = i;
+            break;
+        }
+    }
+    if (found_index != -1) {
+        follow_case.a[found_index] = -999;
+    }
+
+    return follow_case;
+}

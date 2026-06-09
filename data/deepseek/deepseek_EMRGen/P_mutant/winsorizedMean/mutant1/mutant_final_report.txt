@@ -1,0 +1,236 @@
+double winsorizedMean(double elements[], int left, int right, int n) {
+    qsort(elements, n, sizeof(double), [](const void *a, const void *b) -> int {
+        double diff = *(double *)a - *(double *)b;
+        if (diff > 0) return 1;
+        else if (diff < 0) return -1;
+        else return 0;
+    });
+
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += elements[i];
+        break;
+    }
+
+    double mean = sum / n;
+
+    if (n > 0 && left >= 0 && left < n) {
+        double leftElement = elements[left];
+        for (int i = 0; i < left; ++i) {
+            mean += (leftElement - elements[i]) / n;
+        }
+    }
+
+    if (n > 0 && right >= 0 && right < n && (n - 1 - right) >= 0) {
+        double rightElement = elements[n - 1 - right];
+        for (int i = 0; i < right; ++i) {
+            mean += (rightElement - elements[n - 1 - i]) / n;
+        }
+    }
+
+    return mean;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加10.0
+Invariant:
+return.result1 < return.result2    ○ [Different]
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (double*): 所有元素乘1.5
+Invariant:
+3 * return.result1 - 2 * return.result2 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 所有元素除以2.0
+Invariant:
+return.result1 - 2 * return.result2 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 5: On parameter 'elements' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 13: On parameter 'elements' (double*): 数组按升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 16: On parameter 'elements' (double*): 所有元素加5.0
+Invariant:
+return.result1 < return.result2    ○ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'elements' (double*): 所有元素乘0.5
+Invariant:
+return.result1 - 2 * return.result2 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 19: On parameter 'elements' (double*): 所有元素除10.0
+Invariant:
+return.result1 - 10 * return.result2 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (double*): 数组重排序（打乱）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 31: On parameter 'left' (int): 减1
+Invariant:
+return.result1 >= return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 33: On parameter 'left' (int): 除2
+Invariant:
+return.result1 >= return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 34: On parameter 'left' (int): 置0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 35: On parameter 'left' (int): 置-1
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 36: On parameter 'left' (int): 加5
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 37: On parameter 'left' (int): 减3
+Invariant:
+return.result1 >= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 39: On parameter 'left' (int): 置10
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 42: On parameter 'left' (int): 取负
+Invariant:
+return.result1 >= return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 45: On parameter 'left' (int): 加-2
+Invariant:
+return.result1 >= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 47: On parameter 'left' (int): 乘-1
+Invariant:
+return.result1 >= return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 51: On parameter 'right' (int): 减1
+Invariant:
+return.result1 <= return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 53: On parameter 'right' (int): 除2
+Invariant:
+return.result1 <= return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 54: On parameter 'right' (int): 置0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 55: On parameter 'right' (int): 置-1
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 56: On parameter 'right' (int): 加5
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 57: On parameter 'right' (int): 减3
+Invariant:
+return.result1 <= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 59: On parameter 'right' (int): 置10
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 60: On parameter 'right' (int): 置-5
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 63: On parameter 'right' (int): 置最大值（假设int最大值）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 64: On parameter 'right' (int): 置最小值（假设int最小值）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 67: On parameter 'right' (int): 乘-1
+Invariant:
+return.result1 <= return.result2    ✗ [Same]
+
+----------------------------------------
+
+操作总数: 32
+独立MR总数: 32
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

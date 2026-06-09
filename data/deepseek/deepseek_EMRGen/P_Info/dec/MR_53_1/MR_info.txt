@@ -1,0 +1,2 @@
+Operation 53: On parameter 'array2' (int*): 将数组元素替换为其前缀和
+Invariant: return.result1[][0..0] == return.result2[][0..0] (elementwise)

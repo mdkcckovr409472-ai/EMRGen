@@ -1,0 +1,2 @@
+Operation 28: On parameter 'a' (int*): set random element to its square root (floor, when element ≥ 0)
+Invariant: return.result1[] >= return.result2[] (elementwise)

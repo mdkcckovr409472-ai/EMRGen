@@ -1,0 +1,30 @@
+TestCase z15Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_x = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_x, t1.x, t1.n * sizeof(double));
+    follow_case.x = follow_case_x;
+    // ------------------------------------
+    
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Determine sub‑array indices (deterministic choice)
+    int start = follow_case.n / 4;
+    int end   = (follow_case.n * 3) / 4;
+    if (start < 0) start = 0;
+    if (end >= follow_case.n) end = follow_case.n - 1;
+    
+    // Reverse subarray between start and end
+    while (start < end) {
+        double temp = follow_case.x[start];
+        follow_case.x[start] = follow_case.x[end];
+        follow_case.x[end] = temp;
+        ++start;
+        --end;
+    }
+    
+    return follow_case;
+}

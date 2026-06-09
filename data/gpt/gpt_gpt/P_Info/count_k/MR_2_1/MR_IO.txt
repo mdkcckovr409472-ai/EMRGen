@@ -1,0 +1,20 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Create a new array to hold sorted elements
+    int* sorted_array = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        sorted_array[i] = tc.a[i];
+    }
+    // Sort the array in ascending order
+    for (int i = 0; i < tc.n - 1; i++) {
+        for (int j = i + 1; j < tc.n; j++) {
+            if (sorted_array[i] > sorted_array[j]) {
+                int temp = sorted_array[i];
+                sorted_array[i] = sorted_array[j];
+                sorted_array[j] = temp;
+            }
+        }
+    }
+    tf.a = sorted_array;
+    return tf;
+}

@@ -1,0 +1,20 @@
+TestCase z4Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_coefficients = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_coefficients, t1.coefficients, t1.n * sizeof(double));
+    follow_case.coefficients = follow_case_coefficients;
+    // ------------------------------------
+    
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Specific operation: divide all elements by 2.0
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.coefficients[i] /= 2.0;
+    }
+    
+    return follow_case;
+}

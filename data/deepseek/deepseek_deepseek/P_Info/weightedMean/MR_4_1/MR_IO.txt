@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double* newElements = new double[tf.n];
+    for (int i = 0; i < tf.n; ++i) {
+        newElements[i] = tf.elements[i] - 5.0;
+    }
+    tf.elements = newElements;
+    return tf;
+}

@@ -1,0 +1,20 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory to store a copy of data
+    double* new_data = new double[tf.n];
+    for(int i = 0; i < tf.n; i++){
+        new_data[i] = tf.data[i];
+    }
+    // Sort the copy in ascending order
+    for(int i = 0; i < tf.n - 1; i++) {
+        for(int j = 0; j < tf.n - i - 1; j++) {
+            if(new_data[j] > new_data[j+1]){
+                double temp = new_data[j];
+                new_data[j] = new_data[j+1];
+                new_data[j+1] = temp;
+            }
+        }
+    }
+    tf.data = new_data;
+    return tf;
+}

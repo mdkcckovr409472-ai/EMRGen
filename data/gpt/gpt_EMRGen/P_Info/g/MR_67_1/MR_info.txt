@@ -1,0 +1,2 @@
+Operation 67: On parameter 'observed' (array[double]): clamp elements < -20.0 to -20.0
+Invariant: return.result1 == return.result2

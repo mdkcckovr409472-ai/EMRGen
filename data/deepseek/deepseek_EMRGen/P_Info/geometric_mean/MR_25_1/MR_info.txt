@@ -1,0 +1,2 @@
+Operation 25: On parameter 'a' (int*): 将数组中所有大于10的元素减10
+Invariant: return.result1 >= return.result2

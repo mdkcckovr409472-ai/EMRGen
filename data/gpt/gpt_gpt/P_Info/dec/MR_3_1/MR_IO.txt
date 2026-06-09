@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int* shifted = (int*)malloc(tf.n * sizeof(int));
+        if (!shifted) return tf; // allocation failure, fall back to original
+        
+        // Circular right shift by 1 element on array1
+        shifted[0] = tf.array1[tf.n - 1];
+        for (int i = 1; i < tf.n; i++) {
+            shifted[i] = tf.array1[i - 1];
+        }
+        tf.array1 = shifted;
+    }
+    return tf;
+}

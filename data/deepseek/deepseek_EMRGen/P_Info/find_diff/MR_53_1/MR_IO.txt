@@ -1,0 +1,24 @@
+TestCase z53Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+int* follow_case_b = (int*)malloc(t1.na * sizeof(int));
+memcpy(follow_case_b, t1.b, t1.na * sizeof(int));
+follow_case.b = follow_case_b;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止na<1时出错
+if (follow_case.na < 1) {
+    // 数组为空，无法操作，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+// 后一半元素（若na为偶数）加10
+if (follow_case.na % 2 == 0) {
+    int start_index = follow_case.na / 2;
+    for (int i = start_index; i < follow_case.na; i++) {
+        follow_case.b[i] += 10;
+    }
+}
+
+return follow_case;}

@@ -1,0 +1,10 @@
+TestCase z58Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive check: ensure no overflow when adding 1
+    if (follow_case.upperLim < INT_MAX) {
+        follow_case.upperLim += 1;
+    }
+
+    return follow_case;
+}

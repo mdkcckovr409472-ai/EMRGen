@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array to avoid modifying original input
+    int* new_a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_a[i] = tc.a[i];
+    }
+    // Set the middle element to 1 if n > 0
+    if (tc.n > 0) {
+        new_a[tc.n / 2] = 1;
+    }
+    tf.a = new_a;
+    return tf;
+}

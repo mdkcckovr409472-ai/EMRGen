@@ -1,0 +1,286 @@
+double* power(double data[], int k, int n) {
+    for (int i = 0; i < n; i++) {
+        data[i] = pow(data[i], k);
+    }
+    return data;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 6: On parameter 'data' (double*): 所有元素取绝对值
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✓
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 20: On parameter 'data' (double*): 随机位置元素置为最大值DBL_MAX
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机位置元素置为最大值DBL_MAX」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 22: On parameter 'data' (double*): 随机位置元素置为正无穷大INFINITY
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机位置元素置为正无穷大INFINITY」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 30: On parameter 'k' (int): 加1
+Invariant: 
+return.result1 == return.result2 ✗
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 31: On parameter 'k' (int): 减1
+Invariant: 
+return.result1 == return.result2 ✗
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 32: On parameter 'k' (int): 乘2
+Invariant: 
+return.result1 == return.result2 ✗
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 33: On parameter 'k' (int): 除2（整数除法）
+Invariant: 
+return.result1 == return.result2 ✗
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「除2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 34: On parameter 'k' (int): 置0
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「置0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 35: On parameter 'k' (int): 置1
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「置1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 36: On parameter 'k' (int): 置-1
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「置-1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 37: On parameter 'k' (int): 置最大值INT_MAX
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「置最大值INT_MAX」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 39: On parameter 'k' (int): 取相反数
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 40: On parameter 'k' (int): 取绝对值
+Invariant:
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 42: On parameter 'k' (int): 立方
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「立方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 44: On parameter 'k' (int): 取模操作（k % 5）
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「取模操作（k % 5）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 47: On parameter 'k' (int): 
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 48: On parameter 'k' (int): 0）
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 49: On parameter 'k' (int): 左移一位（k << 1）
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「左移一位（k << 1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 50: On parameter 'k' (int): 右移一位（k >> 1）
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「右移一位（k >> 1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 51: On parameter 'k' (int): 自增操作（k++）
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「自增操作（k++）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 52: On parameter 'k' (int): 自减操作（k--）
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「自减操作（k--）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 53: On parameter 'k' (int): 置为随机正整数
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「置为随机正整数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 54: On parameter 'k' (int): 置为随机负整数
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「置为随机负整数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 55: On parameter 'k' (int): 类型转换为浮点数（double）后再转回整数
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✓
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「类型转换为浮点数（double）后再转回整数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 56: On parameter 'k' (int): 类型转换为无符号整数（unsigned int）后再转回整数
+Invariant: 
+return.result1 == return.result2 ✓
+return.result1[] == return.result2[] ✓
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「类型转换为无符号整数（unsigned int）后再转回整数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+
+
+
+操作总数: 26
+关系总数: 47

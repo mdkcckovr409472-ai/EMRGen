@@ -1,0 +1,2 @@
+Operation 74: On parameter 'data2' (double*): 交换数组中两个随机位置的元素（确保索引在[0, n2-1]内）
+Invariant: return.result1 == return.result2

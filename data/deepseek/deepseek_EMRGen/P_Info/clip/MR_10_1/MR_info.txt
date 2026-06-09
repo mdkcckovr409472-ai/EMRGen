@@ -1,0 +1,2 @@
+Operation 10: On parameter 'a' (int*): 所有元素置为lowerLim
+Invariant: return.result1[] >= return.result2[] (elementwise)

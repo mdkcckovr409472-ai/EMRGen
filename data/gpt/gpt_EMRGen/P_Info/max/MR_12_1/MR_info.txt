@@ -1,0 +1,2 @@
+Operation 12: On parameter 'elements' (array[double]): replace each element with its exponential
+Invariant: return.result1 < return.result2

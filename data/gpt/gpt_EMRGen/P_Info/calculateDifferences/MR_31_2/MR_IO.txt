@@ -1,0 +1,20 @@
+TestCase z31Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy of y array
+    double* follow_case_y = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_y, t1.y, t1.n * sizeof(double));
+    follow_case.y = follow_case_y;
+
+    // Defensive programming: ensure there is at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Set a random position's element to 777.7 if it is less than 777.7
+    int idx = rand() % follow_case.n;
+    if (follow_case.y[idx] < 777.7) {
+        follow_case.y[idx] = 777.7;
+    }
+
+    return follow_case;
+}

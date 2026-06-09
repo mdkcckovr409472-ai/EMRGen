@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 0 && tc.a != nullptr) {
+        int* new_arr = new int[tc.n];
+        for (int i = 0; i < tc.n; i++) {
+            new_arr[i] = tc.a[i] * 2;
+        }
+        tf.a = new_arr;
+    }
+    return tf;
+}

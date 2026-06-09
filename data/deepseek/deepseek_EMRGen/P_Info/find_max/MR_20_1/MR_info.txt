@@ -1,0 +1,2 @@
+Operation 20: On parameter 'a' (int*): 取数组后半部分（若长度为奇数，则取后半部分）
+Invariant: return.result1 >= return.result2

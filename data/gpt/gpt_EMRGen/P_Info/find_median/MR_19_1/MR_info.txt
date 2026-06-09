@@ -1,0 +1,2 @@
+Operation 19: On parameter 'a' (array[int]): replace each element with its integer square root (when element >= 0)
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,79 @@
+int dot_product(int a[], int b[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+            sum += a[i] * b[i];
+        }
+    return sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'a' (array[int]): multiply all elements by 2
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「multiply all elements by 2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[int]): sort array in ascending order
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (array[int]): rotate subarray indices [2..5] left by 1
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「rotate subarray indices [2..5] left by 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'b' (array[int]): multiply all elements by 2
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「multiply all elements by 2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 49: On parameter 'b' (array[int]): sort array in ascending order
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 51: On parameter 'b' (array[int]): rotate subarray indices [2..5] left by 1
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「rotate subarray indices [2..5] left by 1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 60: On parameter 'b' (array[int]): apply modulo 10 to each element (element = element % 10)
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「apply modulo 10 to each element (element = element % 10)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 7
+关系总数: 7

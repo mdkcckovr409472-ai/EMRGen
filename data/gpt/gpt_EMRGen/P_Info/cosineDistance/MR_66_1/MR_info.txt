@@ -1,0 +1,2 @@
+Operation 66: On parameter 'p2' (array[double]): normalize array (divide each element by Euclidean norm)
+Invariant: return.result1 == return.result2

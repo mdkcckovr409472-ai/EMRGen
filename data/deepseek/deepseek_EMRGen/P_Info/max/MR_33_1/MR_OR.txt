@@ -1,0 +1,32 @@
+#include <cmath>
+#include <cfloat>
+
+int z33check(double result1, double result2) {
+    // 1. 防御 NaN
+    if (std::isnan(result1) || std::isnan(result2)) return 0;
+    
+    // 2. 处理无穷大情况（动态容差对无穷大无效）
+    if (std::isinf(result1) || std::isinf(result2)) {
+        // 直接使用数学比较
+        if (result1 >= result2) return 1;
+        else return 0;
+    }
+    
+    // 3. 浮点数比较：result1 >= result2
+    // 移项后：A = result1, B = result2, 条件为 A >= B
+    double A = result1;
+    double B = result2;
+    
+    // 4. 计算动态容差
+    double epsilon = 1e-5;
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 5. 带容差的比较：A >= B 等价于 !(A < B)
+    // 违反条件：A < B - tol
+    if (A < B - tol) {
+        return 0;
+    }
+    
+    // 6. 满足条件
+    return 1;
+}

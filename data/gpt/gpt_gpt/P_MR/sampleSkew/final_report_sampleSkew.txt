@@ -1,0 +1,70 @@
+double sampleSkew(double moment3, double sampleVariance,int size) {
+    int n = size;
+    double s = sqrt(sampleVariance);
+    double m3 = moment3 * n;
+
+    return n * m3 / ((n - 1) * (n - 2) * s * s * s);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains moment3 (double), if the operation 「add 1 to moment3」 is executed on moment3 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains moment3 (double), if the operation 「subtract 1 from moment3」 is executed on moment3 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains moment3 (double), if the operation 「multiply moment3 by 2」 is executed on moment3 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+2 * Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains moment3 (double), if the operation 「divide moment3 by 2」 is executed on moment3 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+2 * Of == Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains moment3 (double), if the operation 「set moment3 to 0」 is executed on moment3 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「add 1 to sampleVariance」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os * c < Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「subtract 1 from sampleVariance such that sampleVariance remains positive」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os * c > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「multiply sampleVariance by 2」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of / (2 * sqrt(2)) ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「divide sampleVariance by 2」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of * (sqrt(2) / 2) ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「set sampleVariance to 1」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「set sampleVariance to 0 (which may cause division by zero)」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+(Of is undefined or causes error) ✗
+
+----------------------------------------
+
+操作总数: 11
+关系总数: 11

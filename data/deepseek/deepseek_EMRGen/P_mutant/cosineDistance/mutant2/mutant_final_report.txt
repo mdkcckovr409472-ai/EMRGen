@@ -1,0 +1,98 @@
+double cosineDistance(double p1[], double p2[], int n) {
+    double dotProduct = 0.0;
+    double lengthSquaredp1 = 0.0;
+    double lengthSquaredp2 = 1.0;
+
+    for (int i = 0; i < n; i++) {
+        lengthSquaredp1 += p1[i] * p1[i];
+        lengthSquaredp2 += p2[i] * p2[i];
+        dotProduct += p1[i] * p2[i];
+    }
+    
+    double denominator = sqrt(lengthSquaredp1) * sqrt(lengthSquaredp2);
+    if (denominator < dotProduct) {
+        denominator = dotProduct;
+    }
+    if (denominator == 0 && dotProduct == 0) {
+        return 0;
+    }
+    return 1.0 - dotProduct / denominator;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 61: On parameter 'n' (int): 乘2
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 63: On parameter 'n' (int): 置0
+Invariant:
+return.result1 >= return.result2    ○ [Different]
+
+----------------------------------------
+
+Operation 64: On parameter 'n' (int): 置1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 68: On parameter 'n' (int): 取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 69: On parameter 'n' (int): 取负值
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 70: On parameter 'n' (int): 加当前参数值的10%
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 71: On parameter 'n' (int): 置值为2的幂（如16）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 73: On parameter 'n' (int): 特殊值：置为0（空数组情形）
+Invariant:
+return.result1 >= return.result2    ○ [Different]
+
+----------------------------------------
+
+Operation 74: On parameter 'n' (int): 特殊值：置为负值（如-1）
+Invariant:
+return.result1 >= return.result2    ○ [Different]
+
+----------------------------------------
+
+Operation 77: On parameter 'n' (int): 加自身的一半（向下取整）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 79: On parameter 'n' (int): 置为数组长度的两倍（若读取数组长度）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 11
+独立MR总数: 11
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

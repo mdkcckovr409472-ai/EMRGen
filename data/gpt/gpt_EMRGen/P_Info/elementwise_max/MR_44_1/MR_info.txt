@@ -1,0 +1,2 @@
+Operation 44: On parameter 'b' (array[int]): replace a random element with the maximum value present in array (if less than max)
+Invariant: return.result1[] <= return.result2[] (elementwise)

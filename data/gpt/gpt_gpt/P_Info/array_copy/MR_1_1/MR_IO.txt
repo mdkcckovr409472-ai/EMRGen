@@ -1,0 +1,19 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.a != NULL && tf.n > 0) {
+        // Allocate new array for the follow-up input
+        int* new_a = (int*)malloc(tf.n * sizeof(int));
+        if (new_a != NULL) {
+            for (int i = 0; i < tf.n; i++) {
+                new_a[i] = tf.a[i] + 1; // add 1 to all elements
+            }
+            tf.a = new_a;
+        }
+        else {
+            // malloc failed, keep original pointer to avoid undefined state
+            tf.a = NULL;
+            tf.n = 0;
+        }
+    }
+    return tf;
+}

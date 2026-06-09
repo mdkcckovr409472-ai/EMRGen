@@ -1,0 +1,35 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0) {
+        int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+        memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+        follow_case.a = follow_case_a;
+    }
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n < 1) {
+        // No elements to process, return replica directly
+        return follow_case;
+    }
+    
+    // Specific operation code generated based on the rule
+    int max_val = follow_case.a[0];
+    for (int i = 1; i < follow_case.n; i++) {
+        if (follow_case.a[i] > max_val) {
+            max_val = follow_case.a[i];
+        }
+    }
+    // Replace a random element if its value is less than max_val
+    // Use rand to select random index safely
+    int rand_index = 0;
+    if (follow_case.n > 1) {
+        rand_index = rand() % follow_case.n;
+    }
+    if (follow_case.a[rand_index] < max_val) {
+        follow_case.a[rand_index] = max_val;
+    }
+    
+    return follow_case;
+}

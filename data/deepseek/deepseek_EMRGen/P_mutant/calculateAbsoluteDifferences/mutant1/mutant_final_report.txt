@@ -1,0 +1,72 @@
+double* calculateAbsoluteDifferences(double z[], int n){
+    if (n <= 0)
+    {
+        return NULL;
+    }
+    
+    double* zAbs = (double*)malloc(n * sizeof(double));
+    for (int i = 0; i < n; i++)
+    {
+        zAbs[i] = fabs(z[i]);
+    }
+    return zAbs;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'z' (double*): 所有元素乘2.0
+Invariant:
+2 * return.result1[] - return.result2[] == 0    ✓ ○ [Similar]
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 4: On parameter 'z' (double*): 所有元素除2.0
+Invariant:
+return.result1[] - 2 * return.result2[] == 0    ✓ ○ [Similar]
+return.result1[] > return.result2[] (lexically)    ✗ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 5: On parameter 'z' (double*): 随机位置置0.0
+Invariant:
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'z' (double*): 数组反转
+Invariant:
+return.result1[] is the reverse of return.result2[]    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 17: On parameter 'z' (double*): 每个元素取负
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 23: On parameter 'z' (double*): 将数组前面一半元素置0（如果n为奇数，前面一半为前floor(n/2)个）
+Invariant:
+return.result1[] > return.result2[] (lexically)    ✗ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 27: On parameter 'z' (double*): 将数组中所有大于10的元素置为10
+Invariant:
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+操作总数: 7
+独立MR总数: 12
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

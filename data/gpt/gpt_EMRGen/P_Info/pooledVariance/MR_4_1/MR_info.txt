@@ -1,0 +1,2 @@
+Operation 4: On parameter 'data1' (double*): divide all elements by 2.0 (if element not zero)
+Invariant: return.result1 >= return.result2

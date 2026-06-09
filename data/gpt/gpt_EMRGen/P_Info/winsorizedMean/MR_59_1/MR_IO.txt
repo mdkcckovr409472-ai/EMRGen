@@ -1,0 +1,10 @@
+TestCase z59Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: none required for this operation
+
+    // Operation: set right to right % 4
+    follow_case.right = follow_case.right % 4;
+
+    return follow_case;
+}

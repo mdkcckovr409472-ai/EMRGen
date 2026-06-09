@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Since we must reuse the original array pointer, sort the array in-place
+    std::sort(tf.x, tf.x + tf.n);
+    return tf;
+}

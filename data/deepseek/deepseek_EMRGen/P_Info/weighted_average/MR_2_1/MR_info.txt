@@ -1,0 +1,2 @@
+Operation 2: On parameter 'a' (double*): 所有元素减2.5
+Invariant: 2 * return.result1 - 2 * return.result2 - 5 == 0

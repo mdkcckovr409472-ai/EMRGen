@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = weightedMean(tc.elements, tc.theWeights, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = weightedMean(Tf_case.elements, Tf_case.theWeights, Tf_case.n);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.theWeights;
+    return is_valid;
+}

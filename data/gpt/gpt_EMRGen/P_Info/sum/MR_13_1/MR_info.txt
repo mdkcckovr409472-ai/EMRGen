@@ -1,0 +1,2 @@
+Operation 13: On parameter 'values' (int*): rotate right by 1 (move last element to front)
+Invariant: return.result1 == return.result2

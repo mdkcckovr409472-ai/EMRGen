@@ -1,0 +1,2 @@
+Operation 3: On parameter 'sortedElements' (double*): 所有元素乘2.0
+Invariant: 2 * return.result1 - return.result2 == 0

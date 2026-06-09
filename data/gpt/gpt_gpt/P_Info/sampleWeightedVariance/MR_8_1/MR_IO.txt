@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new weights array for follow-up test case
+    tf.weights = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.weights[i] = tc.weights[i] / 2.0;
+    }
+    return tf;
+}

@@ -1,0 +1,7 @@
+int z17check(int* result1, int* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+    // Partial slice comparison [0..0], a = b = 0, direct single element comparison
+    if (!(result1[0] == result2[0])) return 0;
+    return 1;
+}

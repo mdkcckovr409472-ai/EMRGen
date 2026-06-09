@@ -1,0 +1,2 @@
+Operation 19: On parameter 'a' (int*): 将数组前半部分与后半部分交换（若长度为奇数，中间元素不动）
+Invariant: return.result1 == return.result2

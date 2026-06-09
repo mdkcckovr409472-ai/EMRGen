@@ -1,0 +1,2 @@
+Operation 44: On parameter 'mean' (double): ceil
+Invariant: return.result1 <= return.result2

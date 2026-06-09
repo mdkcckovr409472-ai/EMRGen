@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.b != NULL && tf.n1 > 1) {
+        double temp = tf.b[0];
+        tf.b[0] = tf.b[tf.n1 - 1];
+        tf.b[tf.n1 - 1] = temp;
+    }
+    return tf;
+}

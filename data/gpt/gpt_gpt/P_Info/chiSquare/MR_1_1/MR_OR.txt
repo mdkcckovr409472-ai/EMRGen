@@ -1,0 +1,8 @@
+int check(TestCase tc) {
+    double Os = chiSquate(tc.expected, tc.observed, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = chiSquate(Tf_case.expected, Tf_case.observed, Tf_case.n);
+    bool is_valid = (Os == Of);
+    delete[] Tf_case.expected;
+    return is_valid ? 1 : 0;
+}

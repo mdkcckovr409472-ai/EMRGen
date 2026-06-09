@@ -1,0 +1,11 @@
+TestCase z37Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive programming: no array checks needed for scalar mean
+
+    // Specific operation: take absolute value of mean
+    if (follow_case.mean < 0) {
+        follow_case.mean = -follow_case.mean;
+    }
+
+    return follow_case;
+}

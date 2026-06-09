@@ -1,0 +1,2 @@
+Operation 18: On parameter 'a' (int*): 将所有偶数索引位置的元素加10
+Invariant: return.result1 <= return.result2

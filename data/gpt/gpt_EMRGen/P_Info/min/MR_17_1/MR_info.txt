@@ -1,0 +1,2 @@
+Operation 17: On parameter 'elements' (array[double]): set a random element to 1000.0 (when the element is less than 1000.0)
+Invariant: return.result1 <= return.result2

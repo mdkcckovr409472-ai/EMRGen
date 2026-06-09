@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int k = 5; // 示例常数 k
+    int* new_b = new int[tf.na];
+    for (int i = 0; i < tf.na; i++) {
+        new_b[i] = tf.b[i] + k;
+    }
+    tf.b = new_b;
+    return tf;
+}

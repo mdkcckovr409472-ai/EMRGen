@@ -1,0 +1,2 @@
+Operation 25: On parameter 'a' (array[int]): sort a random subarray descending
+Invariant: return.result1[] >= return.result2[] (lexically)

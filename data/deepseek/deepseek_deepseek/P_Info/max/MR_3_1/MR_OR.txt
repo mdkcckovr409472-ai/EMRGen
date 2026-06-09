@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.elements == nullptr) {
+        return 0;
+    }
+    double Os = max(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = max(Tf_case.elements, Tf_case.n);
+    int is_valid = 0;
+    if (std::abs(2.0 * Os - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+    }
+    return is_valid;
+}

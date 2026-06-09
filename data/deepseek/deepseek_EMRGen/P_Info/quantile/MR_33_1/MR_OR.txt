@@ -1,0 +1,35 @@
+#include <cmath>
+#include <cfloat>
+
+int z33check(double result1, double result2) {
+    // 1. 核心判断逻辑 (标量直接比较)
+    // 条件: result1 >= result2
+    // 移项后: A = result1, B = result2, 比较符为 >=
+
+    double A = result1;
+    double B = result2;
+
+    // 防御 NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+
+    // 处理无穷大
+    if (std::isinf(A) || std::isinf(B)) {
+        // 对于无穷大，直接进行数学比较
+        if (A >= B) return 1;
+        else return 0;
+    }
+
+    // 定义基础容差
+    double epsilon = 1e-5;
+    // 计算动态容差
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    // 带容差的比较: A >= B
+    // 违反条件: A < B - tol
+    if (A < B - tol) {
+        return 0;
+    }
+
+    // 2. 满足条件，返回 1
+    return 1;
+}

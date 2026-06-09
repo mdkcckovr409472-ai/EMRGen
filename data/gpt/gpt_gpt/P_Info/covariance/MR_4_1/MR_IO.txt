@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    for (int i = 0; i < tc.n; ++i) {
+        tf.elements1[i] = tc.elements1[i] / 2.0;
+    }
+    return tf;
+}

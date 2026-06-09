@@ -1,0 +1,26 @@
+int check(TestCase tc) {
+    // Extract source input
+    double* source_work = tc.work;
+    int begin = tc.begin;
+    int end = tc.end;
+    int pivot = tc.pivot;
+
+    // Call function under test on source input
+    int Os = partition(source_work, begin, end, pivot);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Call function under test on follow-up input
+    int Of = partition(Tf_case.work, Tf_case.begin, Tf_case.end, Tf_case.pivot);
+
+    // Check MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // Clean up dynamic memory allocated in change()
+    if (Tf_case.work != tc.work) {
+        delete[] Tf_case.work;
+    }
+
+    return is_valid;
+}

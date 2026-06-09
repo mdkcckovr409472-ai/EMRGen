@@ -1,0 +1,38 @@
+#include <math.h>
+#include <stddef.h>
+
+int z31check(double result1, double result2) {
+    // 1. 核心判断逻辑 (标量直接比较)
+    // 条件: result1 == result2
+    // 浮点数比较需特殊处理
+
+    // 第一步：定义基础容差
+    double epsilon = 1e-5;
+
+    // 第二步：代数移项，恢复数据量级
+    // 原始条件: result1 == result2
+    // 移项后: result1 == result2 (已满足两侧分布)
+    double A = result1;
+    double B = result2;
+
+    // 第三步：防御NaN，处理Inf
+    if (isnan(A) || isnan(B)) return 0;
+    
+    if (isinf(A) || isinf(B)) {
+        // 无穷大时退化为数学直接比较
+        if (A == B) return 1;
+        else return 0;
+    }
+
+    // 第四步：计算动态宽容度
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    // 第五步：带容差的比较判定
+    // 条件为相等(==)
+    if (fabs(A - B) > tol) {
+        return 0;
+    }
+
+    // 2. 满足条件，返回 1
+    return 1;
+}

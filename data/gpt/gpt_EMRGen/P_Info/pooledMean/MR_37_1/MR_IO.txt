@@ -1,0 +1,21 @@
+TestCase z37Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_data2 = (double*)malloc(t1.n2 * sizeof(double));
+    memcpy(follow_case_data2, t1.data2, t1.n2 * sizeof(double));
+    follow_case.data2 = follow_case_data2;
+    // ------------------------------------
+
+    // Defensive code: ensure there is at least one element to modify
+    if (follow_case.n2 <= 0 || follow_case.data2 == nullptr) {
+        return follow_case;
+    }
+
+    // Specific operation: increment a random element by 0.2 when it is less than a very large double value
+    size_t idx = rand() % follow_case.n2;
+    if (follow_case.data2[idx] < 1.0e308) {
+        follow_case.data2[idx] += 0.2;
+    }
+
+    return follow_case;
+}

@@ -1,0 +1,5 @@
+[Operation]
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「将left值减少1（需确保新值大于等于0）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+
+[Invariant]
+Os >= Of

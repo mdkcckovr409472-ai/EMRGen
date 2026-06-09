@@ -1,0 +1,25 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    if (tc.a == NULL || tc.n <= 0) {
+        tf.a = NULL;
+        tf.n = 0;
+        return tf;
+    }
+
+    int* new_array = (int*)malloc(tc.n * sizeof(int));
+    if (new_array == NULL) {
+        tf.a = NULL;
+        tf.n = 0;
+        return tf;
+    }
+
+    for (int i = 0; i < tc.n; i++) {
+        new_array[i] = tc.a[i] - 1;
+    }
+
+    tf.a = new_array;
+    tf.n = tc.n;
+
+    return tf;
+}

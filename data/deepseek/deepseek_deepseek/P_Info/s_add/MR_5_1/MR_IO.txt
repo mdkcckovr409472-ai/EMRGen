@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int m = 2; // 示例整数倍数，可根据需要调整或参数化
+    int* new_array2 = (int*)malloc(tf.n * sizeof(int));
+    for (int i = 0; i < tf.n; i++) {
+        new_array2[i] = tf.array2[i] * m;
+    }
+    tf.array2 = new_array2;
+    return tf;
+}

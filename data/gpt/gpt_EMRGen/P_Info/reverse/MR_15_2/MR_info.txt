@@ -1,0 +1,2 @@
+Operation 15: On parameter 'a' (array[int]): square each element
+Invariant: return.result2[] == return.result1[]**2 (elementwise)

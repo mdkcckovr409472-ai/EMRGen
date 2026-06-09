@@ -1,0 +1,2 @@
+Operation 56: On parameter 'p2' (double*): 每个元素乘以一个小的固定因子（如1.001）
+Invariant: return.result1 - return.result2 == 0

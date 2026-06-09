@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = sampleVariance(tc.elements, tc.mean, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = sampleVariance(Tf_case.elements, Tf_case.mean, Tf_case.n);
+    int is_valid = 0;
+    double c = 2.0;
+    if (std::abs(c * c * Os - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.elements;
+    return is_valid;
+}

@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n1 > 0) {
+        double max_val = tf.data1[0];
+        for (int i = 1; i < tf.n1; ++i) {
+            if (tf.data1[i] > max_val) {
+                max_val = tf.data1[i];
+            }
+        }
+        tf.data1[0] = max_val;
+    }
+    return tf;
+}

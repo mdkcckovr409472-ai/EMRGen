@@ -1,0 +1,5 @@
+[Operation]
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素乘以常数c（c为任意整数）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+
+[Invariant]
+Of == c * Os

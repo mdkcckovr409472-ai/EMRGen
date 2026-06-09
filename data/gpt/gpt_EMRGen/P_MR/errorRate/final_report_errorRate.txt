@@ -1,0 +1,311 @@
+double errorRate(double labels[], double predictions[], int n) {
+    double nberrors = 0;
+    double datasize = 0;
+    for (int index = 0; index < n; index++) {
+        if (predictions[index] == -1) {
+            continue;
+        }
+        if (predictions[index] != labels[index]) {
+            nberrors++;
+        }
+        datasize++;
+    }
+    return nberrors / datasize;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'labels' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 4: On parameter 'labels' (array[double]): divide all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「divide all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'labels' (array[double]): set random element to -1.0 (if element > -1)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「set random element to -1.0 (if element > -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'labels' (array[double]): swap two random elements
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 8: On parameter 'labels' (array[double]): reverse array
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 9: On parameter 'labels' (array[double]): left circular shift array (move first element to end)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 10: On parameter 'labels' (array[double]): right circular shift array (move last element to front)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「right circular shift array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 13: On parameter 'labels' (array[double]): take absolute value of all elements
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 14: On parameter 'labels' (array[double]): clip elements to [0.0,1.0] (set <0 to 0, >1 to 1)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「clip elements to [0.0,1.0] (set <0 to 0, >1 to 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 17: On parameter 'labels' (array[double]): multiply elements at even indices by 3.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「multiply elements at even indices by 3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'labels' (array[double]): divide elements at odd indices by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「divide elements at odd indices by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'labels' (array[double]): set every third element to 0.5
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「set every third element to 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'labels' (array[double]): set random element to DBL_MAX (if element < DBL_MAX)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「set random element to DBL_MAX (if element < DBL_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'labels' (array[double]): set random element to DBL_MIN (if element > DBL_MIN)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「set random element to DBL_MIN (if element > DBL_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'labels' (array[double]): square all elements
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「square all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'labels' (array[double]): take square root of non‑negative elements
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「take square root of non‑negative elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'labels' (array[double]): apply natural logarithm to positive elements
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「apply natural logarithm to positive elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'labels' (array[double]): apply tanh to all elements
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含labels（array[double]）的函数，若对 labels执行「apply tanh to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 32: On parameter 'predictions' (array[double]): subtract 0.5 from all elements
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「subtract 0.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'predictions' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 34: On parameter 'predictions' (array[double]): divide all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「divide all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 38: On parameter 'predictions' (array[double]): reverse array
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'predictions' (array[double]): left circular shift array (move first element to end)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 40: On parameter 'predictions' (array[double]): right circular shift array (move last element to front)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「right circular shift array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 47: On parameter 'predictions' (array[double]): multiply elements at even indices by 3.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「multiply elements at even indices by 3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 48: On parameter 'predictions' (array[double]): divide elements at odd indices by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「divide elements at odd indices by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 49: On parameter 'predictions' (array[double]): set every third element to 0.5
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「set every third element to 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 50: On parameter 'predictions' (array[double]): increment element at index 0 by 1.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「increment element at index 0 by 1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 52: On parameter 'predictions' (array[double]): randomly shuffle array
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「randomly shuffle array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 54: On parameter 'predictions' (array[double]): set random element to DBL_MIN (if element > DBL_MIN)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「set random element to DBL_MIN (if element > DBL_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 56: On parameter 'predictions' (array[double]): take square root of non‑negative elements
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「take square root of non‑negative elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 59: On parameter 'predictions' (array[double]): apply tanh to all elements
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含predictions（array[double]）的函数，若对 predictions执行「apply tanh to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 32
+关系总数: 32

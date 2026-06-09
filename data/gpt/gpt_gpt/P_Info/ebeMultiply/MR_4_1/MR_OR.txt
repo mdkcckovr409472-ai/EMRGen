@@ -1,0 +1,51 @@
+int check(TestCase tc) {
+    // (1) Extract source inputs
+    double* a = tc.a;
+    double* b = tc.b;
+    int n1 = tc.n1;
+    int n2 = tc.n2;
+
+    // (2) Call the function under test to get Os
+    double* Os = ebeMultiply(a, b, n1, n2);
+    if (Os == NULL) {
+        return 0;
+    }
+
+    // (3) Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    if (Tf_case.a == NULL && (tc.n1 > 0 && tc.a != NULL)) {
+        free(Os);
+        return 0;
+    }
+
+    // (4) Call the function under test for follow-up output
+    double* Of = ebeMultiply(Tf_case.a, Tf_case.b, Tf_case.n1, Tf_case.n2);
+    if (Of == NULL) {
+        free(Os);
+        if (Tf_case.a != tc.a) { // Only free if allocated new memory
+            free(Tf_case.a);
+        }
+        return 0;
+    }
+
+    // (5) Verify MR: Of[i] == Os[i] / 2 for all i in [0, n1)
+    int is_valid = 1;
+    for (int i = 0; i < n1; ++i) {
+        // Use a tolerance for floating point comparison
+        double diff = Of[i] - (Os[i] / 2.0);
+        if (diff > 1e-9 || diff < -1e-9) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // (6) Free dynamically allocated memory
+    free(Os);
+    free(Of);
+    if (Tf_case.a != tc.a) {
+        free(Tf_case.a);
+    }
+
+    // (7) Return verification result
+    return is_valid;
+}

@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int n = tf.n;
+    if (n > 0) {
+        int i = 0;
+        double d = 10.0;
+        tf.sample2[i] += d;
+    }
+    return tf;
+}

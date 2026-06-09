@@ -1,0 +1,2 @@
+Operation 24: On parameter 'array1' (int*): 后一半元素（若n为偶数）减5
+Invariant: return.result1[] >= return.result2[] (elementwise)

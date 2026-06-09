@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.sample2 != nullptr) {
+        double* reversed_sample2 = new double[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            reversed_sample2[i] = tf.sample2[tf.n - 1 - i];
+        }
+        tf.sample2 = reversed_sample2;
+    }
+    return tf;
+}

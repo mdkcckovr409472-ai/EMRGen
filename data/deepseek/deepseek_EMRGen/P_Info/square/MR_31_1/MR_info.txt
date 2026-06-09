@@ -1,0 +1,2 @@
+Operation 31: On parameter 'data' (double*): 随机子数组（连续3个元素）所有元素置0.0
+Invariant: return.result1[] >= return.result2[] (elementwise)

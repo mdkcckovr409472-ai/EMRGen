@@ -1,0 +1,2 @@
+Operation 22: On parameter 'a' (int*): 每隔一个元素（索引0,2,4...）置为原值加索引值
+Invariant: return.result1[] <= return.result2[] (elementwise)

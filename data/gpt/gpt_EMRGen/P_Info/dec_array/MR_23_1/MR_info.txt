@@ -1,0 +1,2 @@
+Operation 23: On parameter 'a' (array[int]): copy the first element's value to a random position
+Invariant: return.result1[0..0] == return.result2[0..0] (elementwise)

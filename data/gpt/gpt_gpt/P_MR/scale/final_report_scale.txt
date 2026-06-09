@@ -1,0 +1,96 @@
+double* scale(double val, double arr[], int n) {
+    static double  newArr[1000];
+
+    for (int i = 0; i < n; i++) {
+        newArr[i] = arr[i] * val;
+    }
+    return newArr;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains val (double), if the operation 「add 1 to val」 is executed on val to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[i] + arr[i] * 1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains val (double), if the operation 「subtract 1 from val」 is executed on val to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[i] - arr[i] * 1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains val (double), if the operation 「multiply val by 2」 is executed on val to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == 2 * Os[i] ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains val (double), if the operation 「divide val by 2 (val != 0)」 is executed on val to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[i] / 2 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「add 1 to all elements」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[i] + val * 1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「subtract 1 from all elements」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[i] - val * 1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「multiply all elements by 2」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[i] * 2 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「divide all elements by 2 (elements != 0)」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[i] / 2 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「reverse the entire array」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os[i] == Of[n-1-i] ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「circularly shift the entire array to the right by 1 position」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[(i-1+n) % n] ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「set all elements to 0」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「set all elements to 1」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == val ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「set the first element to the maximum value in the array」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[0] == max(arr) * val; For i>0, Of[i] == arr[i] * val ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「set the first element to the minimum value in the array」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[0] == min(arr) * val; For i>0, Of[i] == arr[i] * val ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「multiply only the first element by 2」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[0] == arr[0] * 2 * val; For i>0, Of[i] == arr[i] * val ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains arr (double[]), if the operation 「add 1 to only the first element」 is executed on arr to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[0] == val * (arr[0] + 1); For i>0, Of[i] == val * arr[i] ✗
+
+----------------------------------------
+
+操作总数: 16
+关系总数: 16

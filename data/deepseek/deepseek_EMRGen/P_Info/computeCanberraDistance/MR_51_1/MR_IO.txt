@@ -1,0 +1,22 @@
+TestCase z51Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_b = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_b, t1.b, t1.n * sizeof(double));
+follow_case.b = follow_case_b;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<=0时出错
+if (follow_case.n <= 0) {
+    // 数组为空，无法取子数组，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+int half_length = follow_case.n / 2;
+for (int i = 0; i < half_length; i++) {
+    follow_case.b[i] = follow_case.b[i];
+}
+follow_case.n = half_length;
+
+return follow_case;}

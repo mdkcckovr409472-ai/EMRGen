@@ -1,0 +1,2 @@
+Operation 6: On parameter 'elements' (array[double]): set last element to -50.0 (when original > -50.0)
+Invariant: return.result1 >= return.result2

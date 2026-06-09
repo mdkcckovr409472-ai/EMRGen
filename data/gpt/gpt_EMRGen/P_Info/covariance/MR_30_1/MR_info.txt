@@ -1,0 +1,2 @@
+Operation 30: On parameter 'elements2' (double*): subtract 2.0 from all elements
+Invariant: return.result1 == return.result2

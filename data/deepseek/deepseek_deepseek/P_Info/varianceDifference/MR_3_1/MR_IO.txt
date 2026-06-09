@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 5.0; // 任意常数，此处固定为5.0作为示例
+    tf.sample2 = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        tf.sample2[i] = tc.sample2[i] + k;
+    }
+    return tf;
+}

@@ -1,0 +1,13 @@
+int z33check(int* result1, int* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    // The condition is: return.result1[0..0] == return.result2[0..0] (elementwise)
+    // This means only index 0 must be compared, no loop needed.
+
+    if (!(result1[0] == result2[0])) {
+        return 0;
+    }
+
+    return 1;
+}

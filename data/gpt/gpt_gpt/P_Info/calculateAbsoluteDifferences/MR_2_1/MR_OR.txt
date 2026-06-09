@@ -1,0 +1,46 @@
+int check(TestCase tc) {
+    // (1) Extract source input Ts from tc
+    double* Ts = tc.z;
+    int n = tc.n;
+
+    // (2) Call function under test to get source output Os
+    double* Os = calculateAbsoluteDifferences(Ts, n);
+    if (Os == NULL && n > 0) {
+        // Source output allocation failed (same as no output)
+        return 0;
+    }
+
+    // (3) Construct follow-up test case object Tf_case
+    TestCase Tf_case = change(tc);
+
+    // (4) Extract follow-up input and get follow-up output Of
+    double* Tf = Tf_case.z;
+    double* Of = calculateAbsoluteDifferences(Tf, n);
+    if (Of == NULL && n > 0) {
+        // Cleanup Os before return
+        free(Os);
+        if (Tf != tc.z) free(Tf);
+        return 0;
+    }
+
+    // (5) Verify Os and Of satisfy Os == 2 * Of
+    int is_valid = 1;
+    for (int i = 0; i < n; i++) {
+        // Because of floating point operations, allow a small epsilon tolerance
+        double diff = Os[i] - 2.0 * Of[i];
+        if (diff > 1e-9 || diff < -1e-9) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // (6) Free all allocated dynamic memory
+    free(Os);
+    free(Of);
+    if (Tf != tc.z) {
+        free(Tf);
+    }
+
+    // (7) Return verification result
+    return is_valid;
+}

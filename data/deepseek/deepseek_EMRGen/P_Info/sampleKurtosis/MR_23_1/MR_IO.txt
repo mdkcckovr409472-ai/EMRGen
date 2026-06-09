@@ -1,0 +1,11 @@
+TestCase z23Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 根据规则5生成的具体操作代码
+// 防御性编程：检查分母是否为零
+if (follow_case.sampleVariance != 0.0) {
+    // 操作：除π
+    follow_case.moment4 = follow_case.moment4 / M_PI;
+}
+
+return follow_case;}

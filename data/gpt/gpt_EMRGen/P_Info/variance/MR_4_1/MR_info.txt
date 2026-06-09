@@ -1,0 +1,2 @@
+Operation 4: On parameter 'x' (array[double]): divide all elements by 2.0 (avoid division by zero)
+Invariant: return.result1 - 4 * return.result2 == 0

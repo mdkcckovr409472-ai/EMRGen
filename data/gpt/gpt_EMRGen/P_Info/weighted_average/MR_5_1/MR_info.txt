@@ -1,0 +1,2 @@
+Operation 5: On parameter 'a' (array[double]): set first element to 0.0 (when it is > 0.0)
+Invariant: return.result1 >= return.result2

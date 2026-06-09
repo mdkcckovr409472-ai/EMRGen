@@ -1,0 +1,39 @@
+int check(TestCase tc) {
+    // (1) Extract source input
+    double* Ts_data = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        Ts_data[i] = tc.data[i];
+    }
+    int k = tc.k;
+    int n = tc.n;
+
+    // (2) Call the function under test
+    double* Os = power(Ts_data, k, n);
+
+    // (3) Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    double* Tf_data = Tf_case.data;
+
+    // (4) Call function under test on follow-up input
+    double* Of = power(Tf_data, k, n);
+
+    // (5) Verify MR: Of[i] == Os[i] / pow(2, k) for all i
+    int is_valid = 1;
+    double divisor = pow(2.0, k);
+    const double eps = 1e-9;  // tolerance for floating point comparison
+    for (int i = 0; i < n; i++) {
+        double expected = Os[i] / divisor;
+        if (fabs(Of[i] - expected) > eps) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // (6) Free dynamically allocated memory
+    delete[] Ts_data;
+    delete[] Os;  // Os and Of point to Ts_data and Tf_data respectively (modified in place), so no separate delete needed here.
+    delete[] Tf_data;
+
+    // (7) Return verification result
+    return is_valid;
+}

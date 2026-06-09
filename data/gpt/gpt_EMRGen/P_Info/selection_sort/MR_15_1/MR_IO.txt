@@ -1,0 +1,19 @@
+TestCase z15Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling code generated based on the rule ---
+    int* follow_case_list = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_list, t1.list, t1.n * sizeof(int));
+    follow_case.list = follow_case_list;
+    // ------------------------------------
+    
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n > 0) {
+        for (int i = 0, j = follow_case.n - 1; i < j; ++i, --j) {
+            int temp = follow_case.list[i];
+            follow_case.list[i] = follow_case.list[j];
+            follow_case.list[j] = temp;
+        }
+    }
+    
+    return follow_case;
+}

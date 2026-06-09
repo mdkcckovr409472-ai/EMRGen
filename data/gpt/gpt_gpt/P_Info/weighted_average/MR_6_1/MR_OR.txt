@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    double Os = weighted_average(tc.a, tc.b, tc.n);
+
+    TestCase Tf_case = change(tc);
+
+    double Of = weighted_average(Tf_case.a, Tf_case.b, Tf_case.n);
+
+    int is_valid = 0;
+    // Allow a small epsilon for floating-point precision issues
+    const double epsilon = 1e-12;
+    if (std::abs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+
+    // Free dynamically allocated memory in Tf_case.b
+    delete[] Tf_case.b;
+
+    return is_valid;
+}

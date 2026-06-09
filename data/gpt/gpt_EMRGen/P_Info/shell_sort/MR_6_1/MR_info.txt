@@ -1,0 +1,2 @@
+Operation 6: On parameter 'a' (array[int]): set last element to 100 (when original < 100)
+Invariant: return.result1[] <= return.result2[] (elementwise)

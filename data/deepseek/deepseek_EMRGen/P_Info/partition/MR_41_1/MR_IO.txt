@@ -1,0 +1,9 @@
+TestCase z41Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 交换 begin 和 end 的值
+int temp = follow_case.begin;
+follow_case.begin = follow_case.end;
+follow_case.end = temp;
+
+return follow_case;}

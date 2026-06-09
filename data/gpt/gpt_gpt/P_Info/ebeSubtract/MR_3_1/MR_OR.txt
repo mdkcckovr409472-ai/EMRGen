@@ -1,0 +1,35 @@
+int check(TestCase tc) {
+    if (tc.a == NULL || tc.b == NULL || tc.n1 != tc.n2 || tc.n1 <= 0) {
+        return 0;
+    }
+    double* Os = ebeSubtract(tc.a, tc.b, tc.n1, tc.n2);
+    if (Os == NULL) {
+        return 0;
+    }
+    TestCase Tf_case = change(tc);
+    if (Tf_case.a == NULL) {
+        free(Os);
+        return 0;
+    }
+    double* Of = ebeSubtract(Tf_case.a, Tf_case.b, Tf_case.n1, Tf_case.n2);
+    if (Of == NULL) {
+        free(Os);
+        if (Tf_case.a != tc.a) free(Tf_case.a);
+        return 0;
+    }
+    int is_valid = 1;
+    if (Of[0] != DBL_MAX - tc.b[0]) {
+        is_valid = 0;
+    }
+    for (int i = 1; i < tc.n1 && is_valid; i++) {
+        if (Of[i] != Os[i]) {
+            is_valid = 0;
+        }
+    }
+    free(Os);
+    free(Of);
+    if (Tf_case.a != tc.a) {
+        free(Tf_case.a);
+    }
+    return is_valid;
+}

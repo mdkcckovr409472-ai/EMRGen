@@ -1,0 +1,19 @@
+TestCase z10Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of elements array
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+
+    // Defensive check for array length
+    if (follow_case.n > 0) {
+        // Left circular shift: move first element to end
+        double temp = follow_case.elements[0];
+        for (int i = 1; i < follow_case.n; ++i) {
+            follow_case.elements[i - 1] = follow_case.elements[i];
+        }
+        follow_case.elements[follow_case.n - 1] = temp;
+    }
+
+    return follow_case;
+}

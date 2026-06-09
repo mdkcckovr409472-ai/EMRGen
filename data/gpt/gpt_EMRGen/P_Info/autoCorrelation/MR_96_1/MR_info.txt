@@ -1,0 +1,2 @@
+Operation 96: On parameter 'variance' (double): clamp variance to ≥ 0 (set negative values to 0)
+Invariant: return.result1 == return.result2

@@ -1,0 +1,2 @@
+Operation 31: On parameter 'b' (int*): 所有元素乘2
+Invariant: 2 * return.result1 - return.result2 == 0

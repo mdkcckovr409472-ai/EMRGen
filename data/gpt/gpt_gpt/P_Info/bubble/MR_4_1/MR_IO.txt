@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* desc_sorted = (int*)malloc(tf.n * sizeof(int));
+    if (desc_sorted == NULL) {
+        // In case malloc fails, just reuse original
+        return tf; 
+    }
+    memcpy(desc_sorted, tf.a, tf.n * sizeof(int));
+    // Sort in descending order
+    for (int i = 0; i < tf.n - 1; i++) {
+        for (int j = 0; j < tf.n - 1 - i; j++) {
+            if (desc_sorted[j] < desc_sorted[j + 1]) {
+                int t = desc_sorted[j];
+                desc_sorted[j] = desc_sorted[j + 1];
+                desc_sorted[j + 1] = t;
+            }
+        }
+    }
+    tf.a = desc_sorted;
+    return tf;
+}

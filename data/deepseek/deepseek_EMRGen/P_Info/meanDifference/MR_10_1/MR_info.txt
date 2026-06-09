@@ -1,0 +1,2 @@
+Operation 10: On parameter 'sample1' (double*): 所有元素加其索引值
+Invariant: return.result1 <= return.result2

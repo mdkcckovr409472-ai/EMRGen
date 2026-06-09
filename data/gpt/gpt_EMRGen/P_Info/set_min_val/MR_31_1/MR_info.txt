@@ -1,0 +1,2 @@
+Operation 31: On parameter 'k' (int): subtract 1 from k
+Invariant: return.result1[] >= return.result2[] (elementwise)

@@ -1,0 +1,30 @@
+#include <math.h>
+#include <stdbool.h>
+
+int z4check(int* result1, int* result2, int n) {
+    // 4a. Length validity check (FIRST)
+    if (n <= 0) return 1;
+    // 4b. Null pointer check (SECOND)
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    // Lexicographical comparison for return.result1[] >= return.result2[] (lexically)
+    // For int (integral), direct comparison without tolerance needed
+    for (int i = 0; i < n; i++) {
+        int A = result1[i];
+        int B = result2[i];
+
+        if (A == B) {
+            // Equal, continue to next element
+            continue;
+        } else if (A > B) {
+            // result1[i] > result2[i], condition satisfied at first difference
+            return 1;
+        } else {
+            // result1[i] < result2[i], violation
+            return 0;
+        }
+    }
+
+    // All elements equal => condition with >= is satisfied
+    return 1;
+}

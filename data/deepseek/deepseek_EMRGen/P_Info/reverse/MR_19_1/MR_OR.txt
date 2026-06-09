@@ -1,0 +1,21 @@
+int z19check(int* result1, int* result2, int n) {
+    // 1. 防御性编程 (空指针与长度检查)
+    if (result1 == NULL || result2 == NULL) return 0;
+    if (n <= 0) return 1;
+
+    // 2. 核心判断逻辑 (字典序比较)
+    for (int i = 0; i < n; i++) {
+        // 找到第一个不相等的元素对
+        if (result1[i] != result2[i]) {
+            // 根据这一对元素的大小关系决定结果
+            // 条件为 result1[] <= result2[] (lexically)
+            if (result1[i] < result2[i]) {
+                return 1; // 第一个不相等处 result1[i] < result2[i]，字典序满足 <=
+            } else {
+                return 0; // 第一个不相等处 result1[i] > result2[i]，字典序不满足 <=
+            }
+        }
+    }
+    // 3. 所有元素都相等，满足 <= 条件
+    return 1;
+}

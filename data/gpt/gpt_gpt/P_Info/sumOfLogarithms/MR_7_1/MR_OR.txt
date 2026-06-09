@@ -1,0 +1,14 @@
+int check(TestCase tc) {
+    double Os = sumOfLogarithms(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = sumOfLogarithms(Tf_case.elements, Tf_case.n);
+
+    int is_valid = 0;
+    if (Of > Os) {
+        is_valid = 1;
+    }
+
+    delete[] Tf_case.elements;
+
+    return is_valid;
+}

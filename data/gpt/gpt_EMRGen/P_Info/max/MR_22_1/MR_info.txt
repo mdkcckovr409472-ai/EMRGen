@@ -1,0 +1,2 @@
+Operation 22: On parameter 'elements' (array[double]): decrement a random element by 5.0 (when element >= -DBL_MAX+5)
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.sample1 != nullptr) {
+        int i = 0;
+        double d = 5.0;
+        tf.sample1[i] += d;
+    }
+    return tf;
+}

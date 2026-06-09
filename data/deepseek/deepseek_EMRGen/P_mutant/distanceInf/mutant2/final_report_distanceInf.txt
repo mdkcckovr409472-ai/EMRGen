@@ -1,0 +1,484 @@
+double distanceInf(double p1[], double p2[], int n) {
+    double maxi = 0;
+    for (int i = 0; i < n; i++) {
+    break;
+        maxi = max(maxi, abs(p1[i] - p2[i]));
+    } 
+    return maxi;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'p1' (double*): 所有元素加10.5
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素加10.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 2: On parameter 'p1' (double*): 所有元素乘2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 3: On parameter 'p1' (double*): 所有元素减5.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素减5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 4: On parameter 'p1' (double*): 所有元素除3.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素除3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 6: On parameter 'p1' (double*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 7: On parameter 'p1' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'p1' (double*): 数组左移一位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「数组左移一位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'p1' (double*): 数组右移一位（末尾元素移到开头）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「数组右移一位（末尾元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'p1' (double*): 数组排序（升序）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「数组排序（升序）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'p1' (double*): 数组排序（降序）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「数组排序（降序）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'p1' (double*): 前一半元素置0.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「前一半元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'p1' (double*): 后一半元素置-1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「后一半元素置-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'p1' (double*): 每间隔一个元素加倍
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「每间隔一个元素加倍」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 15: On parameter 'p1' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 16: On parameter 'p1' (double*): 所有元素平方
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 17: On parameter 'p1' (double*): 所有元素平方根
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素平方根」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'p1' (double*): 所有元素取整
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'p1' (double*): 所有元素加自己的最小值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素加自己的最小值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 22: On parameter 'p1' (double*): 所有元素减自己的最大值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素减自己的最大值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 23: On parameter 'p1' (double*): 所有元素乘-1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素乘-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 24: On parameter 'p1' (double*): 所有元素加该索引值（浮点数）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素加该索引值（浮点数）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'p1' (double*): 随机位置元素替换为相邻两元素的平均值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「随机位置元素替换为相邻两元素的平均值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 26: On parameter 'p1' (double*): 数组元素循环增加步长1.0（第i个元素加i*1.0）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「数组元素循环增加步长1.0（第i个元素加i*1.0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'p1' (double*): 数组元素循环减少步长2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「数组元素循环减少步长2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'p1' (double*): 所有元素加随机扰动（范围-1.0到1.0）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素加随机扰动（范围-1.0到1.0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 29: On parameter 'p1' (double*): 所有元素置自身的相反数
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素置自身的相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'p2' (double*): 所有元素加10.5
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素加10.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 31: On parameter 'p2' (double*): 所有元素乘2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 32: On parameter 'p2' (double*): 所有元素减5.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素减5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 33: On parameter 'p2' (double*): 所有元素除3.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素除3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 35: On parameter 'p2' (double*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 36: On parameter 'p2' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 37: On parameter 'p2' (double*): 数组左移一位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「数组左移一位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 38: On parameter 'p2' (double*): 数组右移一位（末尾元素移到开头）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「数组右移一位（末尾元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 39: On parameter 'p2' (double*): 数组排序（升序）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「数组排序（升序）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 40: On parameter 'p2' (double*): 数组排序（降序）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「数组排序（降序）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 41: On parameter 'p2' (double*): 前一半元素置0.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「前一半元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 42: On parameter 'p2' (double*): 后一半元素置-1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「后一半元素置-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 43: On parameter 'p2' (double*): 每间隔一个元素加倍
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「每间隔一个元素加倍」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 44: On parameter 'p2' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 45: On parameter 'p2' (double*): 所有元素平方
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 46: On parameter 'p2' (double*): 所有元素平方根
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素平方根」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 47: On parameter 'p2' (double*): 所有元素取整
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 50: On parameter 'p2' (double*): 所有元素加自己的最小值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素加自己的最小值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 51: On parameter 'p2' (double*): 所有元素减自己的最大值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素减自己的最大值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 52: On parameter 'p2' (double*): 所有元素乘-1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素乘-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 53: On parameter 'p2' (double*): 所有元素加该索引值（浮点数）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素加该索引值（浮点数）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 54: On parameter 'p2' (double*): 随机位置元素替换为相邻两元素的平均值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「随机位置元素替换为相邻两元素的平均值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 55: On parameter 'p2' (double*): 数组元素循环增加步长1.0（第i个元素加i*1.0）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「数组元素循环增加步长1.0（第i个元素加i*1.0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 56: On parameter 'p2' (double*): 数组元素循环减少步长2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「数组元素循环减少步长2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 57: On parameter 'p2' (double*): 所有元素加随机扰动（范围-1.0到1.0）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素加随机扰动（范围-1.0到1.0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 58: On parameter 'p2' (double*): 所有元素置自身的相反数
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素置自身的相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 52
+关系总数: 52

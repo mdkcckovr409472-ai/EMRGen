@@ -1,0 +1,2 @@
+Operation 12: On parameter 'a' (int*): 所有元素乘一个随机值（如4）
+Invariant: 4 * return.result1 - return.result2 == 0

@@ -1,0 +1,6 @@
+TestCase z43Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive checks: none required for scalar operation
+    follow_case.k = follow_case.k * follow_case.k;
+    return follow_case;
+}

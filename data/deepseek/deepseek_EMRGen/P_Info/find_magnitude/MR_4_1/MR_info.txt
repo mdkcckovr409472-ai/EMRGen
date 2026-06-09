@@ -1,0 +1,2 @@
+Operation 4: On parameter 'a' (int*): 所有元素除2（整数除法）
+Invariant: return.result1 >= return.result2

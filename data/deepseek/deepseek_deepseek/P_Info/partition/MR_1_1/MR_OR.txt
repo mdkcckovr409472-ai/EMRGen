@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    int Os = partition(tc.work, tc.begin, tc.end, tc.pivot);
+    TestCase Tf_case = change(tc);
+    int Of = partition(Tf_case.work, Tf_case.begin, Tf_case.end, Tf_case.pivot);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.work;
+    return is_valid;
+}

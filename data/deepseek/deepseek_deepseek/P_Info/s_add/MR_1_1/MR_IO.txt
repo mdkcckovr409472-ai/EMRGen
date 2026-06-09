@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int k = 5; // 示例常数k，可根据需要调整
+    tf.array1 = (int*)malloc(tf.n * sizeof(int));
+    memcpy(tf.array1, tc.array1, tf.n * sizeof(int));
+    for (int i = 0; i < tf.n; i++) {
+        tf.array1[i] += k;
+    }
+    return tf;
+}

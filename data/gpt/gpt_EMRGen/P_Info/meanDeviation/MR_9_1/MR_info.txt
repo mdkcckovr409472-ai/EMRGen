@@ -1,0 +1,2 @@
+Operation 9: On parameter 'elements' (array[double]): left circular shift array (move first element to the end)
+Invariant: return.result1 == return.result2

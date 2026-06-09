@@ -1,0 +1,24 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.arr == nullptr) {
+        return 0;
+    }
+
+    double* Os = scale(tc.val, tc.arr, tc.n);
+
+    TestCase Tf_case = change(tc);
+    double* Of = scale(Tf_case.val, Tf_case.arr, Tf_case.n);
+
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        if (Os[i] != Of[tc.n - 1 - i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    if (Tf_case.arr != tc.arr) {
+        delete[] Tf_case.arr;
+    }
+
+    return is_valid;
+}

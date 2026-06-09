@@ -1,0 +1,26 @@
+TestCase z41Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_b = (double*)malloc(t1.n2 * sizeof(double));
+memcpy(follow_case_b, t1.b, t1.n2 * sizeof(double));
+follow_case.b = follow_case_b;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n2<2时出错
+if (follow_case.n2 < 2) {
+    // 元素不足2个，无法排序，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+for (int i = 0; i < follow_case.n2 - 1; i++) {
+    for (int j = 0; j < follow_case.n2 - i - 1; j++) {
+        if (follow_case.b[j] < follow_case.b[j + 1]) {
+            double temp = follow_case.b[j];
+            follow_case.b[j] = follow_case.b[j + 1];
+            follow_case.b[j + 1] = temp;
+        }
+    }
+}
+
+return follow_case;}

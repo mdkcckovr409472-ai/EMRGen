@@ -1,0 +1,38 @@
+int check(TestCase tc) {
+    if (tc.a == NULL || tc.b == NULL || tc.n1 != tc.n2) {
+        return 0;
+    }
+    double* Os = ebeMultiply(tc.a, tc.b, tc.n1, tc.n2);
+    if (Os == NULL) {
+        return 0;
+    }
+    TestCase Tf_case = change(tc);
+    if (Tf_case.a == NULL || Tf_case.b == NULL || Tf_case.n1 != Tf_case.n2) {
+        free(Os);
+        return 0;
+    }
+    double* Of = ebeMultiply(Tf_case.a, Tf_case.b, Tf_case.n1, Tf_case.n2);
+    if (Of == NULL) {
+        free(Os);
+        if (Tf_case.a != tc.a) free(Tf_case.a);
+        return 0;
+    }
+    int is_valid = 1;
+    if (Tf_case.n1 > 0) {
+        if (Of[0] != std::numeric_limits<double>::max() * Tf_case.b[0]) {
+            is_valid = 0;
+        }
+    }
+    for (int i = 1; i < tc.n1 && is_valid; i++) {
+        if (Of[i] != Os[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+    free(Os);
+    free(Of);
+    if (Tf_case.a != tc.a) {
+        free(Tf_case.a);
+    }
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 42: On parameter 'k' (int): square k (k = k * k, if result fits in int)
+Invariant: return.result1[] <= return.result2[] (elementwise)

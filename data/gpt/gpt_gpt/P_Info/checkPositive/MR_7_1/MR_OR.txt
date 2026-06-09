@@ -1,0 +1,28 @@
+int check(TestCase tc) {
+    // (1) Extract source input
+    double* Ts = tc.a;
+    int n = tc.n;
+    
+    // (2) Get source output
+    bool Os = checkPositive(Ts, n);
+    
+    // (3) Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    
+    // (4) Extract follow-up input and get output
+    bool Of = checkPositive(Tf_case.a, Tf_case.n);
+    
+    // (5) Verify MR: Os == Of
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    
+    // (6) Free dynamic memory in follow-up input if allocated
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+    
+    // (7) Return verification result
+    return is_valid;
+}

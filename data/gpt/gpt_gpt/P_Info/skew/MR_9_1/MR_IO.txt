@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 0) {
+        double* shifted_data = new double[tc.n];
+        shifted_data[0] = tc.data[tc.n - 1];
+        for (int i = 1; i < tc.n; i++) {
+            shifted_data[i] = tc.data[i - 1];
+        }
+        tf.data = shifted_data;
+    }
+    return tf;
+}

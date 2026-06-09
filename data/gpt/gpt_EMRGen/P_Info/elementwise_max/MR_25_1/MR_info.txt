@@ -1,0 +1,2 @@
+Operation 25: On parameter 'a' (array[int]): add 5 to all elements
+Invariant: return.result1[] <= return.result2[] (elementwise)

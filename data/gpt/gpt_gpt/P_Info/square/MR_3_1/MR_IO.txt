@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for the modified data array
+    double* new_data = (double*)malloc(tf.n * sizeof(double));
+    for (int i = 0; i < tf.n; i++) {
+        new_data[i] = tf.data[i] / 2.0;
+    }
+    tf.data = new_data;
+    return tf;
+}

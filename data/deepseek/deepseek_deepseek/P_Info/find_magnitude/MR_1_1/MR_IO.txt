@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int m = 2; // 选择一个非零整数，例如 2
+    int* new_a = new int[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        new_a[i] = tf.a[i] * m;
+    }
+    tf.a = new_a;
+    return tf;
+}

@@ -1,0 +1,32 @@
+TestCase z44Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0) {
+        int* follow_case_b = (int*)malloc(t1.n * sizeof(int));
+        memcpy(follow_case_b, t1.b, t1.n * sizeof(int));
+        follow_case.b = follow_case_b;
+    }
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n < 1) {
+        // No elements to process, return replica directly
+        return follow_case;
+    }
+    
+    // Specific operation code generated based on the rule
+    int max_val = follow_case.b[0];
+    for (int i = 1; i < follow_case.n; i++) {
+        if (follow_case.b[i] > max_val) {
+            max_val = follow_case.b[i];
+        }
+    }
+    int index = 0;
+    if (follow_case.n > 1) {
+        index = rand() % follow_case.n;
+    }
+    if (follow_case.b[index] < max_val) {
+        follow_case.b[index] = max_val;
+    }
+    
+    return follow_case;}

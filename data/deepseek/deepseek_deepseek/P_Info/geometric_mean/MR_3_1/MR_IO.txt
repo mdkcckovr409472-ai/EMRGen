@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* sorted_arr = new int[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        sorted_arr[i] = tf.a[i];
+    }
+    std::sort(sorted_arr, sorted_arr + tf.n, std::greater<int>());
+    tf.a = sorted_arr;
+    return tf;
+}

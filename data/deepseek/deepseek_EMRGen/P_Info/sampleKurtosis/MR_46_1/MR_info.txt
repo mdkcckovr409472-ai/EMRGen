@@ -1,0 +1,2 @@
+Operation 46: On parameter 'sampleVariance' (double): 取负
+Invariant: return.result1 == return.result2

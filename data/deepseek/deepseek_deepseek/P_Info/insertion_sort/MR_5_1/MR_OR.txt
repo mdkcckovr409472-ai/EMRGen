@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    int* Os = insertion_sort(tc.array, tc.n);
+    TestCase Tf_case = change(tc);
+    int* Of = insertion_sort(Tf_case.array, Tf_case.n);
+    int is_valid = 0;
+    int equal = 1;
+    for (int idx = 0; idx < tc.n; ++idx) {
+        if (Os[idx] != Of[idx]) {
+            equal = 0;
+            break;
+        }
+    }
+    if (equal) {
+        is_valid = 1;
+    }
+    free(Os);
+    free(Of);
+    return is_valid;
+}

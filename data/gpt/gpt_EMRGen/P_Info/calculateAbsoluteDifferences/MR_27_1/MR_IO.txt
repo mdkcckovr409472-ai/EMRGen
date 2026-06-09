@@ -1,0 +1,20 @@
+TestCase z27Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array z
+    double* follow_case_z = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_z, t1.z, t1.n * sizeof(double));
+    follow_case.z = follow_case_z;
+
+    // Defensive check: need at least 1 element
+    if (follow_case.n < 1) {
+        return follow_case;
+    }
+
+    // Decrease second half elements by 10%
+    int start = follow_case.n / 2;
+    for (int i = start; i < follow_case.n; ++i) {
+        follow_case.z[i] *= 0.9;
+    }
+
+    return follow_case;
+}

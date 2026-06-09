@@ -1,0 +1,2 @@
+Operation 6: On parameter 'k' (double*): 所有元素取绝对值
+Invariant: return.result1 == return.result2

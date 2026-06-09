@@ -1,0 +1,2 @@
+Operation 64: On parameter 'right' (int): 置为-1
+Invariant: return.result1 <= return.result2

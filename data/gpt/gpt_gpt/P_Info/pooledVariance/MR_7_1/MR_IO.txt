@@ -1,0 +1,22 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n2 > 1) {
+        // Allocate new array for sorted data2 to avoid modifying original
+        double* sortedData2 = new double[tf.n2];
+        for (int i = 0; i < tf.n2; i++) {
+            sortedData2[i] = tf.data2[i];
+        }
+        // Sort in descending order
+        for (int i = 0; i < tf.n2 - 1; i++) {
+            for (int j = i + 1; j < tf.n2; j++) {
+                if (sortedData2[i] < sortedData2[j]) {
+                    double temp = sortedData2[i];
+                    sortedData2[i] = sortedData2[j];
+                    sortedData2[j] = temp;
+                }
+            }
+        }
+        tf.data2 = sortedData2;
+    }
+    return tf;
+}

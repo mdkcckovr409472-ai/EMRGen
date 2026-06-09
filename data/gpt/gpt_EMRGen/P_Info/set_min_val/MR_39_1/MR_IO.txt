@@ -1,0 +1,7 @@
+TestCase z39Change(TestCase t1) {
+    TestCase follow_case = t1;
+    if (follow_case.k > -100) {
+        follow_case.k = -100;
+    }
+    return follow_case;
+}

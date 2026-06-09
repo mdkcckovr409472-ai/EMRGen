@@ -1,0 +1,25 @@
+int check(TestCase tc) {
+    int* Os = dec(tc.array1, tc.array2, tc.n);
+    TestCase Tf_case = change(tc);
+    int* Of = dec(tc.array1, Tf_case.array2, Tf_case.n);
+
+    int is_valid = 0;
+    if (Tc.n > 0) {
+        long long diff = (long long)Os[0] - (long long)Of[0];
+        long long expected = (long long)INT_MAX - (long long)tc.array2[0];
+        if (diff == expected) {
+            is_valid = 1;
+        }
+    } else {
+        // If n==0, no elements, consider MR satisfied trivially
+        is_valid = 1;
+    }
+
+    free(Os);
+    free(Of);
+    if (Tf_case.array2 != tc.array2) {
+        free(Tf_case.array2);
+    }
+
+    return is_valid;
+}

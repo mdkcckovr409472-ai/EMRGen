@@ -1,0 +1,33 @@
+int check(TestCase tc) {
+    // Call the function under test to get source output Os
+    int* Os = dec(tc.array1, tc.array2, tc.n);
+
+    // Construct follow-up test case
+    TestCase Tf = change(tc);
+
+    // Call the function under test to get follow-up output Of
+    int* Of = dec(Tf.array1, Tf.array2, Tf.n);
+
+    // Verify the MR: Of[i] == Os[i] - 1 for each element, so sum(Of) == sum(Os) - n
+    // We implement the invariant as sum(Of[i]) == sum(Os[i]) - n
+
+    long long sum_Os = 0;
+    long long sum_Of = 0;
+
+    for (int i = 0; i < tc.n; i++) {
+        sum_Os += Os[i];
+        sum_Of += Of[i];
+    }
+
+    int is_valid = 0;
+    if (sum_Of == sum_Os - tc.n) {
+        is_valid = 1;
+    }
+
+    // Free all dynamically allocated memory
+    free(Os);
+    free(Of);
+    free(Tf.array2);
+
+    return is_valid;
+}

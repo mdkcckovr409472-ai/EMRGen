@@ -1,0 +1,2 @@
+Operation 60: On parameter 'right' (int): set right to -right (when sign change allowed)
+Invariant: return.result1 <= return.result2

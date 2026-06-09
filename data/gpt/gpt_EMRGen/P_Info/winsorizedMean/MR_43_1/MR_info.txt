@@ -1,0 +1,2 @@
+Operation 43: On parameter 'left' (int): set left to left % 5
+Invariant: return.result1 >= return.result2

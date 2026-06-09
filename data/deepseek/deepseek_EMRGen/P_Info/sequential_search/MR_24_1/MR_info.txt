@@ -1,0 +1,2 @@
+Operation 24: On parameter 'a' (int*): 数组奇数索引元素乘2
+Invariant: return.result1 >= return.result2

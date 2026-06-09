@@ -1,0 +1,115 @@
+double harmonicMean(double data[], int n) {
+    double sumOfInversions = 0;
+    for (int i = 0; i < n; i++) {
+        sumOfInversions += 1 / data[i];
+    }
+    return n / sumOfInversions;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'data' (array[double]): multiply all elements by 2.0
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'data' (array[double]): divide all elements by 2.0 (avoid division by zero)
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「divide all elements by 2.0 (avoid division by zero)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 7: On parameter 'data' (array[double]): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'data' (array[double]): reverse array order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「reverse array order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'data' (array[double]): left circular shift array (move first element to the end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「left circular shift array (move first element to the end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'data' (array[double]): right circular shift array (move last element to the front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「right circular shift array (move last element to the front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'data' (array[double]): sort array in ascending order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'data' (array[double]): sort array in descending order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「sort array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 23: On parameter 'data' (array[double]): decrement a random element by 0.1
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「decrement a random element by 0.1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 24: On parameter 'data' (array[double]): set a subarray of length 3 (random start, within bounds) to zeros
+Invariant: 
+return.result2 % return.result1 == 0 ✓
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「set a subarray of length 3 (random start, within bounds) to zeros」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Of % Os == 0
+
+----------------------------------------
+
+Operation 26: On parameter 'data' (array[double]): randomly shuffle array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「randomly shuffle array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 11
+关系总数: 11

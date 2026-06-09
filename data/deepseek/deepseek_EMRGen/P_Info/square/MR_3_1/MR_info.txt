@@ -1,0 +1,2 @@
+Operation 3: On parameter 'data' (double*): 所有元素乘3.0
+Invariant: 9 * return.result1[] - return.result2[] == 0

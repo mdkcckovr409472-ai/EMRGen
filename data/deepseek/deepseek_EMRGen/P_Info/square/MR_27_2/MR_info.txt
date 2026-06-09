@@ -1,0 +1,2 @@
+Operation 27: On parameter 'data' (double*): 随机位置元素置正无穷大（INFINITY）
+Invariant: return.result1[] <= return.result2[] (elementwise)

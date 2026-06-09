@@ -1,0 +1,2 @@
+Operation 12: On parameter 'data' (double[]): set random element to maximum double value 1.7e308 (when element < 1.7e308)
+Invariant: return.result1[] <= return.result2[] (elementwise)

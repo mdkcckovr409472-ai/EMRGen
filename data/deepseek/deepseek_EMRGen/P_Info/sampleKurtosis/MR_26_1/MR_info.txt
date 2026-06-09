@@ -1,0 +1,2 @@
+Operation 26: On parameter 'moment4' (double): 置正无穷
+Invariant: return.result1 < return.result2

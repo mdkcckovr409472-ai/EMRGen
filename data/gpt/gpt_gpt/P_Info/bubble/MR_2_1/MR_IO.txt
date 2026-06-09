@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for modified array
+    int* a_sub = (int*)malloc(tf.n * sizeof(int));
+    for (int i = 0; i < tf.n; i++) {
+        a_sub[i] = tf.a[i] - 1;
+    }
+    tf.a = a_sub;
+    return tf;
+}

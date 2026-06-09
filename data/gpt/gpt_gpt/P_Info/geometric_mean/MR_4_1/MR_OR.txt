@@ -1,0 +1,21 @@
+int check(TestCase tc) {
+    // Extract source input
+    int* a_s = tc.a;
+    int n = tc.n;
+    // Calculate source output
+    double Os = geometric_mean(a_s, n);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    int* a_f = Tf_case.a;
+    double Of = geometric_mean(a_f, n);
+
+    // Verify MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // Clean up any memory allocated in change()
+    if (a_f != a_s) {
+        delete[] a_f;
+    }
+    return is_valid;
+}

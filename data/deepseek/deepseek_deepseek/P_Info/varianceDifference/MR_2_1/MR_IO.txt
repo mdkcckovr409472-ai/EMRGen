@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 5.0; // 常数k，示例值，可根据需要调整
+    double* new_sample1 = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        new_sample1[i] = tf.sample1[i] + k;
+    }
+    tf.sample1 = new_sample1;
+    return tf;
+}

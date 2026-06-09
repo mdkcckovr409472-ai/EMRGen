@@ -1,0 +1,8 @@
+TestCase z60Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Operation: set right to its negated value
+    follow_case.right = -follow_case.right;
+
+    return follow_case;
+}

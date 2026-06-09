@@ -1,0 +1,20 @@
+TestCase z25Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array a
+    double* follow_case_a = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(double));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: ensure array has at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Set a random element to DBL_MIN when element > DBL_MIN
+    int idx = rand() % follow_case.n;
+    if (follow_case.a[idx] > DBL_MIN) {
+        follow_case.a[idx] = DBL_MIN;
+    }
+
+    return follow_case;
+}

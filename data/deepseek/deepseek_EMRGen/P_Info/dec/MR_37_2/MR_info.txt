@@ -1,0 +1,2 @@
+Operation 37: On parameter 'array2' (int*): 索引模5余1的元素减7
+Invariant: return.result1[][0..0] == return.result2[][0..0] (elementwise)

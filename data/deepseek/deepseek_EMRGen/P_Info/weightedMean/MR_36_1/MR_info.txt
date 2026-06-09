@@ -1,0 +1,2 @@
+Operation 36: On parameter 'theWeights' (double*): 所有元素取相反数
+Invariant: return.result1 == return.result2

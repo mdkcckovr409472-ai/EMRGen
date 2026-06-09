@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains a (int*), if the operation 「set the last element to the minimum value in the original array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Of[n-1] >= k 或 Os[n-1] >= Of[n-1]

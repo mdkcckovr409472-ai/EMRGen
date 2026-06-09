@@ -1,0 +1,28 @@
+#include <cmath>
+#include <cfloat>
+
+int z4check(double result1, double result2) {
+    // 浮点数比较：移项处理以恢复量级
+    // 原条件: result1 - 4 * result2 == 0
+    // 移项后: result1 == 4 * result2
+    double A = result1;
+    double B = 4.0 * result2;
+    
+    // 防御 NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    
+    // 处理无穷大（动态容差对Inf无效）
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B) return 1;
+        else return 0;
+    }
+    
+    // 动态容差计算
+    double epsilon = 1e-5;
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 带容差的相等判断
+    if (fabs(A - B) > tol) return 0;
+    
+    return 1;
+}

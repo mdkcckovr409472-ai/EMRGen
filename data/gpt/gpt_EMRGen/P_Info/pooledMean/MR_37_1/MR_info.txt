@@ -1,0 +1,2 @@
+Operation 37: On parameter 'data2' (double*): increment a random element by 0.2 (when the element < maximum double)
+Invariant: return.result1 < return.result2

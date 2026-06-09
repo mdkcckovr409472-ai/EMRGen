@@ -1,0 +1,2 @@
+Operation 48: On parameter 'phi' (double): truncate phi to integer part
+Invariant: return.result1 >= return.result2

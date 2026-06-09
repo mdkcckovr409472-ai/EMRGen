@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.a != nullptr) {
+        int index = rand() % tf.n;
+        int k = (rand() % 10) + 1;
+        tf.a[index] -= k;
+    }
+    return tf;
+}

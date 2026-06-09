@@ -1,0 +1,2 @@
+Operation 79: On parameter 'variance' (double): divide variance by 2.0 (if not zero)
+Invariant: 2 * return.result1 - return.result2 == 0

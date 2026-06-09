@@ -1,0 +1,2 @@
+Operation 2: On parameter 'a' (int*): 所有元素减1
+Invariant: return.result1 > return.result2

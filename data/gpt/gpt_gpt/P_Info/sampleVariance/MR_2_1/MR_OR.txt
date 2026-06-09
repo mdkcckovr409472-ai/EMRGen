@@ -1,0 +1,31 @@
+int check(TestCase tc) {
+    // (1) Extract source input
+    double* elements_s = tc.elements;
+    int n = tc.n;
+    double mean = tc.mean;
+
+    // (2) Call function under test for source output
+    double Os = sampleVariance(elements_s, mean, n);
+
+    // (3) Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // (4) Call function under test for follow-up output
+    double Of = sampleVariance(Tf_case.elements, mean, n);
+
+    // (5) Verify metamorphic relation
+    // Check equality of Os and Of with a tolerance for floating-point comparison
+    int is_valid = 0;
+    double epsilon = 1e-9;
+    if (std::abs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+
+    // (6) Clean up dynamically allocated memory in Tf_case if it differs from original
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+    }
+
+    // (7) Return verification result
+    return is_valid;
+}

@@ -1,0 +1,127 @@
+double cosineDistance(double p1[], double p2[], int n) {
+    double dotProduct = 0.0;
+    double lengthSquaredp1 = 0.0;
+    double lengthSquaredp2 = 1.0;
+
+    for (int i = 0; i < n; i++) {
+        lengthSquaredp1 += p1[i] * p1[i];
+        lengthSquaredp2 += p2[i] * p2[i];
+        dotProduct += p1[i] * p2[i];
+    }
+    
+    double denominator = sqrt(lengthSquaredp1) * sqrt(lengthSquaredp2);
+    if (denominator < dotProduct) {
+        denominator = dotProduct;
+    }
+    if (denominator == 0 && dotProduct == 0) {
+        return 0;
+    }
+    return 1.0 - dotProduct / denominator;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 61: On parameter 'n' (int): 乘2
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 63: On parameter 'n' (int): 置0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「置0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 64: On parameter 'n' (int): 置1
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「置1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 68: On parameter 'n' (int): 取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 69: On parameter 'n' (int): 取负值
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「取负值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 70: On parameter 'n' (int): 加当前参数值的10%
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「加当前参数值的10%」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 71: On parameter 'n' (int): 置值为2的幂（如16）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「置值为2的幂（如16）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 73: On parameter 'n' (int): 特殊值：置为0（空数组情形）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「特殊值：置为0（空数组情形）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 74: On parameter 'n' (int): 特殊值：置为负值（如-1）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「特殊值：置为负值（如-1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 77: On parameter 'n' (int): 加自身的一半（向下取整）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「加自身的一半（向下取整）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 79: On parameter 'n' (int): 置为数组长度的两倍（若读取数组长度）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「置为数组长度的两倍（若读取数组长度）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 11
+关系总数: 11

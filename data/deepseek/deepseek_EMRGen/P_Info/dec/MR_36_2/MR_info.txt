@@ -1,0 +1,2 @@
+Operation 36: On parameter 'array2' (int*): 索引为3的倍数的元素加10
+Invariant: return.result1[] >= return.result2[] (elementwise)

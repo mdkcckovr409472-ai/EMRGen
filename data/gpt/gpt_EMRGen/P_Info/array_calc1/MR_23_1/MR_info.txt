@@ -1,0 +1,2 @@
+Operation 23: On parameter 'a' (array[int]): append element with value 0 at the end
+Invariant: return.result1[] < return.result2[] (lexically)

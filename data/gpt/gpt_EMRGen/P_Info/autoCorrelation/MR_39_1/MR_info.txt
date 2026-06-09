@@ -1,0 +1,2 @@
+Operation 39: On parameter 'lag' (int): set lag to absolute value of itself
+Invariant: return.result1 == return.result2

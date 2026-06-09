@@ -1,0 +1,8 @@
+TestCase z51Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 操作目标参数 lowerLim 是 int 类型，不是数组，因此不执行数组深拷贝。
+    
+    // 根据规则5生成的具体操作代码：自减1
+    follow_case.lowerLim = follow_case.lowerLim - 1;
+    
+    return follow_case;}

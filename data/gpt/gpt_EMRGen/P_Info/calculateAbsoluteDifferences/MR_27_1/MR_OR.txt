@@ -1,0 +1,27 @@
+#include <math.h>
+#include <stdbool.h>
+
+int z27check(double* result1, double* result2, int n) {
+    // 4. Defensive Programming and Boundary Checks (Highest Priority & STRICT ORDER)
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    double epsilon = 1e-5;
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+
+        if (isnan(A) || isnan(B)) return 0;
+        if (isinf(A) || isinf(B)) {
+            if (A < B) return 0;
+            else continue;
+        }
+
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        // condition: result1[i] >= result2[i]
+        // means A >= B
+        // violation if A < B - tol
+        if (A < B - tol) return 0;
+    }
+    return 1;
+}

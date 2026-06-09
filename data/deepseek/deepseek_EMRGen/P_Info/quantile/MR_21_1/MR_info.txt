@@ -1,0 +1,2 @@
+Operation 21: On parameter 'sortedElements' (double*): 所有元素取自然对数
+Invariant: return.result1 >= return.result2

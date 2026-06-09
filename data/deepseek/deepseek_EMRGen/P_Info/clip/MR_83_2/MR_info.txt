@@ -1,0 +1,2 @@
+Operation 83: On parameter 'upperLim' (int): 减一个随机小偏移（如-5）
+Invariant: return.result1[] >= return.result2[] (elementwise)

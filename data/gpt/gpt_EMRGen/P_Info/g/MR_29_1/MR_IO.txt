@@ -1,0 +1,16 @@
+TestCase z29Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for deep copy of expected array
+    double* follow_case_expected = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_expected, t1.expected, t1.n * sizeof(double));
+    follow_case.expected = follow_case_expected;
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            if (follow_case.expected[i] < -10.0) {
+                follow_case.expected[i] = -10.0;
+            }
+        }
+    }
+    return follow_case;
+}

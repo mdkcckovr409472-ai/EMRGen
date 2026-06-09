@@ -1,0 +1,2 @@
+Operation 45: On parameter 'k' (int): set k to floor(sqrt(k)) (when k ≥ 0)
+Invariant: return.result1[] >= return.result2[] (elementwise)

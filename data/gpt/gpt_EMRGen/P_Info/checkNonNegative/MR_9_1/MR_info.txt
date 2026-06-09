@@ -1,0 +1,2 @@
+Operation 9: On parameter 'a' (array[double]): take square root of all elements (when element ≥ 0)
+Invariant: return.result1 == return.result2

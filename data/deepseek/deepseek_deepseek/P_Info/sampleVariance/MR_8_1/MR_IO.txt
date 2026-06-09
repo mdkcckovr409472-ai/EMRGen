@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 10.0; // 常数k，可根据需要调整
+    double* new_elements = new double[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        new_elements[i] = tc.elements[i] + k;
+    }
+    tf.elements = new_elements;
+    tf.mean = tc.mean + k; // 均值也需要相应增加k
+    return tf;
+}

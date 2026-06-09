@@ -1,0 +1,2 @@
+Operation 29: On parameter 'a' (array[int]): square each element (multiply by itself)
+Invariant: return.result1 == return.result2

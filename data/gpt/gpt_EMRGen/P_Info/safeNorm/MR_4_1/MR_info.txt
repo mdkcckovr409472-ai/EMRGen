@@ -1,0 +1,2 @@
+Operation 4: On parameter 'v' (array[double]): divide all elements by 3.0
+Invariant: return.result1 - 3 * return.result2 == 0

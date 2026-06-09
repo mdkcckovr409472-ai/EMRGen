@@ -1,0 +1,21 @@
+TestCase change(TestCase tc) {
+    // Reuse original TestCase structure
+    TestCase tf = tc;
+
+    // Allocate new array for modified input
+    double* new_z = (double*)malloc(tc.n * sizeof(double));
+    if (new_z == NULL && tc.n > 0) {
+        // Allocation failed, keep original data for safety
+        return tf;
+    }
+
+    // Divide all elements of z by 2 as per MR
+    for (int i = 0; i < tc.n; i++) {
+        new_z[i] = tc.z[i] / 2.0;
+    }
+
+    // Overwrite tf.z with new modified data
+    tf.z = new_z;
+
+    return tf;
+}

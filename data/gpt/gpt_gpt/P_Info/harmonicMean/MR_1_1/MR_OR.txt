@@ -1,0 +1,8 @@
+int check(TestCase tc) {
+    double Os = harmonicMean(tc.data, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = harmonicMean(Tf_case.data, Tf_case.n);
+    const double epsilon = 1e-9;
+    int is_valid = (fabs(Os - 0.5 * Of) < epsilon) ? 1 : 0;
+    return is_valid;
+}

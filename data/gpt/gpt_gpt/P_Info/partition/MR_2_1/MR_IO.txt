@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int length = tf.end - tf.begin;
+    if (length > 0) {
+        double* new_work = new double[length];
+        for (int i = 0; i < length; ++i) {
+            new_work[i] = tf.work[tf.begin + i] - 1.0;
+        }
+        tf.work = new_work;
+        tf.begin = 0;
+        tf.end = length;
+        // Adjust pivot index relative to new array starting at 0
+        tf.pivot = tc.pivot - tc.begin;
+    }
+    return tf;
+}

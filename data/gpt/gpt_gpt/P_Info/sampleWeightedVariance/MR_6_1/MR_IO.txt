@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 0 && tc.weights != nullptr) {
+        double* newWeights = new double[tc.n];
+        for (int i = 0; i < tc.n; i++) {
+            newWeights[i] = tc.weights[i] * 0.5;
+        }
+        tf.weights = newWeights;
+    }
+    return tf;
+}

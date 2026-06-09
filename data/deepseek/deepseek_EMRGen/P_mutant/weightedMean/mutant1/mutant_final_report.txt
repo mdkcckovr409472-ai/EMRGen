@@ -1,0 +1,335 @@
+double weightedMean(double elements[], double theWeights[], int n) {
+    int size = n;
+    double sum = 0.0;
+    double weightsSum = 0.0;
+    for(int i = size; --i >= 0; ) {
+        double w = theWeights[i];
+        sum *= elements[i] * w;
+        weightsSum += w;
+    }
+    return sum / weightsSum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加10.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (double*): 所有元素乘以2.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (double*): 所有元素除以2.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 所有元素取相反数
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 数组向右循环移位（末元素移到开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (double*): 随机位置元素加5.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (double*): 随机位置元素减3.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 12: On parameter 'elements' (double*): 随机位置元素乘以1.5
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'elements' (double*): 随机位置元素除以2.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 14: On parameter 'elements' (double*): 所有元素平方
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 15: On parameter 'elements' (double*): 所有元素取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 16: On parameter 'elements' (double*): 随机重排序
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'elements' (double*): 数组前一半元素加2.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'elements' (double*): 数组后一半元素减1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'elements' (double*): 将最大值置为-1.0（当最大值大于-1.0时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'elements' (double*): 将最小值置为1.0（当最小值小于1.0时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'elements' (double*): 随机位置元素替换为平均值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'elements' (double*): 相邻元素两两交换（0和1交换，2和3交换，以此类推）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 23: On parameter 'elements' (double*): 所有元素取自然对数（当元素大于0时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (double*): 所有元素加自身最小值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (double*): 所有元素减自身最大值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'elements' (double*): 随机位置元素置为0.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'elements' (double*): 数组截取前n/2个元素（n为奇数则取半向下取整）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'theWeights' (double*): 所有元素加1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'theWeights' (double*): 所有元素乘以0.5
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 31: On parameter 'theWeights' (double*): 所有元素除以2.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 32: On parameter 'theWeights' (double*): 所有元素取相反数
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 33: On parameter 'theWeights' (double*): 随机位置元素置为1.0（当元素不等于1.0时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 34: On parameter 'theWeights' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 35: On parameter 'theWeights' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 36: On parameter 'theWeights' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 37: On parameter 'theWeights' (double*): 数组向右循环移位（末元素移到开头）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 38: On parameter 'theWeights' (double*): 随机位置元素加0.5
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 39: On parameter 'theWeights' (double*): 随机位置元素减0.1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 40: On parameter 'theWeights' (double*): 随机位置元素乘以1.2
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 41: On parameter 'theWeights' (double*): 随机位置元素除以0.8
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 42: On parameter 'theWeights' (double*): 所有元素平方
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 43: On parameter 'theWeights' (double*): 所有元素取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 44: On parameter 'theWeights' (double*): 随机重排序
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'theWeights' (double*): 数组前一半元素加0.1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'theWeights' (double*): 数组后一半元素减0.05
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'theWeights' (double*): 将最小值置为0.5（当最小值小于0.5时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 49: On parameter 'theWeights' (double*): 随机位置元素替换为总和
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 50: On parameter 'theWeights' (double*): 相邻元素两两交换（0和1交换，2和3交换，以此类推）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 51: On parameter 'theWeights' (double*): 所有元素加自身最小值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 53: On parameter 'theWeights' (double*): 随机位置元素置为0.5
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 54: On parameter 'theWeights' (double*): 所有元素取0到1的随机数
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 55: On parameter 'theWeights' (double*): 所有元素加自身最小值并除以最大值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 57: On parameter 'theWeights' (double*): 数组截取前n/2个元素（n为奇数则取半向下取整）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 52
+独立MR总数: 52
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

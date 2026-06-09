@@ -1,0 +1,64 @@
+double sampleKurtosis(double moment4, double sampleVariance,int size) {
+    int n = size;
+    double s2 = sampleVariance;
+    double m4 = moment4 * n;
+    return m4 * n * (n + 1) / ((n - 1) * (n - 2) * (n - 3) * s2 * s2) - 3.0 * (n - 1) * (n - 1) / ((n - 2) * (n - 3));
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains moment4 (double), if the operation 「add 1 to moment4」 is executed on moment4 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains moment4 (double), if the operation 「subtract 1 from moment4」 is executed on moment4 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains moment4 (double), if the operation 「multiply moment4 by 2」 is executed on moment4 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains moment4 (double), if the operation 「divide moment4 by 2」 is executed on moment4 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of < Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains moment4 (double), if the operation 「set moment4 to 0」 is executed on moment4 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of < Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「add 1 to sampleVariance」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of < Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「subtract 1 from sampleVariance」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「multiply sampleVariance by 2」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of < Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「divide sampleVariance by 2」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sampleVariance (double), if the operation 「set sampleVariance to 1」 is executed on sampleVariance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+操作总数: 10
+关系总数: 10

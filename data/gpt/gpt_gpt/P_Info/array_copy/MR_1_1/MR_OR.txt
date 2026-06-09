@@ -1,0 +1,40 @@
+int check(TestCase tc) {
+    if (tc.a == NULL || tc.n <= 0) {
+        return 0; // invalid input, cannot verify MR
+    }
+
+    int* Os = array_copy(tc.a, tc.n);
+    if (Os == NULL) {
+        return 0; // function failed on source input
+    }
+
+    TestCase Tf_case = change(tc);
+
+    int* Of = NULL;
+    if (Tf_case.a != NULL && Tf_case.n > 0) {
+        Of = array_copy(Tf_case.a, Tf_case.n);
+    }
+
+    int is_valid = 0;
+    if (Of != NULL) {
+        int identical = 1;
+        for (int i = 0; i < tc.n; i++) {
+            if (Os[i] != Of[i]) {
+                identical = 0;
+                break;
+            }
+        }
+        is_valid = (identical == 0) ? 1 : 0;
+    }
+
+    free(Os);
+
+    if (Tf_case.a != tc.a) {
+        free(Tf_case.a);
+    }
+    if (Of != NULL) {
+        free(Of);
+    }
+
+    return is_valid;
+}

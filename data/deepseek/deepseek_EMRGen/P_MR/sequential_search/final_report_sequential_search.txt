@@ -1,0 +1,82 @@
+int sequential_search(int a[], int key, int n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        if (a[i] == key) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 6: On parameter 'a' (int*): 所有元素取绝对值
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (int*): 所有元素平方
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int*): 数组奇数索引元素乘2
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组奇数索引元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'key' (int): 取绝对值
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 34: On parameter 'key' (int): 平方
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 35: On parameter 'key' (int): 模3
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「模3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 41: On parameter 'key' (int): 置为数组a的最后一个元素值
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含key（int）的函数，若对 key执行「置为数组a的最后一个元素值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+
+操作总数: 8
+关系总数: 7

@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    for (int i = 0; i < tf.n2; i++) {
+        tf.data2[i] = 0.0;
+    }
+    return tf;
+}

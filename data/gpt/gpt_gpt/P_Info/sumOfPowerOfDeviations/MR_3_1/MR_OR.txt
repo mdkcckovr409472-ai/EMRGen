@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = sumOfPowerOfDeviations(tc.data, tc.k, tc.c, tc.n);
+    TestCase tf = change(tc);
+    double Of = sumOfPowerOfDeviations(tf.data, tf.k, tf.c, tf.n);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    // Clean up memory allocated in change()
+    delete[] tf.data;
+    return is_valid;
+}

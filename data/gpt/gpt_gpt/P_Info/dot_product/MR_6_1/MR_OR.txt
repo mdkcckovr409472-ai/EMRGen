@@ -1,0 +1,23 @@
+int check(TestCase tc) {
+    int n = tc.n;
+    int Os = dot_product(tc.a, tc.b, n);
+
+    TestCase Tf_case = change(tc);
+    int Of = dot_product(Tf_case.a, Tf_case.b, n);
+
+    // Calculate sum of elements of a for invariant check
+    int sum_a = 0;
+    for (int i = 0; i < n; i++) {
+        sum_a += tc.a[i];
+    }
+
+    int is_valid = 0;
+    if (Of == Os + sum_a) {
+        is_valid = 1;
+    }
+
+    // Clean up allocated memory in Tf_case
+    delete[] Tf_case.b;
+
+    return is_valid;
+}

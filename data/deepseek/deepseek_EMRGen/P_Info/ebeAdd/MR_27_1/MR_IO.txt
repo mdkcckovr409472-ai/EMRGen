@@ -1,0 +1,19 @@
+TestCase z27Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_a = (double*)malloc(t1.n1 * sizeof(double));
+memcpy(follow_case_a, t1.a, t1.n1 * sizeof(double));
+follow_case.a = follow_case_a;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n1<=0时出错
+if (follow_case.n1 <= 0) {
+    // 数组为空或长度为负，无法进行操作，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+// 注入特殊值正无穷
+follow_case.a[0] = INFINITY;
+
+return follow_case;}

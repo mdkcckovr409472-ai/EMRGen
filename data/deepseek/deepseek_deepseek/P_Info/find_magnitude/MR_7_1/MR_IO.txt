@@ -1,0 +1,10 @@
+#include <cmath>
+#include <cstdlib>
+#include <algorithm>
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1 && tf.a != nullptr) {
+        std::random_shuffle(tf.a, tf.a + tf.n);
+    }
+    return tf;
+}

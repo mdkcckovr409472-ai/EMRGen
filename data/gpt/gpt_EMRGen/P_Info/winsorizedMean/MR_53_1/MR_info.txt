@@ -1,0 +1,2 @@
+Operation 53: On parameter 'right' (int): set right to 0 (minimum)
+Invariant: return.result1 <= return.result2

@@ -1,0 +1,9 @@
+TestCase z34Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check for left parameter
+    if (follow_case.left < 3) {
+        return follow_case;
+    }
+    follow_case.left -= 3;
+    return follow_case;
+}

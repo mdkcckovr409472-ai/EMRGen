@@ -1,0 +1,43 @@
+int check(TestCase tc) {
+    // (1) Extract source input Ts
+    int* Ts = tc.a;
+    int n = tc.n;
+
+    // (2) Call bubble on Ts to get Os
+    int* Os = bubble(Ts, n);
+    if (Os == NULL) {
+        return 0;
+    }
+
+    // (3) Call change to get Tf
+    TestCase Tf_case = change(tc);
+    if (Tf_case.a == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    // (4) Call bubble on Tf to get Of
+    int* Of = bubble(Tf_case.a, n);
+    if (Of == NULL) {
+        free(Os);
+        free(Tf_case.a);
+        return 0;
+    }
+
+    // (5) Verify the MR: Os < Of means each element in Os less than corresponding in Of
+    int is_valid = 1;
+    for (int i = 0; i < n; i++) {
+        if (!(Os[i] < Of[i])) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // (6) Free dynamic memory of Os, Of and Tf_case.a
+    free(Os);
+    free(Of);
+    free(Tf_case.a);
+
+    // (7) Return verification result
+    return is_valid;
+}

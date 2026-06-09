@@ -1,0 +1,27 @@
+TestCase z29Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+
+    // Defensive check: need at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Compute median and set last element to it
+    std::vector<double> temp(follow_case.elements, follow_case.elements + follow_case.n);
+    std::sort(temp.begin(), temp.end());
+    double median;
+    if (follow_case.n % 2 == 1) {
+        median = temp[follow_case.n / 2];
+    } else {
+        // Avoid division by zero (denominator is 2, safe)
+        median = (temp[follow_case.n / 2 - 1] + temp[follow_case.n / 2]) / 2.0;
+    }
+    follow_case.elements[follow_case.n - 1] = median;
+
+    return follow_case;
+}

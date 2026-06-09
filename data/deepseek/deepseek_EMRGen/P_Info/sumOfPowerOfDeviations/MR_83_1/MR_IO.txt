@@ -1,0 +1,7 @@
+TestCase z83Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 根据规则5生成的具体操作代码
+follow_case.c = follow_case.c - 10.5;
+
+return follow_case;}

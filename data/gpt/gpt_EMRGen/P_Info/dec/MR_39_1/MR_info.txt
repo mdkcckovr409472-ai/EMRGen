@@ -1,0 +1,2 @@
+Operation 39: On parameter 'array2' (array[int]): set a random element to 1 (when the element is 0)
+Invariant: return.result1[] >= return.result2[] (elementwise)

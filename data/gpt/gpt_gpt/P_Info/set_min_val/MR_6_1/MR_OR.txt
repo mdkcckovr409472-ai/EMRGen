@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    int* Os = set_min_val(tc.a, tc.k, tc.n);
+    TestCase Tf_case = change(tc);
+    int* Of = set_min_val(Tf_case.a, Tf_case.k, Tf_case.n);
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        if (Os[i] < Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+    free(Os);
+    free(Of);
+    free(Tf_case.a);
+    return is_valid;
+}

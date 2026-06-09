@@ -1,0 +1,2 @@
+Operation 53: On parameter 'data2' (double*): set a random position’s element to -500.0 (when the element is greater than -500.0)
+Invariant: return.result1 > return.result2

@@ -1,0 +1,29 @@
+int check(TestCase tc) {
+    // Source input
+    double* Ts = tc.elements;
+    int n = tc.n;
+    
+    // Compute source output Os
+    double Os = sumOfLogarithms(Ts, n);
+    
+    // Generate follow-up test case Tf_case
+    TestCase Tf_case = change(tc);
+    double* Tf = Tf_case.elements;
+    
+    // Compute follow-up output Of
+    double Of = sumOfLogarithms(Tf, n);
+    
+    // Verify MR: Os == Of, allow small epsilon for floating point comparison
+    int is_valid = 0;
+    const double epsilon = 1e-12;
+    if(std::abs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    
+    // Free dynamic memory allocated in change() if it was allocated
+    if(Tf != Ts) {
+        delete[] Tf;
+    }
+    
+    return is_valid;
+}

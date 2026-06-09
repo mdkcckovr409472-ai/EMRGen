@@ -1,0 +1,2 @@
+Operation 8: On parameter 'data1' (double*): decrement a random element by 0.5 (when the element > minimum double)
+Invariant: return.result1 > return.result2

@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    // Reuse original TestCase struct, allocate a new array for rotated elements
+    double* rotated = new double[tc.n];
+    if (tc.n > 1) {
+        rotated[0] = tc.elements[tc.n - 1];
+        for (int i = 1; i < tc.n; ++i) {
+            rotated[i] = tc.elements[i - 1];
+        }
+    } else if (tc.n == 1) {
+        rotated[0] = tc.elements[0];
+    }
+    
+    TestCase tf = tc;
+    tf.elements = rotated;
+    return tf;
+}

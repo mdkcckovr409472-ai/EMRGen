@@ -1,0 +1,2 @@
+Operation 6: On parameter 'data' (double[]): set last element to -1.0 (when element < -1)
+Invariant: return.result1[] >= return.result2[] (elementwise)

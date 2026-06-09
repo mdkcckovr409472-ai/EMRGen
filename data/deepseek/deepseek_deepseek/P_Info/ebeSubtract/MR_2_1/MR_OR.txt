@@ -1,0 +1,29 @@
+int check(TestCase tc) {
+    double* Os = ebeSubtract(tc.a, tc.b, tc.n1, tc.n2);
+    if (Os == NULL) {
+        return 0;
+    }
+    double sum_Os = 0.0;
+    for (int i = 0; i < tc.n1; ++i) {
+        sum_Os += Os[i];
+    }
+    free(Os);
+
+    TestCase Tf_case = change(tc);
+    double* Of = ebeSubtract(Tf_case.a, Tf_case.b, Tf_case.n1, Tf_case.n2);
+    if (Of == NULL) {
+        return 0;
+    }
+    double sum_Of = 0.0;
+    for (int i = 0; i < Tf_case.n1; ++i) {
+        sum_Of += Of[i];
+    }
+    free(Of);
+
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (fabs(sum_Os - sum_Of) < epsilon) {
+        is_valid = 1;
+    }
+    return is_valid;
+}

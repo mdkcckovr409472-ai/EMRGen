@@ -1,0 +1,35 @@
+TestCase z35Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+    
+    // 这是根据规则6a生成的防御性代码，防止n<=0时出错
+    if (follow_case.n <= 0) {
+        // 元素不足1个，无法取子数组，直接返回副本
+        return follow_case;
+    }
+    
+    // 这是根据规则5生成的具体操作代码
+    // 计算新数组的长度
+    int new_n = (follow_case.n + 1) / 2; // 向上取整，处理奇数长度
+    double* new_elements = (double*)malloc(new_n * sizeof(double));
+    if (new_elements == NULL) {
+        // 内存分配失败，返回当前副本
+        return follow_case;
+    }
+    
+    // 填充新数组（步长为2）
+    for (int i = 0, j = 0; i < follow_case.n; i += 2, j++) {
+        new_elements[j] = follow_case.elements[i];
+    }
+    
+    // 释放旧的数组内存，更新结构体
+    free(follow_case.elements);
+    follow_case.elements = new_elements;
+    follow_case.n = new_n;
+    
+    return follow_case;
+}

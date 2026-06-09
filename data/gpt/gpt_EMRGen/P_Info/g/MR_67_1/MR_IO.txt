@@ -1,0 +1,19 @@
+TestCase z67Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_observed = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_observed, t1.observed, t1.n * sizeof(double));
+    follow_case.observed = follow_case_observed;
+    // ------------------------------------
+
+    // Defensive check: ensure there is at least one element before processing
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            if (follow_case.observed[i] < -20.0) {
+                follow_case.observed[i] = -20.0;
+            }
+        }
+    }
+
+    return follow_case;
+}

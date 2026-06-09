@@ -1,0 +1,22 @@
+TestCase change(TestCase tc) {
+    // Reuse the original pointers for expected and observed arrays
+    // Only modify observed array's last element to the minimum value in observed
+    double min_val = tc.observed[0];
+    for (int i = 1; i < tc.n; i++) {
+        if (tc.observed[i] < min_val) {
+            min_val = tc.observed[i];
+        }
+    }
+    // Create a new observed array copying original to avoid modifying original input
+    double* newObserved = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        newObserved[i] = tc.observed[i];
+    }
+    newObserved[tc.n - 1] = min_val;
+    // Reuse expected pointer
+    TestCase tf;
+    tf.expected = tc.expected;
+    tf.n = tc.n;
+    tf.observed = newObserved;
+    return tf;
+}

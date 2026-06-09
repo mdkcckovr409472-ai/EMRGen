@@ -1,0 +1,2 @@
+Operation 46: On parameter 'data2' (double*): sort array descending
+Invariant: return.result1 == return.result2

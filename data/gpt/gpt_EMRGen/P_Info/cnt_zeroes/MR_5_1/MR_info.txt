@@ -1,0 +1,2 @@
+Operation 5: On parameter 'a' (array[int]): set a random element to 0 (when element is not 0)
+Invariant: return.result1 <= return.result2

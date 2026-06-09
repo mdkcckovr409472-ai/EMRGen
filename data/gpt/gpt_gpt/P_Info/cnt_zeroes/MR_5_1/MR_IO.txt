@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 0) {
+        int* new_a = new int[tc.n];
+        // Circular right shift by one
+        new_a[0] = tc.a[tc.n - 1];
+        for (int i = 1; i < tc.n; i++) {
+            new_a[i] = tc.a[i - 1];
+        }
+        tf.a = new_a;
+    }
+    return tf;
+}

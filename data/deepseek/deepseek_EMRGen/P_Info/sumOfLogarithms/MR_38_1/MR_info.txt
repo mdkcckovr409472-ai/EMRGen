@@ -1,0 +1,2 @@
+Operation 38: On parameter 'elements' (double*): 数组所有元素乘π
+Invariant: return.result1 < return.result2

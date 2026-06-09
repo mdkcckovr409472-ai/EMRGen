@@ -1,0 +1,26 @@
+TestCase z71Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    // 条件: 当且仅当 int 是数组类型时执行。
+    // 操作: 使用 malloc 和 memcpy 为 follow_case 中的目标参数创建并填充一个深拷贝。
+    // 内存大小和循环边界必须使用 TestCase 结构中相应的长度变量，该拷贝操作位于第一行且位于防御性编程和边界检查之外。
+    // 在编写z71Change时,对于malloc操作,需要完整复制整个数组,避免只复制部分数组.
+    // 注意：根据输入信息，目标参数是 upperLim，其类型为 int，不是数组类型。
+    // 因此，根据规则，此处不执行数组的深拷贝操作。
+    // ------------------------------------
+
+    // 这是根据规则6c生成的防御性代码，保护数学函数域
+    // 在使用 sqrt() 等函数前，必须检查输入值是否在其合法定义域内（如 x >= 0）。
+    // 对于无效输入，应跳过该元素的变换。
+    // 注意：操作描述为“平方根（取整）”，应用于目标参数 upperLim。
+    // 由于 upperLim 是单个 int 值，不是数组，因此不需要循环。
+    // 我们直接对 follow_case.upperLim 进行操作。
+    if (follow_case.upperLim >= 0) {
+        // 这是根据规则5生成的具体操作代码
+        // 将 平方根（取整）（自然语言描述）转换为具体的 C 语言代码，操作于 follow_case 的副本上。
+        follow_case.upperLim = (int)sqrt((double)follow_case.upperLim);
+    }
+    // 如果 upperLim < 0，根据规则6c，我们跳过变换，保持原值。
+
+    return follow_case;
+}

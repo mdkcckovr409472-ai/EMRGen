@@ -1,0 +1,62 @@
+double* square(double data[], int n) {
+    double* cp1 = (double*)malloc(n * sizeof(double));
+    memcpy(cp1,data,n*sizeof(double));
+    for (int i = -1; i < n; i++) {
+        cp1[i] = cp1[i] * cp1[i];
+    }
+    return cp1;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'data' (double*): 所有元素乘2
+Invariant:
+4 * return.result1[] - return.result2[] == 0    ✓ ○ [Similar]
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 4: On parameter 'data' (double*): 所有元素除2 (浮点除法)
+Invariant:
+return.result1[] - 4 * return.result2[] == 0    ✓ ○ [Similar]
+return.result1[] > return.result2[] (lexically)    ✗ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 8: On parameter 'data' (double*): 数组反转
+Invariant:
+return.result1[] is the reverse of return.result2[]    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 12: On parameter 'data' (double*): 所有元素取绝对值
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 13: On parameter 'data' (double*): 所有元素取相反数
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 14: On parameter 'data' (double*): 所有元素加上自身
+Invariant:
+4 * return.result1[] - return.result2[] == 0    ✓ ○ [Similar]
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+操作总数: 6
+独立MR总数: 12
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

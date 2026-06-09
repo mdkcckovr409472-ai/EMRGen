@@ -1,0 +1,23 @@
+TestCase z23Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+    
+    // 这是根据规则6a生成的防御性代码，防止n<1时出错
+    if (follow_case.n > 0) {
+        // 这是根据规则5生成的具体操作代码
+        for (int i = 0; i < follow_case.n - 1; i++) {
+            for (int j = 0; j < follow_case.n - i - 1; j++) {
+                if (follow_case.elements[j] > follow_case.elements[j + 1]) {
+                    double temp = follow_case.elements[j];
+                    follow_case.elements[j] = follow_case.elements[j + 1];
+                    follow_case.elements[j + 1] = temp;
+                }
+            }
+        }
+    }
+    
+    return follow_case;}

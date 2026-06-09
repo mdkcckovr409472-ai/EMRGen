@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int temp = tf.a[tf.i];
+    tf.a[tf.i] = tf.a[tf.j];
+    tf.a[tf.j] = temp;
+    return tf;
+}

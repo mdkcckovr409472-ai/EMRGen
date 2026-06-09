@@ -1,0 +1,2 @@
+Operation 4: On parameter 'k' (array[double]): divide all elements by 2.0 (ensure non-zero)
+Invariant: return.result1 == return.result2

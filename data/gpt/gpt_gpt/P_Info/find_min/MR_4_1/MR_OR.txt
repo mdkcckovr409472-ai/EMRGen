@@ -1,0 +1,15 @@
+int check(TestCase tc) {
+    int Os = find_min(tc.a, tc.n);
+    TestCase Tf_case = change(tc);
+    int Of = find_min(Tf_case.a, Tf_case.n);
+    int is_valid = 0;
+    // Verify Os / 2 == Of, only if division is exact (Os even)
+    if (Os % 2 == 0 && Os / 2 == Of) {
+        is_valid = 1;
+    }
+    // Clean up any dynamically allocated memory
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+    return is_valid;
+}

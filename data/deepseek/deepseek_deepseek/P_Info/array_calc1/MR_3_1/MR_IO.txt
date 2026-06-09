@@ -1,0 +1,18 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1) {
+        std::vector<int> indices(tf.n);
+        std::iota(indices.begin(), indices.end(), 0);
+        std::random_shuffle(indices.begin(), indices.end());
+        int* shuffled_a = (int*)malloc(tf.n * sizeof(int));
+        if (shuffled_a != NULL) {
+            for (int i = 0; i < tf.n; ++i) {
+                shuffled_a[i] = tc.a[indices[i]];
+            }
+            tf.a = shuffled_a;
+        } else {
+            tf.a = tc.a;
+        }
+    }
+    return tf;
+}

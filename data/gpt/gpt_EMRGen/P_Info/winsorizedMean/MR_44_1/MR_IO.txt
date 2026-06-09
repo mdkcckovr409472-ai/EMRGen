@@ -1,0 +1,10 @@
+TestCase z44Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: no array-dependent checks needed for this operation
+
+    // Operation: set left to -left
+    follow_case.left = -follow_case.left;
+
+    return follow_case;
+}

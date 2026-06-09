@@ -1,0 +1,2 @@
+Operation 48: On parameter 'right' (int): decrement right by 1 (when right > 0)
+Invariant: return.result1 <= return.result2

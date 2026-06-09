@@ -1,0 +1,134 @@
+double durbinWatson(double elements[], int n) {
+    
+    double run = 0;
+    for (int i = 1; i < n; ++i) {
+        double x = elements[i] - elements[i - 1];
+        run += x * x;
+    }
+    return run;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加1.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (double*): 所有元素减2.5
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素减2.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (double*): 所有元素乘3.0
+Invariant: 
+9 * return.result1 - return.result2 == 0 ✓ ○
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+9 * Os - Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 所有元素除4.0
+Invariant: 
+return.result1 - 16 * return.result2 == 0 ✓ ○
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 16 * Of == 0
+Os >= Of
+
+----------------------------------------
+
+Operation 5: On parameter 'elements' (double*): 所有元素取相反数
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (double*): 所有元素加π
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素加π」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 12: On parameter 'elements' (double*): 所有元素乘黄金分割比
+Invariant: 
+5.39729777351867E14 * return.result1 - 2.06158430208E14 * return.result2 == 0 ✓ ○
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素乘黄金分割比」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+5.39729777351867E14 * Os - 2.06158430208E14 * Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'elements' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (double*): 数组升序排序
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 27: On parameter 'elements' (double*): 数组降序排序
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'elements' (double*): 取子数组（从索引0到n/2）
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「取子数组（从索引0到n/2）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 12
+关系总数: 16

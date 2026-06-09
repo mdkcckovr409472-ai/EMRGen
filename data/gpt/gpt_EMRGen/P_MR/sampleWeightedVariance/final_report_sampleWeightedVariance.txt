@@ -1,0 +1,29 @@
+double sampleWeightedVariance(double data[], double weights[], int n) {
+    double sumOfWeights = 0;
+    double sumOfProducts = 0;
+    double sumOfSquaredProducts = 0;
+    for (int i = 0; i < n; i++) {
+        sumOfWeights += weights[i];
+        sumOfProducts += data[i] * weights[i];
+        sumOfSquaredProducts += data[i] * data[i] * weights[i];
+    }
+    return (sumOfSquaredProducts - sumOfProducts * sumOfProducts / sumOfWeights) / (sumOfWeights - 1);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 40: On parameter 'weights' (array[double]): take absolute value of each element
+Invariant: 
+return.result2 == return.result1 ✓
+
+MR ：对于初始输入Ts中包含weights（array[double]）的函数，若对 weights执行「take absolute value of each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Of == Os
+
+----------------------------------------
+
+
+操作总数: 1
+关系总数: 1

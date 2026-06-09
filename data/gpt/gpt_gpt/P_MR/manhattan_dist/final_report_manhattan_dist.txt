@@ -1,0 +1,146 @@
+double manhattan_dist(int a[], int b[], int n) {
+    int i;
+    double sum = 0;
+    for (i = 0; i < n; i++) {
+        sum += abs(a[i] - b[i]);
+    }
+    return sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「add 1 to all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「subtract 1 from all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of >= 0 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「multiply all elements by 2」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「multiply all elements by 0.5」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of <= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「divide all elements by 2 (assuming no element is zero)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of <= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「reverse the entire array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「sort the array in ascending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「sort the array in descending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「circularly shift the array elements right by 1 position」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set all elements to 0」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set all elements to 1」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set the first element to the maximum integer value (INT_MAX)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (int[]), if the operation 「set the first element to the minimum integer value (INT_MIN)」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of >= 0 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「add 1 to all elements」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「subtract 1 from all elements」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of >= 0 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「multiply all elements by 2」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「multiply all elements by 0.5」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of <= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「divide all elements by 2 (assuming no element is zero)」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of <= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「reverse the entire array」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「sort the array in ascending order」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「sort the array in descending order」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「circularly shift the array elements right by 1 position」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「set all elements to 0」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「set all elements to 1」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「set the first element to the maximum integer value (INT_MAX)」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (int[]), if the operation 「set the first element to the minimum integer value (INT_MIN)」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= 0 && Of >= 0 ✓
+
+----------------------------------------
+
+操作总数: 26
+关系总数: 26

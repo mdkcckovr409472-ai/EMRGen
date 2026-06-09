@@ -1,0 +1,2 @@
+Operation 34: On parameter 'elements' (double*): 取子数组（从索引n/2到n-1）
+Invariant: return.result1 >= return.result2

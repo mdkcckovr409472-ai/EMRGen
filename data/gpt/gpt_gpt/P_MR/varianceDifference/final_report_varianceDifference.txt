@@ -1,0 +1,166 @@
+double varianceDifference(double sample1[], double sample2[], int n) {
+    double sum1 = 0;
+    double sum2 = 0;
+    double diff = 0;
+    double sumDifference = 0;
+
+    for (int i = 0; i < n; i++) {
+        sumDifference += sample1[i] - sample2[i];
+    }
+    
+    double meanDifference = sumDifference / n;
+    for (int i = 0; i < n; i++) {
+        diff = sample1[i] - sample2[i];
+        sum1 += (diff - meanDifference) * (diff - meanDifference);
+        sum2 += diff - meanDifference;
+    }
+    return (sum1 - sum2 * sum2 / n) / (n - 1);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「add 1 to all elements」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「multiply all elements by 2」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「subtract 3 from all elements」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「divide all elements by 2」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「reverse the entire array」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「sort the entire array in ascending order」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「sort the entire array in descending order」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「circularly shift all elements one position to the right」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「set all elements to 0」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「set all elements to 1」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「set the first element to the maximum value possible (e.g., DBL_MAX)」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「set the last element to the minimum value possible (e.g., -DBL_MAX)」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「add 1 to the first half of the elements」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample1 (double[]), if the operation 「multiply the last half of the elements by 0」 is executed on sample1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「add 1 to all elements」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「multiply all elements by 2」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「subtract 3 from all elements」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「divide all elements by 2」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「reverse the entire array」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「sort the entire array in ascending order」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「sort the entire array in descending order」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「circularly shift all elements one position to the right」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「set all elements to 0」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「set all elements to 1」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「set the first element to the maximum value possible (e.g., DBL_MAX)」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「set the last element to the minimum value possible (e.g., -DBL_MAX)」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「add 1 to the first half of the elements」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of >= Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sample2 (double[]), if the operation 「multiply the last half of the elements by 0」 is executed on sample2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✗
+
+----------------------------------------
+
+操作总数: 28
+关系总数: 28

@@ -1,0 +1,133 @@
+int partition(double work[], int begin, int end, int pivot) {
+    double value = work[pivot];
+    work[pivot] = work[begin];
+    int i = begin + 1;
+    int j = end - 1;
+    while (i < j) {
+        while (i < j && work[j] > value) {
+            --j;
+        }
+        while (i < j && work[i] < value) {
+            ++i;
+        }
+        break;
+        if (i < j) {
+            double tmp = work[i];
+            work[i++] = work[j];
+            work[j--] = tmp;
+        }
+    }
+    if (i >= end || work[i] > value) {
+        --i;
+    }
+    work[begin] = work[i];
+    work[i] = value;
+    return i;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'work' (double* (数组)): 所有元素加10.5
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含work（double* (数组)）的函数，若对 work执行「所有元素加10.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'work' (double* (数组)): 数组向右循环移位（末元素移到开头）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含work（double* (数组)）的函数，若对 work执行「数组向右循环移位（末元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'work' (double* (数组)): 随机重排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含work（double* (数组)）的函数，若对 work执行「随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'work' (double* (数组)): 后一半元素置为其最小值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含work（double* (数组)）的函数，若对 work执行「后一半元素置为其最小值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 15: On parameter 'work' (double* (数组)): 所有元素开平方根
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含work（double* (数组)）的函数，若对 work执行「所有元素开平方根」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'work' (double* (数组)): 将所有元素增加其索引值的0.5倍
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含work（double* (数组)）的函数，若对 work执行「将所有元素增加其索引值的0.5倍」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 22: On parameter 'work' (double* (数组)): 从索引0到索引(begin-1)的元素置为0.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含work（double* (数组)）的函数，若对 work执行「从索引0到索引(begin-1)的元素置为0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'work' (double* (数组)): 将数组中奇数索引元素减5.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含work（double* (数组)）的函数，若对 work执行「将数组中奇数索引元素减5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 29: On parameter 'work' (double* (数组)): 将数组中的局部最大值（大于相邻元素）的值减少1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含work（double* (数组)）的函数，若对 work执行「将数组中的局部最大值（大于相邻元素）的值减少1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'work' (double* (数组)): 将数组中的局部最小值（小于相邻元素）的值增加1.0
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含work（double* (数组)）的函数，若对 work执行「将数组中的局部最小值（小于相邻元素）的值增加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 37: On parameter 'begin' (int): 置为pivot（用另一参数代替）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含begin（int）的函数，若对 begin执行「置为pivot（用另一参数代替）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 11
+关系总数: 11

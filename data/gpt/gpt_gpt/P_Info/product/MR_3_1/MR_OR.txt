@@ -1,0 +1,14 @@
+int check(TestCase tc) {
+    double Os = product(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = product(Tf_case.elements, Tf_case.n);
+
+    double factor = 1.0;
+    for (int i = 0; i < tc.n; ++i) {
+        factor *= 2.0;
+    }
+
+    int is_valid = (Os == factor * Of) ? 1 : 0;
+
+    return is_valid;
+}

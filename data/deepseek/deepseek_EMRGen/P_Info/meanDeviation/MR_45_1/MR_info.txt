@@ -1,0 +1,2 @@
+Operation 45: On parameter 'elements' (double*): 所有元素除均值
+Invariant: return.result1 <= return.result2

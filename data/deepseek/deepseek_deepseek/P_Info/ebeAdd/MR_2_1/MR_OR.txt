@@ -1,0 +1,55 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入 (Ts)
+    // Ts 就是 tc 本身
+    // (2) 获取初始输出 (Os)
+    double* Os = ebeAdd(tc.a, tc.b, tc.n1, tc.n2);
+    if (Os == NULL) {
+        // 初始调用失败，测试无效或失败。根据框架，我们可能希望返回0。
+        // 但为了资源清理，我们仍需处理change产生的内存。
+        // 由于Os为NULL，我们无法进行验证，直接清理并返回0。
+        // 注意：此时尚未调用change，所以没有Tf_case需要清理。
+        // 但tc.b可能是动态分配的？根据上下文，TestCase由外部创建和管理。
+        // 我们假设传入的tc其内部指针a和b由外部管理，check函数不释放它们。
+        // 因此这里直接返回。
+        return 0;
+    }
+
+    // (3) 构造衍生用例
+    TestCase Tf_case = change(tc);
+
+    // (4) 获取衍生输出 (Of)
+    double* Of = ebeAdd(Tf_case.a, Tf_case.b, Tf_case.n1, Tf_case.n2);
+    if (Of == NULL) {
+        // 衍生调用失败，验证失败。释放Os和Tf_case.b（如果是新分配的）。
+        free(Os);
+        if (Tf_case.b != tc.b) { // 检查b是否被change重新分配
+            free(Tf_case.b);
+        }
+        return 0;
+    }
+
+    // (5) 验证蜕变关系
+    int is_valid = 1;
+    double k = 5.0; // 必须与change函数中使用的k一致
+    int n = tc.n1;
+    for (int i = 0; i < n; i++) {
+        // 验证 Os[i] + k == Of[i]
+        if (fabs((Os[i] + k) - Of[i]) > 1e-9) { // 使用容差比较浮点数
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // (6) 释放动态内存
+    free(Os);
+    free(Of);
+    // 释放Tf_case.b（如果是新分配的）
+    if (Tf_case.b != tc.b) {
+        free(Tf_case.b);
+    }
+    // 注意：我们不释放Tf_case.a，因为它与tc.a相同，由外部管理。
+    // 同样，我们不释放tc.a和tc.b。
+
+    // (7) 返回验证结果
+    return is_valid;
+}

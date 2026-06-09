@@ -1,0 +1,18 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n2 > 0) {
+        double min_val = tf.data2[0];
+        for (int i = 1; i < tf.n2; i++) {
+            if (tf.data2[i] < min_val)
+                min_val = tf.data2[i];
+        }
+        // Allocate new array for data2 to avoid modifying original data2
+        double* new_data2 = new double[tf.n2];
+        for (int i = 0; i < tf.n2 - 1; i++) {
+            new_data2[i] = tf.data2[i];
+        }
+        new_data2[tf.n2 - 1] = min_val;
+        tf.data2 = new_data2;
+    }
+    return tf;
+}

@@ -1,0 +1,28 @@
+TestCase z45Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_theWeights = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_theWeights, t1.theWeights, t1.n * sizeof(double));
+    follow_case.theWeights = follow_case_theWeights;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one weight
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    
+    // Compute sum of weights
+    double sum = 0.0;
+    for (int i = 0; i < follow_case.n; ++i) {
+        sum += follow_case.theWeights[i];
+    }
+    
+    // Avoid division by zero
+    if (sum != 0.0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            follow_case.theWeights[i] /= sum;
+        }
+    }
+    
+    return follow_case;
+}

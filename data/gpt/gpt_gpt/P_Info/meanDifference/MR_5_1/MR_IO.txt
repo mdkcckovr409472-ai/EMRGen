@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc; 
+    if (tc.n > 1) {
+        double* shifted = new double[tc.n];
+        shifted[0] = tc.sample1[tc.n - 1];
+        for (int i = 1; i < tc.n; i++) {
+            shifted[i] = tc.sample1[i - 1];
+        }
+        tf.sample1 = shifted;
+    } else {
+        // For n <= 1, shifting makes no difference
+        tf.sample1 = tc.sample1;
+    }
+    return tf;
+}

@@ -1,0 +1,7 @@
+[Operation]
+MR ：对于初始输入Ts中包含sortedElements（double*）的函数，若对 sortedElements执行「所有元素加上同一个值k，且k满足k != 0」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os < Of  (当 k > 0)
+或
+
+[Invariant]
+Os > Of  (当 k < 0)

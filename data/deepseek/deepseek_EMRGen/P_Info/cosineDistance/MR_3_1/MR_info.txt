@@ -1,0 +1,2 @@
+Operation 3: On parameter 'p1' (double*): 所有元素乘3.0
+Invariant: return.result1 == return.result2

@@ -1,0 +1,15 @@
+int check(TestCase tc) {
+    double Os = pooledMean(tc.data1, tc.data2, tc.n1, tc.n2);
+    TestCase Tf_case = change(tc);
+    double Of = pooledMean(Tf_case.data1, Tf_case.data2, Tf_case.n1, Tf_case.n2);
+    double k = 5.0;
+    double expected_increment = (tc.n1 * k) / (tc.n1 + tc.n2);
+    int is_valid = 0;
+    if (std::abs(Os + expected_increment - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    if (Tf_case.data1 != tc.data1) {
+        delete[] Tf_case.data1;
+    }
+    return is_valid;
+}

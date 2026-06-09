@@ -1,0 +1,98 @@
+double chebyshevDistance(double p1[], double p2[], int n1, int n2){
+    if (n1 !=  n2)
+    {
+        return -1;
+    }
+
+    double maxDiff = abs(p1[0] - p2[0]);
+    for (int i = 1; i < n1; i++)
+    {
+        double diff = abs(p1[i] - p2[i]);
+        if (maxDiff < diff)
+        {
+            maxDiff = diff;
+        }
+    }
+    return maxDiff;        
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 5: On parameter 'p1' (array[double]): set random position's element to 100.0 (when element < 100.0)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「set random position's element to 100.0 (when element < 100.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'p1' (array[double]): set random position's element to -100.0 (when element > -100.0)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「set random position's element to -100.0 (when element > -100.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'p1' (array[double]): double elements at even indices
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「double elements at even indices」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 34: On parameter 'p2' (array[double]): set random position's element to 50.0 (when element < 50.0)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「set random position's element to 50.0 (when element < 50.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 35: On parameter 'p2' (array[double]): set random position's element to -50.0 (when element > -50.0)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「set random position's element to -50.0 (when element > -50.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 36: On parameter 'p2' (array[double]): increment middle element by 2.0 (if within bounds)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「increment middle element by 2.0 (if within bounds)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 52: On parameter 'p2' (array[double]): triple elements at even indices
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「triple elements at even indices」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 56: On parameter 'p2' (array[double]): set random element to -DBL_MIN (when element < -DBL_MIN)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「set random element to -DBL_MIN (when element < -DBL_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 8
+关系总数: 8

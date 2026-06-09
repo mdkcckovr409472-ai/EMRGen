@@ -1,0 +1,2 @@
+Operation 21: On parameter 'a' (int*): 将数组中所有奇数索引位置的元素减3
+Invariant: return.result1 >= return.result2

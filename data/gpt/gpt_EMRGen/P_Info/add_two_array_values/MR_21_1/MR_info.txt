@@ -1,0 +1,2 @@
+Operation 21: On parameter 'a' (array[int]): increment element at index i by 10
+Invariant: return.result1 <= return.result2

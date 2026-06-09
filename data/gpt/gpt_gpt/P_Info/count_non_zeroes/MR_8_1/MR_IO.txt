@@ -1,0 +1,23 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Reuse the array pointer and length as per the rule
+    
+    // Create a new array by copying the original to modify one non-zero element to zero
+    int* new_array = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_array[i] = tc.a[i];
+    }
+    
+    // Find a single non-zero element and set it to zero
+    for (int i = 0; i < tc.n; i++) {
+        if (new_array[i] != 0) {
+            new_array[i] = 0;
+            break;
+        }
+    }
+    
+    // Overwrite array pointer in tf to new array with one non-zero element set to zero
+    tf.a = new_array;
+    
+    return tf;
+}

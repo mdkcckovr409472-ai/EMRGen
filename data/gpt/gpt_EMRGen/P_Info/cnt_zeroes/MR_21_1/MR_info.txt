@@ -1,0 +1,2 @@
+Operation 21: On parameter 'a' (array[int]): sort array in descending order
+Invariant: return.result1 == return.result2

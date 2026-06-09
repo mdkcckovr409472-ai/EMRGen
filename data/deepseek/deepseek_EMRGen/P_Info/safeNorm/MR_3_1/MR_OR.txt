@@ -1,0 +1,26 @@
+#include <cmath>
+#include <cstddef>
+
+int z3check(double result1, double result2) {
+    // 浮点数比较：移项恢复量级
+    // 原条件: 3 * result1 - result2 == 0
+    // 移项后: 3.0 * result1 == result2
+    double A = 3.0 * result1;
+    double B = result2;
+
+    // 防御NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+
+    // 处理无穷大（动态容差对Inf无效）
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B) return 1;
+        else return 0;
+    }
+
+    // 动态容差比较
+    double epsilon = 1e-5;
+    double tol = epsilon * std::fmax(1.0, std::fmax(std::fabs(A), std::fabs(B)));
+    if (std::fabs(A - B) > tol) return 0;
+
+    return 1;
+}

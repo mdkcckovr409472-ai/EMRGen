@@ -1,0 +1,2 @@
+Operation 47: On parameter 'phi' (double): ceil phi
+Invariant: return.result1 <= return.result2

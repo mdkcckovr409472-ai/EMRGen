@@ -1,0 +1,2 @@
+Operation 27: On parameter 'elements' (double*): 数组反转
+Invariant: return.result1 == return.result2

@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    // (2) Call the function under test to get Os
+    double Os = meanDifference(tc.sample1, tc.sample2, tc.n);
+
+    // (3) Call the change function for follow-up input
+    TestCase Tf_case = change(tc);
+
+    // (4) Call the function under test to get Of
+    double Of = meanDifference(Tf_case.sample1, Tf_case.sample2, Tf_case.n);
+
+    // (5) Verify MR: Of < Os
+    int is_valid = 0;
+    if (Of < Os) {
+        is_valid = 1;
+    }
+
+    // (6) Release dynamic memory allocated in change()
+    delete[] Tf_case.sample2;
+
+    // (7) Return verification result
+    return is_valid;
+}

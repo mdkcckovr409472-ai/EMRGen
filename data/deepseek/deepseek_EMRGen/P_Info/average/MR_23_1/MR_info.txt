@@ -1,0 +1,2 @@
+Operation 23: On parameter 'a' (int*): 前一半元素（向下取整）加1
+Invariant: return.result1 <= return.result2

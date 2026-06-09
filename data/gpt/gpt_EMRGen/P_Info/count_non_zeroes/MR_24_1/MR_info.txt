@@ -1,0 +1,2 @@
+Operation 24: On parameter 'a' (array[int]): cap elements at maximum 1000 (if element >1000 set to 1000)
+Invariant: return.result1 == return.result2

@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    // Source input and output
+    int Os = cnt_zeroes(tc.a, tc.n);
+    
+    // Follow-up test case creation
+    TestCase Tf_case = change(tc);
+    int Of = cnt_zeroes(Tf_case.a, Tf_case.n);
+    
+    // Verify MR: Os <= Of
+    int is_valid = 0;
+    if (Os <= Of) {
+        is_valid = 1;
+    }
+    
+    // Cleanup dynamic memory allocated in change()
+    delete[] Tf_case.a;
+    
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 5: On parameter 'values' (int*): set first element to 0 (when it is positive)
+Invariant: return.result1 >= return.result2

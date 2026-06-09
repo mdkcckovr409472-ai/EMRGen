@@ -1,0 +1,265 @@
+double* power(double data[], int k, int n) {
+    for (int i = 0; i < n; i++) {
+        data[i] = pow(data[i], k);
+    }
+    return data;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 31: On parameter 'k' (int): add 1 to k
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「add 1 to k」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 32: On parameter 'k' (int): subtract 1 from k
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「subtract 1 from k」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 33: On parameter 'k' (int): multiply k by 2
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「multiply k by 2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 34: On parameter 'k' (int): divide k by 2 (integer division)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「divide k by 2 (integer division)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 36: On parameter 'k' (int): set k to 1 (when k != 1)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to 1 (when k != 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 37: On parameter 'k' (int): set k to -1 (when k != -1)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to -1 (when k != -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 38: On parameter 'k' (int): set k to 2147483647 (max int)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to 2147483647 (max int)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 40: On parameter 'k' (int): set k to 42 (when k < 42)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to 42 (when k < 42)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 41: On parameter 'k' (int): set k to -5 (when k > -5)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to -5 (when k > -5)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 42: On parameter 'k' (int): take absolute value of k
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「take absolute value of k」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 43: On parameter 'k' (int): negate k (when k > 0)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「negate k (when k > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 44: On parameter 'k' (int): k = k % 5 (when k >= 5)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「k = k % 5 (when k >= 5)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 45: On parameter 'k' (int): set k to random integer between -5 and 5 (when result within int range)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to random integer between -5 and 5 (when result within int range)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 46: On parameter 'k' (int): set k to 0 if k > 0 else keep
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to 0 if k > 0 else keep」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 47: On parameter 'k' (int): set k to 1 if k == 0 else keep
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to 1 if k == 0 else keep」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 48: On parameter 'k' (int): square k (k = k * k)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「square k (k = k * k)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 49: On parameter 'k' (int): set k to floor(sqrt(k)) (when k >= 0)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to floor(sqrt(k)) (when k >= 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 51: On parameter 'k' (int): cast k to double, multiply by 1.5, cast back to int (when result within range)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「cast k to double, multiply by 1.5, cast back to int (when result within range)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 52: On parameter 'k' (int): random perturbation: add random offset [-3,3] (when result within range)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「random perturbation: add random offset [-3,3] (when result within range)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 53: On parameter 'k' (int): logical transformation: set k to 1 if k != 0 else 0
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「logical transformation: set k to 1 if k != 0 else 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 54: On parameter 'k' (int): set k to its negative (when k > 0)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to its negative (when k > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 55: On parameter 'k' (int): clamp k to [0,100] (set to 0 if <0, 100 if >100)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「clamp k to [0,100] (set to 0 if <0, 100 if >100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 56: On parameter 'k' (int): increment k by 5 (when k <= max‑5)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「increment k by 5 (when k <= max‑5)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 57: On parameter 'k' (int): decrement k by 5 (when k >= min+5)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「decrement k by 5 (when k >= min+5)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 58: On parameter 'k' (int): set k to 100 (when k < 100)
+Invariant:
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to 100 (when k < 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os[] == Of[]
+
+----------------------------------------
+
+
+操作总数: 25
+关系总数: 50

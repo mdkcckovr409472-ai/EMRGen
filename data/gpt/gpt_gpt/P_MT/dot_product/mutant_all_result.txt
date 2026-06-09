@@ -1,0 +1,16 @@
+=== Global Aggregated Results ===
+Total Mutants Generated: 50
+Total Mutants Compiled: 29
+Total Mutants Detected_All: 27
+Global Mutation Score: 27/29 (93.10%)
+All Detected Mutant IDs: 1, 2, 4, 6, 8, 10, 13, 15, 17, 19, 20, 23, 26, 27, 28, 29, 32, 33, 36, 38, 39, 40, 43, 44, 47, 49, 50
+
+=== Individual T Folder Scores ===
+Folder [MR_10_1]: 21/29 (72.41%) | Avg Violation Rate: 0.4897 | Avg Violation Rate(No Zero): 0.6762
+Folder [MR_1_1]: 22/29 (75.86%) | Avg Violation Rate: 0.6023 | Avg Violation Rate(No Zero): 0.7939
+Folder [MR_2_1]: 23/29 (79.31%) | Avg Violation Rate: 0.6115 | Avg Violation Rate(No Zero): 0.7710
+Folder [MR_3_1]: 16/29 (55.17%) | Avg Violation Rate: 0.4460 | Avg Violation Rate(No Zero): 0.8083
+Folder [MR_5_1]: 20/29 (68.97%) | Avg Violation Rate: 0.5460 | Avg Violation Rate(No Zero): 0.7917
+Folder [MR_6_1]: 23/29 (79.31%) | Avg Violation Rate: 0.5793 | Avg Violation Rate(No Zero): 0.7304
+Folder [MR_7_1]: 23/29 (79.31%) | Avg Violation Rate: 0.5793 | Avg Violation Rate(No Zero): 0.7304
+Folder [MR_8_1]: 16/29 (55.17%) | Avg Violation Rate: 0.4391 | Avg Violation Rate(No Zero): 0.7958

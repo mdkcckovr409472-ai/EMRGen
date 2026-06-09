@@ -1,0 +1,22 @@
+TestCase z22Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive checks
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    if (follow_case.j < 0 || follow_case.j >= follow_case.n) {
+        // Index out of bounds, skip operation
+        return follow_case;
+    }
+    
+    // Operation: decrement element at index j by 7
+    follow_case.a[follow_case.j] -= 7;
+    
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 25: On parameter 'a' (int*): 将数组中所有负数替换为其绝对值
+Invariant: return.result1 <= return.result2

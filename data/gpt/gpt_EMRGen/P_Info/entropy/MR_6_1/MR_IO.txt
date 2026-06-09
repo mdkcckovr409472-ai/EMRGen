@@ -1,0 +1,22 @@
+TestCase z6Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_k = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_k, t1.k, t1.n * sizeof(double));
+    follow_case.k = follow_case_k;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n == 0
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Specific operation code: set a random position's element to maximum double if it is less
+    int idx = rand() % follow_case.n;
+    const double MAX_DOUBLE = 1.7976931348623157e+308;
+    if (follow_case.k[idx] < MAX_DOUBLE) {
+        follow_case.k[idx] = MAX_DOUBLE;
+    }
+    
+    return follow_case;
+}

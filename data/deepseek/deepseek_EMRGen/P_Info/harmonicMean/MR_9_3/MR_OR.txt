@@ -1,0 +1,46 @@
+#include <cmath>
+#include <cstddef>
+
+int z9check(double result1, double result2) {
+    // 1. 防御性编程：检查除数是否为零
+    if (result1 == 0.0) {
+        return 0; // 除数为零，无法满足取模条件
+    }
+
+    // 2. 浮点数特殊处理：防御 NaN
+    if (std::isnan(result1) || std::isnan(result2)) {
+        return 0;
+    }
+
+    // 3. 浮点数特殊处理：处理无穷大
+    if (std::isinf(result1) || std::isinf(result2)) {
+        // 对于无穷大，直接进行数学比较
+        // 条件为 result2 % result1 == 0
+        // 数学上，当 result2 是 result1 的整数倍时，余数为 0
+        // 对于浮点数，我们使用 fmod 计算余数，并检查是否为零
+        double remainder = std::fmod(result2, result1);
+        // 在无穷大情况下，fmod 可能返回 NaN 或特定值，我们直接比较
+        // 如果余数为 0（或非常接近 0），则满足条件
+        // 这里采用严格比较，因为无穷大的运算结果是确定的
+        if (remainder == 0.0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    // 4. 计算余数
+    double remainder = std::fmod(result2, result1);
+
+    // 5. 定义容差
+    double epsilon = 1e-5;
+    // 动态容差基于操作数的量级
+    double tol = epsilon * std::max(1.0, std::max(std::fabs(result1), std::fabs(result2)));
+
+    // 6. 检查余数是否在容差范围内接近 0
+    if (std::fabs(remainder) <= tol) {
+        return 1;
+    } else {
+        return 0;
+    }
+}

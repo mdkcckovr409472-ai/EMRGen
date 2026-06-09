@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    // Allocate new array for sample2 to modify the first half elements by adding 2
+    double* newSample2 = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        if (i < tc.n / 2) {
+            newSample2[i] = tc.sample2[i] + 2;
+        } else {
+            newSample2[i] = tc.sample2[i];
+        }
+    }
+    tf.sample2 = newSample2;
+
+    return tf;
+}

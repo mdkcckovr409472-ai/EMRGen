@@ -1,0 +1,36 @@
+int check(TestCase tc) {
+    // Extract source input
+    double* Ts = tc.work;
+    int begin = tc.begin;
+    int end = tc.end;
+    int pivot = tc.pivot;
+
+    // Call function to get Os
+    int Os = partition(Ts, begin, end, pivot);
+
+    // Construct follow-up test case
+    TestCase Tf_case = tc;
+
+    // Allocate new array for Tf work to avoid modifying original array in-place
+    int size = end - begin;
+    double* Tf_work = new double[size];
+    for (int i = 0; i < size; ++i) {
+        Tf_work[i] = Ts[begin + i] + 0.5;  // add 0.5 according to MR
+    }
+    Tf_case.work = Tf_work;
+    Tf_case.begin = 0;
+    Tf_case.end = size;
+    // Adjust pivot accordingly since new array starts at 0
+    Tf_case.pivot = pivot - begin;
+
+    // Call function to get Of
+    int Of = partition(Tf_case.work, Tf_case.begin, Tf_case.end, Tf_case.pivot);
+
+    // According to MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // Free dynamically allocated memory
+    delete[] Tf_work;
+
+    return is_valid;
+}

@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    tf.values = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.values[i] = tc.values[i] * 2.0;
+    }
+    return tf;
+}

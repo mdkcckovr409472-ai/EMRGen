@@ -1,0 +1,2 @@
+Operation 33: On parameter 'mean' (double): set to 1e308 (maximum double)
+Invariant: return.result1 < return.result2

@@ -1,0 +1,22 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_a = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(double));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive check for array length (requires at least 1 element)
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    
+    // Reverse array operation
+    for (int i = 0; i < follow_case.n / 2; ++i) {
+        double tmp = follow_case.a[i];
+        follow_case.a[i] = follow_case.a[follow_case.n - 1 - i];
+        follow_case.a[follow_case.n - 1 - i] = tmp;
+    }
+    
+    return follow_case;
+}

@@ -1,0 +1,25 @@
+int check(TestCase tc) {
+    int* Os = find_diff(tc.a, tc.b, tc.na);
+
+    TestCase Tf_case = change(tc);
+    int* Of = find_diff(Tf_case.a, Tf_case.b, Tf_case.na);
+
+    int is_valid = 1;
+    if(tc.na > 0) {
+        if(Of[0] != tc.a[0] - INT_MAX) {
+            is_valid = 0;
+        }
+        for(int i = 1; i < tc.na; i++) {
+            if(Of[i] != Os[i]) {
+                is_valid = 0;
+                break;
+            }
+        }
+    }
+
+    if(Tf_case.b != tc.b) {
+        delete[] Tf_case.b;
+    }
+
+    return is_valid;
+}

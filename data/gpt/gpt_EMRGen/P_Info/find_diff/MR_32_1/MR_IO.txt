@@ -1,0 +1,26 @@
+TestCase z32Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_b = (int*)malloc(t1.na * sizeof(int));
+    memcpy(follow_case_b, t1.b, t1.na * sizeof(int));
+    follow_case.b = follow_case_b;
+    // ------------------------------------
+    
+    // Defensive code: need at least 2 elements to sort
+    if (follow_case.na < 2) {
+        return follow_case;
+    }
+    
+    // Sort ascending (bubble sort)
+    for (int i = 0; i < follow_case.na - 1; ++i) {
+        for (int j = 0; j < follow_case.na - i - 1; ++j) {
+            if (follow_case.b[j] > follow_case.b[j + 1]) {
+                int temp = follow_case.b[j];
+                follow_case.b[j] = follow_case.b[j + 1];
+                follow_case.b[j + 1] = temp;
+            }
+        }
+    }
+    
+    return follow_case;
+}

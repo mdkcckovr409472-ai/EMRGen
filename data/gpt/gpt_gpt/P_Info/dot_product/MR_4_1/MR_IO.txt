@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        // Reuse the array a but create a new array to avoid modifying original input
+        int* new_a = new int[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            new_a[i] = tf.a[i];
+        }
+        new_a[0] = INT_MAX; // set first element to max int value
+        tf.a = new_a;
+    }
+    return tf;
+}

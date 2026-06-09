@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = meanDifference(tc.sample1, tc.sample2, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = meanDifference(Tf_case.sample1, Tf_case.sample2, Tf_case.n);
+    // Free the dynamically allocated sample1 in Tf_case
+    delete[] Tf_case.sample1;
+    // Check the metamorphic relation Of == Os - 1
+    if (fabs(Of - (Os - 1.0)) < 1e-9) {
+        return 1;
+    }
+    return 0;
+}

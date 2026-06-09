@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    tf.a = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        if (i < tc.n / 2) {
+            tf.a[i] = tc.a[i] + 0.5;
+        } else {
+            tf.a[i] = tc.a[i];
+        }
+    }
+
+    return tf;
+}

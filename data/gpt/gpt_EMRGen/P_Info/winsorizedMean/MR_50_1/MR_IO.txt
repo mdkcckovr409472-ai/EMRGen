@@ -1,0 +1,8 @@
+TestCase z50Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check: ensure right - 2 is non‑negative
+    if (follow_case.right >= 2) {
+        follow_case.right -= 2;
+    }
+    return follow_case;
+}

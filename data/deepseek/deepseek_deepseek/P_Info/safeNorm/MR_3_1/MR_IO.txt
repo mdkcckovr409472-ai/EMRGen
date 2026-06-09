@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        double* reversed_v = new double[tf.n];
+        for (int i = 0; i < tf.n; ++i) {
+            reversed_v[i] = tc.v[tf.n - 1 - i];
+        }
+        tf.v = reversed_v;
+    }
+    return tf;
+}

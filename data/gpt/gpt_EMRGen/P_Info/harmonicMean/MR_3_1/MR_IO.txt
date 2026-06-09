@@ -1,0 +1,14 @@
+TestCase z3Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling
+    double* follow_case_data = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_data, t1.data, t1.n * sizeof(double));
+    follow_case.data = follow_case_data;
+    // Defensive check
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            follow_case.data[i] *= 2.0;
+        }
+    }
+    return follow_case;
+}

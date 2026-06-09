@@ -1,0 +1,43 @@
+int check(TestCase tc) {
+    if (tc.data == nullptr || tc.n <= 0) return 0;
+    // (1) Extract the source input (Ts)
+    double* Ts = tc.data;
+    int n = tc.n;
+    // (2) Call the function under test to get source output Os
+    double* Os = standardize(Ts, n);
+    if (Os == nullptr) return 0;
+    // (3) Call change() to construct follow-up test case
+    TestCase Tf_case = change(tc);
+    // (4) Extract follow-up input and get follow-up output Of
+    double* Of = nullptr;
+    if (Tf_case.data != nullptr) {
+        Of = standardize(Tf_case.data, Tf_case.n);
+    }
+    if (Of == nullptr) {
+        free(Os);
+        if (Tf_case.data != tc.data) free(Tf_case.data);
+        return 0;
+    }
+    // (5) Verify MR: Os != Of
+    int is_valid = 0;
+    if (n % 2 == 1 && Tf_case.data != tc.data) {
+        // Compare Os and Of arrays element-wise: any difference means Os != Of
+        int different = 0;
+        for (int i = 0; i < n; i++) {
+            if (Os[i] != Of[i]) {
+                different = 1;
+                break;
+            }
+        }
+        if (different) is_valid = 1;
+    } else {
+        // If no change applied (even length), MR does not require validation
+        is_valid = 0;
+    }
+    // (6) Free all dynamically allocated memory
+    free(Os);
+    free(Of);
+    if (Tf_case.data != tc.data) free(Tf_case.data);
+    // (7) Return result
+    return is_valid;
+}

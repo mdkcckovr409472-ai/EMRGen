@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    // Reuse original test case structure
+    TestCase tf = tc;
+    // Sort the array in descending order in-place
+    std::sort(tf.a, tf.a + tf.n, [](int x, int y) { return x > y; });
+    return tf;
+}

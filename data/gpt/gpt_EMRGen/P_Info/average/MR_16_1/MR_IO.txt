@@ -1,0 +1,23 @@
+TestCase z16Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ---------------------------
+
+    // Defensive check: need at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Replace a random element with its absolute value
+    int idx = rand() % follow_case.n;
+    int val = follow_case.a[idx];
+    if (val < 0) {
+        val = -val;
+    }
+    follow_case.a[idx] = val;
+
+    return follow_case;
+}

@@ -1,0 +1,14 @@
+TestCase z10Change(TestCase t1) {
+    TestCase follow_case = t1;
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    int idx = rand() % follow_case.n;
+    if (follow_case.a[idx] < INT_MAX) {
+        follow_case.a[idx] += 1;
+    }
+    return follow_case;
+}

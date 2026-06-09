@@ -1,0 +1,17 @@
+int z9check(int* result1, int* result2, int n) {
+    // 1. Defensive programming (Length check first)
+    if (n <= 0) return 1;
+
+    // 2. Null pointer check second
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    // 3. Core evaluation logic (elementwise: result1 is reverse of result2)
+    for (int i = 0; i < n; i++) {
+        if (!(result1[i] == result2[n - 1 - i])) {
+            return 0;
+        }
+    }
+
+    // 4. Fully satisfied, return 1
+    return 1;
+}

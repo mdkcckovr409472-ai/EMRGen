@@ -1,0 +1,53 @@
+double evaluateNewton(double a[], double c[], double z, int nc) {
+    int n = nc - 1;
+    double value = a[n];
+    for (int i = n - 1; i >= 0; i--) {
+        value = a[i] + (z - c[i]) * value;
+    }
+    return value;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'a' (array[double]): multiply all elements by 2.0
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (array[double]): divide all elements by 2.0
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「divide all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (array[double]): set first element to 0.0 (when element > 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「set first element to 0.0 (when element > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 36: On parameter 'c' (array[double]): set last element to 50.0 (when element < 50)
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含c（array[double]）的函数，若对 c执行「set last element to 50.0 (when element < 50)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 4
+关系总数: 4

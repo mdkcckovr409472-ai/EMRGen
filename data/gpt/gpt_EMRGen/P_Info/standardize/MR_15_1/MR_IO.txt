@@ -1,0 +1,30 @@
+TestCase z15Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_data = (double*)malloc(t1.n * sizeof(double));
+    if (follow_case_data != NULL && t1.n > 0) {
+        memcpy(follow_case_data, t1.data, t1.n * sizeof(double));
+    }
+    follow_case.data = follow_case_data;
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n < 1) {
+        // No elements to sort, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    // Simple insertion sort implementation since std::sort is not allowed
+    for (int i = 1; i < follow_case.n; i++) {
+        double key = follow_case.data[i];
+        int j = i - 1;
+        while (j >= 0 && follow_case.data[j] > key) {
+            follow_case.data[j + 1] = follow_case.data[j];
+            j--;
+        }
+        follow_case.data[j + 1] = key;
+    }
+
+    return follow_case;
+}

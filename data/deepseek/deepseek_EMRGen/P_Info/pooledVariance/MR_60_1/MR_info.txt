@@ -1,0 +1,2 @@
+Operation 60: On parameter 'data2' (double*): 所有元素符号取反
+Invariant: return.result1 == return.result2

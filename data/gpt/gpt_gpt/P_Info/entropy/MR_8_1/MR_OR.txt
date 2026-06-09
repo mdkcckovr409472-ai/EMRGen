@@ -1,0 +1,10 @@
+int check(TestCase tc) {
+    double Os = entropy(tc.k, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = entropy(Tf_case.k, Tf_case.n);
+    int is_valid = (Os == Of) ? 1 : 0;
+    if (Tf_case.k != tc.k) {
+        delete[] Tf_case.k;
+    }
+    return is_valid;
+}

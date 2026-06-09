@@ -1,0 +1,26 @@
+#include <cmath>
+
+int z2check(double result1, double result2) {
+    // Core evaluation logic (direct scalar comparison) with tolerance and NaN/Inf handling
+
+    // Rearranged for result1 >= result2: A = result1, B = result2
+    double A = result1;
+    double B = result2;
+    
+    // Check NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+
+    // Check Inf
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A >= B) return 1;
+        else return 0;
+    }
+    
+    double epsilon = 1e-5;
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    // For condition result1 >= result2: if A < B - tol, violation
+    if (A < B - tol) return 0;
+
+    return 1;
+}

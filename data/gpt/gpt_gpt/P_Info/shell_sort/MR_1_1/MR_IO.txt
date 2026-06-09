@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* reversed = (int*)malloc(tc.n * sizeof(int));
+    for(int i = 0; i < tc.n; i++) {
+        reversed[i] = tc.a[tc.n - 1 - i];
+    }
+    tf.a = reversed;
+    return tf;
+}

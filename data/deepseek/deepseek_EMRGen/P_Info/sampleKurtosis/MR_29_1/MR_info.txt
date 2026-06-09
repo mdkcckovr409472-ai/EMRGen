@@ -1,0 +1,2 @@
+Operation 29: On parameter 'sampleVariance' (double): 加0.1
+Invariant: return.result1 >= return.result2

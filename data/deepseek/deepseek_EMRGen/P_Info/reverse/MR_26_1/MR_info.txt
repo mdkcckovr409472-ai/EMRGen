@@ -1,0 +1,2 @@
+Operation 26: On parameter 'a' (int*): 将数组所有负数元素取绝对值
+Invariant: return.result1[] <= return.result2[] (elementwise)

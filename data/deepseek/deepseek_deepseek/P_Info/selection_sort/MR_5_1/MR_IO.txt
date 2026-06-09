@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1) {
+        int i = rand() % tf.n;
+        int j;
+        do {
+            j = rand() % tf.n;
+        } while (j == i);
+        int temp = tf.list[i];
+        tf.list[i] = tf.list[j];
+        tf.list[j] = temp;
+    }
+    return tf;
+}

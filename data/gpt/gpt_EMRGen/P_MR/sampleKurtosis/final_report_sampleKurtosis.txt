@@ -1,0 +1,114 @@
+double sampleKurtosis(double moment4, double sampleVariance,int size) {
+    int n = size;
+    double s2 = sampleVariance;
+    double m4 = moment4 * n;
+    return m4 * n * (n + 1) / ((n - 1) * (n - 2) * (n - 3) * s2 * s2) - 3.0 * (n - 1) * (n - 1) / ((n - 2) * (n - 3));
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 2: On parameter 'moment4' (double): subtract 1.0
+Invariant: 
+return.result1 > return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「subtract 1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 8: On parameter 'moment4' (double): set to maximum double (1.7976931348623157e308)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「set to maximum double (1.7976931348623157e308)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 11: On parameter 'moment4' (double): set to positive infinity
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「set to positive infinity」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 12: On parameter 'moment4' (double): set to negative infinity
+Invariant: 
+return.result1 > return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「set to negative infinity」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 13: On parameter 'moment4' (double): take absolute value
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「take absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'moment4' (double): floor
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「floor」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 20: On parameter 'moment4' (double): ceil
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「ceil」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'moment4' (double): apply natural log (if >0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「apply natural log (if >0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'moment4' (double): apply exponential (exp)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「apply exponential (exp)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 39: On parameter 'sampleVariance' (double): take absolute value
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「take absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 40: On parameter 'sampleVariance' (double): negate (multiply by -1)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「negate (multiply by -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 11
+关系总数: 11

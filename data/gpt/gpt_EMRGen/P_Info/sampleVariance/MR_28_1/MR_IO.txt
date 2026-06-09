@@ -1,0 +1,10 @@
+TestCase z28Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive checks (none required for adding 1.0 to a scalar)
+
+    // Operation: add 1.0 to the mean field
+    follow_case.mean += 1.0;
+
+    return follow_case;
+}

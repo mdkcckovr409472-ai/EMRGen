@@ -1,0 +1,23 @@
+int check(TestCase tc) {
+    int* Os = shell_sort(tc.a, tc.n);
+    TestCase Tf_case = change(tc);
+    int* Of = shell_sort(Tf_case.a, Tf_case.n);
+    int is_valid = 0;
+    int i;
+    int all_equal = 1;
+    for (i = 0; i < tc.n; ++i) {
+        if (Os[i] != Of[i]) {
+            all_equal = 0;
+            break;
+        }
+    }
+    if (all_equal) {
+        is_valid = 1;
+    }
+    free(Os);
+    free(Of);
+    if (Tf_case.a != tc.a) {
+        free(Tf_case.a);
+    }
+    return is_valid;
+}

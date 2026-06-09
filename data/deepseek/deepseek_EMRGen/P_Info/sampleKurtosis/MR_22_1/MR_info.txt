@@ -1,0 +1,2 @@
+Operation 22: On parameter 'moment4' (double): 乘π
+Invariant: return.result1 <= return.result2

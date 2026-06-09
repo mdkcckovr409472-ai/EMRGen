@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1 && tf.elements != nullptr) {
+        int idx1 = rand() % tf.n;
+        int idx2;
+        do {
+            idx2 = rand() % tf.n;
+        } while (idx1 == idx2 || tf.elements[idx1] == tf.elements[idx2]);
+        std::swap(tf.elements[idx1], tf.elements[idx2]);
+    }
+    return tf;
+}

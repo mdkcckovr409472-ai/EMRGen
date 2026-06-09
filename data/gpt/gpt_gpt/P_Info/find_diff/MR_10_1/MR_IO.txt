@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* new_b = new int[tf.na];
+    for (int i = 0; i < tf.na; i++) {
+        if (i % 2 == 1) {
+            new_b[i] = tf.b[i] + 2;
+        } else {
+            new_b[i] = tf.b[i];
+        }
+    }
+    tf.b = new_b;
+    return tf;
+}

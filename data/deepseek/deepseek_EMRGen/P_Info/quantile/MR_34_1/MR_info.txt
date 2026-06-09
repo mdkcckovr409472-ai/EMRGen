@@ -1,0 +1,2 @@
+Operation 34: On parameter 'phi' (double): 置1.0
+Invariant: return.result1 <= return.result2

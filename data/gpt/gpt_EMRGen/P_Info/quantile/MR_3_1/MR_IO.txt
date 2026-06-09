@@ -1,0 +1,15 @@
+TestCase z3Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_sortedElements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_sortedElements, t1.sortedElements, t1.n * sizeof(double));
+    follow_case.sortedElements = follow_case_sortedElements;
+    // ------------------------------------
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.sortedElements[i] *= 2.0;
+    }
+    return follow_case;
+}

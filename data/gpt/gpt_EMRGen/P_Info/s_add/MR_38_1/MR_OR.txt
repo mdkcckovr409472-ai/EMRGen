@@ -1,0 +1,18 @@
+#include <cmath>
+#include <algorithm>
+
+int z38check(int* result1, int* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    for (int i = 0; i < n; i++) {
+        int A = result1[i];
+        int B = result2[i];
+
+        if (A > B) return 1;
+        else if (A < B) return 0;
+        // if equal, continue to next element
+    }
+    // arrays are equal, so lexically result1 is not greater than result2
+    return 0;
+}

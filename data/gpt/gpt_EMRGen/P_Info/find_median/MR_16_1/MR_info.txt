@@ -1,0 +1,2 @@
+Operation 16: On parameter 'a' (array[int]): take absolute value of all elements
+Invariant: return.result1 <= return.result2

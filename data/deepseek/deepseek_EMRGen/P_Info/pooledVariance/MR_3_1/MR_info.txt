@@ -1,0 +1,2 @@
+Operation 3: On parameter 'data1' (double*): 所有元素乘2.0
+Invariant: return.result1 <= return.result2

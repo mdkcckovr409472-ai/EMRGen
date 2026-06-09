@@ -1,0 +1,7 @@
+TestCase z53Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 操作代码：置为n-1
+follow_case.left = follow_case.n - 1;
+
+return follow_case;}

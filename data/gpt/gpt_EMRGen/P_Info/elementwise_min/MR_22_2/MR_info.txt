@@ -1,0 +1,2 @@
+Operation 22: On parameter 'a' (array[int]): replace elements at odd indices by subtracting 2
+Invariant: return.result1[0..0] == return.result2[0..0] (elementwise)

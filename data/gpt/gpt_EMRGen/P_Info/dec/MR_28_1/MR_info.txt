@@ -1,0 +1,2 @@
+Operation 28: On parameter 'array1' (array[int]): decrement every fifth element by 3
+Invariant: return.result1[] >= return.result2[] (elementwise)

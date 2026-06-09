@@ -1,0 +1,18 @@
+int z43check(int* result1, int* result2, int n) {
+    // 4.a Length validity check
+    if (n <= 0) return 1;
+    // 4.b Null pointer check
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    // 2. Core evaluation logic (elementwise)
+    // Condition: return.result1[] - return.result2[] + 4 == 0
+    // Rearranged: result1[i] == result2[i] - 4
+    for (int i = 0; i < n; i++) {
+        if (!(result1[i] - result2[i] + 4 == 0)) {
+            return 0;
+        }
+    }
+
+    // 3. Fully satisfied
+    return 1;
+}

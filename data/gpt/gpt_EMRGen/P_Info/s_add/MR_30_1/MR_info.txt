@@ -1,0 +1,2 @@
+Operation 30: On parameter 'array1' (int[]): divide elements at odd indices by 3 (integer)
+Invariant: return.result1[0..0] == return.result2[0..0] (elementwise)

@@ -1,0 +1,19 @@
+TestCase z4Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of sortedElements
+    double* follow_case_sortedElements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_sortedElements, t1.sortedElements, t1.n * sizeof(double));
+    follow_case.sortedElements = follow_case_sortedElements;
+
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Operation: divide each element by 3.0
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.sortedElements[i] /= 3.0;
+    }
+
+    return follow_case;
+}

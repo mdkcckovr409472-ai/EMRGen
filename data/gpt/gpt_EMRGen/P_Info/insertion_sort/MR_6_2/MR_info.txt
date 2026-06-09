@@ -1,0 +1,2 @@
+Operation 6: On parameter 'array' (array[int]): set a random element to 999 (when element < 999)
+Invariant: return.result1[] <= return.result2[] (elementwise)

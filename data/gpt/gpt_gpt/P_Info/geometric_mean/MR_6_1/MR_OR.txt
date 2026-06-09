@@ -1,0 +1,26 @@
+int check(TestCase tc) {
+    // (1) Extract the source input
+    int* Ts = tc.a;
+    int n = tc.n;
+
+    // (2) Call the function under test to get the source output Os
+    double Os = geometric_mean(Ts, n);
+
+    // (3) Call the change function to construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // (4) Extract the follow-up input and get the follow-up output Of
+    double Of = geometric_mean(Tf_case.a, Tf_case.n);
+
+    // (5) Verify whether Os and Of satisfy the MR (Os == Of)
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // (6) Free any dynamic memory allocated in change()
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+        Tf_case.a = nullptr;
+    }
+
+    // (7) Return the verification result
+    return is_valid;
+}

@@ -1,0 +1,20 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // 分配新数组用于打乱
+    int* shuffled_array = new int[tc.n];
+    // 复制原始数据
+    for (int i = 0; i < tc.n; i++) {
+        shuffled_array[i] = tc.a[i];
+    }
+    // 使用 std::random_shuffle 打乱数组
+    // 注意：为了使用 std::random_shuffle，需要包含 <algorithm> 和 <random>
+    // 这里使用一个简单的 Fisher-Yates 洗牌算法实现
+    std::srand(std::time(0)); // 使用当前时间作为随机种子
+    for (int i = tc.n - 1; i > 0; i--) {
+        int j = std::rand() % (i + 1);
+        std::swap(shuffled_array[i], shuffled_array[j]);
+    }
+    tf.a = shuffled_array;
+    // 注意：tf.n 保持不变，因为数组大小未变
+    return tf;
+}

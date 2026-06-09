@@ -1,0 +1,2 @@
+Operation 23: On parameter 'a' (int*): 所有元素加k（若k非长度控制参数）
+Invariant: return.result1[] < return.result2[] (elementwise)

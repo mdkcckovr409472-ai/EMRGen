@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = covariance(tc.elements1, tc.elements2, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = covariance(Tf_case.elements1, Tf_case.elements2, Tf_case.n);
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (fabs(Os / 2.0 - Of) < epsilon) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.elements1;
+    return is_valid;
+}

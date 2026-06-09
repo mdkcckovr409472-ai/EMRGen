@@ -1,0 +1,27 @@
+TestCase z20Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+    
+    // Defensive code to ensure there are at least 2 elements for rotation
+    if (follow_case.n < 2) {
+        // Not enough elements to perform rotation, return replica directly
+        return follow_case;
+    }
+    
+    // Specific operation: rotate subarray [a,b] left by 1 (move element at a to position b)
+    // Here we define a = 0 and b = follow_case.n - 1 (rotate the whole array)
+    int a = 0;
+    int b = follow_case.n - 1;
+    // Ensure indices are within bounds (they are by construction)
+    double temp = follow_case.elements[a];
+    for (int i = a; i < b; ++i) {
+        follow_case.elements[i] = follow_case.elements[i + 1];
+    }
+    follow_case.elements[b] = temp;
+    
+    return follow_case;
+}

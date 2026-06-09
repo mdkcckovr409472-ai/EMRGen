@@ -1,0 +1,347 @@
+double sampleKurtosis(double moment4 ,int size, double sampleVariance) {
+    int n = size;
+    double s2 = sampleVariance;
+    double m4 = moment4 * n;
+    return m4 * n * (n + 1) / ((n - 1) * (n - 2) * (n - 3) * s2 * s2) - 3.0 * (n - 1) * (n - 1) / ((n - 2) * (n - 3));
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'moment4' (double): 加1.0
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 2: On parameter 'moment4' (double): 减2.5
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「减2.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 3: On parameter 'moment4' (double): 乘3.0
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 4: On parameter 'moment4' (double): 除4.0
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 5: On parameter 'moment4' (double): 取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 7: On parameter 'moment4' (double): 加1（当值小于-1时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「加1（当值小于-1时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'moment4' (double): 乘2（当值小于-1时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「乘2（当值小于-1时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'moment4' (double): 置-999（当值小于-999时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「置-999（当值小于-999时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'moment4' (double): 置0.0
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 11: On parameter 'moment4' (double): 置正无穷
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「置正无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 12: On parameter 'moment4' (double): 置负无穷
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「置负无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 18: On parameter 'moment4' (double): 加原值一半（加上自身除以2）
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「加原值一半（加上自身除以2）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 19: On parameter 'moment4' (double): 放大100倍
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「放大100倍」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 20: On parameter 'moment4' (double): 缩小为十分之一
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「缩小为十分之一」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 21: On parameter 'moment4' (double): 取模1.5（浮点数模运算）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「取模1.5（浮点数模运算）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'moment4' (double): 置最大值（Double.MAX_VALUE）
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「置最大值（Double.MAX_VALUE）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 23: On parameter 'moment4' (double): 置最小值（Double.MIN_VALUE）
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「置最小值（Double.MIN_VALUE）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 24: On parameter 'moment4' (double): 随机加0.1到1.0之间值
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含moment4（double）的函数，若对 moment4执行「随机加0.1到1.0之间值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 25: On parameter 'size' (int): 禁止修改（长度控制器）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含size（int）的函数，若对 size执行「禁止修改（长度控制器）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 26: On parameter 'sampleVariance' (double): 加1.0
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 28: On parameter 'sampleVariance' (double): 乘3.0
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 29: On parameter 'sampleVariance' (double): 除4.0
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 30: On parameter 'sampleVariance' (double): 取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 32: On parameter 'sampleVariance' (double): 加1（当值小于-1时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「加1（当值小于-1时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 33: On parameter 'sampleVariance' (double): 乘2（当值小于-1时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「乘2（当值小于-1时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 34: On parameter 'sampleVariance' (double): 置-999（当值小于-999时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「置-999（当值小于-999时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 35: On parameter 'sampleVariance' (double): 置0.0
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 36: On parameter 'sampleVariance' (double): 置正无穷
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「置正无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 37: On parameter 'sampleVariance' (double): 置负无穷
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「置负无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 42: On parameter 'sampleVariance' (double): 取相反数
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 43: On parameter 'sampleVariance' (double): 加原值一半（加上自身除以2）
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「加原值一半（加上自身除以2）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 44: On parameter 'sampleVariance' (double): 放大100倍
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「放大100倍」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 45: On parameter 'sampleVariance' (double): 缩小为十分之一
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「缩小为十分之一」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 46: On parameter 'sampleVariance' (double): 取模1.5（浮点数模运算）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「取模1.5（浮点数模运算）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 47: On parameter 'sampleVariance' (double): 置最大值（Double.MAX_VALUE）
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「置最大值（Double.MAX_VALUE）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 48: On parameter 'sampleVariance' (double): 置最小值（Double.MIN_VALUE）
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「置最小值（Double.MIN_VALUE）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 49: On parameter 'sampleVariance' (double): 随机加0.1到1.0之间值
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含sampleVariance（double）的函数，若对 sampleVariance执行「随机加0.1到1.0之间值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+
+操作总数: 37
+关系总数: 37

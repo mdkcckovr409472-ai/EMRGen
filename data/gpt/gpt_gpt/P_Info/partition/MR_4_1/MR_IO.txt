@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Divide each non-zero element in work by 2.0 as per MR
+    for (int i = tf.begin; i < tf.end; ++i) {
+        if (tf.work[i] != 0.0) {
+            tf.work[i] /= 2.0;
+        }
+    }
+    return tf;
+}

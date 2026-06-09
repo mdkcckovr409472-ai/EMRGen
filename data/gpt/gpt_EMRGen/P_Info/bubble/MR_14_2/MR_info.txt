@@ -1,0 +1,2 @@
+Operation 14: On parameter 'a' (int*): set a random element to 999 (when element is less than 999)
+Invariant: return.result1[] <= return.result2[] (elementwise)

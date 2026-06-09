@@ -1,0 +1,2 @@
+Operation 22: On parameter 'a' (array[int]): decrement element at index j by 7
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,2 @@
+Operation 17: On parameter 'elements' (array[double]): left circular shift array by 1 (move first element to end)
+Invariant: return.result1 == return.result2

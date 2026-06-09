@@ -1,0 +1,492 @@
+double winsorizedMean(double elements[], int left, int right, int n) {
+    qsort(elements, n, sizeof(double), [](const void *a, const void *b) -> int {
+        double diff = *(double *)a - *(double *)b;
+        if (diff > 0) return 1;
+        else if (diff < 0) return -1;
+        else return 0;
+    });
+
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += elements[i];
+    }
+
+    double mean = sum / n;
+
+    if (n > 0 && left >= 0 && left < n) {
+        double leftElement = elements[left];
+        for (int i = 0; i < left; ++i) {
+            mean += (leftElement - elements[i]) / n;
+        }
+    }
+
+    if (n > 0 && right >= 0 && right < n && (n - 1 - right) >= 0) {
+        double rightElement = elements[n - 1 - right];
+        for (int i = 0; i < right; ++i) {
+            mean += (rightElement - elements[n - 1 - i]) / n;
+        }
+    }
+
+    return mean;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加1.0
+Invariant: 
+return.result1 - return.result2 + 1 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (double*): 所有元素减2.5
+Invariant: 
+return.result1 - return.result2 - 2.5 == 0 ✓ ○
+return.result1 > return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素减2.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 2.5 == 0
+Os > Of
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (double*): 所有元素乘3.0
+Invariant: 
+3 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+3 * Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 所有元素除4.0
+Invariant: 
+return.result1 - 4 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 4 * Of == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 所有元素取自然对数
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素取自然对数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 16: On parameter 'elements' (double*): 交换数组中两个随机位置的元素
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「交换数组中两个随机位置的元素」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 17: On parameter 'elements' (double*): 将数组所有元素反转
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组所有元素反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'elements' (double*): 将数组随机重排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'elements' (double*): 将数组按升序排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组按升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 20: On parameter 'elements' (double*): 将数组按降序排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组按降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'elements' (double*): 将数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 22: On parameter 'elements' (double*): 将数组向右循环移位（末尾元素移到首部）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组向右循环移位（末尾元素移到首部）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (double*): 将数组中所有正数置为0.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组中所有正数置为0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (double*): 将数组中所有负数置为0.0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组中所有负数置为0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'elements' (double*): 将数组中所有元素向上取整
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组中所有元素向上取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'elements' (double*): 将数组中所有元素向下取整
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组中所有元素向下取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 30: On parameter 'left' (int): 加1
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 31: On parameter 'left' (int): 减1
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'left' (int): 除2（整数除法）
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「除2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 34: On parameter 'left' (int): 置为0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 36: On parameter 'left' (int): 置为-1
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「置为-1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 37: On parameter 'left' (int): 置为最大值（INT_MAX）
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「置为最大值（INT_MAX）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 38: On parameter 'left' (int): 置为最小值（INT_MIN）
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「置为最小值（INT_MIN）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'left' (int): 取相反数
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 40: On parameter 'left' (int): 取绝对值
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 44: On parameter 'left' (int): 与数组长度n取模
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「与数组长度n取模」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 45: On parameter 'left' (int): 与right参数相加（注意：此操作可能改变语义，但仅修改left）
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「与right参数相加（注意：此操作可能改变语义，但仅修改left）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 46: On parameter 'left' (int): 与right参数相减
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「与right参数相减」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 48: On parameter 'left' (int): 与right参数相除（非零检查）
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「与right参数相除（非零检查）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 50: On parameter 'left' (int): 右移1位
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「右移1位」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 51: On parameter 'left' (int): 自增1
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「自增1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 52: On parameter 'left' (int): 自减1
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「自减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 53: On parameter 'left' (int): 置为n-1
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「置为n-1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 54: On parameter 'left' (int): 置为n/2
+Invariant: 
+return.result1 <= return.result2  ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「置为n/2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 59: On parameter 'right' (int): 减1
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 61: On parameter 'right' (int): 除2（整数除法）
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「除2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 62: On parameter 'right' (int): 置为0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 64: On parameter 'right' (int): 置为-1
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「置为-1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 65: On parameter 'right' (int): 置为最大值（INT_MAX）
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「置为最大值（INT_MAX）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 66: On parameter 'right' (int): 置为最小值（INT_MIN）
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「置为最小值（INT_MIN）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 67: On parameter 'right' (int): 取相反数
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 68: On parameter 'right' (int): 取绝对值
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 72: On parameter 'right' (int): 与数组长度n取模
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「与数组长度n取模」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 73: On parameter 'right' (int): 与left参数相加（注意：此操作可能改变语义，但仅修改right）
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「与left参数相加（注意：此操作可能改变语义，但仅修改right）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 74: On parameter 'right' (int): 与left参数相减
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「与left参数相减」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 76: On parameter 'right' (int): 与left参数相除（非零检查）
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「与left参数相除（非零检查）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 78: On parameter 'right' (int): 右移1位
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「右移1位」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 80: On parameter 'right' (int): 自减1
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「自减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 81: On parameter 'right' (int): 置为n-1
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「置为n-1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+
+操作总数: 51
+关系总数: 51

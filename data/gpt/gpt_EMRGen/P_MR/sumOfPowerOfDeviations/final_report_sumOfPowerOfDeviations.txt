@@ -1,0 +1,133 @@
+double sumOfPowerOfDeviations(double data[], int k, double c, int n) {
+    double sum = 0;
+    for(int i = 0; i < n; i++) {
+        sum += pow(data[i] - c, k);
+        }
+    return sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 6: On parameter 'data' (double[]): set a random element to -999.0 (when the element < -999)
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含data（double[]）的函数，若对 data执行「set a random element to -999.0 (when the element < -999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'data' (double[]): replace last element with INF
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含data（double[]）的函数，若对 data执行「replace last element with INF」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 9: On parameter 'data' (double[]): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（double[]）的函数，若对 data执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'data' (double[]): reverse array (reverse order)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（double[]）的函数，若对 data执行「reverse array (reverse order)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'data' (double[]): left circular shift array (move first element to end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（double[]）的函数，若对 data执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'data' (double[]): right circular shift array (move last element to front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（double[]）的函数，若对 data执行「right circular shift array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'data' (double[]): sort array ascending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（double[]）的函数，若对 data执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'data' (double[]): sort array descending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data（double[]）的函数，若对 data执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'data' (double[]): apply exponential (e^x) to each element
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含data（double[]）的函数，若对 data执行「apply exponential (e^x) to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'data' (double[]): set all elements to DBL_MAX (when element < DBL_MAX)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含data（double[]）的函数，若对 data执行「set all elements to DBL_MAX (when element < DBL_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'k' (int): take absolute value of k
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「take absolute value of k」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 44: On parameter 'k' (int): set k to the next even number (if k is odd add 1)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「set k to the next even number (if k is odd add 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 55: On parameter 'c' (double): set c to -1e6 (when c > -1e6)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含c（double）的函数，若对 c执行「set c to -1e6 (when c > -1e6)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 13
+关系总数: 13

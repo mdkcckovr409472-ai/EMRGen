@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Since we have to set the last element to 1 to construct Tf,
+    // and in order to obey the reuse principle,
+    // we allocate a new array and copy the original to avoid modifying the original directly.
+    int* new_arr = new int[tc.n];
+    for(int i = 0; i < tc.n; i++){
+        new_arr[i] = tc.a[i];
+    }
+    if(tf.n > 0){
+        new_arr[tf.n - 1] = 1;
+    }
+    tf.a = new_arr;
+    return tf;
+}

@@ -1,0 +1,2 @@
+Operation 24: On parameter 'a' (array[int]): set a random element to element % 2 (parity)
+Invariant: return.result1 >= return.result2

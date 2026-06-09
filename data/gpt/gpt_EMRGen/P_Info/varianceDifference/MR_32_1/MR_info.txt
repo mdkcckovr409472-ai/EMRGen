@@ -1,0 +1,2 @@
+Operation 32: On parameter 'sample2' (array[double]): subtract 2.5 from all elements
+Invariant: return.result1 == return.result2

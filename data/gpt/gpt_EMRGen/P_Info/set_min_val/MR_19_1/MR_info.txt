@@ -1,0 +1,2 @@
+Operation 19: On parameter 'a' (array[int]): subtract 5 from a random element (when element ≥ INT_MIN+5)
+Invariant: return.result1[] >= return.result2[] (elementwise)

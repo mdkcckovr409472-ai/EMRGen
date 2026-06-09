@@ -1,0 +1,19 @@
+TestCase z13Change(TestCase t1) {
+    TestCase follow_case = t1;
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+
+    for (int i = follow_case.n - 1; i > 0; --i) {
+        int j = rand() % (i + 1);
+        double temp = follow_case.elements[i];
+        follow_case.elements[i] = follow_case.elements[j];
+        follow_case.elements[j] = temp;
+    }
+
+    return follow_case;
+}

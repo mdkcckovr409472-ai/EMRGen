@@ -1,0 +1,2 @@
+Operation 39: On parameter 'k' (int): decrement k by 1
+Invariant: return.result1[] < return.result2[] (elementwise)

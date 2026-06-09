@@ -1,0 +1,2 @@
+Operation 4: On parameter 'a' (int*): left circular shift array (move first element to end)
+Invariant: return.result1[] == return.result2[]

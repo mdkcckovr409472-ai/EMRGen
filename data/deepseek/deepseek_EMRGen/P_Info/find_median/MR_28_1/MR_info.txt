@@ -1,0 +1,2 @@
+Operation 28: On parameter 'a' (int*): 将元素值限制在0到255之间（小于0置0，大于255置255）
+Invariant: return.result1 <= return.result2

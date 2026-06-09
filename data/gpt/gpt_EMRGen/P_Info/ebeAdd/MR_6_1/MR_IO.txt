@@ -1,0 +1,23 @@
+TestCase z6Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_a = (double*)malloc(t1.n1 * sizeof(double));
+    if (t1.n1 > 0 && t1.a != NULL) {
+        memcpy(follow_case_a, t1.a, t1.n1 * sizeof(double));
+    }
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n1 <= 0) {
+        // No elements, cannot add 5.0 to a random element, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    // Add 5.0 to a random element in follow_case.a
+    int index = rand() % follow_case.n1;
+    follow_case.a[index] += 5.0;
+
+    return follow_case;
+}

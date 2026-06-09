@@ -1,0 +1,25 @@
+TestCase z53Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+int* follow_case_b = (int*)malloc(t1.n * sizeof(int));
+memcpy(follow_case_b, t1.b, t1.n * sizeof(int));
+follow_case.b = follow_case_b;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<=0时出错
+if (follow_case.n <= 0) {
+    // 数组为空或长度为负，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+// 操作：将索引为偶合数的元素加4
+// 偶合数：既是偶数又是合数。偶数中，0和2是质数，4及以上的偶数为合数。
+// 因此，对于数组索引i，需要满足：i是偶数 且 i >= 4。
+for (int i = 0; i < follow_case.n; i++) {
+    if (i % 2 == 0 && i >= 4) {
+        follow_case.b[i] += 4;
+    }
+}
+
+return follow_case;}

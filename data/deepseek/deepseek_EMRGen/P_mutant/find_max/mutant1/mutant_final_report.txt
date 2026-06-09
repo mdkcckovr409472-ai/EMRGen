@@ -1,0 +1,184 @@
+int find_max(int a[], int n) {
+    int max = a[0];
+    for (int i = 0; i < n; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        }
+        continue;
+    }
+    return max;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (int*): 所有元素加1
+Invariant:
+return.result1 - return.result2 + 1 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (int*): 所有元素减1
+Invariant:
+return.result1 - return.result2 - 1 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (int*): 所有元素乘2
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (int*): 随机位置元素置为-999
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (int*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (int*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (int*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (int*): 数组向右循环移位（末元素移到开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (int*): 随机重排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (int*): 所有元素置为最大值
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (int*): 所有元素置为最小值
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (int*): 偶数索引元素加1
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (int*): 奇数索引元素减1
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (int*): 首元素和末元素互换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (int*): 数组前一半元素加10
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (int*): 数组后一半元素减10
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (int*): 所有元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (int*): 所有元素平方
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (int*): 所有元素开平方(向下取整)
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (int*): 所有元素与索引值相加
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (int*): 所有元素减去索引值
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (int*): 数组从小到大排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (int*): 数组从大到小排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (int*): 截取前n/2个元素（n为奇数时截取前floor(n/2)个）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (int*): 截取后n/2个元素（n为奇数时截取后floor(n/2)个）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 30: On parameter 'a' (int*): 随机位置元素增加随机1-10值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 31: On parameter 'a' (int*): 随机位置元素减少随机1-10值
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+操作总数: 27
+独立MR总数: 27
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

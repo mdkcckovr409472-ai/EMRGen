@@ -1,0 +1,136 @@
+double evaluateWeightedProduct( double values[],  double weights[],  int begin, int lengths, int n) {
+    double product = 1.0;
+     
+    for (int i = begin; i < begin + lengths; i++) {
+        product *= pow(values[i], weights[i]);
+    }
+    return product;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「add 1 to all elements」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「subtract 1 from all elements」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「multiply all elements by 2」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「divide all elements by 2」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「reverse the entire array」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「sort the entire array in ascending order」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「sort the entire array in descending order」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「circularly shift the entire array one position to the right」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「set all elements to 0.0」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「set all elements to 1.0」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「set the element at index begin to the maximum double value」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (double[]), if the operation 「set the element at index begin to the minimum positive double value (close to zero)」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of < Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「add 1 to all elements」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「subtract 1 from all elements」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「multiply all elements by 2」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「divide all elements by 2」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「reverse the entire array」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「sort the entire array in ascending order」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「sort the entire array in descending order」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「circularly shift the entire array one position to the right」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「set all elements to 0.0」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「set all elements to 1.0」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「set the element at index begin to the maximum double value」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of > Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains weights (double[]), if the operation 「set the element at index begin to the minimum positive double value (close to zero)」 is executed on weights to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of < Os ✗
+
+----------------------------------------
+
+操作总数: 24
+关系总数: 24

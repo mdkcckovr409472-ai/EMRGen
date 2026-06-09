@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf;
+    tf.n = tc.n;
+    tf.k = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.k[tc.n - 1 - i] = tc.k[i];
+    }
+    return tf;
+}

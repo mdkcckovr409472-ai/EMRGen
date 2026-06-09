@@ -1,0 +1,10 @@
+TestCase z86Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: none needed for negating a scalar
+
+    // Negate variance
+    follow_case.variance = -follow_case.variance;
+
+    return follow_case;
+}

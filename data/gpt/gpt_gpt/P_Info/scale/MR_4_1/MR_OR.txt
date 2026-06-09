@@ -1,0 +1,23 @@
+int check(TestCase tc) {
+    double* Os = scale(tc.val, tc.arr, tc.n);
+    TestCase Tf_case = change(tc);
+    double* Of = scale(Tf_case.val, Tf_case.arr, Tf_case.n);
+
+    if (Tc.n > 1000) {
+        // Defensive: scale only supports up to 1000.
+        return 0;
+    }
+
+    for (int i = 0; i < tc.n; i++) {
+        double expected = Os[i] / 2;
+        double actual = Of[i];
+        if (tf.val == 0) { // val=0 implies no change in change()
+            if (actual != Os[i]) {
+                return 0;
+            }
+        } else if (fabs(actual - expected) > 1e-9) {
+            return 0;
+        }
+    }
+    return 1;
+}

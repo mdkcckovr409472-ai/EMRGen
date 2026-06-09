@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n <= 1) {
+        return tf;
+    }
+    int k = 1; // 循环左移1位
+    int* new_a = new int[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        new_a[i] = tf.a[(i + k) % tf.n];
+    }
+    tf.a = new_a;
+    return tf;
+}

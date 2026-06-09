@@ -1,0 +1,53 @@
+int check(TestCase tc) {
+    double* Os = NULL;
+    double* Of = NULL;
+
+    if (tc.a == NULL || tc.b == NULL || tc.n1 != tc.n2 || tc.n1 <= 0) {
+        // Invalid input parameters
+        return 0;
+    }
+
+    Os = ebeSubtract(tc.a, tc.b, tc.n1, tc.n2);
+    if (Os == NULL) {
+        // Source output failed
+        return 0;
+    }
+
+    // Construct follow-up test case with modified b
+    TestCase Tf_case = change(tc);
+
+    if (Tf_case.b == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    Of = ebeSubtract(Tf_case.a, Tf_case.b, Tf_case.n1, Tf_case.n2);
+
+    if (Of == NULL) {
+        free(Os);
+        if (Tf_case.b != tc.b) free(Tf_case.b);
+        return 0;
+    }
+
+    int is_valid = 1;
+    // Check MR:
+    // Of[0] == a[0] - DBL_MAX
+    if (Of[0] != (tc.a[0] - DBL_MAX)) {
+        is_valid = 0;
+    }
+    // For all i > 0: Of[i] == Os[i]
+    for (int i = 1; i < tc.n1 && is_valid; i++) {
+        if (Of[i] != Os[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    free(Os);
+    free(Of);
+    if (Tf_case.b != tc.b) {
+        free(Tf_case.b);
+    }
+
+    return is_valid;
+}

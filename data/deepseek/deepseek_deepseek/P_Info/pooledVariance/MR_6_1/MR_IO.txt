@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n1 > 0 && tf.data1 != nullptr) {
+        double m = 0.0;
+        for (int i = 0; i < tf.n1; ++i) {
+            m += tf.data1[i];
+        }
+        m /= tf.n1;
+        double* new_data1 = new double[tf.n1];
+        for (int i = 0; i < tf.n1; ++i) {
+            new_data1[i] = m;
+        }
+        tf.data1 = new_data1;
+    }
+    return tf;
+}

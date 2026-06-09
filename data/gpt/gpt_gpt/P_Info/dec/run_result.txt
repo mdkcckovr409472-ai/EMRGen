@@ -1,0 +1,37 @@
+[MR_5_1]: 运行时错误 (返回码: -6)
+Error:
+double free or corruption (out)
+
+[MR_6_1]: 运行成功, 输出: 1
+
+[MR_7_1]: 运行成功, 输出: 1
+
+[MR_8_1]: 运行成功, 输出: 0
+
+[MR_1_1]: 运行成功, 输出: 0
+
+[MR_3_1]: 运行成功, 输出: 0
+
+[MR_13_1]: 编译失败
+Error:
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/llm/1_gpt_project/MR/P_Info/dec/MR_13_1/MR_combined.cpp: In function ‘int check(TestCase)’:
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/llm/1_gpt_project/MR/P_Info/dec/MR_13_1/MR_combined.cpp:82:9: error: ‘Tc’ was not declared in this scope; did you mean ‘tc’?
+   82 |     if (Tc.n > 0) {
+      |         ^~
+      |         tc
+
+[MR_15_1]: 运行成功, 输出: 1
+
+[MR_2_1]: 运行成功, 输出: 0
+
+[MR_12_1]: 运行成功, 输出: 0
+
+[MR_10_1]: 运行成功, 输出: 0
+
+[MR_14_1]: 运行成功, 输出: 0
+
+[MR_11_1]: 运行成功, 输出: 0
+
+[MR_4_1]: 运行成功, 输出: 0
+
+[MR_9_1]: 运行成功, 输出: 0

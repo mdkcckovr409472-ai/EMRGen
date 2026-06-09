@@ -1,0 +1,17 @@
+TestCase z23Change(TestCase t1) {
+    TestCase follow_case = t1;
+    double* follow_case_v = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_v, t1.v, t1.n * sizeof(double));
+    follow_case.v = follow_case_v;
+
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+
+    for (int i = 0; i < follow_case.n / 2; i++) {
+        double temp = follow_case.v[i];
+        follow_case.v[i] = follow_case.v[follow_case.n - 1 - i];
+        follow_case.v[follow_case.n - 1 - i] = temp;
+    }
+
+    return follow_case;}

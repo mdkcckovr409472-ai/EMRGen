@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    int n = tc.n;
+    int* a = tc.a;
+    double Os = average(a, n);
+
+    TestCase Tf_case = change(tc);
+    double Of = average(Tf_case.a, n);
+
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+
+    // Free dynamically allocated memory in Tf_case if it differs from original
+    if (Tf_case.a != a) {
+        delete[] Tf_case.a;
+    }
+    return is_valid;
+}

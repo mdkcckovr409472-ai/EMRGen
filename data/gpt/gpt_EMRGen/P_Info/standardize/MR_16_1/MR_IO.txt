@@ -1,0 +1,30 @@
+TestCase z16Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0) {
+        double* follow_case_data = (double*)malloc(t1.n * sizeof(double));
+        memcpy(follow_case_data, t1.data, t1.n * sizeof(double));
+        follow_case.data = follow_case_data;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 2
+    if (follow_case.n < 2) {
+        // Less than 2 elements, sorting descending is trivial, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    // Sort array in descending order using simple bubble sort for robustness
+    for (int i = 0; i < follow_case.n - 1; i++) {
+        for (int j = 0; j < follow_case.n - i - 1; j++) {
+            if (follow_case.data[j] < follow_case.data[j + 1]) {
+                double temp = follow_case.data[j];
+                follow_case.data[j] = follow_case.data[j + 1];
+                follow_case.data[j + 1] = temp;
+            }
+        }
+    }
+
+    return follow_case;
+}

@@ -1,0 +1,54 @@
+double manhattan_dist(int a[], int b[], int n) {
+    int i;
+    double sum = 0;
+    for (i = 0; i < n; i++) {
+        sum += abs(a[i] - b[i]);
+    }
+    return sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 23: On parameter 'a' (int*): 取子数组操作（索引0到n/2）
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「取子数组操作（索引0到n/2）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (int*): 所有元素乘2
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 51: On parameter 'b' (int*): 取子数组操作（索引0到n/2）
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「取子数组操作（索引0到n/2）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 52: On parameter 'b' (int*): 取子数组操作（索引n/2到n-1）
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「取子数组操作（索引n/2到n-1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+
+操作总数: 4
+关系总数: 4

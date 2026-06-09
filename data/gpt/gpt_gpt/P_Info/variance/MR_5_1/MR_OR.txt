@@ -1,0 +1,26 @@
+int check(TestCase tc) {
+    // (1) Extract the source input (Ts)
+    double* Ts = tc.x;
+    int n = tc.n;
+
+    // (2) Call the function under test to get the source output (Os)
+    double Os = variance(Ts, n);
+
+    // (3) Call the change function to construct the follow-up test case object
+    TestCase Tf_case = change(tc);
+    double* Tf = Tf_case.x;
+
+    // (4) Call function under test for follow-up output (Of)
+    double Of = variance(Tf, n);
+
+    // (5) Verify whether Os and Of satisfy the metamorphic relation (Os == Of)
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // (6) Free dynamic memory allocated in change()
+    if (Tf != Ts) {
+        delete[] Tf;
+    }
+
+    // (7) Return verification result
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 18: On parameter 'a' (array[double]): add 5.0 to a subarray of length 4 starting at a random index
+Invariant: return.result1 <= return.result2

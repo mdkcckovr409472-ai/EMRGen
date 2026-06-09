@@ -1,0 +1,2 @@
+Operation 23: On parameter 'x' (array[double]): apply cos to each element
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,153 @@
+int find_max2(int a[], int n) {
+    int max = a[0] + a[1];
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] + a[i + 1] > max) {
+            max = a[i] + a[i + 1];
+        }
+        continue;
+    }
+    return max;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[int]): 所有元素加1
+Invariant: 
+return.result1 - return.result2 + 2 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 2 == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[int]): 所有元素乘2
+Invariant: 
+2 * return.result1 - return.result2 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (array[int]): 所有元素减3
+Invariant: 
+return.result1 - return.result2 - 6 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素减3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 6 == 0
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (array[int]): 随机位置置为999(当元素小于999时)
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「随机位置置为999(当元素小于999时)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (array[int]): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (array[int]): 数组升序排序
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): 数组降序排序
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (array[int]): 偶数索引元素加1
+Invariant: 
+return.result1 - return.result2 + 1 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「偶数索引元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): 随机位置元素开平方
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「随机位置元素开平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (array[int]): 将最大元素复制到一半位置
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「将最大元素复制到一半位置」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (array[int]): 将最小元素复制到另一半位置
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「将最小元素复制到另一半位置」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (array[int]): 将所有负数置为0
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「将所有负数置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (array[int]): 数组前一半与后一半交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组前一半与后一半交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (array[int]): 所有元素加其索引值
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素加其索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+
+操作总数: 15
+关系总数: 15

@@ -1,0 +1,30 @@
+TestCase z26Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // -------------------------
+
+    // Defensive check: operation requires at least 1 element
+    if (follow_case.n > 0) {
+        // Generate two random indices within the array bounds
+        int idx1 = rand() % follow_case.n;
+        int idx2 = rand() % follow_case.n;
+        int start = idx1 < idx2 ? idx1 : idx2;
+        int end   = idx1 < idx2 ? idx2 : idx1;
+
+        // Sort the subarray [start, end] in ascending order
+        for (int i = start; i < end; ++i) {
+            for (int j = i + 1; j <= end; ++j) {
+                if (follow_case.elements[i] > follow_case.elements[j]) {
+                    double temp = follow_case.elements[i];
+                    follow_case.elements[i] = follow_case.elements[j];
+                    follow_case.elements[j] = temp;
+                }
+            }
+        }
+    }
+
+    return follow_case;
+}

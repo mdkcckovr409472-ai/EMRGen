@@ -1,0 +1,383 @@
+double winsorizedMean(double elements[], int left, int right, int n) {
+    qsort(elements, n, sizeof(double), [](const void *a, const void *b) -> int {
+        double diff = *(double *)a - *(double *)b;
+        if (diff > 0) return 1;
+        else if (diff < 0) return -1;
+        else return 0;
+    });
+
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += elements[i];
+    }
+
+    double mean = sum / n;
+
+    if (n > 0 && left >= 0 && left < n) {
+        double leftElement = elements[left];
+        for (int i = 0; i < left; ++i) {
+            mean += (leftElement - elements[i]) / n;
+        }
+    }
+
+    if (n > 0 && right >= 0 && right < n && (n - 1 - right) >= 0) {
+        double rightElement = elements[n - 1 - right];
+        for (int i = 0; i < right; ++i) {
+            mean += (rightElement - elements[n - 1 - i]) / n;
+        }
+    }
+
+    return mean;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1 - return.result2 + 1 == 0 ✓ ○
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+Os < Of
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (array[double]): subtract 2.5 from all elements
+Invariant: 
+return.result1 - return.result2 - 2.5 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「subtract 2.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 2.5 == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (array[double]): multiply all elements by 0.5
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「multiply all elements by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (array[double]): divide all elements by 2.0 (when element ≠ 0)
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「divide all elements by 2.0 (when element ≠ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 5: On parameter 'elements' (array[double]): set first element to 100.0 (when original < 100.0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「set first element to 100.0 (when original < 100.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (array[double]): set last element to -50.0 (when original > -50.0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「set last element to -50.0 (when original > -50.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (array[double]): set random position's element to 999.0 (when element < 999.0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「set random position's element to 999.0 (when element < 999.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (array[double]): swap two random distinct elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「swap two random distinct elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (array[double]): reverse entire array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「reverse entire array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (array[double]): left circular shift array (move first element to end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「left circular shift array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (array[double]): right circular shift array (move last element to front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「right circular shift array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'elements' (array[double]): sort array in ascending order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'elements' (array[double]): sort array in descending order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「sort array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'elements' (array[double]): randomly shuffle array elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「randomly shuffle array elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'elements' (array[double]): take absolute value of all elements
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 21: On parameter 'elements' (array[double]): log each element (when element > 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「log each element (when element > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'elements' (array[double]): exponentiate each element (e^x)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「exponentiate each element (e^x)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (array[double]): round each element to nearest integer
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「round each element to nearest integer」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'elements' (array[double]): set every odd-indexed element to -5.0
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「set every odd-indexed element to -5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 30: On parameter 'elements' (array[double]): swap first and last elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「swap first and last elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 32: On parameter 'left' (int): decrement left by 1 (when left > 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「decrement left by 1 (when left > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 34: On parameter 'left' (int): subtract 3 from left (when left - 3 ≥ 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「subtract 3 from left (when left - 3 ≥ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 36: On parameter 'left' (int): divide left by 2 (integer division, when left > 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「divide left by 2 (integer division, when left > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 37: On parameter 'left' (int): set left to 0 (minimum)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「set left to 0 (minimum)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 38: On parameter 'left' (int): set left to n (maximum)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「set left to n (maximum)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 40: On parameter 'left' (int): set left to 10 (when n ≥ 10)
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「set left to 10 (when n ≥ 10)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 41: On parameter 'left' (int): set left to n‑1 (when n > 0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「set left to n‑1 (when n > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 43: On parameter 'left' (int): set left to left % 5
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「set left to left % 5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 44: On parameter 'left' (int): set left to -left (when sign change allowed)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「set left to -left (when sign change allowed)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 45: On parameter 'left' (int): set left to left * 0 (result 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「set left to left * 0 (result 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 48: On parameter 'right' (int): decrement right by 1 (when right > 0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「decrement right by 1 (when right > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 50: On parameter 'right' (int): subtract 2 from right (when right - 2 ≥ 0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「subtract 2 from right (when right - 2 ≥ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 52: On parameter 'right' (int): divide right by 2 (integer division, when right > 0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「divide right by 2 (integer division, when right > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 53: On parameter 'right' (int): set right to 0 (minimum)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「set right to 0 (minimum)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 54: On parameter 'right' (int): set right to n (maximum)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「set right to n (maximum)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 59: On parameter 'right' (int): set right to right % 4
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「set right to right % 4」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 60: On parameter 'right' (int): set right to -right (when sign change allowed)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「set right to -right (when sign change allowed)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 61: On parameter 'right' (int): set right to right * 0 (result 0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「set right to right * 0 (result 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 38
+关系总数: 39

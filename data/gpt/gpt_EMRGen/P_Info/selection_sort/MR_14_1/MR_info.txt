@@ -1,0 +1,2 @@
+Operation 14: On parameter 'list' (int*): swap two random elements (indices within 0..n‑1)
+Invariant: return.result1[] == return.result2[]

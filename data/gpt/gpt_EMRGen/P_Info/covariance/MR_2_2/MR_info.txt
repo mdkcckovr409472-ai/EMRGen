@@ -1,0 +1,2 @@
+Operation 2: On parameter 'elements1' (double*): subtract 2.0 from all elements
+Invariant: return.result1 - return.result2 == 0

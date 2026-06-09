@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        // Allocate new array for elements2
+        double* new_elements2 = new double[tf.n];
+        for (int i = 0; i < tf.n; ++i) {
+            new_elements2[i] = tf.elements2[i] * 2.0;
+        }
+        tf.elements2 = new_elements2;
+    }
+    return tf;
+}

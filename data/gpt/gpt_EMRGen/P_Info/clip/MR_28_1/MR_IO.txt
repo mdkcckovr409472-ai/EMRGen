@@ -1,0 +1,22 @@
+TestCase z28Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Operation: set a random element to its floor square root (if non‑negative)
+    int idx = rand() % follow_case.n;
+    int val = follow_case.a[idx];
+    if (val >= 0) {
+        follow_case.a[idx] = (int)sqrt((double)val);
+    }
+    
+    return follow_case;
+}

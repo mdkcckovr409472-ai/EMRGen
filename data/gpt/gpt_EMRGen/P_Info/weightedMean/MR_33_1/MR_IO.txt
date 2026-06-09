@@ -1,0 +1,15 @@
+TestCase z33Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_theWeights = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_theWeights, t1.theWeights, t1.n * sizeof(double));
+    follow_case.theWeights = follow_case_theWeights;
+    // ------------------------------------
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.theWeights[i] *= 0.5;
+    }
+    return follow_case;
+}

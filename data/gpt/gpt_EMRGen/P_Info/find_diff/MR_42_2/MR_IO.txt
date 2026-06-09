@@ -1,0 +1,14 @@
+TestCase z42Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for target parameter b
+    int* follow_case_b = (int*)malloc(t1.na * sizeof(int));
+    memcpy(follow_case_b, t1.b, t1.na * sizeof(int));
+    follow_case.b = follow_case_b;
+    // Defensive check for array length
+    if (follow_case.na > 0) {
+        for (int i = 0; i < follow_case.na; ++i) {
+            follow_case.b[i] += 10;
+        }
+    }
+    return follow_case;
+}

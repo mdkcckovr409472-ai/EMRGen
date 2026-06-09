@@ -1,0 +1,34 @@
+#include <math.h>
+#include <stddef.h>
+
+int z17check(int* result1, int* result2, int n) {
+    // 1. 防御性编程 (空指针与长度检查)
+    if (result1 == NULL || result2 == NULL) return 0;
+    if (n <= 0) return 1;
+
+    // 2. 核心判断逻辑 (字典序比较)
+    for (int i = 0; i < n; i++) {
+        // 找到第一个不相等的元素对
+        if (result1[i] != result2[i]) {
+            // 根据这一对元素的大小关系决定结果
+            // 条件要求 result1[] > result2[] (lexically)
+            if (result1[i] > result2[i]) {
+                // 第一个不相等处 result1[i] > result2[i]，字典序上 result1 > result2，条件满足
+                // 可以提前结束，但根据规则需要继续检查后续元素吗？
+                // 规则说明：只要发现第一个不相等的元素并得出结果，绝对不要再检查后续任何元素！
+                // 对于 > 条件，当 result1[i] > result2[i] 时，已经可以确定 result1 字典序大于 result2
+                // 因此可以立即返回 1
+                return 1;
+            } else {
+                // result1[i] < result2[i]，字典序上 result1 < result2，条件不满足
+                return 0;
+            }
+        }
+        // 如果相等，继续检查下一个元素
+    }
+    
+    // 3. 循环结束，所有元素都相等
+    // 字典序比较：完全相等的数组，result1 不大于 result2（它们是相等的）
+    // 条件 return.result1[] > return.result2[] 要求严格大于，因此不满足
+    return 0;
+}

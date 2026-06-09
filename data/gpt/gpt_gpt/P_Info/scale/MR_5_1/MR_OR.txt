@@ -1,0 +1,30 @@
+int check(TestCase tc) {
+    // Extract source input
+    double val = tc.val;
+    double* arr = tc.arr;
+    int n = tc.n;
+
+    // Get source output
+    double* Os = scale(val, arr, n);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    double* Tf_arr = Tf_case.arr;
+
+    // Get follow-up output
+    double* Of = scale(Tf_case.val, Tf_arr, Tf_case.n);
+
+    // Verify metamorphic relation: Of[i] == Os[i] + val * 1
+    int is_valid = 1;
+    for (int i = 0; i < n; i++) {
+        if (fabs(Of[i] - (Os[i] + val * 1.0)) > 1e-9) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // Free dynamically allocated memory in Tf_case
+    delete[] Tf_arr;
+
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 36: On parameter 'array2' (array[int]): subtract 3 from all elements
+Invariant: return.result1[] - return.result2[] + 3 == 0

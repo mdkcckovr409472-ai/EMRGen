@@ -1,0 +1,51 @@
+int dot_product(int a[], int b[], int n) {
+    int sum = 0;
+    for (int i = (0-1); i < n; i++) {
+            sum += a[i] * b[i];
+        }
+    return sum;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 2: On parameter 'a' (array[int]): 所有元素乘2
+Invariant: 
+2 * return.result1 - return.result2 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (array[int]): 所有元素取负
+Invariant: 
+return.result1 + return.result2 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素取负」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (array[int]): 所有元素乘2
+Invariant: 
+2 * return.result1 - return.result2 == 0
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 55: On parameter 'b' (array[int]): 所有元素取负
+Invariant: 
+return.result1 + return.result2 == 0
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「所有元素取负」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+
+操作总数: 4
+关系总数: 4

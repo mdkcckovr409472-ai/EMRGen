@@ -1,0 +1,24 @@
+#include <cmath>
+#include <algorithm>
+
+int z14check(int* result1, int* result2, int n) {
+    // 4a) Length validity check
+    if (n <= 0) return 1;
+    // 4b) Null pointer check
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    // Since data_type is int*, integer comparison, no floating-point tolerance needed.
+    // Invariant condition: return.result1[] < return.result2[] (lexically)
+    // Apply lexicographical comparison with strict inequality.
+    
+    for (int i = 0; i < n; i++) {
+        if (result1[i] < result2[i]) {
+            return 1; // first unequal with result1 < result2 => satisfies invariant
+        } else if (result1[i] > result2[i]) {
+            return 0; // first unequal with result1 > result2 => fails invariant
+        }
+        // else equal, continue
+    }
+    // arrays equal, for strict less than, invariant not satisfied
+    return 0;
+}

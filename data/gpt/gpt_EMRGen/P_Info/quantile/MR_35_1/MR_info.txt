@@ -1,0 +1,2 @@
+Operation 35: On parameter 'phi' (double): set phi to 1.0
+Invariant: return.result1 <= return.result2

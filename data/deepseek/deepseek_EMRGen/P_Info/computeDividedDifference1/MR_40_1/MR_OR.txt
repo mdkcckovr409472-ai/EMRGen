@@ -1,0 +1,49 @@
+#include <cmath>
+#include <cfloat>
+
+int z40check(double* result1, double* result2, int n) {
+    // 1. 防御性编程 (空指针与长度检查)
+    if (result1 == NULL || result2 == NULL) return 0;
+    if (n <= 0) return 1;
+
+    // 2. 核心判断逻辑 (字典序比较)
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+
+        // 3. 浮点数比较的特殊处理
+        // 防御 NaN
+        if (std::isnan(A) || std::isnan(B)) return 0;
+
+        // 处理无穷大
+        if (std::isinf(A) || std::isinf(B)) {
+            // 对于字典序比较，遇到第一个不相等的元素对就决定结果
+            if (A < B) {
+                // result1[i] < result2[i]，违反 >= 条件，立即返回 0
+                return 0;
+            } else if (A > B) {
+                // result1[i] > result2[i]，满足 >= 条件，且已确定字典序更大，立即返回 1
+                return 1;
+            }
+            // 相等则继续比较下一个元素
+            continue;
+        }
+
+        // 动态容差比较
+        double epsilon = 1e-5;
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+        // 移项后的条件是 A >= B
+        if (A < B - tol) {
+            // 违反 >= 条件，立即返回 0
+            return 0;
+        } else if (A > B + tol) {
+            // 满足 >= 条件，且已确定字典序更大，立即返回 1
+            return 1;
+        }
+        // 在容差范围内视为相等，继续比较下一个元素
+    }
+
+    // 3. 全部元素在容差范围内视为相等，满足 >= 条件
+    return 1;
+}

@@ -1,0 +1,2 @@
+Operation 53: On parameter 'y' (double*): 将数组中所有元素加上一个固定偏移（例如3.14）
+Invariant: return.result1[] < return.result2[] (elementwise)

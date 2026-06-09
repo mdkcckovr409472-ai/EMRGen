@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    // Reuse original elements pointer, but create a new array to hold the sorted descending order
+    double* desc_elements = new double[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        desc_elements[i] = tc.elements[i];
+    }
+
+    // Sort descending
+    std::sort(desc_elements, desc_elements + tc.n, [](double a, double b) { return a > b; });
+
+    tf.elements = desc_elements;
+    // left, right, n remain unchanged
+    return tf;
+}

@@ -1,0 +1,19 @@
+TestCase z30Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling code
+    double* follow_case_y = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_y, t1.y, t1.n * sizeof(double));
+    follow_case.y = follow_case_y;
+
+    // Defensive check for empty array
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Operation: subtract 1.0 from all elements
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.y[i] -= 1.0;
+    }
+
+    return follow_case;
+}

@@ -1,0 +1,14 @@
+TestCase z37Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for p2
+    double* follow_case_p2 = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_p2, t1.p2, t1.n * sizeof(double));
+    follow_case.p2 = follow_case_p2;
+    // Defensive check for array length
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            follow_case.p2[i] *= 1.5;
+        }
+    }
+    return follow_case;
+}

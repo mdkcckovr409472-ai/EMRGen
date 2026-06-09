@@ -1,0 +1,9 @@
+TestCase z39Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive programming: no array-dependent operation, no length checks needed
+
+    // Operation: decrement k by 1
+    follow_case.k = follow_case.k - 1;
+
+    return follow_case;
+}

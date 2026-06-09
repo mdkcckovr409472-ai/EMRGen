@@ -1,0 +1,8 @@
+TestCase z32Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check: ensure operation is only applied when mean is non‑zero
+    if (follow_case.mean != 0.0) {
+        follow_case.mean = 0.0;
+    }
+    return follow_case;
+}

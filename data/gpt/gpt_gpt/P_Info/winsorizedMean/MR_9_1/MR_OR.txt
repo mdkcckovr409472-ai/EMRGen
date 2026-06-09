@@ -1,0 +1,20 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.elements == nullptr) return 0;
+    double Os = winsorizedMean(tc.elements, tc.left, tc.right, tc.n);
+
+    TestCase Tf_case = change(tc);
+    double Of = winsorizedMean(Tf_case.elements, Tf_case.left, Tf_case.right, Tf_case.n);
+
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (std::abs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+        Tf_case.elements = nullptr;
+    }
+
+    return is_valid;
+}

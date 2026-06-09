@@ -1,0 +1,6 @@
+TestCase z50Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Set the target parameter 'mean' to 0.5
+    follow_case.mean = 0.5;
+    return follow_case;
+}

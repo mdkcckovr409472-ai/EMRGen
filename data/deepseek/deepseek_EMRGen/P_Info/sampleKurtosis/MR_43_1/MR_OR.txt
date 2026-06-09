@@ -1,0 +1,33 @@
+#include <math.h>
+#include <stddef.h>
+
+int z43check(double result1, double result2) {
+    // 1. 防御性编程 (针对浮点数的 NaN 检查)
+    if (isnan(result1) || isnan(result2)) return 0;
+
+    // 2. 核心判断逻辑 (标量直接比较)
+    // 条件为 return.result1 >= return.result2，即 result1 >= result2
+    // 移项后：A = result1, B = result2, 比较符为 >=
+    double A = result1;
+    double B = result2;
+
+    // 处理无穷大情况 (动态容差对无穷大无效)
+    if (isinf(A) || isinf(B)) {
+        // 直接进行数学比较
+        if (A >= B) return 1;
+        else return 0;
+    }
+
+    // 3. 浮点数比较的特殊处理 (动态容差)
+    double epsilon = 1e-5;
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    // 判断 A >= B 是否成立 (带容差)
+    // 违反条件为 A < B - tol
+    if (A < B - tol) {
+        return 0;
+    }
+
+    // 4. 满足条件，返回 1
+    return 1;
+}

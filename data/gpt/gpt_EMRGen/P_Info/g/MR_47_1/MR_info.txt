@@ -1,0 +1,2 @@
+Operation 47: On parameter 'observed' (array[double]): negate each element (element = -element)
+Invariant: return.result1 + return.result2 == 0

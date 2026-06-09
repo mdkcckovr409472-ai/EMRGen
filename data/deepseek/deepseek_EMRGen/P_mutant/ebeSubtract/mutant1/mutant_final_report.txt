@@ -1,0 +1,176 @@
+double* ebeSubtract(double a[], double b[], int n1, int n2) {
+    if (n1 != n2 || (0==1)) {
+        return NULL;
+    }
+
+    double* result = (double*)malloc(n1 * sizeof(double));
+    if (!result) return NULL;
+
+    for (int i = 0; i < n1; i++) {
+        result[i] = a[i] - b[i];
+    }
+    return result;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (double*): 所有元素加2.0
+Invariant:
+return.result1[] - return.result2[] + 2 == 0    ✓ ○ [Similar]
+return.result1[] < return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (double*): 所有元素减1.5
+Invariant:
+return.result1[] - return.result2[] - 1.5 == 0    ✓ ○ [Similar]
+return.result1[] > return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (double*): 所有元素取绝对值
+Invariant:
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (double*): 元素加对应索引值
+Invariant:
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (double*): 元素减对应索引值
+Invariant:
+return.result1[] > return.result2[] (lexically)    ✗ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (double*): 数组前n1个元素加1.0
+Invariant:
+return.result1[] - return.result2[] + 1 == 0    ✓ ○ [Same]
+return.result1[] < return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (double*): 数组前一半元素加1.0
+Invariant:
+return.result1[] < return.result2[] (lexically)    ✓ ○ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (double*): 奇数索引元素减1.0
+Invariant:
+return.result1[] > return.result2[] (lexically)    ✗ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (double*): 所有元素与位置索引相加
+Invariant:
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (double*): 所有元素加2.0
+Invariant:
+return.result1[] - return.result2[] - 2 == 0    ✓ ○ [Similar]
+return.result1[] > return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 32: On parameter 'b' (double*): 所有元素减1.5
+Invariant:
+return.result1[] - return.result2[] + 1.5 == 0    ✓ ○ [Same]
+return.result1[] < return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 35: On parameter 'b' (double*): 所有元素取绝对值
+Invariant:
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 46: On parameter 'b' (double*): 元素加对应索引值
+Invariant:
+return.result1[] > return.result2[] (lexically)    ✗ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'b' (double*): 元素减对应索引值
+Invariant:
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'b' (double*): 所有元素取整
+Invariant:
+return.result1[] <= return.result2[] (lexically)    ✗ [Different]
+
+----------------------------------------
+
+Operation 49: On parameter 'b' (double*): 索引0处元素置最大值999.0
+Invariant:
+return.result1[] > return.result2[] (lexically)    ✗ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 50: On parameter 'b' (double*): 所有元素置最小值-999.0
+Invariant:
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (lexically)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 51: On parameter 'b' (double*): 数组前n2个元素加1.0
+Invariant:
+return.result1[] - return.result2[] - 1 == 0    ✓ ○ [Similar]
+return.result1[] > return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 55: On parameter 'b' (double*): 数组前一半元素加1.0
+Invariant:
+return.result1[] > return.result2[] (lexically)    ✓ ○ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 56: On parameter 'b' (double*): 奇数索引元素减1.0
+Invariant:
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 59: On parameter 'b' (double*): 所有元素与位置索引相加
+Invariant:
+return.result1[] > return.result2[] (lexically)    ✗ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 60: On parameter 'b' (double*): 所有元素与位置索引相减
+Invariant:
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+操作总数: 22
+独立MR总数: 41
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

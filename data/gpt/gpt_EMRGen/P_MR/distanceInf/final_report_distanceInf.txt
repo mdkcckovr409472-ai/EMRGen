@@ -1,0 +1,106 @@
+double distanceInf(double p1[], double p2[], int n) {
+    double maxi = 0;
+    for (int i = 0; i < n; i++) {
+        maxi = max(maxi, abs(p1[i] - p2[i]));
+    } 
+    return maxi;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'p1' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'p1' (array[double]): set last element to 100.0 (when it is less than 100)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「set last element to 100.0 (when it is less than 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'p1' (array[double]): set a random position to -1.0 (when the element is greater than -1)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「set a random position to -1.0 (when the element is greater than -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'p1' (array[double]): set a random element to DBL_MIN (when it is greater than DBL_MIN)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「set a random element to DBL_MIN (when it is greater than DBL_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 36: On parameter 'p2' (array[double]): set last element to -100.0 (when it is greater than -100)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「set last element to -100.0 (when it is greater than -100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 38: On parameter 'p2' (array[double]): increment a random element by 0.5
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「increment a random element by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 48: On parameter 'p2' (array[double]): multiply every even‑indexed element by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「multiply every even‑indexed element by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 54: On parameter 'p2' (array[double]): replace each element with its exponential (e^x)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「replace each element with its exponential (e^x)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 55: On parameter 'p2' (array[double]): clip elements to range [-10.0, 10.0] (values outside set to nearest bound)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「clip elements to range [-10.0, 10.0] (values outside set to nearest bound)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 59: On parameter 'p2' (array[double]): copy value of first element to a random position (bounds‑checked)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「copy value of first element to a random position (bounds‑checked)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 10
+关系总数: 10

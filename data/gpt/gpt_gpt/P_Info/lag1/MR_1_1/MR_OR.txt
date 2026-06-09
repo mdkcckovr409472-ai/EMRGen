@@ -1,0 +1,10 @@
+int check(TestCase tc) {
+    double Os = lag1(tc.elements, tc.mean, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = lag1(Tf_case.elements, Tf_case.mean, Tf_case.n);
+    int is_valid = (Os == Of) ? 1 : 0;
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+    }
+    return is_valid;
+}

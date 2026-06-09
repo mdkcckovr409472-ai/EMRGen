@@ -1,0 +1,2 @@
+Operation 6: On parameter 'a' (array[double]): add 5.0 to a random element
+Invariant: return.result1[] <= return.result2[] (elementwise)

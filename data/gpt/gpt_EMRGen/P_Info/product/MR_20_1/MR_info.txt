@@ -1,0 +1,2 @@
+Operation 20: On parameter 'elements' (array[double]): rotate subarray [a,b] left by 1 (move element at a to position b)
+Invariant: return.result1 == return.result2

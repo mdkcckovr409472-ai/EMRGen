@@ -1,0 +1,2 @@
+Operation 2: On parameter 'data' (array[double]): subtract 0.5 from all elements
+Invariant: return.result1 == return.result2

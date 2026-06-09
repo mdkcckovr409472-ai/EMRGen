@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        // Allocate new array to avoid modifying original elements
+        double* new_elements = new double[tf.n];
+        for (int i = 0; i < tf.n; ++i) {
+            new_elements[i] = tf.elements[i];
+        }
+        new_elements[0] = new_elements[0] / 2.0;
+        tf.elements = new_elements;
+    }
+    return tf;
+}

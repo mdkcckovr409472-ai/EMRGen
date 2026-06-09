@@ -1,0 +1,2 @@
+Operation 40: On parameter 'y' (double*): replace each element with its absolute value
+Invariant: return.result1[] <= return.result2[] (elementwise)

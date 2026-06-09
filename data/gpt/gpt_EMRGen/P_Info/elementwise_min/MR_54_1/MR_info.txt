@@ -1,0 +1,2 @@
+Operation 54: On parameter 'b' (array[int]): set all positive elements to 0
+Invariant: return.result1[] >= return.result2[] (elementwise)

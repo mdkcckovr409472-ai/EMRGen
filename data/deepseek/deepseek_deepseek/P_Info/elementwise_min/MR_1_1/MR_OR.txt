@@ -1,0 +1,33 @@
+int check(TestCase tc) {
+    // 获取初始输出 Os
+    int* Os = elementwise_min(tc.a, tc.b, tc.n);
+    if (Os == NULL) {
+        return 0;
+    }
+
+    // 构造衍生用例
+    TestCase Tf_case = change(tc);
+
+    // 获取衍生输出 Of
+    int* Of = elementwise_min(Tf_case.a, Tf_case.b, Tf_case.n);
+    if (Of == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    // 验证 Os 和 Of 是否相等
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        if (Os[i] != Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // 释放动态内存
+    free(Os);
+    free(Of);
+    // 注意：Tf_case 只是交换了指针，没有分配新内存，无需释放其 a 和 b
+
+    return is_valid;
+}

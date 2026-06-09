@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory to hold modified elements to avoid modifying original input
+    double* new_elements = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_elements[i] = tc.elements[i];
+    }
+    // Set the last element to a value smaller than the original last element (original last element - 1)
+    new_elements[tc.n - 1] = tc.elements[tc.n - 1] - 1;
+    
+    tf.elements = new_elements;
+    tf.n = tc.n;
+    
+    return tf;
+}

@@ -1,0 +1,2 @@
+Operation 18: On parameter 'a' (int*): square each element
+Invariant: return.result1[] <= return.result2[] (elementwise)

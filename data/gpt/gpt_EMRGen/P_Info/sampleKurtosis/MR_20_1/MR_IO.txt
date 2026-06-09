@@ -1,0 +1,9 @@
+TestCase z20Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive programming: no array checks needed for scalar parameters
+    
+    // Operation: apply ceil to moment4
+    follow_case.moment4 = std::ceil(follow_case.moment4);
+    
+    return follow_case;
+}

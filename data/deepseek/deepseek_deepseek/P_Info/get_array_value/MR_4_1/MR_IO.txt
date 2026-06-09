@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int m = 2; // 示例非零整数常量，可根据需要调整
+    if (tf.a != nullptr && tf.k >= 1 && tf.k <= tf.n) {
+        tf.a[tf.k - 1] *= m;
+    }
+    return tf;
+}

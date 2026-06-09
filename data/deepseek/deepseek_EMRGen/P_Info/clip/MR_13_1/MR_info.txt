@@ -1,0 +1,2 @@
+Operation 13: On parameter 'a' (int*): 随机位置元素置为lowerLim
+Invariant: return.result1[] >= return.result2[] (elementwise)

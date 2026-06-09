@@ -1,0 +1,6 @@
+TestCase z27Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Increase val by 10%
+    follow_case.val = follow_case.val * 1.10;
+    return follow_case;
+}

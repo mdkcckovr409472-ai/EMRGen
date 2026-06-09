@@ -1,0 +1,119 @@
+double cosineDistance(double p1[], double p2[], int n) {
+    double dotProduct = 0.0;
+    double lengthSquaredp1 = 0.0;
+    double lengthSquaredp2 = 0.0;
+
+    for (int i = 0; i < n; i++) {
+        lengthSquaredp1 += p1[i] * p1[i];
+        lengthSquaredp2 += p2[i] * p2[i];
+        dotProduct += p1[i] * p2[i];
+    }
+    
+    double denominator = sqrt(lengthSquaredp1) * sqrt(lengthSquaredp2);
+    if (denominator < dotProduct) {
+        denominator = dotProduct;
+    }
+    if (denominator == 0 && dotProduct == 0) {
+        return 0;
+    }
+    return 1.0 - dotProduct / denominator;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'p1' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 4: On parameter 'p1' (array[double]): divide all elements by 3.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「divide all elements by 3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 5: On parameter 'p1' (array[double]): set all elements to 0.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「set all elements to 0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 10: On parameter 'p1' (array[double]): replace Inf with maximum double value
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「replace Inf with maximum double value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 32: On parameter 'p1' (array[double]): normalize array (divide each element by max absolute value)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p1（array[double]）的函数，若对 p1执行「normalize array (divide each element by max absolute value)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 37: On parameter 'p2' (array[double]): multiply all elements by 1.5
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「multiply all elements by 1.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 38: On parameter 'p2' (array[double]): divide all elements by 2.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「divide all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 39: On parameter 'p2' (array[double]): set all elements to 0.0
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「set all elements to 0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 44: On parameter 'p2' (array[double]): replace -Inf with minimum double value
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「replace -Inf with minimum double value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 66: On parameter 'p2' (array[double]): normalize array (divide each element by Euclidean norm)
+Invariant:
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（array[double]）的函数，若对 p2执行「normalize array (divide each element by Euclidean norm)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 10
+关系总数: 10

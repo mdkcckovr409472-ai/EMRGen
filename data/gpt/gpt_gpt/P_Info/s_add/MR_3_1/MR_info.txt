@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains array2 (int[]), if the operation 「set the last element to the minimum integer value」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Of[n-1] == array1[n-1] + INT_MIN and For i in [0..n-2], Of[i] == Os[i]

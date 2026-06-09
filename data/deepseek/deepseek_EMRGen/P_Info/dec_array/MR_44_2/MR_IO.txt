@@ -1,0 +1,9 @@
+TestCase z44Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 根据规则，k 是 int 类型，不是数组，因此不执行 malloc 和 memcpy 操作。
+
+// 减5操作，直接对 follow_case.k 执行。
+follow_case.k = follow_case.k - 5;
+
+return follow_case;}

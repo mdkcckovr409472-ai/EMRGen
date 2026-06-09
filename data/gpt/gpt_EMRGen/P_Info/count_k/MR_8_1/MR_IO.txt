@@ -1,0 +1,22 @@
+TestCase z8Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array 'a'
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: ensure there is at least one element to reverse
+    if (follow_case.n > 0) {
+        int left = 0;
+        int right = follow_case.n - 1;
+        while (left < right) {
+            int temp = follow_case.a[left];
+            follow_case.a[left] = follow_case.a[right];
+            follow_case.a[right] = temp;
+            ++left;
+            --right;
+        }
+    }
+
+    return follow_case;
+}

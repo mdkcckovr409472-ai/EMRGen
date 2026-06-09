@@ -1,0 +1,12 @@
+TestCase z46Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: no array length check needed for mean operation
+
+    // Operation: set mean to 3.14159 if it is not already that value
+    if (follow_case.mean != 3.14159) {
+        follow_case.mean = 3.14159;
+    }
+
+    return follow_case;
+}

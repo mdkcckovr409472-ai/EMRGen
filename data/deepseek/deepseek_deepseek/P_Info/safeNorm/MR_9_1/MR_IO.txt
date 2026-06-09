@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1) {
+        std::vector<double> vec(tf.v, tf.v + tf.n);
+        std::random_shuffle(vec.begin(), vec.end());
+        double* new_v = new double[tf.n];
+        std::copy(vec.begin(), vec.end(), new_v);
+        tf.v = new_v;
+    }
+    return tf;
+}

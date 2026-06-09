@@ -1,0 +1,2 @@
+Operation 23: On parameter 'a' (double*): 取子数组（如前一半元素）
+Invariant: return.result1 >= return.result2

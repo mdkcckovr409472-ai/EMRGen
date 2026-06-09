@@ -1,0 +1,2 @@
+Operation 48: On parameter 'data2' (double*): right circular shift of array (move last element to the front)
+Invariant: return.result1 == return.result2

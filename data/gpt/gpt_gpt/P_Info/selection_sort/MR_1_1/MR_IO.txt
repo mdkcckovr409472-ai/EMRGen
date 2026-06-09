@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    for (int i = 0; i < tf.n; i++) {
+        tf.list[i] = tf.list[i] + 1;
+    }
+    return tf;
+}

@@ -1,0 +1,7 @@
+TestCase z4Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 具体操作：除2.0
+follow_case.moment4 = follow_case.moment4 / 2.0;
+
+return follow_case;}

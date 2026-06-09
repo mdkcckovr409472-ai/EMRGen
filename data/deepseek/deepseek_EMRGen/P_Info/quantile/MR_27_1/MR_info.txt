@@ -1,0 +1,2 @@
+Operation 27: On parameter 'sortedElements' (double*): 所有元素向上取整
+Invariant: return.result1 <= return.result2

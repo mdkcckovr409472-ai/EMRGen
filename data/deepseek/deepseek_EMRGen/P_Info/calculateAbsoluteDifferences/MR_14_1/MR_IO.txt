@@ -1,0 +1,21 @@
+TestCase z14Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_z = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_z, t1.z, t1.n * sizeof(double));
+follow_case.z = follow_case_z;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<=0时出错
+if (follow_case.n <= 0) {
+    // 数组为空或长度为负，无法操作，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+// 随机位置元素置负无穷大
+// 使用rand()生成随机索引，需要确保n>0（已由上方检查保证）
+int random_index = rand() % follow_case.n;
+follow_case.z[random_index] = -INFINITY;
+
+return follow_case;}

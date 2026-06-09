@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    // Reuse original test case struct, overwrite array with sorted version
+    int* sorted_a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        sorted_a[i] = tc.a[i];
+    }
+    std::sort(sorted_a, sorted_a + tc.n);
+    TestCase tf = tc;
+    tf.a = sorted_a;
+    return tf;
+}

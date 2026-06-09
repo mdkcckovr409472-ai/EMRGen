@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int max_val = tc.a[0];
+    for (int i = 1; i < tc.n; i++) {
+        if (tc.a[i] > max_val) {
+            max_val = tc.a[i];
+        }
+    }
+    int* new_array = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_array[i] = tc.a[i];
+    }
+    new_array[0] = max_val;
+    tf.a = new_array;
+    return tf;
+}

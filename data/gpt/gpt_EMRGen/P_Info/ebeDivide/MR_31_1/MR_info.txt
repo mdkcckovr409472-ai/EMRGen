@@ -1,0 +1,2 @@
+Operation 31: On parameter 'b' (array[double]): set a random element to 0
+Invariant: return.result1[] <= return.result2[] (elementwise)

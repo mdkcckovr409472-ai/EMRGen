@@ -1,0 +1,2 @@
+Operation 20: On parameter 'a' (double*): 随机位置元素置为负无穷大（-INFINITY）
+Invariant: return.result1[] > return.result2[] (lexically)

@@ -1,0 +1,30 @@
+TestCase z15Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array a
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // Defensive checks
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    if (follow_case.k <= 0 || follow_case.k > follow_case.n) {
+        return follow_case;
+    }
+    // Sort a random subarray of length k in ascending order
+    int start = 0;
+    if (follow_case.k < follow_case.n) {
+        start = rand() % (follow_case.n - follow_case.k + 1);
+    }
+    // Simple selection sort on the chosen subarray
+    for (int i = start; i < start + follow_case.k - 1; ++i) {
+        for (int j = i + 1; j < start + follow_case.k; ++j) {
+            if (follow_case.a[i] > follow_case.a[j]) {
+                int temp = follow_case.a[i];
+                follow_case.a[i] = follow_case.a[j];
+                follow_case.a[j] = temp;
+            }
+        }
+    }
+    return follow_case;
+}

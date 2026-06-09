@@ -1,0 +1,2 @@
+Operation 9: On parameter 'list' (int*): 数组反转
+Invariant: return.result1[] == return.result2[]

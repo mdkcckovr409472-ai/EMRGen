@@ -1,0 +1,187 @@
+double euc_Dist_m(double array1[], double array2[], int n) {
+    double Sum = 0.0;
+    for (int i = 0; i < n; i++) {
+        Sum = Sum + pow((array1[i] - array2[i]), 2.0);
+    }
+    return sqrt(Sum);
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 2: On parameter 'array1' (double*): 所有元素减2.5
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素减2.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 8: On parameter 'array1' (double*): 所有元素开平方根
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素开平方根」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'array1' (double*): 所有元素向下取整
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素向下取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'array1' (double*): 所有元素置最大值（如1e6）
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素置最大值（如1e6）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 20: On parameter 'array1' (double*): 所有元素置最小值（如-1e6）
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素置最小值（如-1e6）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 22: On parameter 'array1' (double*): 所有元素置正无穷
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素置正无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 23: On parameter 'array1' (double*): 所有元素置负无穷
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「所有元素置负无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 26: On parameter 'array1' (double*): 数组降序排序
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array1（double*）的函数，若对 array1执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 30: On parameter 'array2' (double*): 所有元素加1.0
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 32: On parameter 'array2' (double*): 所有元素乘3.0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 35: On parameter 'array2' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 36: On parameter 'array2' (double*): 所有元素平方
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 42: On parameter 'array2' (double*): 所有元素四舍五入取整
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素四舍五入取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 43: On parameter 'array2' (double*): 所有元素向上取整
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素向上取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 48: On parameter 'array2' (double*): 所有元素置最大值（如1e6）
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素置最大值（如1e6）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 49: On parameter 'array2' (double*): 所有元素置最小值（如-1e6）
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素置最小值（如-1e6）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 51: On parameter 'array2' (double*): 所有元素置正无穷
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素置正无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 52: On parameter 'array2' (double*): 所有元素置负无穷
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「所有元素置负无穷」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 54: On parameter 'array2' (double*): 数组升序排序
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含array2（double*）的函数，若对 array2执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+
+操作总数: 20
+关系总数: 19

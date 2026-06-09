@@ -1,0 +1,31 @@
+int check(TestCase tc) {
+    // (1) Extract the source input (Ts)
+    double* expected_s = tc.expected;
+    double* observed_s = tc.observed;
+    int n = tc.n;
+
+    // (2) Call the function under test to get the source output (Os)
+    double Os = g(expected_s, observed_s, n);
+
+    // (3) Call the change function to construct the follow-up test case object
+    TestCase Tf_case = change(tc);
+
+    // (4) Extract the follow-up input and get the follow-up output (Of)
+    double Of = g(Tf_case.expected, observed_s, n);
+
+    // (5) Verify whether Os and Of satisfy the metamorphic relation: Os == Of
+    // Considering floating-point precision, use a tolerance
+    double tolerance = 1e-6;
+    int is_valid = 0;
+    if (fabs(Os - Of) <= tolerance) {
+        is_valid = 1;
+    }
+
+    // (6) Free Tf_case or any dynamic memory generated during the process
+    if (Tf_case.expected != tc.expected) {
+        delete[] Tf_case.expected;
+    }
+
+    // (7) Return the verification result
+    return is_valid;
+}

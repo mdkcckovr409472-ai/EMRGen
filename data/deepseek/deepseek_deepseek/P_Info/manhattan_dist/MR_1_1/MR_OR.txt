@@ -1,0 +1,25 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入 (Ts) 并计算初始输出 (Os)
+    double Os = manhattan_dist(tc.a, tc.b, tc.n);
+    
+    // (2) 构造衍生用例
+    TestCase Tf_case = change(tc);
+    
+    // (3) 提取衍生输入并计算衍生输出 (Of)
+    double Of = manhattan_dist(Tf_case.a, Tf_case.b, Tf_case.n);
+    
+    // (4) 验证蜕变关系 Os >= Of
+    int is_valid = 0;
+    if (Os >= Of) {
+        is_valid = 1;
+    }
+    
+    // (5) 释放动态内存
+    // 由于 TestCase 结构体中的指针是浅拷贝，且原始用例 tc 由外部管理，
+    // 这里只需要确保没有在 change 函数中为 Tf_case 分配新的数组。
+    // 如果 change 函数中分配了新数组，则需要在此释放。
+    // 根据当前 change 实现，没有分配新内存，因此无需额外释放。
+    
+    // (6) 返回验证结果
+    return is_valid;
+}

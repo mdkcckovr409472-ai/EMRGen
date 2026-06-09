@@ -1,0 +1,18 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new expected array and copy existing values
+    double* new_expected = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_expected[i] = tc.expected[i];
+    }
+    // Set the first element to the maximum value in expected
+    double max_val = new_expected[0];
+    for (int i = 1; i < tc.n; i++) {
+        if (new_expected[i] > max_val) {
+            max_val = new_expected[i];
+        }
+    }
+    new_expected[0] = max_val;
+    tf.expected = new_expected;
+    return tf;
+}

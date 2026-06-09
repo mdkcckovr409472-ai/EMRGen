@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int k = 5; // 示例常数 k，可根据需要调整
+    if (tf.a != nullptr) {
+        for (int i = 0; i < tf.na; i++) {
+            tf.a[i] += k;
+        }
+    }
+    return tf;
+}

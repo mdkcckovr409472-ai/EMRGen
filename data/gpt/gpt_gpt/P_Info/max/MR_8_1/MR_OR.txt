@@ -1,0 +1,29 @@
+int check(TestCase tc) {
+    // (1) Extract the source input Ts
+    double* Ts = tc.elements;
+    int n = tc.n;
+    
+    // (2) Call the function under test to get Os
+    double Os = max(Ts, n);
+    
+    // (3) Construct the follow-up test case Tf
+    TestCase Tf_case = change(tc);
+    
+    // (4) Get follow-up input and output Of
+    double Of = max(Tf_case.elements, Tf_case.n);
+    
+    // (5) Verify MR: Os == Of
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    
+    // (6) Clean up dynamically allocated memory in Tf_case
+    if (Tf_case.elements != Ts) {
+        delete[] Tf_case.elements;
+        Tf_case.elements = nullptr;
+    }
+    
+    // (7) Return the verification result
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 46: On parameter 'phi' (double): floor phi
+Invariant: return.result1 >= return.result2

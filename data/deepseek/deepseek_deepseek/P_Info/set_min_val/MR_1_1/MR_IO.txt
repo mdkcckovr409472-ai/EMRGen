@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // 为数组 a 的每个元素加1，构造衍生输入
+    for (int i = 0; i < tf.n; ++i) {
+        tf.a[i] += 1;
+    }
+    return tf;
+}

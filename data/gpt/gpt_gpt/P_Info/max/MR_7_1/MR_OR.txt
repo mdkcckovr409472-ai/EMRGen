@@ -1,0 +1,15 @@
+int check(TestCase tc) {
+    // Get source output Os
+    double Os = max(tc.elements, tc.n);
+    // Get follow-up test case
+    TestCase Tf_case = change(tc);
+    // Get follow-up output Of
+    double Of = max(Tf_case.elements, Tf_case.n);
+    // Verify metamorphic relation Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+    // Free dynamic memory allocated in change()
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+    }
+    return is_valid;
+}

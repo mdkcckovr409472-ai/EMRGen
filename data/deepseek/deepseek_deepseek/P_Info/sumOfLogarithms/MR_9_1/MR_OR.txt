@@ -1,0 +1,12 @@
+#include <cmath>
+int check(TestCase tc) {
+    double Os = sumOfLogarithms(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = sumOfLogarithms(Tf_case.elements, Tf_case.n);
+    int is_valid = 0;
+    const double EPSILON = 1e-9;
+    if (fabs(Os - Of) < EPSILON) {
+        is_valid = 1;
+    }
+    return is_valid;
+}

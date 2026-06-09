@@ -1,0 +1,16 @@
+TestCase z23Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy memory allocation for array parameter z
+    double* follow_case_z = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_z, t1.z, t1.n * sizeof(double));
+    follow_case.z = follow_case_z;
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    // Multiply elements at odd indices by -1
+    for (int i = 1; i < follow_case.n; i += 2) {
+        follow_case.z[i] = -follow_case.z[i];
+    }
+    return follow_case;
+}

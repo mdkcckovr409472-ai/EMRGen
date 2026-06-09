@@ -1,0 +1,22 @@
+TestCase z14Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n == 0
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Specific operation code: right circular shift (move last element to front)
+    int last = follow_case.a[follow_case.n - 1];
+    for (int i = follow_case.n - 1; i > 0; --i) {
+        follow_case.a[i] = follow_case.a[i - 1];
+    }
+    follow_case.a[0] = last;
+    
+    return follow_case;
+}

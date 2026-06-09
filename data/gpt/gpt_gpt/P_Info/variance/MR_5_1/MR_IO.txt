@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Reverse the array in place by creating a new reversed array
+    double* reversed = new double[tc.n];
+    for(int i = 0; i < tc.n; ++i) {
+        reversed[i] = tc.x[tc.n - 1 - i];
+    }
+    tf.x = reversed;
+    return tf;
+}

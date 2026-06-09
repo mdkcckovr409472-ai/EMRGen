@@ -1,0 +1,28 @@
+TestCase z25Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    int* follow_case_array = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_array, t1.array, t1.n * sizeof(int));
+    follow_case.array = follow_case_array;
+    // ------------------------------------
+
+    // 这是根据规则6a生成的防御性代码，防止n<=0时出错
+    if (follow_case.n <= 0) {
+        // 数组为空或长度为负，无法进行操作，直接返回副本
+        return follow_case;
+    }
+
+    // 这是根据规则5生成的具体操作代码
+    int min_index = 0;
+    int max_value = follow_case.array[0];
+    for (int i = 1; i < follow_case.n; i++) {
+        if (follow_case.array[i] < follow_case.array[min_index]) {
+            min_index = i;
+        }
+        if (follow_case.array[i] > max_value) {
+            max_value = follow_case.array[i];
+        }
+    }
+    follow_case.array[min_index] = max_value;
+
+    return follow_case;}

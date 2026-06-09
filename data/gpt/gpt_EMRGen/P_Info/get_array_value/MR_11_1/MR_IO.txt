@@ -1,0 +1,19 @@
+TestCase z11Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive check to ensure the array has at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    
+    // Specific operation: increment a random element by 5
+    int idx = rand() % follow_case.n;
+    follow_case.a[idx] += 5;
+    
+    return follow_case;
+}

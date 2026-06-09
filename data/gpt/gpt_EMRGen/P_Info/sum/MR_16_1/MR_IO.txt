@@ -1,0 +1,15 @@
+TestCase z16Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for the array parameter
+    int* follow_case_values = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_values, t1.values, t1.n * sizeof(int));
+    follow_case.values = follow_case_values;
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    // Increment a random element by 10
+    int idx = rand() % follow_case.n;
+    follow_case.values[idx] += 10;
+    return follow_case;
+}

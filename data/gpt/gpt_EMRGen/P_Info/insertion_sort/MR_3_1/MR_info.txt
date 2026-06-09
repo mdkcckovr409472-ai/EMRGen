@@ -1,0 +1,2 @@
+Operation 3: On parameter 'array' (array[int]): multiply all elements by 2
+Invariant: 2 * return.result1[] - return.result2[] == 0

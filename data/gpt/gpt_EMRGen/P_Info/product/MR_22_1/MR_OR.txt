@@ -1,0 +1,19 @@
+int z22check(double result1, double result2) {
+    const double epsilon = 1e-5;
+
+    double A = result2;
+    double B = result1 * result1;
+
+    if (std::isnan(A) || std::isnan(B)) return 0;
+
+    if (std::isinf(A) || std::isinf(B)) {
+        // Compare directly for equality
+        return (A == B) ? 1 : 0;
+    }
+
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    if (fabs(A - B) > tol) return 0;
+
+    return 1;
+}

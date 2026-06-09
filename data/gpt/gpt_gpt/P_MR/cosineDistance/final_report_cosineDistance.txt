@@ -1,0 +1,138 @@
+double cosineDistance(double p1[], double p2[], int n) {
+    double dotProduct = 0.0;
+    double lengthSquaredp1 = 0.0;
+    double lengthSquaredp2 = 0.0;
+
+    for (int i = 0; i < n; i++) {
+        lengthSquaredp1 += p1[i] * p1[i];
+        lengthSquaredp2 += p2[i] * p2[i];
+        dotProduct += p1[i] * p2[i];
+    }
+    
+    double denominator = sqrt(lengthSquaredp1) * sqrt(lengthSquaredp2);
+    if (denominator < dotProduct) {
+        denominator = dotProduct;
+    }
+    if (denominator == 0 && dotProduct == 0) {
+        return 0;
+    }
+    return 1.0 - dotProduct / denominator;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「add 1 to all elements」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「subtract 1 from all elements」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「multiply all elements by 2」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「divide all elements by 2」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「reverse the entire array」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「sort the array in ascending order」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「sort the array in descending order」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「set all elements to 0」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「set all elements to 1」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「set the first element to the maximum double value」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「circular shift the array to the left by 1 position」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「add 1 to all elements」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「subtract 1 from all elements」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「multiply all elements by 2」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「divide all elements by 2」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「reverse the entire array」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「sort the array in ascending order」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「sort the array in descending order」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「set all elements to 0」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「set all elements to 1」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「set the first element to the minimum double value」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains p2 (double[]), if the operation 「circular shift the array to the right by 1 position」 is executed on p2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+操作总数: 22
+关系总数: 22

@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    // Sort the data array in descending order to create the follow-up test case input
+    // We will sort in-place since data pointer is reused according to requirement.
+    // Using simple std::sort with std::greater comparator.
+    std::sort(tf.data, tf.data + tf.n, std::greater<double>());
+
+    return tf;
+}

@@ -1,0 +1,59 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.x == nullptr || tc.y == nullptr) return 0;
+    // Prepare copies of x and y arrays for source run
+    double* x_src = new double[tc.n];
+    double* y_src = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        x_src[i] = tc.x[i];
+        y_src[i] = tc.y[i];
+    }
+    double* Os = computeDividedDifference1(x_src, y_src, tc.n);
+    if (Os == nullptr) {
+        delete[] x_src;
+        delete[] y_src;
+        return 0;
+    }
+
+    // Generate follow-up test case
+    TestCase Tf_case = change(tc);
+    if (Tf_case.n <= 0 || Tf_case.x == nullptr || Tf_case.y == nullptr) {
+        delete[] x_src;
+        delete[] y_src;
+        if (Tf_case.x != nullptr && Tf_case.x != tc.x) delete[] Tf_case.x;
+        return 0;
+    }
+    // Prepare copies of x and y arrays for follow-up run
+    double* x_fol = new double[Tf_case.n];
+    double* y_fol = new double[Tf_case.n];
+    for (int i = 0; i < Tf_case.n; i++) {
+        x_fol[i] = Tf_case.x[i];
+        y_fol[i] = Tf_case.y[i];
+    }
+    double* Of = computeDividedDifference1(x_fol, y_fol, Tf_case.n);
+    if (Of == nullptr) {
+        delete[] x_src;
+        delete[] y_src;
+        delete[] x_fol;
+        delete[] y_fol;
+        if (Tf_case.x != nullptr && Tf_case.x != tc.x) delete[] Tf_case.x;
+        return 0;
+    }
+
+    // Check MR invariant: Os == Of (element-wise equality)
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        if (Os[i] != Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // Clean up allocated memory
+    delete[] x_src;
+    delete[] y_src;
+    delete[] x_fol;
+    delete[] y_fol;
+    if (Tf_case.x != nullptr && Tf_case.x != tc.x) delete[] Tf_case.x;
+
+    return is_valid;
+}

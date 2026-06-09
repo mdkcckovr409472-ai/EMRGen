@@ -1,0 +1,32 @@
+int z7check(int* result1, int* result2, int n) {
+    // 1. Defensive programming
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    const double epsilon = 1e-5;
+
+    for (int i = 0; i < n; i++) {
+        double A = (double)result1[i];
+        double B = (double)result2[i];
+
+        if (__builtin_isnan(A) || __builtin_isnan(B)) return 0;
+        if (__builtin_isinf(A) || __builtin_isinf(B)) {
+            if (A > B) return 1;
+            else return 0;
+        }
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+        if (fabs(A - B) <= tol) {
+            // equal within tolerance, check next element
+            continue;
+        } else if (A > B + tol) {
+            // condition satisfied
+            return 1;
+        } else {
+            // condition not satisfied
+            return 0;
+        }
+    }
+    // arrays completely equal
+    return 0;
+}

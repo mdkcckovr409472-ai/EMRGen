@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    int Os = dot_product(tc.a, tc.b, tc.n);
+    TestCase Tf_case = change(tc);
+    int Of = dot_product(Tf_case.a, Tf_case.b, Tf_case.n);
+    int sum_b = 0;
+    for (int i = 0; i < tc.n; i++) {
+        sum_b += tc.b[i];
+    }
+    int k = 5;
+    int is_valid = 0;
+    if (Of == Os + k * sum_b) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.a;
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 32: On parameter 'weights' (double*): 所有元素乘2.0
+Invariant: return.result2 == return.result1**2

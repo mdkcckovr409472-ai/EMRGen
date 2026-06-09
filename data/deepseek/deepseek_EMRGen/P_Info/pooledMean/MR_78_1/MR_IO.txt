@@ -1,0 +1,20 @@
+TestCase z78Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    double* follow_case_data2 = (double*)malloc(t1.n2 * sizeof(double));
+    memcpy(follow_case_data2, t1.data2, t1.n2 * sizeof(double));
+    follow_case.data2 = follow_case_data2;
+    // ------------------------------------
+    
+    // 这是根据规则6a生成的防御性代码，防止n2<=0时出错
+    if (follow_case.n2 <= 0) {
+        // 数组为空或长度为负，无法选择随机位置，直接返回副本
+        return follow_case;
+    }
+    
+    // 这是根据规则5生成的具体操作代码
+    srand(time(NULL));
+    int random_index = rand() % follow_case.n2;
+    follow_case.data2[random_index] = DBL_MAX;
+    
+    return follow_case;}

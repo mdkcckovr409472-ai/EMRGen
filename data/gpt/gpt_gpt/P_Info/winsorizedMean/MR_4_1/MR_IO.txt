@@ -1,0 +1,19 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Sort the elements array in ascending order to construct Tf
+    // Since elements points to externally allocated array,
+    // allocate new array for sorted elements and assign to tf.elements
+
+    double* sortedElements = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        sortedElements[i] = tc.elements[i];
+    }
+
+    // Using std::sort since we can't use lambda qsort comparator easily here
+    std::sort(sortedElements, sortedElements + tc.n);
+
+    tf.elements = sortedElements;
+
+    // left, right, n remain unchanged
+    return tf;
+}

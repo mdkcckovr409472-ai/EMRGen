@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    int Os = count_k(tc.a, tc.k, tc.n);
+
+    TestCase Tf_case = change(tc);
+    int Of = count_k(Tf_case.a, Tf_case.k, Tf_case.n);
+
+    int is_valid = 0;
+    if (tc.k == INT_MIN) {
+        if (Of >= Os) {
+            is_valid = 1;
+        }
+    } else {
+        if (Os >= Of) {
+            is_valid = 1;
+        }
+    }
+    // No dynamic memory allocated inside change or check, so no free needed.
+    return is_valid;
+}

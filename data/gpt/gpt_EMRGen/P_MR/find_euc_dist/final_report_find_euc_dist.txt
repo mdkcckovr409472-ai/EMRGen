@@ -1,0 +1,35 @@
+double find_euc_dist(int a[], int b[], int na) {
+    double sum = 0;
+    for (int i = 0; i < na; i++) {
+        sum += (a[i] - b[i]) * (a[i] - b[i]);
+    }
+    double result = sqrt(sum);
+    return result;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 7: On parameter 'a' (array[int]): set random element to -999 (when element > -999)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「set random element to -999 (when element > -999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'b' (array[int]): multiply all elements by 2
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（array[int]）的函数，若对 b执行「multiply all elements by 2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 2
+关系总数: 2

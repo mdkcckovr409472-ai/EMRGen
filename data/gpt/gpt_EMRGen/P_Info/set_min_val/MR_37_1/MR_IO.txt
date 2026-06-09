@@ -1,0 +1,6 @@
+TestCase z37Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive checks (none required for setting k)
+    follow_case.k = INT_MIN;
+    return follow_case;
+}

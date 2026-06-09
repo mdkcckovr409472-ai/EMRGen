@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for array2 to modify the last element
+    int* new_array2 = (int*)malloc(tf.n * sizeof(int));
+    if (!new_array2) {
+        // Allocation failed, return unchanged tc
+        return tf;
+    }
+    memcpy(new_array2, tf.array2, tf.n * sizeof(int));
+    new_array2[tf.n - 1] = INT_MIN;
+    tf.array2 = new_array2;
+    return tf;
+}

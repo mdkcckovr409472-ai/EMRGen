@@ -1,0 +1,2 @@
+Operation 14: On parameter 'values' (int*): shuffle array randomly
+Invariant: return.result1 == return.result2

@@ -1,0 +1,2 @@
+Operation 54: On parameter 'b' (int*): duplicate element at index i to index i+1 (shifting later elements, bounds‑checked)
+Invariant: return.result1[0..0] == return.result2[0..0] (elementwise)

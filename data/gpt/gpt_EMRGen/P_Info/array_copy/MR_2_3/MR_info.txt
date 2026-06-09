@@ -1,0 +1,2 @@
+Operation 2: On parameter 'a' (array[int]): subtract 1 from all elements
+Invariant: return.result2[] < return.result1[] (lexically)

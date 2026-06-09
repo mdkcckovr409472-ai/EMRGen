@@ -1,0 +1,45 @@
+int check(TestCase tc) {
+    // Source input
+    int* Ts_a = tc.a;
+    int k = tc.k;
+    int n = tc.n;
+
+    // Call original function for source output Os
+    int* Os = dec_array(Ts_a, k, n);
+    if (Os == NULL) {
+        return 0; // allocation failure
+    }
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    int* Tf_a = Tf_case.a;
+
+    // Call original function for follow-up output Of
+    int* Of = dec_array(Tf_a, k, n);
+    if (Of == NULL) {
+        free(Os);
+        if (Tf_a != tc.a) {
+            free(Tf_a);
+        }
+        return 0;
+    }
+
+    // Check metamorphic relation: Os == Of (element-wise equal)
+    int is_valid = 1;
+    for (int i = 0; i < n; ++i) {
+        if (Os[i] != Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // Free dynamically allocated memory
+    free(Os);
+    free(Of);
+    // Free the sorted array if it was allocated in change()
+    if (Tf_a != tc.a) {
+        free(Tf_a);
+    }
+
+    return is_valid;
+}

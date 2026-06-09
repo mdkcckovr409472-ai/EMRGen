@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    int n = tc.n;
+    // Reuse the struct, allocate new reversed array for follow-up input
+    double* reversed = new double[n];
+    for (int i = 0; i < n; i++) {
+        reversed[i] = tc.elements[n - 1 - i];
+    }
+    TestCase tf = tc;
+    tf.elements = reversed;
+    return tf;
+}

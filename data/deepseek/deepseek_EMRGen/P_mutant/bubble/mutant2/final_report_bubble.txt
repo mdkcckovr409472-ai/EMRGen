@@ -1,0 +1,300 @@
+int* bubble(int a[], int n){
+    int* cp1 = (int*)malloc(n * sizeof(int));
+    memcpy(cp1, a, n * sizeof(int));
+    int t;
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - 1 - i; j++)
+        {
+            if (cp1[j] <= cp1[j + 1])
+            {
+                t = cp1[j];
+                cp1[j] = cp1[j + 1];
+                cp1[j + 1] = t;
+            }
+        }
+    }
+    return cp1;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (int*): 所有元素加1
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] - return.result2[] + 1 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] - Of[] + 1 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (int*): 所有元素减1
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] - return.result2[] - 1 == 0
+return.result1[] > return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] - Of[] - 1 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (int*): 所有元素乘2
+Invariant: 
+2 * return.result1[] - return.result2[] == 0
+size(return.result1[]) == size(return.result2[])
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - Of[] == 0
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (int*): 所有元素除以2（取整）
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素除以2（取整）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (int*): 随机位置置999（当元素小于999时）
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机位置置999（当元素小于999时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (int*): 随机两元素交换
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (int*): 数组反转
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (int*): 随机重排序
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (int*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (int*): 数组向右循环移位（末元素移到开头）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组向右循环移位（末元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (int*): 将数组按升序排序
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将数组按升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (int*): 子数组（前一半元素）加1
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「子数组（前一半元素）加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (int*): 子数组（后一半元素）减1
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「子数组（后一半元素）减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (int*): 首个元素与末尾元素交换
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「首个元素与末尾元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (int*): 所有偶数位置元素加5
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有偶数位置元素加5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (int*): 所有奇数位置元素减3
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有奇数位置元素减3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (int*): 最小值元素置为0
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「最小值元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (int*): 最大值元素置为1000
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「最大值元素置为1000」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (int*): 元素取绝对值
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (int*): 所有元素平方
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (int*): 所有元素开平方根（取整）
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素开平方根（取整）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (int*): 随机位置元素置为负数（如果为正）
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机位置元素置为负数（如果为正）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int*): 所有元素取负
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[i] == -return.result2[size(return.result2[])-1-i]
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素取负」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[i] == -Of[size(Of[])-1-i]
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (int*): 相邻元素两两交换
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「相邻元素两两交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (int*): 元素模10操作
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「元素模10操作」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (int*): 元素替换（将值为5的元素置为50）
+Invariant: 
+size(return.result1[]) == size(return.result2[])
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「元素替换（将值为5的元素置为50）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+size(Os[]) == size(Of[])
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+
+操作总数: 26
+关系总数: 46

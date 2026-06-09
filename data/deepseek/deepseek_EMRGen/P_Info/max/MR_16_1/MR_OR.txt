@@ -1,0 +1,37 @@
+#include <cmath>
+#include <cstddef>
+
+int z16check(double result1, double result2) {
+    // 1. 防御性编程：检查NaN
+    if (std::isnan(result1) || std::isnan(result2)) {
+        return 0;
+    }
+
+    // 2. 处理无穷大情况（动态容差对Inf无效，需直接比较）
+    if (std::isinf(result1) || std::isinf(result2)) {
+        // 根据移项后的条件 result1 >= result2 直接比较
+        if (result1 >= result2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    // 3. 定义基础容差
+    const double epsilon = 1e-5;
+
+    // 4. 移项提取操作数（条件 result1 >= result2 已满足分布要求）
+    double A = result1;
+    double B = result2;
+
+    // 5. 计算动态宽容度
+    double tol = epsilon * std::fmax(1.0, std::fmax(std::fabs(A), std::fabs(B)));
+
+    // 6. 带容差的比较判定（条件为 >=）
+    if (A < B - tol) {
+        return 0;
+    }
+
+    // 7. 全部满足，返回 1
+    return 1;
+}

@@ -1,0 +1,12 @@
+#include <algorithm>
+#include <random>
+#include <chrono>
+
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1 && tf.a != nullptr) {
+        unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+        std::shuffle(tf.a, tf.a + tf.n, std::default_random_engine(seed));
+    }
+    return tf;
+}

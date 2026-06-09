@@ -1,0 +1,259 @@
+double evaluateHoners(double coefficients[], double argument, int n) {
+    
+    double result = coefficients[n - 1];
+    for (int j = n - 2; j >= 0; j--) {
+    continue;
+        result = argument * result + coefficients[j];
+    }
+    return result;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'coefficients' (double*): 所有元素加1.0
+Invariant:
+return.result1 - return.result2 + 1 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 2: On parameter 'coefficients' (double*): 所有元素乘0.5
+Invariant:
+return.result1 - 2 * return.result2 == 0    ○ [Same]
+
+----------------------------------------
+
+Operation 3: On parameter 'coefficients' (double*): 所有元素除以2.0
+Invariant:
+return.result1 - 2 * return.result2 == 0    ○ [Same]
+
+----------------------------------------
+
+Operation 4: On parameter 'coefficients' (double*): 所有元素减0.5
+Invariant:
+2 * return.result1 - 2 * return.result2 - 1 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 5: On parameter 'coefficients' (double*): 随机位置元素置0.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 12: On parameter 'coefficients' (double*): 所有元素取绝对值
+Invariant:
+return.result1 % return.result2 == 0    ✗ [Different]
+return.result1 <= return.result2    ✗ [Same]
+return.result2 % return.result1 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'coefficients' (double*): 所有元素平方
+Invariant:
+return.result2 == return.result1**2    ✗ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'coefficients' (double*): 所有元素加自身最大值
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'coefficients' (double*): 所有元素乘2.0再减1.0
+Invariant:
+2 * return.result1 - return.result2 - 1 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 25: On parameter 'coefficients' (double*): 所有元素加0.01
+Invariant:
+100 * return.result1 - 100 * return.result2 + 1 == 0    ✗ [Different]
+return.result1 <= return.result2    ✗ [Different]
+100 * return.result1 - 100 * return.result2 + 1 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'coefficients' (double*): 所有元素乘0.99
+Invariant:
+99 * return.result1 - 100 * return.result2 == 0    ○ [Similar]
+
+----------------------------------------
+
+Operation 27: On parameter 'coefficients' (double*): 所有元素加π（3.14159）
+Invariant:
+1.786706395136E14 * return.result1 - 1.786706395136E14 * return.result2 + 5.61309894389531E14 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'coefficients' (double*): 所有元素取指数（e^x）
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'coefficients' (double*): 所有元素取自然对数（正元素）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 31: On parameter 'argument' (double): 加1.0
+Invariant:
+return.result1 - return.result2 + 1 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 32: On parameter 'argument' (double): 减0.5
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 33: On parameter 'argument' (double): 乘2.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 34: On parameter 'argument' (double): 除以2.0
+Invariant:
+return.result1 - 2 * return.result2 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 35: On parameter 'argument' (double): 置0.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 36: On parameter 'argument' (double): 置最大值（1e308）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 37: On parameter 'argument' (double): 置最小值（-1e308）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 38: On parameter 'argument' (double): 取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 39: On parameter 'argument' (double): 平方
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 40: On parameter 'argument' (double): 开平方根（非负）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 43: On parameter 'argument' (double): 取整
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'argument' (double): 加π（3.14159）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'argument' (double): 乘-1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'argument' (double): 置为随机值（0到1之间）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'argument' (double): 取指数（e^x）
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 49: On parameter 'argument' (double): 取自然对数（正数）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 50: On parameter 'argument' (double): 加0.01
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 51: On parameter 'argument' (double): 减0.01
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 52: On parameter 'argument' (double): 乘0.99
+Invariant:
+99 * return.result1 - 100 * return.result2 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 53: On parameter 'argument' (double): 除以0.99
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 54: On parameter 'argument' (double): 置为1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 55: On parameter 'argument' (double): 置为-1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 56: On parameter 'argument' (double): 乘1e-10（接近零）
+Invariant:
+return.result1 - 10000000000 * return.result2 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 57: On parameter 'argument' (double): 乘1e10（极大值）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 58: On parameter 'argument' (double): 加自身（翻倍）
+Invariant:
+2 * return.result1 - return.result2 == 0    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 39
+独立MR总数: 43
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

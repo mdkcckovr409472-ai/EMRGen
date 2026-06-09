@@ -1,0 +1,8 @@
+int check(TestCase tc) {
+    double Os = weightedMean(tc.elements, tc.theWeights, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = weightedMean(Tf_case.elements, Tf_case.theWeights, Tf_case.n);
+    int is_valid = (Of >= Os) ? 1 : 0;
+    // No dynamic memory allocated inside change(), so nothing to free here
+    return is_valid;
+}

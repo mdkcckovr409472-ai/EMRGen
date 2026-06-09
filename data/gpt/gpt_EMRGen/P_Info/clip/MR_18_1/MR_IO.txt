@@ -1,0 +1,18 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ---------------------------
+    
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n < 1) {
+        return follow_case;
+    }
+    
+    // Set the first element to lowerLim
+    follow_case.a[0] = follow_case.lowerLim;
+    
+    return follow_case;
+}

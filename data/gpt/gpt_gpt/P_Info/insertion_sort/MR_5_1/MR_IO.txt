@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1) {
+        int* shifted = (int*)malloc(tf.n * sizeof(int));
+        shifted[0] = tf.array[tf.n - 1];
+        memcpy(shifted + 1, tf.array, (tf.n - 1)*sizeof(int));
+        tf.array = shifted;
+    }
+    return tf;
+}

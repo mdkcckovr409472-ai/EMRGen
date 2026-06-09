@@ -1,0 +1,2 @@
+Operation 32: On parameter 'p1' (array[double]): normalize array (divide each element by max absolute value)
+Invariant: return.result1 == return.result2

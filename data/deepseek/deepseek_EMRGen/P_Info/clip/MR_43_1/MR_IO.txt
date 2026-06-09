@@ -1,0 +1,9 @@
+TestCase z43Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 根据规则6a，操作仅针对单个整数参数，不涉及数组长度检查。
+
+// 根据规则5生成的具体操作代码
+follow_case.lowerLim = follow_case.lowerLim * follow_case.lowerLim;
+
+return follow_case;}

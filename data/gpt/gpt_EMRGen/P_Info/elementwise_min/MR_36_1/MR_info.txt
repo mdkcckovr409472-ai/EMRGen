@@ -1,0 +1,2 @@
+Operation 36: On parameter 'b' (array[int]): subtract 1 from a random element
+Invariant: return.result1[] >= return.result2[] (elementwise)

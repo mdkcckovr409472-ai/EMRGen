@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        double* new_sample2 = new double[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            new_sample2[i] = tf.sample2[i];
+        }
+        new_sample2[0] = -std::numeric_limits<double>::max();
+        tf.sample2 = new_sample2;
+    }
+    return tf;
+}

@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int n = tc.n;
+    // Allocate new memory for b for follow-up input to avoid altering the original b array
+    int* new_b = new int[n];
+    for (int i = 0; i < n; i++) {
+        new_b[i] = tc.b[i] + 1; // add 1 to each element of b
+    }
+    tf.b = new_b;
+    return tf;
+}

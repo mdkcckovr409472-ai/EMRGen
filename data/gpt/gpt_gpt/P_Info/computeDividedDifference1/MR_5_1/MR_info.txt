@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains y (double[]), if the operation 「multiply all elements by 2」 is executed on y to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Of[0] == 2 * Os[0]

@@ -1,0 +1,2 @@
+Operation 27: On parameter 'a' (array[int]): floor elements less than -50 to -50
+Invariant: return.result1[] <= return.result2[] (elementwise)

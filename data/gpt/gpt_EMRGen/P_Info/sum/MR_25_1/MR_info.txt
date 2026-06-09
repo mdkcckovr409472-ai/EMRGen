@@ -1,0 +1,2 @@
+Operation 25: On parameter 'values' (int*): set random element to -999 (when element > -999)
+Invariant: return.result1 >= return.result2

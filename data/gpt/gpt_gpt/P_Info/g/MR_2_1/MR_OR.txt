@@ -1,0 +1,18 @@
+int check(TestCase tc) {
+    double Os = g(tc.expected, tc.observed, tc.n);
+
+    TestCase Tf_case = change(tc);
+
+    double Of = g(Tf_case.expected, Tf_case.observed, Tf_case.n);
+
+    int is_valid = 0;
+    if (Os != Of) {
+        is_valid = 1;
+    }
+
+    if (Tf_case.expected != tc.expected) {
+        delete[] Tf_case.expected;
+    }
+
+    return is_valid;
+}

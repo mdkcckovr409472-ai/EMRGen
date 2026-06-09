@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains p1 (double[]), if the operation 「subtract 1 from all elements」 is executed on p1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Os != Of

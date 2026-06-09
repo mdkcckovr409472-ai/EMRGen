@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        double* new_elements = new double[tf.n];
+        for (int i = 0; i < tf.n - 1; ++i) {
+            new_elements[i] = tf.elements[i];
+        }
+        new_elements[tf.n - 1] = tf.elements[tf.n - 1] * 2.0;
+        tf.elements = new_elements;
+    }
+    return tf;
+}

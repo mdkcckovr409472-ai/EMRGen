@@ -1,0 +1,15 @@
+TestCase z5Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for deep copy
+    double* follow_case_data = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_data, t1.data, t1.n * sizeof(double));
+    follow_case.data = follow_case_data;
+
+    if (follow_case.n > 0) {
+        if (follow_case.data[0] > 0) {
+            follow_case.data[0] = 0.0;
+        }
+    }
+
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 19: On parameter 'x' (double*): apply natural logarithm to each positive element
+Invariant: return.result1[] <= return.result2[] (elementwise)

@@ -1,0 +1,20 @@
+int check(TestCase tc) {
+    // Compute Os with original input
+    double Os = cosineDistance(tc.p1, tc.p2, tc.n);
+
+    // Construct follow-up test case Tf
+    TestCase Tf = change(tc);
+
+    // Compute Of with follow-up input
+    double Of = cosineDistance(Tf.p1, Tf.p2, Tf.n);
+
+    // Verify MR: Os != Of
+    int is_valid = (Os != Of) ? 1 : 0;
+
+    // Deallocate allocated memory in Tf if differs from original
+    if (Tf.p2 != tc.p2) {
+        delete[] Tf.p2;
+    }
+
+    return is_valid;
+}

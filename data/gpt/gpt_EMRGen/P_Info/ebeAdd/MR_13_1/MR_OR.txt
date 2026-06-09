@@ -1,0 +1,39 @@
+int z13check(double* result1, double* result2, int n) {
+    // 4. Defensive Programming and Boundary Checks
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    const double epsilon = 1e-5;
+
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+
+        // Step 3: Defend against NaN and handle Inf
+        if (std::isnan(A) || std::isnan(B)) return 0;
+        if (std::isinf(A) || std::isinf(B)) {
+            // Condition: result1[i] >= result2[i]
+            if (A >= B)
+                return 1;
+            else
+                return 0;
+        }
+
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        double diff = A - B;
+
+        if (fabs(diff) <= tol) {
+            // Elements considered equal within tolerance; continue checking next
+            continue;
+        } else if (diff > tol) {
+            // A > B + tol: result1[i] > result2[i], condition satisfied, early return 1
+            return 1;
+        } else {
+            // A < B - tol: result1[i] < result2[i], condition violated, return 0
+            return 0;
+        }
+    }
+
+    // All elements equal within tolerance; equality allowed, return 1
+    return 1;
+}

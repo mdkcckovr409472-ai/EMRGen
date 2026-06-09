@@ -1,0 +1,1 @@
+In the data folder, the programs folder stores the benchmark programs used in the experiments, while the deepseek and gpt folders store the EMRs and test results generated using EMRGen and the baseline method under the corresponding LLMs, respectively.

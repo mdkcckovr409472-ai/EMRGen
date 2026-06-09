@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    int Os = find_max(tc.a, tc.n);
+    TestCase Tf_case = change(tc);
+    int Of = find_max(Tf_case.a, Tf_case.n);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.a;
+    return is_valid;
+}

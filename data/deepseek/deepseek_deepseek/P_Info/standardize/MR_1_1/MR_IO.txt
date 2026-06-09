@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.data != nullptr) {
+        double* new_data = (double*)malloc(tf.n * sizeof(double));
+        if (new_data) {
+            for (int i = 0; i < tf.n; i++) {
+                new_data[i] = tf.data[i] + 5.0;
+            }
+            tf.data = new_data;
+        }
+    }
+    return tf;
+}

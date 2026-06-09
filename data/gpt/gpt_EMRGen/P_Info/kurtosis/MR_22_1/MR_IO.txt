@@ -1,0 +1,35 @@
+TestCase z22Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_data = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_data, t1.data, t1.n * sizeof(double));
+    follow_case.data = follow_case_data;
+    // ------------------------------------
+    
+    // Defensive code: need at least 2 elements to sort a subarray
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+    
+    // Generate two random indices within the array bounds
+    int idx1 = rand() % follow_case.n;
+    int idx2 = rand() % follow_case.n;
+    if (idx1 > idx2) {
+        int tmp = idx1;
+        idx1 = idx2;
+        idx2 = tmp;
+    }
+    
+    // Sort the subarray [idx1, idx2] in ascending order
+    for (int i = idx1; i < idx2; ++i) {
+        for (int j = i + 1; j <= idx2; ++j) {
+            if (follow_case.data[i] > follow_case.data[j]) {
+                double temp = follow_case.data[i];
+                follow_case.data[i] = follow_case.data[j];
+                follow_case.data[j] = temp;
+            }
+        }
+    }
+    
+    return follow_case;
+}

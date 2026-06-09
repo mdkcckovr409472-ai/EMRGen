@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // 为衍生输入数组分配新的内存，复制初始数组
+    tf.a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.a[i] = tc.a[i];
+        // 执行「将所有等于k-1的元素修改为k」操作
+        if (tf.a[i] == tc.k - 1) {
+            tf.a[i] = tc.k;
+        }
+    }
+    // 注意：k和n字段保持不变
+    return tf;
+}

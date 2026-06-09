@@ -1,0 +1,8 @@
+TestCase z53Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check to avoid integer overflow when adding 10
+    if (follow_case.lowerLim <= INT_MAX - 10) {
+        follow_case.lowerLim += 10;
+    }
+    return follow_case;
+}

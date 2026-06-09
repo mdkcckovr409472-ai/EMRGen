@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int minIndex = 0;
+        int minValue = tf.a[0];
+        for (int i = 1; i < tf.n; i++) {
+            if (tf.a[i] < minValue) {
+                minIndex = i;
+                minValue = tf.a[i];
+            }
+        }
+        int c = 10;
+        tf.a[minIndex] += c;
+    }
+    return tf;
+}

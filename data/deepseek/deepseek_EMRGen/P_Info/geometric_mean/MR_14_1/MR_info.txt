@@ -1,0 +1,2 @@
+Operation 14: On parameter 'a' (int*): 交换中间两个元素（若数组长度为偶数）
+Invariant: return.result1 == return.result2

@@ -1,0 +1,28 @@
+TestCase z14Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_data = (double*)malloc(follow_case.n * sizeof(double));
+    memcpy(follow_case_data, follow_case.data, follow_case.n * sizeof(double));
+    follow_case.data = follow_case_data;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n == 0
+    if (follow_case.n > 0) {
+        // Sort array in descending order
+        for (int i = 0; i < follow_case.n - 1; ++i) {
+            int maxIdx = i;
+            for (int j = i + 1; j < follow_case.n; ++j) {
+                if (follow_case.data[j] > follow_case.data[maxIdx]) {
+                    maxIdx = j;
+                }
+            }
+            if (maxIdx != i) {
+                double temp = follow_case.data[i];
+                follow_case.data[i] = follow_case.data[maxIdx];
+                follow_case.data[maxIdx] = temp;
+            }
+        }
+    }
+    
+    return follow_case;
+}

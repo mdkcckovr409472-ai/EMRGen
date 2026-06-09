@@ -1,0 +1,28 @@
+int check(TestCase tc) {
+    double* Os = ebeAdd(tc.a, tc.b, tc.n1, tc.n2);
+    if (Os == NULL) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    double* Of = ebeAdd(Tf_case.a, Tf_case.b, Tf_case.n1, Tf_case.n2);
+    if (Of == NULL) {
+        free(Os);
+        if (Tf_case.a != tc.a) free(Tf_case.a);
+        return 0;
+    }
+
+    int is_valid = 1;
+    double k = 5.0;
+    for (int i = 0; i < tc.n1; i++) {
+        if (fabs(Os[i] - k - Of[i]) > 1e-12) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    free(Os);
+    free(Of);
+    if (Tf_case.a != tc.a) free(Tf_case.a);
+    return is_valid;
+}

@@ -1,0 +1,21 @@
+TestCase z43Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for y
+    double* follow_case_y = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_y, t1.y, t1.n * sizeof(double));
+    follow_case.y = follow_case_y;
+
+    // Defensive check for array length
+    if (follow_case.n < 1) {
+        return follow_case;
+    }
+
+    // Apply natural logarithm to each positive element
+    for (int i = 0; i < follow_case.n; ++i) {
+        if (follow_case.y[i] > 0) {
+            follow_case.y[i] = log(follow_case.y[i]);
+        }
+    }
+
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 1: On parameter 'values' (int*): 所有元素加1
+Invariant: return.result1 < return.result2

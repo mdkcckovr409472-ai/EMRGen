@@ -1,0 +1,21 @@
+int check(TestCase tc) {
+    // Get source output Os
+    double Os = pooledMean(tc.data1, tc.data2, tc.n1, tc.n2);
+    
+    // Generate follow-up test case Tf
+    TestCase Tf_case = change(tc);
+    
+    // Get follow-up output Of
+    double Of = pooledMean(Tf_case.data1, Tf_case.data2, Tf_case.n1, Tf_case.n2);
+    
+    // Check MR relation: Os > Of
+    int is_valid = (Os > Of) ? 1 : 0;
+    
+    // Free dynamically allocated memory in Tf_case.data2 if different from tc.data2
+    if (Tf_case.data2 != tc.data2) {
+        delete[] Tf_case.data2;
+        Tf_case.data2 = nullptr;
+    }
+    
+    return is_valid;
+}

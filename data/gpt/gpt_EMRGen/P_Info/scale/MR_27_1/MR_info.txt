@@ -1,0 +1,2 @@
+Operation 27: On parameter 'val' (double): increase by 10% (val × 1.10)
+Invariant: 1.1 * return.result1[] - return.result2[] == 0

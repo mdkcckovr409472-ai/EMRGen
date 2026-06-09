@@ -1,0 +1,2 @@
+Operation 32: On parameter 'phi' (double): 除2.0
+Invariant: return.result1 >= return.result2

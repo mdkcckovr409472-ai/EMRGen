@@ -1,0 +1,2 @@
+Operation 66: On parameter 'right' (int): 置为最小值（INT_MIN）
+Invariant: return.result1 <= return.result2

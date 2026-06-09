@@ -1,0 +1,12 @@
+TestCase z38Change(TestCase t1) {
+    TestCase follow_case = t1;
+    
+    // Defensive checks (none needed for scalar lowerLim)
+    
+    // Operation: set lowerLim to its absolute value (make non‑negative)
+    if (follow_case.lowerLim < 0) {
+        follow_case.lowerLim = -follow_case.lowerLim;
+    }
+    
+    return follow_case;
+}

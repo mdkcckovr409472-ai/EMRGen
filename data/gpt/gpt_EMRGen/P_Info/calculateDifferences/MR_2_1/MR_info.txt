@@ -1,0 +1,2 @@
+Operation 2: On parameter 'x' (double*): subtract 0.5 from all elements
+Invariant: 2 * return.result1[] - 2 * return.result2[] + 1 == 0

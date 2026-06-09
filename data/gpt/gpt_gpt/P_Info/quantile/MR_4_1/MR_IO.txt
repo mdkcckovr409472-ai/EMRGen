@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 0 && tc.sortedElements != nullptr) {
+        double* newArray = new double[tc.n];
+        for (int i = 0; i < tc.n; i++) {
+            newArray[i] = tc.sortedElements[i] / 2.0;
+        }
+        tf.sortedElements = newArray;
+    } else {
+        tf.sortedElements = nullptr;
+    }
+    return tf;
+}

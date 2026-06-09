@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // 为排序操作分配新的数组，避免修改原始数据
+    tf.data = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        tf.data[i] = tc.data[i];
+    }
+    // 对数组进行升序排序
+    std::sort(tf.data, tf.data + tf.n);
+    return tf;
+}

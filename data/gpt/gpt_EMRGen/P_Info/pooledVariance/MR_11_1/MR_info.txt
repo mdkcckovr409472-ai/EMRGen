@@ -1,0 +1,2 @@
+Operation 11: On parameter 'data1' (double*): swap two random elements
+Invariant: return.result1 == return.result2

@@ -1,0 +1,21 @@
+TestCase z14Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_sortedElements = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_sortedElements, t1.sortedElements, t1.n * sizeof(double));
+follow_case.sortedElements = follow_case_sortedElements;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<=0时出错
+if (follow_case.n <= 0) {
+    // 数组为空或长度为负，无法进行随机访问，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+// 生成一个[0, n-1]范围内的随机索引
+int random_index = rand() % follow_case.n;
+// 将随机位置的元素置为最小值
+follow_case.sortedElements[random_index] = -DBL_MAX;
+
+return follow_case;}

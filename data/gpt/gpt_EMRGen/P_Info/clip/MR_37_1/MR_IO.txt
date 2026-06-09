@@ -1,0 +1,6 @@
+TestCase z37Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive checks are not required for scalar assignment
+    follow_case.lowerLim = INT_MIN;
+    return follow_case;
+}

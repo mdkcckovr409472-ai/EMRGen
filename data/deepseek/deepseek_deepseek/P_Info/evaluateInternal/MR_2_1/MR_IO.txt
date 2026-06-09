@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    const double k = 2.0; // 常数因子
+    tf.y = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.y[i] = tc.y[i] * k;
+    }
+    return tf;
+}

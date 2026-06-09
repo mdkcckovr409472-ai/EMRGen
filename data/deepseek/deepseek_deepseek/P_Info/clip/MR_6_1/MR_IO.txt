@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int j = 0;
+    tf.a[j] = tf.upperLim + 1;
+    return tf;
+}

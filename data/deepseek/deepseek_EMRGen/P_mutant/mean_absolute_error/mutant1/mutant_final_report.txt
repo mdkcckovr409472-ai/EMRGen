@@ -1,0 +1,367 @@
+double mean_absolute_error(int a[], int b[], int n) {
+    int sum = 0;
+    for (int i = 0; i > n; i++) {
+        sum += abs(a[i] - b[i]);
+    }
+    return (double) sum / n;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[int]): 所有元素加1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[int]): 所有元素减1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (array[int]): 所有元素乘2
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (array[int]): 所有元素除2
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (array[int]): 随机位置元素置为999(当元素小于999时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[int]): 随机位置元素置为-1(当元素大于等于0时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (array[int]): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (array[int]): 数组反转
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (array[int]): 数组左移一位
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (array[int]): 数组右移一位
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): 每个元素平方
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (array[int]): 每个元素取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (array[int]): 数组前一半元素置为0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[int]): 数组后一半元素置为1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (array[int]): 将所有奇数变为其相反数
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (array[int]): 将所有大于0的元素增加100
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): 将所有小于0的元素减少100
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (array[int]): 数组排序（升序）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[int]): 数组排序（降序）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): 每隔一个元素加1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (array[int]): 所有元素乘-1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (array[int]): 所有元素加(当前索引值)
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (array[int]): 随机位置元素置为最大值（使用原数组最大值）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (array[int]): 随机位置元素置为最小值（使用原数组最小值）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (array[int]): 数组元素取模10
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (array[int]): 每个元素加5（如果原值小于0）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (array[int]): 每个元素减5（如果原值大于0）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (array[int]): 每隔两个元素交换位置（如第1和第3，第2和第4）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'a' (array[int]): 每个元素替换为与其相差1的整数（如偶数变奇数，奇数变偶数）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (array[int]): 所有元素加1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 32: On parameter 'b' (array[int]): 所有元素减1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 33: On parameter 'b' (array[int]): 所有元素乘2
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 34: On parameter 'b' (array[int]): 所有元素除2
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 35: On parameter 'b' (array[int]): 随机位置元素置为999(当元素小于999时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 36: On parameter 'b' (array[int]): 随机位置元素置为-1(当元素大于等于0时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 37: On parameter 'b' (array[int]): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 38: On parameter 'b' (array[int]): 数组反转
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 39: On parameter 'b' (array[int]): 数组左移一位
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 40: On parameter 'b' (array[int]): 数组右移一位
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 41: On parameter 'b' (array[int]): 每个元素平方
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 42: On parameter 'b' (array[int]): 每个元素取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 43: On parameter 'b' (array[int]): 数组前一半元素置为0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 44: On parameter 'b' (array[int]): 数组后一半元素置为1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'b' (array[int]): 将所有奇数变为其相反数
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'b' (array[int]): 将所有大于0的元素增加100
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'b' (array[int]): 将所有小于0的元素减少100
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'b' (array[int]): 数组排序（升序）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 49: On parameter 'b' (array[int]): 数组排序（降序）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 50: On parameter 'b' (array[int]): 每隔一个元素加1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 51: On parameter 'b' (array[int]): 所有元素乘-1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 52: On parameter 'b' (array[int]): 所有元素加(当前索引值)
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 53: On parameter 'b' (array[int]): 随机位置元素置为最大值（使用原数组最大值）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 54: On parameter 'b' (array[int]): 随机位置元素置为最小值（使用原数组最小值）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 55: On parameter 'b' (array[int]): 数组元素取模10
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 56: On parameter 'b' (array[int]): 每个元素加5（如果原值小于0）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 57: On parameter 'b' (array[int]): 每个元素减5（如果原值大于0）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 59: On parameter 'b' (array[int]): 每隔两个元素交换位置（如第1和第3，第2和第4）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 60: On parameter 'b' (array[int]): 每个元素替换为与其相差1的整数（如偶数变奇数，奇数变偶数）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 58
+独立MR总数: 58
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

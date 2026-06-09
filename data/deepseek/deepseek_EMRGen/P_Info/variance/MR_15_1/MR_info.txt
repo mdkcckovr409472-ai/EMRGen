@@ -1,0 +1,2 @@
+Operation 15: On parameter 'x' (double*): 所有元素置最小值（如-1e6）
+Invariant: return.result1 >= return.result2

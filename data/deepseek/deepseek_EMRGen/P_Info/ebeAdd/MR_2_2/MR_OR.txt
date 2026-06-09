@@ -1,0 +1,36 @@
+#include <cmath>
+#include <cfloat>
+
+int z2check(double* result1, double* result2, int n) {
+    // 1. 防御性编程 (空指针与长度检查)
+    if (result1 == NULL || result2 == NULL) return 0;
+    if (n <= 0) return 1;
+
+    // 2. 核心判断逻辑 (elementwise)
+    for (int i = 0; i < n; i++) {
+        // 提取移项后的操作数 A 和 B
+        double A = result1[i];
+        double B = result2[i];
+        
+        // 第三步：防御 NaN 和 Inf
+        if (std::isnan(A) || std::isnan(B)) return 0;
+        if (std::isinf(A) || std::isinf(B)) {
+            // 对于无穷大，退化为直接数学比较
+            if (!(A > B)) return 0;
+            continue; // 当前元素检查通过，继续下一个
+        }
+        
+        // 第四步：计算动态宽容度
+        double epsilon = 1e-5;
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        
+        // 第五步：带容差的比较判定 (条件为 A > B)
+        // 若 A <= B + tol，则违反条件
+        if (A <= B + tol) {
+            return 0;
+        }
+    }
+
+    // 3. 全部满足，返回 1
+    return 1;
+}

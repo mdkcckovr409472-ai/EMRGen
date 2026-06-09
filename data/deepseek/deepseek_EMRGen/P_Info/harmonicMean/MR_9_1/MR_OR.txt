@@ -1,0 +1,57 @@
+#include <math.h>
+#include <stddef.h>
+
+int z9check(double result1, double result2) {
+    // 1. 核心判断逻辑 (标量直接比较)
+    // 条件: result1 % result2 == 0
+    // 对于浮点数，需要特殊处理
+
+    // 第一步：定义基础容差
+    double epsilon = 1e-5;
+
+    // 第二步：提取左右操作数 A 和 B
+    // 条件 result1 % result2 == 0 等价于 result1 == k * result2，其中k为整数
+    // 但更直接的数学表达是：余数 = result1 - floor(result1 / result2) * result2 == 0
+    // 移项后：result1 == floor(result1 / result2) * result2
+    // 然而，对于浮点数取余，我们通常检查 fmod(result1, result2) == 0
+    // 因此我们提取：A = fmod(result1, result2); B = 0.0;
+    // 但根据规则3，不能令B=0，因为会丢失量级。
+    // 重新思考：条件 fmod(result1, result2) == 0
+    // 可以视为：result1 / result2 是整数（在浮点误差内）
+    // 令 quotient = result1 / result2;
+    // 条件变为：quotient == round(quotient) （在容差内）
+    // 即：A = quotient; B = round(quotition);
+    // 但result2可能为0，需要先检查。
+
+    // 防御性检查：除数不能为0（或接近0）
+    if (fabs(result2) < epsilon) {
+        // 如果result2为0，则取余运算未定义，通常视为不满足条件
+        return 0;
+    }
+
+    double quotient = result1 / result2;
+    double rounded = round(quotient);
+
+    double A = quotient;
+    double B = rounded;
+
+    // 第三步：防御NaN和Inf
+    if (isnan(A) || isnan(B)) return 0;
+    if (isinf(A) || isinf(B)) {
+        // 如果出现无穷大，直接比较
+        if (A == B) return 1;
+        else return 0;
+    }
+
+    // 第四步：计算动态宽容度
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    // 第五步：带容差的比较判定
+    // 条件：quotient == round(quotient)  (即 A == B)
+    if (fabs(A - B) > tol) {
+        return 0;
+    }
+
+    // 2. 满足条件，返回 1
+    return 1;
+}

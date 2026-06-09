@@ -1,0 +1,23 @@
+TestCase z26Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_data = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_data, t1.data, t1.n * sizeof(double));
+    follow_case.data = follow_case_data;
+    // ------------------------------------
+    
+    // Defensive code: need at least 2 elements to perform a shuffle
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+    
+    // Randomly shuffle the array (Fisher‑Yates algorithm)
+    for (int i = follow_case.n - 1; i > 0; --i) {
+        int j = rand() % (i + 1);
+        double temp = follow_case.data[i];
+        follow_case.data[i] = follow_case.data[j];
+        follow_case.data[j] = temp;
+    }
+    
+    return follow_case;
+}

@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = sampleKurtosis(tc.moment4, tc.sampleVariance, tc.size);
+    TestCase Tf_case = change(tc);
+    double Of = sampleKurtosis(Tf_case.moment4, Tf_case.sampleVariance, Tf_case.size);
+    if (Of > Os) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}

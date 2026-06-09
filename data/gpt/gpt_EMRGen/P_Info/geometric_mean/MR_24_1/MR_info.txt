@@ -1,0 +1,2 @@
+Operation 24: On parameter 'a' (array[int]): divide last element by 3 (only if divisible by 3)
+Invariant: return.result1 >= return.result2

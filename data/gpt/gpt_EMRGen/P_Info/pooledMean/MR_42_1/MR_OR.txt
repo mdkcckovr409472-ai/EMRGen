@@ -1,0 +1,23 @@
+int z42check(double result1, double result2) {
+    // Core evaluation logic (direct scalar comparison)
+    double epsilon = 1e-5;
+    double A = result1;
+    double B = result2;
+
+    // Defend against NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+
+    // Handle Inf cases with direct comparison
+    if (std::isinf(A) || std::isinf(B)) {
+        // Condition: result1 >= result2
+        if (A >= B) return 1;
+        else return 0;
+    }
+
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    // Check condition: result1 >= result2 with tolerance
+    if (A < B - tol) return 0;
+
+    return 1;
+}

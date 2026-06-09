@@ -1,0 +1,2 @@
+Operation 34: On parameter 'y' (array[double]): set first element to -1e308 (when it is greater)
+Invariant: return.result1[] >= return.result2[] (lexically)

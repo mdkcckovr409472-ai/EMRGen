@@ -1,0 +1,2 @@
+Operation 29: On parameter 'elements' (array[double]): set last element to median of array
+Invariant: return.result1 >= return.result2

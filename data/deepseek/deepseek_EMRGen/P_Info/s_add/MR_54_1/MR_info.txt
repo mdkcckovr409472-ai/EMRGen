@@ -1,0 +1,2 @@
+Operation 54: On parameter 'array2' (int*): 所有元素减其索引值
+Invariant: return.result1[] >= return.result2[] (elementwise)

@@ -1,0 +1,2 @@
+Operation 40: On parameter 'b' (array[int]): fill with absolute values of elements
+Invariant: return.result1[] <= return.result2[] (elementwise)

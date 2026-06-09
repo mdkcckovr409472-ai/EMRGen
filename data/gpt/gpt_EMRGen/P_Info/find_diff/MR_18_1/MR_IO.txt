@@ -1,0 +1,16 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for array 'a'
+    int* follow_case_a = (int*)malloc(t1.na * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.na * sizeof(int));
+    follow_case.a = follow_case_a;
+    // Defensive check for empty array
+    if (follow_case.na == 0) {
+        return follow_case;
+    }
+    // Square each element of array 'a'
+    for (int i = 0; i < follow_case.na; ++i) {
+        follow_case.a[i] = follow_case.a[i] * follow_case.a[i];
+    }
+    return follow_case;
+}

@@ -1,0 +1,46 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.x == nullptr || tc.y == nullptr) return 0;
+
+    // Copy y array to preserve original before function call
+    double* y_src = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        y_src[i] = tc.y[i];
+    }
+
+    double* Os = computeDividedDifference1(tc.x, y_src, tc.n);
+    if (Os == nullptr) {
+        delete[] y_src;
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    if (Tf_case.y == nullptr) {
+        delete[] y_src;
+        return 0;
+    }
+
+    // Copy Tf_case.y before passing to function
+    double* y_fol = new double[Tf_case.n];
+    for (int i = 0; i < Tf_case.n; i++) {
+        y_fol[i] = Tf_case.y[i];
+    }
+
+    double* Of = computeDividedDifference1(Tf_case.x, y_fol, Tf_case.n);
+
+    int is_valid = 0;
+    if (Of != nullptr) {
+        // MR: Of[0] == Os[0] + 1
+        // Allow small floating point tolerance
+        double diff = Of[0] - (Os[0] + 1.0);
+        if (diff > -1e-12 && diff < 1e-12) {
+            is_valid = 1;
+        }
+    }
+
+    // Cleanup dynamically allocated memory
+    delete[] y_src;
+    delete[] y_fol;
+    delete[] Tf_case.y;
+
+    return is_valid;
+}

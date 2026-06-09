@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = pooledMean(tc.data1, tc.data2, tc.n1, tc.n2);
+    TestCase Tf_case = change(tc);
+    double Of = pooledMean(Tf_case.data1, Tf_case.data2, Tf_case.n1, Tf_case.n2);
+    int is_valid = 0;
+    const double epsilon = 1e-10;
+    if (std::abs(Os - Of) <= epsilon) {
+        is_valid = 1;
+    }
+    return is_valid;
+}

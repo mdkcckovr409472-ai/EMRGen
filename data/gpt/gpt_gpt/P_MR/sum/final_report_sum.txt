@@ -1,0 +1,100 @@
+int sum(int values[],  int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++){
+        sum += values[i];
+}
+    return sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「add 1 to all elements」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「add 2 to all elements」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「subtract 1 from all elements」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「multiply all elements by 2」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+2 * Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「multiply all elements by 0」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「divide all elements by 2 (integer division)」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「reverse the entire array」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「sort the entire array in ascending order」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「sort the entire array in descending order」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「circular right shift the entire array by 1 position」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「set all elements to 0」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「set all elements to 1」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == n ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「set the first element to the maximum int value (2147483647)」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「set the last element to the minimum int value (-2147483648)」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「add 1 to elements at even indices」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「multiply elements at odd indices by 2」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains values (int*), if the operation 「set the middle element to 0 (for odd n)」 is executed on values to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+操作总数: 17
+关系总数: 17

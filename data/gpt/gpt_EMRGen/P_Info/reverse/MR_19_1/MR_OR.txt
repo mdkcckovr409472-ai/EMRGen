@@ -1,0 +1,28 @@
+#include <cmath>
+#include <algorithm>
+
+int z19check(int* result1, int* result2, int n) {
+    // 1. Defensive programming (Length check first)
+    if (n <= 0) return 1;
+    // 2. Null pointer check
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    // Lexicographical comparison for "return.result1[] > return.result2[] (lexically)"
+    // Operator: >
+    // We use lexicographical order with dynamic tolerance for floating point if needed.
+    // As data_type is int*, no floating point tolerance needed, use direct integer comparison.
+
+    for (int i = 0; i < n; i++) {
+        if (result1[i] == result2[i]) {
+            // equal, continue checking next element
+            continue;
+        } else if (result1[i] > result2[i]) {
+            return 1; // condition satisifed at this element
+        } else {
+            return 0; // condition violated as result1[i] <= result2[i] strictly not satisfied
+        }
+    }
+
+    // If all elements equal, strictly greater is not satisfied
+    return 0;
+}

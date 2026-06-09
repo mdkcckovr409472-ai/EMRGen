@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Set the first element of a to INT_MAX
+    tf.a[0] = INT_MAX;
+    return tf;
+}

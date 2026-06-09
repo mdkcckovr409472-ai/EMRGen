@@ -1,0 +1,2 @@
+Operation 4: On parameter 'a' (array[int]): divide all elements by 2 (only if elements divisible by 2)
+Invariant: return.result1 >= return.result2

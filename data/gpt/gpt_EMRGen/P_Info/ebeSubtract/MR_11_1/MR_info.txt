@@ -1,0 +1,2 @@
+Operation 11: On parameter 'a' (array[double]): sort array in ascending order
+Invariant: return.result1[] >= return.result2[] (lexically)

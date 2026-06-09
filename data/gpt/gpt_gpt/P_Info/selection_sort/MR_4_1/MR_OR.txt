@@ -1,0 +1,32 @@
+int check(TestCase tc) {
+    // Get source output Os
+    int* Os = selection_sort(tc.list, tc.n);
+    if (!Os) return 0;
+
+    // Construct follow-up test case Tf_case
+    TestCase Tf_case = change(tc);
+
+    // Get follow-up output Of
+    int* Of = selection_sort(Tf_case.list, Tf_case.n);
+    if (!Of) {
+        free(Os);
+        free(Tf_case.list);
+        return 0;
+    }
+
+    // Verify MR: Os[i] / 2 == Of[i] for all elements
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        if (Os[i] / 2 != Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // Free dynamically allocated memories
+    free(Os);
+    free(Of);
+    free(Tf_case.list);
+
+    return is_valid;
+}

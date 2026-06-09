@@ -1,0 +1,21 @@
+int check(TestCase tc) {
+    int Os = dot_product(tc.a, tc.b, tc.n);
+
+    TestCase Tf_case = change(tc);
+    int Of = dot_product(Tf_case.a, Tf_case.b, Tf_case.n);
+
+    int half_start = (tc.n + 1) / 2;
+    int sum_a = 0;
+    for (int i = half_start; i < tc.n; i++) {
+        sum_a += tc.a[i];
+    }
+
+    int expected_Of = Os - 3 * sum_a;
+
+    int is_valid = (Of == expected_Of) ? 1 : 0;
+
+    // Cleanup dynamically allocated memory in Tf_case
+    delete[] Tf_case.b;
+
+    return is_valid;
+}

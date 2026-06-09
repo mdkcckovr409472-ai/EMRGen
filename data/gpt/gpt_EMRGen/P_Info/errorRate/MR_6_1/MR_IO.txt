@@ -1,0 +1,20 @@
+TestCase z6Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy of labels array
+    double* follow_case_labels = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_labels, t1.labels, t1.n * sizeof(double));
+    follow_case.labels = follow_case_labels;
+
+    // Defensive check for empty array
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Set a random element to -1.0 if it is greater than -1.0
+    int idx = rand() % follow_case.n;
+    if (follow_case.labels[idx] > -1.0) {
+        follow_case.labels[idx] = -1.0;
+    }
+
+    return follow_case;
+}

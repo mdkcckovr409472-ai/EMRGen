@@ -1,0 +1,2 @@
+Operation 50: On parameter 'b' (array[double]): negate all elements (multiply by -1)
+Invariant: return.result1[] + return.result2[] == 0

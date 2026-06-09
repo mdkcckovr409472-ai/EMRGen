@@ -1,0 +1,23 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.elements == nullptr) {
+        return 1;
+    }
+
+    double* original_elements_copy = new double[tc.n];
+    std::copy(tc.elements, tc.elements + tc.n, original_elements_copy);
+    TestCase original_case = {original_elements_copy, tc.n};
+
+    double Os = max(original_case.elements, original_case.n);
+
+    TestCase Tf_case = change(original_case);
+    double Of = max(Tf_case.elements, Tf_case.n);
+
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+
+    delete[] original_elements_copy;
+
+    return is_valid;
+}

@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 10.0; // 常数k，可以根据需要调整
+    tf.data = (double*)malloc(tf.n * sizeof(double));
+    if (tf.data == nullptr) {
+        // 内存分配失败处理，这里简单返回原结构体，但data为nullptr
+        // 实际应用中应有更健壮的错误处理
+        return tf;
+    }
+    for (int i = 0; i < tf.n; i++) {
+        tf.data[i] = tc.data[i] + k;
+    }
+    return tf;
+}

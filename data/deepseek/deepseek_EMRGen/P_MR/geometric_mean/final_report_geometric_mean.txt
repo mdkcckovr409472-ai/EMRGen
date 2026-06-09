@@ -1,0 +1,236 @@
+double geometric_mean(int a[], int n) {
+    long product = 1;
+    for (int i = 0; i < n; i++) {
+        product *= a[i];
+    }
+    return pow(product, (double) 1 / n);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (int*): 所有元素加1
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (int*): 所有元素减1
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (int*): 所有元素乘2
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+Os < Of
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (int*): 所有元素除2（整数除法）
+Invariant: 
+return.result1 > return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素除2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (int*): 所有元素平方
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+return.result2 == return.result1**2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+Of == Os**2
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (int*): 所有元素取绝对值
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (int*): 所有元素置为1
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素置为1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (int*): 所有元素置为0
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (int*): 所有元素加其索引值
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素加其索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (int*): 所有元素乘其索引值（索引为0时置为原值）
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素乘其索引值（索引为0时置为原值）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (int*): 交换第一个和最后一个元素
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「交换第一个和最后一个元素」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (int*): 交换中间两个元素（若数组长度为偶数）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「交换中间两个元素（若数组长度为偶数）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (int*): 反转整个数组
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「反转整个数组」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (int*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (int*): 数组向右循环移位（末尾元素移到首部）
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组向右循环移位（末尾元素移到首部）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (int*): 数组升序排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (int*): 数组降序排序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (int*): 随机打乱数组顺序
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机打乱数组顺序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (int*): 将数组前半部分元素置0（若长度为奇数，中间元素保留）
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将数组前半部分元素置0（若长度为奇数，中间元素保留）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int*): 将数组中所有偶数元素加1
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将数组中所有偶数元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (int*): 将数组中所有大于10的元素减10
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将数组中所有大于10的元素减10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (int*): 将数组中所有小于0的元素置为0
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将数组中所有小于0的元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (int*): 将数组中索引为偶数的元素除2（整数除法）
+Invariant: 
+return.result1 > return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将数组中索引为偶数的元素除2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (int*): 将数组中索引为奇数的元素加5
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将数组中索引为奇数的元素加5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+
+操作总数: 24
+关系总数: 26

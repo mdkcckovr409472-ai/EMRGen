@@ -1,0 +1,16 @@
+TestCase z47Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of observed array
+    double* follow_case_observed = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_observed, t1.observed, t1.n * sizeof(double));
+    follow_case.observed = follow_case_observed;
+
+    // Defensive check for array length
+    if (follow_case.n > 0) {
+        // Negate each element
+        for (int i = 0; i < follow_case.n; ++i) {
+            follow_case.observed[i] = -follow_case.observed[i];
+        }
+    }
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 21: On parameter 'v' (array[double]): clip elements to [0,1] range
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,40 @@
+int check(TestCase tc) {
+    int is_valid = 0;
+    int* Os = nullptr;
+    int* Of = nullptr;
+
+    if (tc.n <= 0 || tc.a == nullptr) {
+        return 0;
+    }
+
+    Os = set_min_val(tc.a, tc.k, tc.n);
+    if (Os == nullptr) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    if (Tf_case.n <= 0 || Tf_case.a == nullptr) {
+        free(Os);
+        return 0;
+    }
+
+    Of = set_min_val(Tf_case.a, Tf_case.k, Tf_case.n);
+    if (Of == nullptr) {
+        free(Os);
+        free(Tf_case.a);
+        return 0;
+    }
+
+    is_valid = 1;
+    for (int i = 0; i < tc.n; ++i) {
+        if (Os[i] < Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    free(Os);
+    free(Of);
+    free(Tf_case.a);
+    return is_valid;
+}

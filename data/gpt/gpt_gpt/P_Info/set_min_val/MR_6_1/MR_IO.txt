@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    int* new_a = (int*)malloc(tc.n * sizeof(int));
+    memcpy(new_a, tc.a, tc.n * sizeof(int));
+    int half_start = tc.n / 2;
+    for (int i = half_start; i < tc.n; i++) {
+        new_a[i] = new_a[i] - 1;
+    }
+    TestCase tf = tc;
+    tf.a = new_a;
+    return tf;
+}

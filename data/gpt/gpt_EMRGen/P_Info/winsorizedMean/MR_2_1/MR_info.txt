@@ -1,0 +1,2 @@
+Operation 2: On parameter 'elements' (array[double]): subtract 2.5 from all elements
+Invariant: return.result1 - return.result2 - 2.5 == 0

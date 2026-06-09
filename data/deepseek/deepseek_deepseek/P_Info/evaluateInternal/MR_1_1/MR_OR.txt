@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = evaluateInternal(tc.x, tc.y, tc.z, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = evaluateInternal(Tf_case.x, Tf_case.y, Tf_case.z, Tf_case.n);
+    int is_valid = 0;
+    double k = 5.0;
+    if (fabs(Os + k - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.y;
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 39: On parameter 'data2' (double*): replace a random element with its absolute value
+Invariant: return.result1 <= return.result2

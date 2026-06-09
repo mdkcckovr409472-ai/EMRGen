@@ -1,0 +1,13 @@
+int check(TestCase tc) {
+    int Os = cnt_zeroes(tc.a, tc.n);
+    TestCase Tf_case = change(tc);
+    int Of = cnt_zeroes(Tf_case.a, Tf_case.n);
+    int is_valid = 0;
+    if (Os <= Of) {
+        is_valid = 1;
+    }
+    // 注意：这里没有分配新的动态内存，因此无需额外释放。
+    // 如果 change 函数分配了新内存，应在此释放 Tf_case.a。
+    // 但根据当前实现，Tf_case.a 指向原始数组，不应释放。
+    return is_valid;
+}

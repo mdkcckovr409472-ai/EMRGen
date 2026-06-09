@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Modify sample2: set last element to minimum double value (-DBL_MAX)
+    tf.sample2[tf.n - 1] = -DBL_MAX;
+    return tf;
+}

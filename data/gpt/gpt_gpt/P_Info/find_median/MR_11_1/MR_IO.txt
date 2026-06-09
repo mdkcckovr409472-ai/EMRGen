@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int half_start = tc.n / 2;
+    // Allocate new array to hold modified values to avoid modifying original
+    int* new_arr = new int[tc.n];
+    // Copy original array
+    for (int i = 0; i < tc.n; i++) {
+        new_arr[i] = tc.a[i];
+    }
+    // Subtract 5 from the last half elements
+    for (int i = half_start; i < tc.n; i++) {
+        new_arr[i] -= 5;
+    }
+    tf.a = new_arr;
+    return tf;
+}

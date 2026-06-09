@@ -1,0 +1,20 @@
+int check(TestCase tc) {
+    int Os = 0, Of = 0;
+    Os = add_values(tc.a, tc.n);
+
+    TestCase Tf_case = change(tc);
+    if (Tf_case.n > 0) {
+        Of = add_values(Tf_case.a, Tf_case.n);
+    } else {
+        Of = Os;
+    }
+
+    int last_elem = (tc.n > 0) ? tc.a[tc.n - 1] : 0;
+    int is_valid = (Of == Os - last_elem + 3 * last_elem) ? 1 : 0;
+
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+
+    return is_valid;
+}

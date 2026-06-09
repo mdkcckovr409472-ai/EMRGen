@@ -1,0 +1,8 @@
+TestCase z52Change(TestCase t1) {
+    TestCase follow_case = t1;
+    
+    // 根据规则5生成的具体操作代码
+    follow_case.sampleVariance = DBL_MAX;
+    
+    return follow_case;
+}

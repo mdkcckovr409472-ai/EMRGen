@@ -1,0 +1,2 @@
+Operation 23: On parameter 'a' (int*): 将所有正数元素置为其相反数
+Invariant: return.result1 >= return.result2

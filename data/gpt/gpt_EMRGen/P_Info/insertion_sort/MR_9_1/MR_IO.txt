@@ -1,0 +1,18 @@
+TestCase z9Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_array = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_array, t1.array, t1.n * sizeof(int));
+    follow_case.array = follow_case_array;
+    // ------------------------------------
+
+    // Defensive code: ensure there is at least one element to process
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            // Square each element
+            follow_case.array[i] = follow_case.array[i] * follow_case.array[i];
+        }
+    }
+
+    return follow_case;
+}

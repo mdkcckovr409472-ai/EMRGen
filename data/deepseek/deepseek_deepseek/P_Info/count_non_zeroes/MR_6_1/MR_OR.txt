@@ -1,0 +1,31 @@
+int check(TestCase tc) {
+    // (1) 提取初始输入 (Ts)
+    int* Ts_a = tc.a;
+    int Ts_n = tc.n;
+    
+    // (2) 调用待测函数，获取初始输出 (Os)
+    int Os = count_non_zeroes(Ts_a, Ts_n);
+    
+    // (3) 调用 change 函数，构造衍生用例对象
+    TestCase Tf_case = change(tc);
+    
+    // (4) 提取衍生输入并获取衍生输出 (Of)
+    int* Tf_a = Tf_case.a;
+    int Tf_n = Tf_case.n;
+    int Of = count_non_zeroes(Tf_a, Tf_n);
+    
+    // (5) 根据 MR 验证 Os 和 Of 是否满足蜕变关系
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    
+    // (6) 释放 Tf_case 中产生的动态内存
+    // 注意：Tf_case.a 指向的是 change 函数中 new 分配的内存
+    if (Tf_case.a != tc.a) { // 确保不是指向原始数组
+        delete[] Tf_case.a;
+    }
+    
+    // (7) 返回验证结果
+    return is_valid;
+}

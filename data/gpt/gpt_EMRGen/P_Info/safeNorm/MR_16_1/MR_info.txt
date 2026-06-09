@@ -1,0 +1,2 @@
+Operation 16: On parameter 'v' (array[double]): multiply a random element by -1.0
+Invariant: return.result1 == return.result2

@@ -1,0 +1,60 @@
+double euc_Dist_m(double array1[], double array2[], int n) {
+    double Sum = 0.0;
+    for (int i = 0; i < n; i++) {
+        Sum = Sum + pow((array1[i] - array2[i]), 2.0);
+    }
+    return sqrt(Sum);
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'array1' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含array1（array[double]）的函数，若对 array1执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 17: On parameter 'array1' (array[double]): take absolute value of all elements
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含array1（array[double]）的函数，若对 array1执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'array2' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含array2（array[double]）的函数，若对 array2执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 42: On parameter 'array2' (array[double]): set a random element to 100.0 (when the element is less than 100)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含array2（array[double]）的函数，若对 array2执行「set a random element to 100.0 (when the element is less than 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 53: On parameter 'array2' (array[double]): take absolute value of all elements
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含array2（array[double]）的函数，若对 array2执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 5
+关系总数: 5

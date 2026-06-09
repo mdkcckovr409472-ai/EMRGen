@@ -1,0 +1,20 @@
+TestCase z28Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+int* follow_case_a = (int*)malloc(t1.na * sizeof(int));
+memcpy(follow_case_a, t1.a, t1.na * sizeof(int));
+follow_case.a = follow_case_a;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止na<=2时出错
+if (follow_case.na <= 2) {
+    // 元素不足3个，无法交换索引1和na-2，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+int temp = follow_case.a[1];
+follow_case.a[1] = follow_case.a[follow_case.na - 2];
+follow_case.a[follow_case.na - 2] = temp;
+
+return follow_case;}

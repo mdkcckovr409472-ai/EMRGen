@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for p2 to subtract 1 from all elements, reusing other parts
+    tf.p2 = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        tf.p2[i] = tc.p2[i] - 1.0;
+    }
+    return tf;
+}

@@ -1,0 +1,2 @@
+Operation 29: On parameter 'a' (array[double]): divide a random element by 2.0
+Invariant: return.result1 == return.result2

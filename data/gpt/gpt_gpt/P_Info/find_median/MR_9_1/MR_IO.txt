@@ -1,0 +1,18 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for tf.a to avoid modifying original input array
+    tf.a = new int[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        tf.a[i] = tc.a[i];
+    }
+    // Find max value in original array
+    int max_val = tf.a[0];
+    for (int i = 1; i < tf.n; i++) {
+        if (tf.a[i] > max_val) {
+            max_val = tf.a[i];
+        }
+    }
+    // Set first element to max value
+    tf.a[0] = max_val;
+    return tf;
+}

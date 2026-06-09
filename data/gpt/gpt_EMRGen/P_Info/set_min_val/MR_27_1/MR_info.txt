@@ -1,0 +1,2 @@
+Operation 27: On parameter 'a' (array[int]): set a random element to the average of its two neighbors (if neighbors exist)
+Invariant: return.result1[0..0] == return.result2[0..0] (elementwise)

@@ -1,0 +1,39 @@
+int check(TestCase tc) {
+    if (tc.a == NULL || tc.n <= 0) return 1;
+
+    int* Os = array_copy(tc.a, tc.n);
+    if (Os == NULL) return 0;
+
+    TestCase Tf_case = change(tc);
+    if (Tf_case.a == NULL || Tf_case.n <= 0) {
+        free(Os);
+        return 0;
+    }
+
+    int* Of = array_copy(Tf_case.a, Tf_case.n);
+    free(Tf_case.a);
+
+    if (Of == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    int is_valid = 0;
+    if (Os != NULL && Of != NULL) {
+        int equal = 1;
+        for (int i = 0; i < tc.n; i++) {
+            if (Os[i] != Of[i]) {
+                equal = 0;
+                break;
+            }
+        }
+        if (!equal) {
+            is_valid = 1;
+        }
+    }
+
+    free(Os);
+    free(Of);
+
+    return is_valid;
+}

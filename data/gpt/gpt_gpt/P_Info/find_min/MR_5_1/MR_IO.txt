@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 0) {
+        int* reversed = new int[tc.n];
+        for (int i = 0; i < tc.n; i++) {
+            reversed[i] = tc.a[tc.n - 1 - i];
+        }
+        tf.a = reversed;
+    } else {
+        tf.a = nullptr;
+    }
+    return tf;
+}

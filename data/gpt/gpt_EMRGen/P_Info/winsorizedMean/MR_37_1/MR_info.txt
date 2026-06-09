@@ -1,0 +1,2 @@
+Operation 37: On parameter 'left' (int): set left to 0 (minimum)
+Invariant: return.result1 >= return.result2

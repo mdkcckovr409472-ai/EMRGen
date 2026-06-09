@@ -1,0 +1,10 @@
+TestCase z38Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive programming: no specific checks needed for scalar negation
+
+    // Operation: negate the mean value
+    follow_case.mean = -follow_case.mean;
+
+    return follow_case;
+}

@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    // (1) Extract source input Ts
+    double* Ts = tc.elements;
+    int n = tc.n;
+    // (2) Call function under test for source output Os
+    double Os = min(Ts, n);
+    // (3) Call change() to construct follow-up test case Tf_case
+    TestCase Tf_case = change(tc);
+    // (4) Extract Tf input and get follow-up output Of
+    double* Tf = Tf_case.elements;
+    double Of = min(Tf, n);
+    // (5) Verify MR: Os / 2 == Of (allowing small epsilon for floating point)
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (std::abs((Os / 2.0) - Of) < epsilon) {
+        is_valid = 1;
+    }
+    // (6) Free dynamically allocated memory from change()
+    delete[] Tf_case.elements;
+    // (7) Return verification result
+    return is_valid;
+}

@@ -1,0 +1,29 @@
+#include <cmath>
+#include <cfloat>
+
+int z3check(double result1, double result2) {
+    // 防御性编程：检查 NaN
+    if (std::isnan(result1) || std::isnan(result2)) return 0;
+    
+    // 移项：2 * result1 - result2 == 0  ->  2 * result1 == result2
+    double A = 2.0 * result1;
+    double B = result2;
+    
+    // 处理无穷大情况
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B) return 1;
+        else return 0;
+    }
+    
+    // 定义基础容差
+    double epsilon = 1e-5;
+    
+    // 计算动态容差
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 带容差的相等比较
+    if (fabs(A - B) > tol) return 0;
+    
+    // 满足条件
+    return 1;
+}

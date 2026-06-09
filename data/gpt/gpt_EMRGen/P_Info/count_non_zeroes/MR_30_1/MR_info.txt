@@ -1,0 +1,2 @@
+Operation 30: On parameter 'a' (array[int]): apply modulo 5 to each element (element = element % 5)
+Invariant: return.result1 >= return.result2

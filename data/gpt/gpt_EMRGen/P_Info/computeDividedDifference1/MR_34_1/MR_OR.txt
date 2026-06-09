@@ -1,0 +1,25 @@
+int z34check(double* result1, double* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    const double epsilon = 1e-5;
+    #include <math.h>
+
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+
+        if (isnan(A) || isnan(B)) return 0;
+        if (isinf(A) || isinf(B)) {
+            if (A > B) return 1;
+            else if (fabs(A - B) <= epsilon) continue;
+            else return 0;
+        }
+
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        if (fabs(A - B) <= tol) continue;
+        else if (A > B + tol) return 1;
+        else return 0;
+    }
+    return 1;
+}

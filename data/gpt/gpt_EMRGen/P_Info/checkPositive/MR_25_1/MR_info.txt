@@ -1,0 +1,2 @@
+Operation 25: On parameter 'a' (array[double]): set a random element to DBL_MIN (when element > DBL_MIN)
+Invariant: return.result1 == return.result2

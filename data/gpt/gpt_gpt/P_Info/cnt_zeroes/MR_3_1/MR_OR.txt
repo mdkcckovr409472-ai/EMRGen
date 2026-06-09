@@ -1,0 +1,19 @@
+int check(TestCase tc) {
+    // (1) Source input extraction
+    int* Ts = tc.a;
+    int n = tc.n;
+    // (2) Get source output
+    int Os = cnt_zeroes(Ts, n);
+    // (3) Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    // (4) Follow-up input extraction and output
+    int Of = cnt_zeroes(Tf_case.a, n);
+    // (5) Validate MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+    // (6) Free dynamically allocated memory inside change()
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+    // (7) Return validation result
+    return is_valid;
+}

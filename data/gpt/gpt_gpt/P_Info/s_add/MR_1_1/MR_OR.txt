@@ -1,0 +1,28 @@
+int check(TestCase tc) {
+    int* Os = s_add(tc.array1, tc.array2, tc.n);
+    if (Os == NULL) return 0;
+
+    TestCase Tf_case = change(tc);
+    int* Of = s_add(Tf_case.array1, Tf_case.array2, Tf_case.n);
+    if (Of == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    int valid = 1;
+    if (tc.n > 0) {
+        if (Of[0] != INT_MAX + tc.array2[0]) {
+            valid = 0;
+        }
+    }
+    for (int i = 1; i < tc.n && valid; i++) {
+        if (Of[i] != Os[i]) {
+            valid = 0;
+            break;
+        }
+    }
+
+    free(Os);
+    free(Of);
+    return valid;
+}

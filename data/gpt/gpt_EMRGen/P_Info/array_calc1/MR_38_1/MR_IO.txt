@@ -1,0 +1,10 @@
+TestCase z38Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // No deep copy needed for non‑array target parameter k
+
+    // Operation: interpret k as double (type casting)
+    double kd = (double)follow_case.k;
+    (void)kd; // suppress unused variable warning
+
+    return follow_case;
+}

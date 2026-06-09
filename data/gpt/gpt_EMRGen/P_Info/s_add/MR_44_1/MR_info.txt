@@ -1,0 +1,2 @@
+Operation 44: On parameter 'array2' (int[]): sort array descending
+Invariant: return.result1[] <= return.result2[] (lexically)

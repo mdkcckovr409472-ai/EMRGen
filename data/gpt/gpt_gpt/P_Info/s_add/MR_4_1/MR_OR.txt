@@ -1,0 +1,33 @@
+int check(TestCase tc) {
+    int* Os = s_add(tc.array1, tc.array2, tc.n);
+    if (Os == NULL) return 0;
+
+    TestCase Tf_case = change(tc);
+    int* Of = s_add(Tf_case.array1, Tf_case.array2, Tf_case.n);
+    if (Of == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    int is_valid = 1;
+    int half = tc.n / 2;
+    for (int i = 0; i < half; i++) {
+        if (Of[i] != Os[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+    if (is_valid) {
+        for (int i = half; i < tc.n; i++) {
+            if (Of[i] != Os[i] + 1) {
+                is_valid = 0;
+                break;
+            }
+        }
+    }
+
+    free(Os);
+    free(Of);
+
+    return is_valid;
+}

@@ -1,0 +1,24 @@
+TestCase z24Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    int* follow_case_array = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_array, t1.array, t1.n * sizeof(int));
+    follow_case.array = follow_case_array;
+    // -------------------------
+
+    // Defensive check: need at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Operation: set last element to min of array
+    int min_val = follow_case.array[0];
+    for (int i = 1; i < follow_case.n; ++i) {
+        if (follow_case.array[i] < min_val) {
+            min_val = follow_case.array[i];
+        }
+    }
+    follow_case.array[follow_case.n - 1] = min_val;
+
+    return follow_case;
+}

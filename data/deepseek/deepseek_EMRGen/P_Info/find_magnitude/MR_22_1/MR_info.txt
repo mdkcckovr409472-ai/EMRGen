@@ -1,0 +1,2 @@
+Operation 22: On parameter 'a' (int*): 后一半元素除3（整数除法）
+Invariant: return.result1 >= return.result2

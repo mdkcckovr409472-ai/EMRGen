@@ -1,0 +1,8 @@
+int check(TestCase tc) {
+    double Os = meanDifference(tc.sample1, tc.sample2, tc.n);
+    TestCase tf = change(tc);
+    double Of = meanDifference(tf.sample1, tf.sample2, tf.n);
+    bool is_valid = (Of == Os);
+    delete[] tf.sample1;
+    return is_valid ? 1 : 0;
+}

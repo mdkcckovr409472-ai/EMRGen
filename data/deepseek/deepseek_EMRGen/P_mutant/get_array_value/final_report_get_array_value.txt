@@ -1,0 +1,185 @@
+int get_array_value(int a[], int k, int n) {
+        return a[k - 1];
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (int*): 所有元素加1
+Invariant: 
+return.result1 - return.result2 + 1 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (int*): 所有元素减1
+Invariant: 
+return.result1 - return.result2 - 1 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 1 == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (int*): 所有元素乘2
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (int*): 所有元素取相反数
+Invariant: 
+return.result1 + return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (int*): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (int*): 所有元素平方
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+return.result2 == return.result1**2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+Of == Os**2
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (int*): 将所有偶数索引位置的元素加10
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将所有偶数索引位置的元素加10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (int*): 将所有奇数索引位置的元素减10
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将所有奇数索引位置的元素减10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (int*): 将第一个元素置为100
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将第一个元素置为100」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (int*): 将最后一个元素置为-100
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将最后一个元素置为-100」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (int*): 将中间元素（索引为n/2）置为0
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将中间元素（索引为n/2）置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (int*): 将所有正数元素置为其相反数
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将所有正数元素置为其相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int*): 将所有负数元素置为其绝对值
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将所有负数元素置为其绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (int*): 将所有大于50的元素置为50
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将所有大于50的元素置为50」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (int*): 将所有小于-50的元素置为-50
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「将所有小于-50的元素置为-50」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 34: On parameter 'k' (int): 取绝对值
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 36: On parameter 'k' (int): 模5
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「模5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 47: On parameter 'k' (int): 类型转换为浮点数后再转回整数
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「类型转换为浮点数后再转回整数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 48: On parameter 'k' (int): 类型转换为无符号整数后再转回整数
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含k（int）的函数，若对 k执行「类型转换为无符号整数后再转回整数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 19
+关系总数: 20

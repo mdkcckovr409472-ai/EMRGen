@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double m = 2.0; // 常数因子
+    if (tf.a != NULL && tf.n1 > 0) {
+        tf.a = (double*)malloc(tf.n1 * sizeof(double));
+        if (tf.a != NULL) {
+            for (int i = 0; i < tf.n1; i++) {
+                tf.a[i] = m * tc.a[i];
+            }
+        }
+    }
+    return tf;
+}

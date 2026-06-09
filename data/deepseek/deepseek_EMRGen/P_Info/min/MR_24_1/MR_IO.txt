@@ -1,0 +1,27 @@
+TestCase z24Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+
+    // 这是根据规则6a生成的防御性代码，防止n<2时排序无意义
+    if (follow_case.n < 2) {
+        // 元素不足2个，排序无意义，直接返回副本
+        return follow_case;
+    }
+
+    // 这是根据规则5生成的具体操作代码
+    // 使用冒泡排序进行降序排序
+    for (int i = 0; i < follow_case.n - 1; i++) {
+        for (int j = 0; j < follow_case.n - i - 1; j++) {
+            if (follow_case.elements[j] < follow_case.elements[j + 1]) {
+                double temp = follow_case.elements[j];
+                follow_case.elements[j] = follow_case.elements[j + 1];
+                follow_case.elements[j + 1] = temp;
+            }
+        }
+    }
+
+    return follow_case;}

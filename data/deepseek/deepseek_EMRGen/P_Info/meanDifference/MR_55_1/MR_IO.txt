@@ -1,0 +1,24 @@
+TestCase z55Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_sample2 = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_sample2, t1.sample2, t1.n * sizeof(double));
+follow_case.sample2 = follow_case_sample2;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<2时出错
+if (follow_case.n < 2) {
+    // 元素不足2个，无法进行随机重排序，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+srand(time(NULL)); // 初始化随机数种子
+for (int i = follow_case.n - 1; i > 0; i--) {
+    int j = rand() % (i + 1);
+    double temp = follow_case.sample2[i];
+    follow_case.sample2[i] = follow_case.sample2[j];
+    follow_case.sample2[j] = temp;
+}
+
+return follow_case;}

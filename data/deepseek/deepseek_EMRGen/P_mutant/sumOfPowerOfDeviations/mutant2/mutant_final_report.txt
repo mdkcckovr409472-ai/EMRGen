@@ -1,0 +1,74 @@
+double sumOfPowerOfDeviations(double data[], int k, double c, int n) {
+    double sum = 0;
+    for(int i = 0; i <= n; i++) {
+        sum += pow(data[i] - c, k);
+        }
+    return sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 6: On parameter 'data' (double*): 随机两个元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'data' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 8: On parameter 'data' (double*): 数组升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'data' (double*): 数组降序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 19: On parameter 'data' (double*): 数组向右循环移位（末尾元素移到开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 23: On parameter 'data' (double*): 随机位置元素置为999.9（当元素小于999.9时）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 44: On parameter 'k' (int): 类型转换为double(保持不变)
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 61: On parameter 'c' (double): 取整操作（floor）
+Invariant:
+return.result1 <= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 69: On parameter 'c' (double): 置负无穷
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 9
+独立MR总数: 10
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

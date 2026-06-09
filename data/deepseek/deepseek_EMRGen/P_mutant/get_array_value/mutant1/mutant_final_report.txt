@@ -1,0 +1,160 @@
+int get_array_value(int a[] , int n, int k) {
+        return a[k - 1];
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (int*): 所有元素加1
+Invariant:
+return.result1 - return.result2 + 1 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (int*): 所有元素减1
+Invariant:
+return.result1 - return.result2 - 1 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (int*): 所有元素乘2
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (int*): 随机位置置0
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (int*): 随机位置置-999（当元素大于-999时）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (int*): 最小值置为999
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (int*): 所有元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (int*): 前一半元素加1
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (int*): 后一半元素减1
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (int*): 偶数位置元素加5
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (int*): 奇数位置元素减5
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (int*): 所有元素减去索引值（索引从0开始）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+return.result1 - return.result2 - k + 1 == 0    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int*): 所有元素取相反数
+Invariant:
+return.result1 + return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (int*): 随机修改一个元素值为其左右邻居的平均值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 34: On parameter 'k' (int): 置0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 35: On parameter 'k' (int): 置-1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 38: On parameter 'k' (int): 取绝对值
+Invariant:
+return.result1 == return.result2    ✓ [Same]
+
+----------------------------------------
+
+Operation 39: On parameter 'k' (int): 取相反数
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'k' (int): 减10
+Invariant:
+return.result1 - return.result2 - 10 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'k' (int): 随机范围（当前值±5内扰动）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 51: On parameter 'k' (int): 平方根再取整
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 52: On parameter 'k' (int): 加索引值（假设k是索引）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 53: On parameter 'k' (int): 减索引值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 55: On parameter 'k' (int): 加一个自身值
+Invariant:
+2 * return.result1 - return.result2 == 0    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 24
+独立MR总数: 25
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

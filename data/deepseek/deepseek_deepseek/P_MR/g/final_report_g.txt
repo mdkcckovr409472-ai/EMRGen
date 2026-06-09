@@ -1,0 +1,98 @@
+double g( double expected[],  double observed[], int n) {
+    double sumExpected = 0;
+    double sumObserved = 0;
+    for (int i = 0; i < n; i++) {
+        sumExpected += expected[i];
+        sumObserved += observed[i];
+    }
+    double ratio = 1;
+    bool rescale = false;
+    if (fabs(sumExpected - sumObserved) > 10E-6) {
+        ratio = sumObserved / sumExpected;
+        rescale = true;
+    }
+    double sum = 0;
+        for (int i = 0; i < n; i++) {
+            double dev = rescale ? log((double) observed[i] / (ratio * expected[i])) : log((double) observed[i] / expected[i]);
+            sum += (double) observed[i] * dev;
+        }
+    return 2 * sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「反转整个数组」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「升序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「所有元素乘以同一个常数k（k>0）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含observed（double*）的函数，若对 observed执行「反转整个数组」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含observed（double*）的函数，若对 observed执行「升序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含observed（double*）的函数，若对 observed执行「所有元素乘以同一个常数k（k>0），且同时将expected的所有元素也乘以同一个常数k」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「交换任意两个元素的位置」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含observed（double*）的函数，若对 observed执行「交换任意两个元素的位置」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「所有元素除以2」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）和observed（double*）的函数，若对 expected和observed执行「交换两个数组的内容」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含observed（double*）的函数，若对 observed执行「循环右移一位」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「循环右移一位」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「所有元素乘以同一个常数k（k>0），且observed的所有元素也乘以同一个常数k」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+操作总数: 14
+关系总数: 14

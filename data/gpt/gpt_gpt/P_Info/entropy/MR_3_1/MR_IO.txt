@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Multiply all elements by 2 according to MR
+    for (int i = 0; i < tf.n; i++) {
+        tf.k[i] = tf.k[i] * 2;
+    }
+    return tf;
+}

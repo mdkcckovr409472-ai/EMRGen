@@ -1,0 +1,18 @@
+int check(TestCase tc) {
+    // Calculate source output Os
+    double Os = meanDifference(tc.sample1, tc.sample2, tc.n);
+    
+    // Construct follow-up test case Tf
+    TestCase Tf_case = change(tc);
+    
+    // Calculate follow-up output Of
+    double Of = meanDifference(Tf_case.sample1, Tf_case.sample2, Tf_case.n);
+    
+    // Verify MR: Of > Os
+    int is_valid = Of > Os ? 1 : 0;
+    
+    // Free dynamic memory allocated in change()
+    delete[] Tf_case.sample1;
+    
+    return is_valid;
+}

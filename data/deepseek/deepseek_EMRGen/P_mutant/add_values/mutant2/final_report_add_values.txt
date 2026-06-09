@@ -1,0 +1,184 @@
+int add_values(int a[], int n) {
+    int sum = 0;
+
+    for (int i = 0; i < n; i++) {
+        sum -= a[i];
+    }
+    return sum;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[int]): 所有元素加1
+Invariant: 
+return.result1 > return.result2
+n == return.result1 - return.result2
+return.result1 - return.result2 - n == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+n == Os - Of
+Os - Of - n == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[int]): 所有元素减1
+Invariant: 
+return.result1 < return.result2
+return.result1 - return.result2 + n == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+Os - Of + n == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (array[int]): 所有元素乘2
+Invariant: 
+2 * return.result1 - return.result2 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[int]): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (array[int]): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (array[int]): 数组升序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (array[int]): 数组降序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (array[int]): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): 数组向右循环移位（末元素移到开头）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「数组向右循环移位（末元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[int]): 将奇位置元素增加1
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「将奇位置元素增加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (array[int]): 将偶位置元素减少1
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「将偶位置元素减少1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (array[int]): 最小值置为最大值
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「最小值置为最大值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): 最大值置为最小值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「最大值置为最小值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (array[int]): 相邻元素互换（两两交换）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「相邻元素互换（两两交换）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[int]): 元素与下标索引值相加
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「元素与下标索引值相加」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (array[int]): 元素取绝对值
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (array[int]): 随机位置元素加100
+Invariant: 
+return.result1 - return.result2 - 100 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「随机位置元素加100」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 100 == 0
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (array[int]): 随机位置元素减100
+Invariant: 
+return.result1 - return.result2 + 100 == 0
+
+MR ：对于初始输入Ts中包含a（array[int]）的函数，若对 a执行「随机位置元素减100」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 100 == 0
+
+----------------------------------------
+
+
+操作总数: 18
+关系总数: 21

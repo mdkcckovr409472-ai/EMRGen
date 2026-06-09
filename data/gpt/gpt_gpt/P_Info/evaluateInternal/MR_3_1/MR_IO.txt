@@ -1,0 +1,27 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Reuse original arrays; create a new y array to modify
+    double* new_y = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_y[i] = tc.y[i];
+    }
+    // Find nearest index same as in evaluateInternal logic
+    int nearest = 0;
+    double min_dist = INFINITY;
+    for (int i = 0; i < tc.n; i++) {
+        double dist = abs(tc.z - tc.x[i]);
+        if (dist < min_dist) {
+            nearest = i;
+            min_dist = dist;
+        }
+    }
+    // Find max value of y array
+    double max_val = new_y[0];
+    for (int i = 1; i < tc.n; i++) {
+        if (new_y[i] > max_val) max_val = new_y[i];
+    }
+    // Set new_y[nearest] to max_val
+    new_y[nearest] = max_val;
+    tf.y = new_y;
+    return tf;
+}

@@ -1,0 +1,29 @@
+#include <cmath>
+#include <cfloat>
+
+int z3check(double result1, double result2) {
+    // 浮点数比较的特殊处理
+    double epsilon = 1e-5;
+    
+    // 代数移项：3 * result1 - result2 == 0 移项为 3 * result1 == result2
+    double A = 3.0 * result1;
+    double B = result2;
+    
+    // 防御 NaN
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    
+    // 处理无穷大情况（动态容差失效）
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B) return 1;  // 移项后的相等比较
+        else return 0;
+    }
+    
+    // 计算动态容差
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 带容差的相等比较（移项后是 ==）
+    if (fabs(A - B) > tol) return 0;
+    
+    // 满足条件
+    return 1;
+}

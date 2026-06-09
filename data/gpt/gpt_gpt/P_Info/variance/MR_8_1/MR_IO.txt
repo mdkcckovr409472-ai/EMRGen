@@ -1,0 +1,15 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 1) {
+        double* shifted = new double[tc.n];
+        shifted[0] = tc.x[tc.n - 1];
+        for (int i = 1; i < tc.n; i++) {
+            shifted[i] = tc.x[i - 1];
+        }
+        tf.x = shifted;
+    } else {
+        // No shift needed if array size <= 1
+        tf.x = tc.x;
+    }
+    return tf;
+}

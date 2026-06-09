@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.a != nullptr && tf.n > 0) {
+        for (int i = 0; i < tf.n; i++) {
+            if (tf.a[i] != 0) {
+                tf.a[i] = tf.a[i] * -1;
+            }
+        }
+    }
+    return tf;
+}

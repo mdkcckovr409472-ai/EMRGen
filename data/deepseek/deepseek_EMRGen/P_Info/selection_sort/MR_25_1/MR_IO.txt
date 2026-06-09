@@ -1,0 +1,30 @@
+TestCase z25Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+int* follow_case_list = (int*)malloc(t1.n * sizeof(int));
+memcpy(follow_case_list, t1.list, t1.n * sizeof(int));
+follow_case.list = follow_case_list;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<=1时出错
+if (follow_case.n <= 1) {
+    // 元素不足2个，无法进行排序，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码（降序选择排序）
+for (int i = 0; i < follow_case.n - 1; i++) {
+    int max_idx = i;
+    for (int j = i + 1; j < follow_case.n; j++) {
+        if (follow_case.list[j] > follow_case.list[max_idx]) {
+            max_idx = j;
+        }
+    }
+    if (max_idx != i) {
+        int temp = follow_case.list[i];
+        follow_case.list[i] = follow_case.list[max_idx];
+        follow_case.list[max_idx] = temp;
+    }
+}
+
+return follow_case;}

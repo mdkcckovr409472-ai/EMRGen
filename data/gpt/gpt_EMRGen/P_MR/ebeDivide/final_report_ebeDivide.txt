@@ -1,0 +1,116 @@
+double* ebeDivide(double a[], double b[], int n1, int n2) {
+    if (n1 != n2) {
+        return NULL;  
+    }
+
+    double* result = (double*)malloc(n1 * sizeof(double));
+    if (result == NULL) {
+        return NULL;  
+    }
+
+    for (int i = 0; i < n1; i++) {
+        if (b[i] == 0.0) {
+            result[i] = INFINITY;  
+        } else {
+            result[i] = a[i] / b[i];
+        }
+    }
+
+    return result;  
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'a' (array[double]): multiply all elements by 2.0
+Invariant: 
+2 * return.result1[] - return.result2[] == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - Of[] == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (array[double]): divide all elements by 2.0 (only if element != 0)
+Invariant: 
+return.result1[] - 2 * return.result2[] == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「divide all elements by 2.0 (only if element != 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 2 * Of[] == 0
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (array[double]): set a random element to 0
+Invariant: 
+return.result2[] % return.result1[] == 0 (elementwise) ✗
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「set a random element to 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Of[] % Os[] == 0 (elementwise)
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (array[double]): multiply element at position 1 by -1 (if n1 > 1)
+Invariant: 
+return.result1[] % return.result2[] == 0 (elementwise) ✗
+return.result2[] % return.result1[] == 0 (elementwise) ✗
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「multiply element at position 1 by -1 (if n1 > 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] % Of[] == 0 (elementwise)
+Of[] % Os[] == 0 (elementwise)
+
+----------------------------------------
+
+Operation 29: On parameter 'b' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1[] - 2 * return.result2[] == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 2 * Of[] == 0
+
+----------------------------------------
+
+Operation 30: On parameter 'b' (array[double]): divide all elements by 2.0 (only if element != 0)
+Invariant: 
+2 * return.result1[] - return.result2[] == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「divide all elements by 2.0 (only if element != 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - Of[] == 0
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (array[double]): set a random element to 0
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✗
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「set a random element to 0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 47: On parameter 'b' (array[double]): reverse subarray from index 0 to n2/2 (if n2 >= 2)
+Invariant: 
+return.result1[] == return.result2[] ✗
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「reverse subarray from index 0 to n2/2 (if n2 >= 2)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 52: On parameter 'b' (array[double]): multiply element at position 1 by -1 (if n2 > 1)
+Invariant: 
+return.result1[] % return.result2[] == 0 (elementwise) ✗
+return.result2[] % return.result1[] == 0 (elementwise) ✗
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「multiply element at position 1 by -1 (if n2 > 1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] % Of[] == 0 (elementwise)
+Of[] % Os[] == 0 (elementwise)
+
+----------------------------------------
+
+
+操作总数: 9
+关系总数: 12

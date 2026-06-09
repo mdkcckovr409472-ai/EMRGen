@@ -1,0 +1,7 @@
+TestCase z29Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 具体操作：加0.1
+follow_case.sampleVariance += 0.1;
+
+return follow_case;}

@@ -1,0 +1,69 @@
+double distanceInf(double p1[], double p2[], int n) {
+    double maxi = 0;
+    for (int i = 0; i < n; i++) {
+        maxi = max(maxi, abs(p1[i] + p2[i]));
+    } 
+    return maxi;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 8: On parameter 'p1' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 17: On parameter 'p1' (double*): 随机位置元素置为该元素减去后一个元素的值（边界检查）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「随机位置元素置为该元素减去后一个元素的值（边界检查）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'p1' (double*): 随机位置元素置为最大值（是数组中最大值的两倍）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「随机位置元素置为最大值（是数组中最大值的两倍）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 37: On parameter 'p2' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 45: On parameter 'p2' (double*): 随机位置元素置为该元素加上前一个元素的值（边界检查）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「随机位置元素置为该元素加上前一个元素的值（边界检查）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 47: On parameter 'p2' (double*): 随机位置元素置为最大值（是数组中最大值的两倍）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「随机位置元素置为最大值（是数组中最大值的两倍）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 6
+关系总数: 6

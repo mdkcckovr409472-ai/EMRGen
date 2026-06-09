@@ -1,0 +1,2 @@
+Operation 11: On parameter 'coefficients' (double*): 所有元素乘-1.0
+Invariant: return.result1 + return.result2 == 0

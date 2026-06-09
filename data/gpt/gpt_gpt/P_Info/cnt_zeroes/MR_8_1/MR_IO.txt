@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    // Reuse memory from the original test case
+    TestCase tf = tc;
+
+    // Overwrite the last element to 0 according to MR
+    if (tf.n > 0) {
+        tf.a[tf.n - 1] = 0;
+    }
+
+    return tf;
+}

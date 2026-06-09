@@ -1,0 +1,13 @@
+int check(TestCase tc) {
+    double Os = cosineDistance(tc.p1, tc.p2, tc.n);
+    
+    TestCase Tf_case = change(tc);
+    double Of = cosineDistance(Tf_case.p1, Tf_case.p2, Tf_case.n);
+    
+    // Verify Os != Of according to MR invariant
+    int is_valid = (Os != Of) ? 1 : 0;
+    
+    delete[] Tf_case.p2;
+    
+    return is_valid;
+}

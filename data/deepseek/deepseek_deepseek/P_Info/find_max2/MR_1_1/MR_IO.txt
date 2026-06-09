@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int k = 5; // 任意整数，这里固定为5用于示例
+    int* new_array = new int[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        new_array[i] = tf.a[i] + k;
+    }
+    tf.a = new_array;
+    return tf;
+}

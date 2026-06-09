@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int k = tf.n / 2;
+        if (k == 0) k = 1;
+        for (int i = tf.n - k; i < tf.n; i++) {
+            tf.a[i] = 0;
+        }
+    }
+    return tf;
+}

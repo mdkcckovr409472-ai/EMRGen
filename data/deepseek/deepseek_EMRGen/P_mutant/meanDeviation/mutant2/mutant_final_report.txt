@@ -1,0 +1,320 @@
+double meanDeviation(double elements[], double mean, int n) {
+    int size = n;
+    double sum = 0;
+    for (int i = size; --i < 0; ) {
+        sum += fabs(elements[i] - mean);
+    }
+    return sum / size;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (double*): 所有元素减0.5
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (double*): 所有元素乘2.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 所有元素除以2.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 5: On parameter 'elements' (double*): 随机位置元素替换为0.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (double*): 随机位置元素替换为999.0（当元素小于999.0时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 数组左移一位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (double*): 前一半元素加1.0后一半元素减1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (double*): 首尾元素互换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 12: On parameter 'elements' (double*): 所有元素置为它们的平均值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'elements' (double*): 所有元素取相反数
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 14: On parameter 'elements' (double*): 所有元素加绝对值的最大值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 15: On parameter 'elements' (double*): 对数组进行升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 16: On parameter 'elements' (double*): 对数组进行降序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 17: On parameter 'elements' (double*): 将数组中最大元素置为0.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'elements' (double*): 将数组中最小元素置为100.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'elements' (double*): 随机位置元素替换为最大值与最小值的差
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'elements' (double*): 所有元素加它们的中位数
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'elements' (double*): 所有元素乘以标准差
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'elements' (double*): 所有元素加随机数（0-1范围内）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 23: On parameter 'elements' (double*): 所有元素平方
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'elements' (double*): 所有元素取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (double*): 所有元素减去均值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (double*): 所有元素取对数（加1避免负数）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'elements' (double*): 所有元素变为其与均值的差值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'elements' (double*): 截取前一半元素但长度n不变
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'mean' (double): 加1.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'mean' (double): 减2.5
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 31: On parameter 'mean' (double): 乘3.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 32: On parameter 'mean' (double): 除以2.0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 36: On parameter 'mean' (double): 取相反数
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 37: On parameter 'mean' (double): 平方根
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 38: On parameter 'mean' (double): 取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 39: On parameter 'mean' (double): 平方
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 41: On parameter 'mean' (double): 加当前最大值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 42: On parameter 'mean' (double): 减当前最小值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 43: On parameter 'mean' (double): 加随机数（0-1范围内）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 44: On parameter 'mean' (double): 乘所有元素的和
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'mean' (double): 除以所有元素的乘积
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'mean' (double): 取整为最近的整数
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'mean' (double): 置为所有元素的最大值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'mean' (double): 置为所有元素的最小值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 49: On parameter 'mean' (double): 置为所有元素的中位数
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 52: On parameter 'mean' (double): 加元素标准差
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 53: On parameter 'mean' (double): 加元素方差
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 54: On parameter 'mean' (double): 置为数组第一个元素
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 55: On parameter 'mean' (double): 置为数组最后一个元素
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 56: On parameter 'mean' (double): 加数组元素最大值与最小值的差
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 50
+独立MR总数: 50
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

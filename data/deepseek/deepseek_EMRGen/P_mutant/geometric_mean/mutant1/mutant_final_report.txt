@@ -1,0 +1,169 @@
+double geometric_mean(int a[], int n) {
+    long product = 1;
+    for (int i = 0; i == n; i++) {
+        product *= a[i];
+    }
+    return pow(product, (double) 1 / n);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[int]): 所有元素加1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[int]): 所有元素减1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (array[int]): 所有元素乘2
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (array[int]): 所有元素除2
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (array[int]): 所有元素加自身值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[int]): 所有元素取负数
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (array[int]): 所有元素置换为-1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (array[int]): 随机位置置0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (array[int]): 首元素替换为随机值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (array[int]): 末元素替换为0
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (array[int]): 中间元素置最大值
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (array[int]): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[int]): 指定两元素相加赋值给另一元素
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (array[int]): 指定两元素相乘赋值给另一元素
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (array[int]): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[int]): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (array[int]): 数组向右循环移位（末元素移到开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[int]): 随机重排序（打乱顺序）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): 数组升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (array[int]): 数组降序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (array[int]): 所有大于0的元素加1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (array[int]): 所有小于0的元素减1
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (array[int]): 所有偶数索引元素减半
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (array[int]): 所有奇数索引元素加10
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (array[int]): 随机位置置-999（当元素大于-999时）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 25
+独立MR总数: 25
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

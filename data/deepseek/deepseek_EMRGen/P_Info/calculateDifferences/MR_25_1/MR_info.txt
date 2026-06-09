@@ -1,0 +1,2 @@
+Operation 25: On parameter 'x' (double*): 将数组中所有正数置为负数
+Invariant: return.result1[] <= return.result2[] (elementwise)

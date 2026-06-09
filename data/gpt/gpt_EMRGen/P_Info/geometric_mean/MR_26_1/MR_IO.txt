@@ -1,0 +1,39 @@
+TestCase z26Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0) {
+        int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+        memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+        follow_case.a = follow_case_a;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 2
+    if (follow_case.n < 2) {
+        // Less than 2 elements, no subarray to shuffle, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule: shuffle a subarray within bounds randomly
+    // Define subarray bounds
+    int start = 0;
+    int end = follow_case.n - 1;
+    // Compute subarray length
+    int length = end - start + 1;
+    if (length <= 1) {
+        // Subarray too small to shuffle
+        return follow_case;
+    }
+
+    // Fisher-Yates shuffle on subarray follow_case.a[start..end]
+    for (int i = end; i > start; i--) {
+        // Generate random index j from start to i
+        int j = start + rand() % (i - start + 1);
+        // Swap follow_case.a[i] and follow_case.a[j]
+        int temp = follow_case.a[i];
+        follow_case.a[i] = follow_case.a[j];
+        follow_case.a[j] = temp;
+    }
+
+    return follow_case;
+}

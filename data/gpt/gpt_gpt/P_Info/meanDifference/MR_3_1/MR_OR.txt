@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    double Os = meanDifference(tc.sample1, tc.sample2, tc.n);
+
+    TestCase Tf_case = change(tc);
+    double Of = meanDifference(Tf_case.sample1, Tf_case.sample2, Tf_case.n);
+
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (std::abs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+
+    delete[] Tf_case.sample1;
+
+    return is_valid;
+}

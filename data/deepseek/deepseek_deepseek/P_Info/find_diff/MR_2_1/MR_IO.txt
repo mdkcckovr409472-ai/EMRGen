@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int p = 2;
+    int t = 5;
+    if (tf.na > p) {
+        tf.a = new int[tf.na];
+        for (int i = 0; i < tf.na; i++) {
+            tf.a[i] = tc.a[i];
+        }
+        tf.a[p] += t;
+    }
+    return tf;
+}

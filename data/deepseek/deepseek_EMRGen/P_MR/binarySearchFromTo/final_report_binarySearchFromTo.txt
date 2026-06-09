@@ -1,0 +1,292 @@
+int binarySearchFromTo(double elements[], double key, int from, int to){
+    while (from <= to)
+    {
+        int mid = (from + to) / 2;
+        double midVal = elements[mid];
+
+        if (midVal < key)
+        {
+            from = mid + 1;
+        } else{
+            if (midVal > key)
+            {
+                to = mid -1;
+            } else
+            {
+                return mid;
+            }          
+        }
+    }
+    return - (from +1);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 7: On parameter 'elements' (double*): 数组升序排序
+Invariant: 
+return.result1 >= return.result2 ✓
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (double*): 随机位置元素置-1.0
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机位置元素置-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'elements' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'elements' (double*): 所有元素除π
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素除π」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 45: On parameter 'key' (double): 立方
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含key（double）的函数，若对 key执行「立方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 54: On parameter 'key' (double): 加π
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含key（double）的函数，若对 key执行「加π」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 55: On parameter 'key' (double): 乘π
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含key（double）的函数，若对 key执行「乘π」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 58: On parameter 'from' (int): 减1
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 59: On parameter 'from' (int): 乘2
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 60: On parameter 'from' (int): 除2（整数除法）
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「除2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 61: On parameter 'from' (int): 置0
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「置0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 63: On parameter 'from' (int): 置-1
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「置-1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 66: On parameter 'from' (int): 置数组起始索引（0）
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「置数组起始索引（0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 67: On parameter 'from' (int): 置数组末尾索引（长度-1）
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「置数组末尾索引（长度-1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 68: On parameter 'from' (int): 取绝对值
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 69: On parameter 'from' (int): 平方
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 70: On parameter 'from' (int): 立方
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「立方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 71: On parameter 'from' (int): 符号取反
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「符号取反」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 72: On parameter 'from' (int): 模5运算
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「模5运算」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 73: On parameter 'from' (int): 模10运算
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「模10运算」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 78: On parameter 'from' (int): 左移1位
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「左移1位」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 79: On parameter 'from' (int): 右移1位
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「右移1位」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 81: On parameter 'from' (int): 乘π并取整
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「乘π并取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 82: On parameter 'from' (int): 除π并取整
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「除π并取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 83: On parameter 'from' (int): 置随机有效索引（0到长度-1之间）
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含from（int）的函数，若对 from执行「置随机有效索引（0到长度-1之间）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 85: On parameter 'to' (int): 加1
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含to（int）的函数，若对 to执行「加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 96: On parameter 'to' (int): 取绝对值
+Invariant: 
+return.result1 == return.result2 ✓
+
+MR ：对于初始输入Ts中包含to（int）的函数，若对 to执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 100: On parameter 'to' (int): 模5运算
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含to（int）的函数，若对 to执行「模5运算」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 101: On parameter 'to' (int): 模10运算
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含to（int）的函数，若对 to执行「模10运算」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+
+操作总数: 30
+关系总数: 29

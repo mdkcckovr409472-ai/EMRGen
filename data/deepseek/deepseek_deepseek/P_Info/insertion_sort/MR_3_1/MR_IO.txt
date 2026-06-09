@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* new_array = (int*)malloc(tf.n * sizeof(int));
+    if (new_array == nullptr) {
+        return tf;
+    }
+    memcpy(new_array, tf.array, tf.n * sizeof(int));
+    std::sort(new_array, new_array + tf.n, std::greater<int>());
+    tf.array = new_array;
+    return tf;
+}

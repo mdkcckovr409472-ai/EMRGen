@@ -1,0 +1,27 @@
+int z2check(int* result1, int* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    const double epsilon = 1e-5;
+    for (int i = 0; i < n; i++) {
+        double A = (double)result1[i];
+        double B = (double)result2[i];
+        if (isnan(A) || isnan(B)) return 0;
+        if (isinf(A) || isinf(B)) {
+            if (A <= B) { // result1[i] <= result2[i]
+                continue;
+            } else {
+                return 0;
+            }
+        }
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        if (fabs(A - B) <= tol) {
+            continue;
+        } else if (A > B + tol) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+    return 1;
+}

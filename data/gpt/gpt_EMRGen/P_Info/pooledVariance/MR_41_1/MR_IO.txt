@@ -1,0 +1,25 @@
+TestCase z41Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_data2 = (double*)malloc(t1.n2 * sizeof(double));
+    memcpy(follow_case_data2, t1.data2, t1.n2 * sizeof(double));
+    follow_case.data2 = follow_case_data2;
+    // ------------------------------------
+    
+    // Defensive code: require at least 2 elements to swap
+    if (follow_case.n2 < 2) {
+        return follow_case;
+    }
+    
+    // Swap two random elements in data2
+    int idx1 = rand() % follow_case.n2;
+    int idx2 = rand() % follow_case.n2;
+    while (idx2 == idx1) {
+        idx2 = rand() % follow_case.n2;
+    }
+    double temp = follow_case.data2[idx1];
+    follow_case.data2[idx1] = follow_case.data2[idx2];
+    follow_case.data2[idx2] = temp;
+    
+    return follow_case;
+}

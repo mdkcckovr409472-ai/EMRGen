@@ -1,0 +1,2 @@
+Operation 27: On parameter 'x' (double*): 将数组前半部分与后半部分交换（若长度为奇数，前半部分多一个元素）
+Invariant: return.result1 == return.result2

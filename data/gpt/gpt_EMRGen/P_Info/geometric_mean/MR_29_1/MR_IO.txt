@@ -1,0 +1,37 @@
+TestCase z29Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0) {
+        int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+        if (follow_case_a != NULL) {
+            memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+            follow_case.a = follow_case_a;
+        } else {
+            // malloc failed; return original follow_case without change
+            return follow_case;
+        }
+    } else {
+        // no elements to copy, just assign NULL pointer to follow_case.a to be safe
+        follow_case.a = NULL;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 2
+    if (follow_case.n < 2) {
+        // Less than 2 elements, no need to shuffle, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    // Fisher-Yates shuffle algorithm, using rand()
+    for (int i = follow_case.n - 1; i > 0; i--) {
+        // Defensive: ensure rand() range is valid, but rand() % (i+1) is safe since i >=1
+        int j = rand() % (i + 1);
+        // Swap follow_case.a[i] and follow_case.a[j]
+        int temp = follow_case.a[i];
+        follow_case.a[i] = follow_case.a[j];
+        follow_case.a[j] = temp;
+    }
+
+    return follow_case;
+}

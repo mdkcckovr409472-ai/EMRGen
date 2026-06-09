@@ -1,0 +1,2 @@
+Operation 17: On parameter 'k' (array[double]): negate all elements (multiply by -1)
+Invariant: return.result1 == return.result2

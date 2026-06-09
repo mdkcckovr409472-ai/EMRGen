@@ -1,0 +1,24 @@
+TestCase z29Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    double* follow_case_x = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_x, t1.x, t1.n * sizeof(double));
+    follow_case.x = follow_case_x;
+    // ----------------------------
+
+    // Defensive check for empty array
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+
+    // Clamp each element to range [0,10]
+    for (int i = 0; i < follow_case.n; ++i) {
+        if (follow_case.x[i] < 0.0) {
+            follow_case.x[i] = 0.0;
+        } else if (follow_case.x[i] > 10.0) {
+            follow_case.x[i] = 10.0;
+        }
+    }
+
+    return follow_case;
+}

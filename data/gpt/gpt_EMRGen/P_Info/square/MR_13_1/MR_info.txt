@@ -1,0 +1,2 @@
+Operation 13: On parameter 'data' (double[]): set random element to minimum positive double 5e-324 (when element > 5e-324)
+Invariant: return.result1[] >= return.result2[] (elementwise)

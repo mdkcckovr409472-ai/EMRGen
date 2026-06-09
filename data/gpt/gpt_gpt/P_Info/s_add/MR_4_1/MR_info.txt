@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains array2 (int[]), if the operation 「add 1 only to the last half of the elements」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+For i in [0..n/2-1], Of[i] == Os[i] and For i in [n/2..n-1], Of[i] == Os[i] + 1

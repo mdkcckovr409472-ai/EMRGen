@@ -1,0 +1,8 @@
+TestCase z29Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive programming: prevent overflow when adding 1 to lowerLim
+    if (follow_case.lowerLim < INT_MAX) {
+        follow_case.lowerLim += 1;
+    }
+    return follow_case;
+}

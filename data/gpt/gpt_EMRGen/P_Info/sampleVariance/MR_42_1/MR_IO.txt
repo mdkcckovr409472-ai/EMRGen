@@ -1,0 +1,6 @@
+TestCase z42Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Round the mean to the nearest integer
+    follow_case.mean = (double)((int)(follow_case.mean + (follow_case.mean >= 0 ? 0.5 : -0.5)));
+    return follow_case;
+}

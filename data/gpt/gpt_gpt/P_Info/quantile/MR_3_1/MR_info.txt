@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「multiply all elements by 0.5」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Of == 0.5 * Os

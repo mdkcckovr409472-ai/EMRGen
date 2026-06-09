@@ -1,0 +1,18 @@
+int check(TestCase tc) {
+    // Compute source output Os
+    double Os = g(tc.expected, tc.observed, tc.n);
+
+    // Generate follow-up test case Tf
+    TestCase Tf_case = change(tc);
+
+    // Compute follow-up output Of
+    double Of = g(Tf_case.expected, Tf_case.observed, Tf_case.n);
+
+    // Verify MR: Os != Of
+    int is_valid = (Os != Of) ? 1 : 0;
+
+    // Clean up dynamic memory allocated in change()
+    delete[] Tf_case.observed;
+
+    return is_valid;
+}

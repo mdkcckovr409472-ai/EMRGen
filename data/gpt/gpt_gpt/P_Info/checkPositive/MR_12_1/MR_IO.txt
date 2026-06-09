@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int half = tf.n / 2;
+    for (int i = half; i < tf.n; ++i) {
+        tf.a[i] -= 0.5;
+    }
+    return tf;
+}

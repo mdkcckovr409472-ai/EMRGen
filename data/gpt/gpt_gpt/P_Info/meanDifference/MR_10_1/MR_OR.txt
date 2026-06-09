@@ -1,0 +1,17 @@
+int check(TestCase tc) {
+    // Calculate Os for source input
+    double Os = meanDifference(tc.sample1, tc.sample2, tc.n);
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    // Calculate Of for follow-up input
+    double Of = meanDifference(Tf_case.sample1, Tf_case.sample2, Tf_case.n);
+    // Verify metamorphic relation: Of == Os + 1 (allow slight floating-point tolerance)
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if ((Of - (Os + 1)) > -epsilon && (Of - (Os + 1)) < epsilon) {
+        is_valid = 1;
+    }
+    // Free any dynamically allocated memory in Tf_case
+    delete[] Tf_case.sample2;
+    return is_valid;
+}

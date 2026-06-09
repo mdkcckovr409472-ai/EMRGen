@@ -1,0 +1,2 @@
+Operation 17: On parameter 'list' (int*): 将后半部分元素减5
+Invariant: return.result1[] >= return.result2[] (elementwise)

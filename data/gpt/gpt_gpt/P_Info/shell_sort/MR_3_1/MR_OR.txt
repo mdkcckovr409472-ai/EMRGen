@@ -1,0 +1,31 @@
+int check(TestCase tc) {
+    // Source input
+    int* Ts = tc.a;
+    int n = tc.n;
+
+    // Source output
+    int* Os = shell_sort(Ts, n);
+
+    // Generate follow-up test case (descending order array)
+    TestCase Tf_case = change(tc);
+    int* Tf = Tf_case.a;
+
+    // Follow-up output
+    int* Of = shell_sort(Tf, n);
+
+    // Verify Os and Of satisfy MR: Os == Of element-wise
+    int is_valid = 1;
+    for (int i = 0; i < n; i++) {
+        if (Os[i] != Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // Free all dynamically allocated memory
+    free(Os);
+    free(Of);
+    free(Tf);
+
+    return is_valid;
+}

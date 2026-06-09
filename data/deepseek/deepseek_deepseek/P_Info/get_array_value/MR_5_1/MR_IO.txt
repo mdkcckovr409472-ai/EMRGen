@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* new_array = new int[tf.n];
+    for (int i = 0; i < tf.n; ++i) {
+        if (i != tf.k - 1) {
+            new_array[i] = tf.a[i] + 1;
+        } else {
+            new_array[i] = tf.a[i];
+        }
+    }
+    tf.a = new_array;
+    return tf;
+}

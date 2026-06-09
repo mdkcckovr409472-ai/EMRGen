@@ -1,0 +1,2 @@
+Operation 41: On parameter 'begin' (int): 与end交换值（假设end是另一个变量，但操作只修改begin）
+Invariant: return.result1 < return.result2

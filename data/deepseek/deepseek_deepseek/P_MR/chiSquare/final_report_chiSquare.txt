@@ -1,0 +1,98 @@
+double chiSquate(double expected[], double observed[], int n){
+    double sumExpected = 0;
+    double sumObserved = 0;
+    for (int i = 0; i < n; i++) {
+        sumExpected += expected[i];
+        sumObserved += observed[i];
+        }
+    double ratio = 1.0;
+    bool rescale = false;
+    if (abs(sumExpected - sumObserved) > 10E-6) {
+        ratio = sumObserved / sumExpected;
+        rescale = true;
+    }
+    double sumSq = 0.0;
+    for (int i = 0; i < n; i++) {
+        if (rescale) {
+            double dev = observed[i] - ratio * expected[i];
+            sumSq += dev * dev / (ratio * expected[i]);
+        } else {
+            double dev = observed[i] - expected[i];
+            sumSq += dev * dev / expected[i];
+            }
+        }
+        return sumSq;
+    }
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「所有元素除以2」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「反转整个数组」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「将数组元素按升序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「将数组元素按降序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含observed（double*）的函数，若对 observed执行「反转整个数组」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含observed（double*）的函数，若对 observed执行「将数组元素按升序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含observed（double*）的函数，若对 observed执行「将数组元素按降序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「所有元素乘k（k为任意非零常数）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「将数组元素循环右移一位」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含observed（double*）的函数，若对 observed执行「将数组元素循环右移一位」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含expected（double*）的函数，若对 expected执行「将数组元素随机打乱」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含observed（double*）的函数，若对 observed执行「将数组元素随机打乱」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+操作总数: 13
+关系总数: 13

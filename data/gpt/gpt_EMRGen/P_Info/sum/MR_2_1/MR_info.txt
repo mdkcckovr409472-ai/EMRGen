@@ -1,0 +1,2 @@
+Operation 2: On parameter 'values' (int*): subtract 5 from a random element
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,21 @@
+int check(TestCase tc) {
+    // (1) Extract source input
+    double* Ts = tc.data;
+    int n = tc.n;
+    // (2) Get source output
+    double Os = skew(Ts, n);
+    // (3) Construct follow-up test case object
+    TestCase Tf_case = change(tc);
+    // (4) Extract follow-up input and output
+    double* Tf = Tf_case.data;
+    double Of = skew(Tf, n);
+    // (5) Verify relation Os == Of with a tolerance for floating-point errors
+    int is_valid = 0;
+    double tolerance = 1e-12;
+    if (fabs(Os - Of) <= tolerance) {
+        is_valid = 1;
+    }
+    // (6) No dynamic memory allocated in change() or here, so no deallocation needed
+    // (7) Return verification result
+    return is_valid;
+}

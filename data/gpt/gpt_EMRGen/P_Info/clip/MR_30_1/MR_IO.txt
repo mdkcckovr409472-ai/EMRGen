@@ -1,0 +1,8 @@
+TestCase z30Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive programming: ensure safe decrement of lowerLim
+    if (follow_case.lowerLim > INT_MIN) {
+        follow_case.lowerLim -= 1;
+    }
+    return follow_case;
+}

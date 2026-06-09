@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = cosineDistance(tc.p1, tc.p2, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = cosineDistance(Tf_case.p1, Tf_case.p2, Tf_case.n);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.p1;
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 18: On parameter 'elements' (double*): 将数组随机重排序
+Invariant: return.result1 == return.result2

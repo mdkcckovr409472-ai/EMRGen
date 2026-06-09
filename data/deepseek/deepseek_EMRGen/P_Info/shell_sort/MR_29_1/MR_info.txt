@@ -1,0 +1,2 @@
+Operation 29: On parameter 'a' (int*): 将数组排序（降序）
+Invariant: return.result1[] == return.result2[]

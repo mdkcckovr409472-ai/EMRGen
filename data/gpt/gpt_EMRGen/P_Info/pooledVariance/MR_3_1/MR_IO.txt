@@ -1,0 +1,16 @@
+TestCase z3Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for target array data1
+    double* follow_case_data1 = (double*)malloc(t1.n1 * sizeof(double));
+    memcpy(follow_case_data1, t1.data1, t1.n1 * sizeof(double));
+    follow_case.data1 = follow_case_data1;
+    // Defensive check for empty array
+    if (follow_case.n1 == 0) {
+        return follow_case;
+    }
+    // Multiply each element by 2.0
+    for (int i = 0; i < follow_case.n1; ++i) {
+        follow_case.data1[i] *= 2.0;
+    }
+    return follow_case;
+}

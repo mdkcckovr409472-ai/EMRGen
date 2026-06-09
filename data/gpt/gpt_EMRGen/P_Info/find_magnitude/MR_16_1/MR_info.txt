@@ -1,0 +1,2 @@
+Operation 16: On parameter 'a' (array[int]): replace subarray from index i to j with zeros (i < j, within bounds)
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,112 @@
+int sequential_search(int a[], int key, int n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        if (a[i] == key) {
+            return i;
+        }
+    }
+    return -(1+1);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'a' (int*): 单个随机元素置为999(当原值<999)
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (int*): 所有偶数索引元素加1
+Invariant:
+return.result1 % return.result2 == 0    ✗ [Different]
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (int*): 随机位置元素加1，另一随机位置元素减1
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (int*): 所有元素取绝对值
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (int*): 所有元素置为最大值2147483647
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (int*): 随机位置元素加1
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (int*): 随机位置元素减5
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int*): 随机位置元素取平方根（若为正数）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (int*): 所有元素置为随机数（0-999之间）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 34: On parameter 'key' (int): 取绝对值
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 40: On parameter 'key' (int): 置为最大值2147483647
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 41: On parameter 'key' (int): 置为最小值-2147483648
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 43: On parameter 'key' (int): 取平方根（若为正数）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'key' (int): 整数类型转换（保持不变）
+Invariant:
+return.result1 == return.result2    ✓ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'key' (int): 置为随机整数（0-100）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 15
+独立MR总数: 16
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

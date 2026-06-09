@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains z (double[]), if the operation 「multiply the second half of the elements by 3」 is executed on z to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Sum(Of[second half]) == 3 * Sum(Os[second half]) and Sum(Of[first half]) == Sum(Os[first half])

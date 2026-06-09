@@ -1,0 +1,2 @@
+Operation 67: On parameter 'upperLim' (int): 置为(lowerLim + 原始upperLim) / 2
+Invariant: return.result1[] >= return.result2[] (elementwise)

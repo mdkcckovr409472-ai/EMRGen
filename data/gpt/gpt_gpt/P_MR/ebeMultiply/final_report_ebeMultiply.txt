@@ -1,0 +1,129 @@
+double* ebeMultiply(double a[], double b[], int n1, int n2) {
+    if (n1 != n2) {
+        return NULL;  
+    }
+
+    double* result = (double*)malloc(n1 * sizeof(double));
+    if (result == NULL) {
+        return NULL;  
+    }
+
+    for (int i = 0; i < n1; i++) {
+        result[i] = a[i] * b[i];  
+    }
+
+    return result;  
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「add 1 to all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[i] + b[i] for all 0 <= i < n1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「subtract 1 from all elements」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[i] - b[i] for all 0 <= i < n1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「multiply all elements by 2」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == 2 * Os[i] for all 0 <= i < n1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「divide all elements by 2」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[i] / 2 for all 0 <= i < n1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「reverse the entire array」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == Os[n1 - 1 - i] for all 0 <= i < n1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「sort the entire array in ascending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+The sequence Of is the element-wise product of sorted a and the original b ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「sort the entire array in descending order」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+The sequence Of is the element-wise product of descending sorted a and the original b ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「circular shift the array right by 1 position」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == a[(i - 1 + n1) mod n1] * b[i] for all 0 <= i < n1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「set all elements to 0」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == 0 for all 0 <= i < n1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「set all elements to 1」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == b[i] for all 0 <= i < n1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains a (double*), if the operation 「set the first element to the maximum double value and keep others unchanged」 is executed on a to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[0] == max_double * b[0] and Of[i] == Os[i] for all 1 <= i < n1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (double*), if the operation 「add 1 to all elements」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == a[i] * (b[i] + 1) == Os[i] + a[i] for all 0 <= i < n1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (double*), if the operation 「subtract 1 from all elements」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == a[i] * (b[i] - 1) == Os[i] - a[i] for all 0 <= i < n1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (double*), if the operation 「multiply all elements by 2」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == a[i] * (2 * b[i]) == 2 * Os[i] for all 0 <= i < n1 ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (double*), if the operation 「divide all elements by 2」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == a[i] * (b[i] / 2) == Os[i] / 2 for all 0 <= i < n1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (double*), if the operation 「reverse the entire array」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == a[i] * b[n1 - 1 - i] for all 0 <= i < n1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (double*), if the operation 「sort the entire array in ascending order」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+The sequence Of is the element-wise product of original a and sorted b in ascending order ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (double*), if the operation 「sort the entire array in descending order」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+The sequence Of is the element-wise product of original a and sorted b in descending order ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (double*), if the operation 「circular shift the array right by 1 position」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == a[i] * b[(i - 1 + n1) mod n1] for all 0 <= i < n1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (double*), if the operation 「set all elements to 0」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == 0 for all 0 <= i < n1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains b (double*), if the operation 「set all elements to 1」 is executed on b to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[i] == a[i] for all 0 <= i < n1 ✗
+
+----------------------------------------
+
+操作总数: 21
+关系总数: 21

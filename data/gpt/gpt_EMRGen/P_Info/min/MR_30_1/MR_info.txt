@@ -1,0 +1,2 @@
+Operation 30: On parameter 'elements' (array[double]): set duplicate values to 0.0
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,5 @@
+TestCase change(TestCase tc) {
+    // Reuse original TestCase struct, only sort data array ascending
+    std::sort(tc.data, tc.data + tc.n);
+    return tc;
+}

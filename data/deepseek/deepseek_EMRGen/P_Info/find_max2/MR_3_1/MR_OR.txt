@@ -1,0 +1,11 @@
+int z3check(int result1, int result2) {
+    // 核心判断逻辑 (标量直接比较)
+    // 条件不变式: 2 * return.result1 - return.result2 == 0
+    // 移项后等价于: 2 * result1 == result2
+    if (!(2 * result1 == result2)) {
+        return 0;
+    }
+    
+    // 满足条件，返回 1
+    return 1;
+}

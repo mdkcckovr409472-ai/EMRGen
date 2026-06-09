@@ -1,0 +1,2 @@
+Operation 28: On parameter 'a' (int*): 将索引1和索引na-2（若na>2）的元素交换
+Invariant: return.result1[][0..0] == return.result2[][0..0] (elementwise)

@@ -1,0 +1,2 @@
+Operation 12: On parameter 'expected' (array[double]): set a random element to 1.0e308 (DBL_MAX) (when the element < DBL_MAX)
+Invariant: return.result1 <= return.result2

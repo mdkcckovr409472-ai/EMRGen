@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double Os = max(tc.elements, tc.n);
+    for (int i = 0; i < tf.n; ++i) {
+        if (tf.elements[i] == Os) {
+            tf.elements[i] = Os + 10.0;
+            break;
+        }
+    }
+    return tf;
+}

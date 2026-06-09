@@ -1,0 +1,2 @@
+Operation 10: On parameter 'elements' (double*): 所有元素乘π
+Invariant: 8.84279719003555E14 * return.result1 - 2.81474976710656E14 * return.result2 == 0

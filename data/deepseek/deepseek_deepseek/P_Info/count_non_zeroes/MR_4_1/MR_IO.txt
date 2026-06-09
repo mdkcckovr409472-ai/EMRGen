@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.a != nullptr) {
+        std::vector<int> vec(tf.a, tf.a + tf.n);
+        std::sort(vec.begin(), vec.end());
+        int* new_array = new int[tf.n];
+        std::copy(vec.begin(), vec.end(), new_array);
+        tf.a = new_array;
+    }
+    return tf;
+}

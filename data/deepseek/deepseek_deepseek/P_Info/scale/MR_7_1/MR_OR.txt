@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    double* Os = scale(tc.val, tc.arr, tc.n);
+    TestCase Tf_case = change(tc);
+    double* Of = scale(Tf_case.val, Tf_case.arr, Tf_case.n);
+    
+    int is_valid = 0;
+    if (Os != nullptr && Of != nullptr) {
+        std::vector<double> vec_Os(Os, Os + tc.n);
+        std::vector<double> vec_Of(Of, Of + Tf_case.n);
+        std::sort(vec_Os.begin(), vec_Os.end());
+        std::sort(vec_Of.begin(), vec_Of.end());
+        if (vec_Os == vec_Of) {
+            is_valid = 1;
+        }
+    }
+    
+    if (Tf_case.arr != tc.arr && Tf_case.arr != nullptr) {
+        delete[] Tf_case.arr;
+    }
+    
+    return is_valid;
+}

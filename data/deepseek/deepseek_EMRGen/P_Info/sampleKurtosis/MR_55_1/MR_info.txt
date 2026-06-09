@@ -1,0 +1,2 @@
+Operation 55: On parameter 'sampleVariance' (double): 置负无穷
+Invariant: return.result1 >= return.result2

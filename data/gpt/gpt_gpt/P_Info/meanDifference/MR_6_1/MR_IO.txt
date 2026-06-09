@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for sample1 to avoid modifying original test case data
+    tf.sample1 = new double[tc.n];
+    // Copy original sample1 data
+    for (int i = 0; i < tc.n; ++i) {
+        tf.sample1[i] = tc.sample1[i];
+    }
+    // Set first element to maximum double value
+    tf.sample1[0] = std::numeric_limits<double>::max();
+    // sample2 pointer remains the same (reuse original)
+    return tf;
+}

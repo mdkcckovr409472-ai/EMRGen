@@ -1,0 +1,19 @@
+TestCase z26Change(TestCase t1) {
+    TestCase follow_case = t1;
+    double* follow_case_x = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_x, t1.x, t1.n * sizeof(double));
+    follow_case.x = follow_case_x;
+
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+
+    for (int i = follow_case.n - 1; i > 0; --i) {
+        int j = rand() % (i + 1);
+        double temp = follow_case.x[i];
+        follow_case.x[i] = follow_case.x[j];
+        follow_case.x[j] = temp;
+    }
+
+    return follow_case;
+}

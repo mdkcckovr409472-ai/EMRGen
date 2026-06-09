@@ -1,0 +1,23 @@
+TestCase z50Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_p2 = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_p2, t1.p2, t1.n * sizeof(double));
+follow_case.p2 = follow_case_p2;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<1时排序出错
+if (follow_case.n > 0) {
+    // 这是根据规则5生成的具体操作代码 (降序排序)
+    for (int i = 0; i < follow_case.n - 1; i++) {
+        for (int j = 0; j < follow_case.n - i - 1; j++) {
+            if (follow_case.p2[j] < follow_case.p2[j + 1]) {
+                double temp = follow_case.p2[j];
+                follow_case.p2[j] = follow_case.p2[j + 1];
+                follow_case.p2[j + 1] = temp;
+            }
+        }
+    }
+}
+
+return follow_case;}

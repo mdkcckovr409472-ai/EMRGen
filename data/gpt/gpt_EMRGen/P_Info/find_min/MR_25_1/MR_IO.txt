@@ -1,0 +1,33 @@
+TestCase z25Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 2
+    if (follow_case.n < 2) {
+        // Not enough elements to perform a meaningful rotation
+        return follow_case;
+    }
+
+    // Specific operation: rotate subarray (the whole array) left by k positions
+    // k is a random value within the array length
+    int k = rand() % follow_case.n;
+    if (k > 0) {
+        // Allocate temporary storage for the first k elements
+        int* temp = (int*)malloc(k * sizeof(int));
+        memcpy(temp, follow_case.a, k * sizeof(int));
+
+        // Shift the remaining elements to the front
+        memmove(follow_case.a, follow_case.a + k, (follow_case.n - k) * sizeof(int));
+
+        // Copy the saved elements to the end
+        memcpy(follow_case.a + follow_case.n - k, temp, k * sizeof(int));
+
+        free(temp);
+    }
+
+    return follow_case;
+}

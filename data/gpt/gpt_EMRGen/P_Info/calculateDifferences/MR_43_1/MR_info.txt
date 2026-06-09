@@ -1,0 +1,2 @@
+Operation 43: On parameter 'y' (double*): apply natural logarithm to each positive element
+Invariant: return.result1[] >= return.result2[] (elementwise)

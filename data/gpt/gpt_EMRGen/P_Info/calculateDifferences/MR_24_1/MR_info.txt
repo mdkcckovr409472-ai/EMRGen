@@ -1,0 +1,2 @@
+Operation 24: On parameter 'x' (double*): set every element less than -50.0 to -50.0 (clamp low values)
+Invariant: return.result1[] >= return.result2[] (elementwise)

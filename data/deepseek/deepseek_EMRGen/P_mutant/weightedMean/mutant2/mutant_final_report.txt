@@ -1,0 +1,95 @@
+double weightedMean(double elements[], double theWeights[], int n) {
+    int size = n;
+    double sum = 0.0;
+    double weightsSum = 1.0;
+    for(int i = size; --i >= 0; ) {
+        double w = theWeights[i];
+        sum += elements[i] * w;
+        weightsSum += w;
+    }
+    return sum / weightsSum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加1.5
+Invariant:
+return.result1 < return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (double*): 所有元素乘2.0
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (double*): 随机重排序（洗牌）
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 每个元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 14: On parameter 'elements' (double*): 将数组按升序排序
+Invariant:
+return.result1 <= return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 16: On parameter 'elements' (double*): 每个元素除以2.0
+Invariant:
+return.result1 - 2 * return.result2 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 17: On parameter 'elements' (double*): 每个元素取相反数
+Invariant:
+return.result1 + return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 20: On parameter 'elements' (double*): 随机位置元素置为最大浮点数（DBL_MAX）
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'elements' (double*): 每个元素加上其索引值
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 23: On parameter 'elements' (double*): 每个元素减去其索引值
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 38: On parameter 'theWeights' (double*): 每个元素取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 42: On parameter 'theWeights' (double*): 将数组按升序排序
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 12
+独立MR总数: 12
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

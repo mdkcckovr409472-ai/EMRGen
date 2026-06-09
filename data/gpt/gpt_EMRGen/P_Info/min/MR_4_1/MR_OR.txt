@@ -1,0 +1,26 @@
+#include <cmath>
+
+int z4check(double result1, double result2) {
+    // 1. Core evaluation logic (direct scalar comparison)
+    double epsilon = 1e-5;
+
+    // Rearrange the invariant: return.result1 - 2 * return.result2 == 0
+    // This is equivalent to: result1 == 2 * result2
+    // So compare A = result1 and B = 2 * result2
+    double A = result1;
+    double B = 2.0 * result2;
+
+    if (std::isnan(A) || std::isnan(B)) return 0;
+
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B) return 1;
+        else return 0;
+    }
+
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    if (fabs(A - B) > tol) return 0;
+
+    // 2. Satisfied, return 1
+    return 1;
+}

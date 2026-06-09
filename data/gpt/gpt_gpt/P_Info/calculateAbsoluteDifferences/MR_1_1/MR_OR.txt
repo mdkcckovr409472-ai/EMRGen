@@ -1,0 +1,33 @@
+int check(TestCase tc) {
+    double* Os = calculateAbsoluteDifferences(tc.z, tc.n);
+    if (Os == NULL && tc.n == 0) {
+        // n == 0, both outputs should be NULL, MR holds trivially
+        return 1;
+    }
+    if (Os == NULL) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    double* Of = calculateAbsoluteDifferences(Tf_case.z, Tf_case.n);
+
+    int is_valid = 0;
+    if (Of != NULL && tc.n == Tf_case.n) {
+        is_valid = 1;
+        for (int i = 0; i < tc.n; i++) {
+            // Check if 2 * Os[i] == Of[i] with some tolerance for floating point
+            if (fabs(2.0 * Os[i] - Of[i]) > 1e-8) {
+                is_valid = 0;
+                break;
+            }
+        }
+    }
+
+    free(Os);
+    free(Of);
+    if (Tf_case.z != tc.z) {
+        free(Tf_case.z);
+    }
+
+    return is_valid;
+}

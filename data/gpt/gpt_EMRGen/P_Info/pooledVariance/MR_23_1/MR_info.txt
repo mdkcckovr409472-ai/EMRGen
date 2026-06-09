@@ -1,0 +1,2 @@
+Operation 23: On parameter 'data1' (double*): clip values to maximum 1.0 (if greater)
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,2 @@
+Operation 19: On parameter 'k' (double*): 数组元素降序排序
+Invariant: return.result1 == return.result2

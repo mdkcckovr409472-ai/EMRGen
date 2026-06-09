@@ -1,0 +1,31 @@
+TestCase z15Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0 && t1.a != NULL) {
+        int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+        if (follow_case_a != NULL) {
+            memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+            follow_case.a = follow_case_a;
+        } else {
+            // malloc failed; return follow_case without changes
+            return follow_case;
+        }
+    } else {
+        // For zero length or null pointer, avoid malloc and keep original pointer
+        return follow_case;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) for n > 0 check
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    for (int i = 0; i < follow_case.n; i++) {
+        int val = follow_case.a[i];
+        follow_case.a[i] = val * val;
+    }
+
+    return follow_case;
+}

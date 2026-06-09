@@ -1,0 +1,42 @@
+int check(TestCase tc) {
+    if (!tc.array1 || !tc.array2 || tc.n <= 0) return 0;
+
+    int* Os = dec(tc.array1, tc.array2, tc.n);
+    if (!Os) return 0;
+
+    TestCase Tf_case = change(tc);
+    if (!Tf_case.array1 || !Tf_case.array2 || Tf_case.n <= 0) {
+        free(Os);
+        return 0;
+    }
+    int* Of = dec(Tf_case.array1, Tf_case.array2, Tf_case.n);
+    if (!Of) {
+        free(Os);
+        if (Tf_case.array2 != tc.array2) free(Tf_case.array2);
+        return 0;
+    }
+
+    // Calculate expected Of[n-1] based on MR: Of == Os - (INT_MIN - array2[n-1])
+    int expected_diff = INT_MIN - tc.array2[tc.n - 1];
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        int diff = Of[i] - Os[i];
+        if (i == tc.n -1) {
+            if (diff != -expected_diff) {
+                is_valid = 0;
+                break;
+            }
+        } else {
+            if (diff != 0) {
+                is_valid = 0;
+                break;
+            }
+        }
+    }
+
+    free(Os);
+    free(Of);
+    if (Tf_case.array2 != tc.array2) free(Tf_case.array2);
+
+    return is_valid;
+}

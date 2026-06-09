@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    // Reuse the original test case structure
+    // Create a new double array for b with all elements subtracted by 1
+    double* new_b = (double*)malloc(tc.n2 * sizeof(double));
+    if (!new_b) {
+        // malloc failed, just return original tc (though may cause failure downstream)
+        return tc;
+    }
+    for (int i = 0; i < tc.n2; i++) {
+        new_b[i] = tc.b[i] - 1;
+    }
+    // Overwrite b with new_b in the returned struct
+    TestCase tf = tc;
+    tf.b = new_b;
+    return tf;
+}

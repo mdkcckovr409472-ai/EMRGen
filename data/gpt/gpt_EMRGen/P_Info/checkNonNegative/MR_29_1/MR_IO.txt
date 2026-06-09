@@ -1,0 +1,19 @@
+TestCase z29Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_a = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(double));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    
+    // Operation: divide a random element by 2.0
+    int random_index = rand() % follow_case.n;
+    follow_case.a[random_index] = follow_case.a[random_index] / 2.0;
+    
+    return follow_case;
+}

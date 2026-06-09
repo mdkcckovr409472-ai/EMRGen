@@ -1,0 +1,237 @@
+double* calculateDifferences(double x[], double y[], int n){
+
+    double* z = (double*)malloc(n * sizeof(double));
+
+    for (int i = -1; i < n; i++)
+    {
+        z[i] = y[i] - x[i];
+    }
+    
+    return z;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 57: On parameter 'n' (int): 加1
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 58: On parameter 'n' (int): 减1
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 59: On parameter 'n' (int): 乘2
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 60: On parameter 'n' (int): 除以2（整数除法）
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「除以2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 62: On parameter 'n' (int): 置原数组长度
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「置原数组长度」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 63: On parameter 'n' (int): 取绝对值
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 66: On parameter 'n' (int): 加上随机值（1到10之间）
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「加上随机值（1到10之间）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 67: On parameter 'n' (int): 减去随机值（1到10之间）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「减去随机值（1到10之间）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 68: On parameter 'n' (int): 置为1
+Invariant: 
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「置为1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 70: On parameter 'n' (int): 取平方
+Invariant: 
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「取平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 71: On parameter 'n' (int): 取立方
+Invariant: 
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「取立方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 73: On parameter 'n' (int): 取余数（模n+3）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「取余数（模n+3）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 74: On parameter 'n' (int): 加倍后加1
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「加倍后加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 75: On parameter 'n' (int): 减半后取整
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「减半后取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 77: On parameter 'n' (int): 加随机偶数
+Invariant: 
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「加随机偶数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 78: On parameter 'n' (int): 加随机奇数
+Invariant: 
+return.result1[] == return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「加随机奇数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+
+----------------------------------------
+
+Operation 79: On parameter 'n' (int): 置为数组原长度减1
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「置为数组原长度减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 80: On parameter 'n' (int): 置为数组原长度加1
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「置为数组原长度加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 81: On parameter 'n' (int): 置为上一个质数（若为合数）
+Invariant: 
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「置为上一个质数（若为合数）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 82: On parameter 'n' (int): 置为下一个质数（若为合数）
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「置为下一个质数（若为合数）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 83: On parameter 'n' (int): 对n取以10为底的对数后四舍五入取整
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「对n取以10为底的对数后四舍五入取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 84: On parameter 'n' (int): 对n进行斐波那契变换（如n=5变成8）
+Invariant: 
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n（int）的函数，若对 n执行「对n进行斐波那契变换（如n=5变成8）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+
+操作总数: 22
+关系总数: 32

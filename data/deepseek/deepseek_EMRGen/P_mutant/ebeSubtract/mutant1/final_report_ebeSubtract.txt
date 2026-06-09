@@ -1,0 +1,257 @@
+double* ebeSubtract(double a[], double b[], int n1, int n2) {
+    if (n1 != n2 || (0==1)) {
+        return NULL;
+    }
+
+    double* result = (double*)malloc(n1 * sizeof(double));
+    if (!result) return NULL;
+
+    for (int i = 0; i < n1; i++) {
+        result[i] = a[i] - b[i];
+    }
+    return result;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (double*): 所有元素加2.0
+Invariant: 
+return.result1[] - return.result2[] + 2 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素加2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 2 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (double*): 所有元素减1.5
+Invariant: 
+return.result1[] - return.result2[] - 1.5 == 0
+return.result1[] > return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素减1.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 1.5 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (double*): 所有元素取绝对值
+Invariant: 
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (double*): 元素加对应索引值
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「元素加对应索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (double*): 元素减对应索引值
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「元素减对应索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (double*): 数组前n1个元素加1.0
+Invariant: 
+return.result1[] - return.result2[] + 1 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「数组前n1个元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 1 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (double*): 数组前一半元素加1.0
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「数组前一半元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (double*): 奇数索引元素减1.0
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「奇数索引元素减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (double*): 所有元素与位置索引相加
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素与位置索引相加」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (double*): 所有元素加2.0
+Invariant: 
+return.result1[] - return.result2[] - 2 == 0
+return.result1[] > return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素加2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 2 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 32: On parameter 'b' (double*): 所有元素减1.5
+Invariant: 
+return.result1[] - return.result2[] + 1.5 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素减1.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 1.5 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 35: On parameter 'b' (double*): 所有元素取绝对值
+Invariant: 
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 46: On parameter 'b' (double*): 元素加对应索引值
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「元素加对应索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 47: On parameter 'b' (double*): 元素减对应索引值
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「元素减对应索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 48: On parameter 'b' (double*): 所有元素取整
+Invariant: 
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 49: On parameter 'b' (double*): 索引0处元素置最大值999.0
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「索引0处元素置最大值999.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 50: On parameter 'b' (double*): 所有元素置最小值-999.0
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素置最小值-999.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 51: On parameter 'b' (double*): 数组前n2个元素加1.0
+Invariant: 
+return.result1[] - return.result2[] - 1 == 0
+return.result1[] > return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「数组前n2个元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 1 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 55: On parameter 'b' (double*): 数组前一半元素加1.0
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「数组前一半元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 56: On parameter 'b' (double*): 奇数索引元素减1.0
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「奇数索引元素减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 59: On parameter 'b' (double*): 所有元素与位置索引相加
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素与位置索引相加」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 60: On parameter 'b' (double*): 所有元素与位置索引相减
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素与位置索引相减」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+
+操作总数: 22
+关系总数: 41

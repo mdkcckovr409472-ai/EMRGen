@@ -1,0 +1,19 @@
+TestCase z28Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // Defensive check: need at least 2 elements for meaningful shuffle
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+    // Random shuffle (Fisher‑Yates)
+    for (int i = follow_case.n - 1; i > 0; --i) {
+        int j = rand() % (i + 1);
+        int temp = follow_case.a[i];
+        follow_case.a[i] = follow_case.a[j];
+        follow_case.a[j] = temp;
+    }
+    return follow_case;
+}

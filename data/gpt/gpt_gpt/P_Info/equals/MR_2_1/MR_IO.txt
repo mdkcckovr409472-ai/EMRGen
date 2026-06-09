@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Since dividing all elements of tf.y by 1.0 does not change values, no modification needed
+    // But to strictly follow the MR operation, we mimic the operation explicitly
+    for (int i = 0; i < tf.ny; ++i) {
+        tf.y[i] = tf.y[i] / 1.0;
+    }
+    return tf;
+}

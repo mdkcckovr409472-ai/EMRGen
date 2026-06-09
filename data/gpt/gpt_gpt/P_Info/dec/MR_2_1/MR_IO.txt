@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    // Sort array1 in ascending order for follow-up input
+    int* sorted_array1 = (int*)malloc(tc.n * sizeof(int));
+    if (!sorted_array1) return tf; // fallback to original if malloc fails
+    memcpy(sorted_array1, tc.array1, tc.n * sizeof(int));
+    std::sort(sorted_array1, sorted_array1 + tc.n);
+    tf.array1 = sorted_array1;
+
+    return tf;
+}

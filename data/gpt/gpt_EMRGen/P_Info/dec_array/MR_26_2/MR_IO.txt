@@ -1,0 +1,6 @@
+TestCase z26Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // No memory handling required for non‑array target parameter
+    follow_case.k += 10;
+    return follow_case;
+}

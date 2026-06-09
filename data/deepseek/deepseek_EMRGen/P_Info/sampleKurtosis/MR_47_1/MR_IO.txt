@@ -1,0 +1,15 @@
+TestCase z47Change(TestCase t1) {
+    TestCase follow_case = t1;
+    
+    // 根据规则4：目标参数sampleVariance是double类型，不是数组，因此不执行malloc和memcpy操作。
+    
+    // 根据规则6a：指数变换操作不依赖于数组长度，无需检查size。
+    // 根据规则6b：指数变换操作不涉及除法，无需检查除以零。
+    // 根据规则6c：指数变换操作不涉及sqrt等数学函数，无需检查定义域。
+    
+    // 根据规则5：将“指数变换”转换为C语言代码，操作于follow_case.sampleVariance。
+    // 假设指数变换为取自然指数，即 e^sampleVariance。
+    follow_case.sampleVariance = exp(follow_case.sampleVariance);
+    
+    return follow_case;
+}

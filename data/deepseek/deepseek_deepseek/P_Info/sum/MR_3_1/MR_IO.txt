@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int m = 2;
+    int* new_values = new int[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        new_values[i] = tf.values[i] * m;
+    }
+    tf.values = new_values;
+    return tf;
+}

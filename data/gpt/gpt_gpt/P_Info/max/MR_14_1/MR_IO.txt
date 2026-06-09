@@ -1,0 +1,18 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double* newElements = new double[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        newElements[i] = tc.elements[i];
+    }
+    // Find the index of the max element
+    int maxIdx = 0;
+    for (int i = 1; i < tc.n; ++i) {
+        if (newElements[i] > newElements[maxIdx]) {
+            maxIdx = i;
+        }
+    }
+    // Subtract 1 only from the max element
+    newElements[maxIdx] -= 1.0;
+    tf.elements = newElements;
+    return tf;
+}

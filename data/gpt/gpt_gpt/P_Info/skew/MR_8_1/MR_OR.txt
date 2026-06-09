@@ -1,0 +1,32 @@
+int check(TestCase tc) {
+    // (1) Extract source input
+    double* Ts = tc.data;
+    int n = tc.n;
+
+    // (2) Call function under test for source output Os
+    double Os = skew(Ts, n);
+
+    // (3) Construct follow-up test case Tf
+    TestCase Tf = change(tc);
+
+    // (4) Call function under test for follow-up output Of
+    double Of = 0.0;
+    if (Tf.data != nullptr) {
+        Of = skew(Tf.data, Tf.n);
+    }
+
+    // (5) Verify metamorphic relation Os == Of (allow small epsilon for floating comparison)
+    int is_valid = 0;
+    double epsilon = 1e-12;
+    if (std::abs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+
+    // (6) Free any dynamic memory allocated in change()
+    if (Tf.data != tc.data && Tf.data != nullptr) {
+        delete[] Tf.data;
+    }
+
+    // (7) Return verification result
+    return is_valid;
+}

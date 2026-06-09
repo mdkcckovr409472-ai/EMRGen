@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1 && tf.elements != nullptr) {
+        int k = 1;
+        double first = tf.elements[0];
+        for (int i = 0; i < tf.n - 1; ++i) {
+            tf.elements[i] = tf.elements[i + 1];
+        }
+        tf.elements[tf.n - 1] = first;
+    }
+    return tf;
+}

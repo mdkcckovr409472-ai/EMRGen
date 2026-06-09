@@ -1,0 +1,2 @@
+Operation 44: On parameter 'p2' (double*): 随机位置元素置为无穷大（inf）
+Invariant: return.result1 < return.result2

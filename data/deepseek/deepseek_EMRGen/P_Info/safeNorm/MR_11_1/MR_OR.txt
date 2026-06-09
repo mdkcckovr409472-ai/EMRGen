@@ -1,0 +1,36 @@
+int z11check(double result1, double result2) {
+    // 1. 核心判断逻辑 (标量直接比较)
+    // 移项后条件为: result1 >= result2
+    // 提取 A = result1, B = result2
+    double A = result1;
+    double B = result2;
+    
+    // 防御 NaN
+    if (A != A || B != B) return 0; // 使用 isnan 需要 <cmath>，这里用自不等性判断
+    
+    // 处理无穷大
+    // 判断是否为无穷大（正或负）
+    int A_is_inf = (A > 1e308 || A < -1e308 || A != A); // 简单无穷大检测
+    int B_is_inf = (B > 1e308 || B < -1e308 || B != B);
+    if (A_is_inf || B_is_inf) {
+        // 无穷大时直接数学比较
+        if (A >= B) return 1;
+        else return 0;
+    }
+    
+    // 定义基础容差
+    double epsilon = 1e-5;
+    // 计算动态容差
+    double max_abs = (fabs(A) > fabs(B)) ? fabs(A) : fabs(B);
+    if (max_abs < 1.0) max_abs = 1.0;
+    double tol = epsilon * max_abs;
+    
+    // 带容差的 >= 判断
+    // 条件: A >= B 等价于 A < B - tol 时违反
+    if (A < B - tol) {
+        return 0;
+    }
+    
+    // 2. 满足条件，返回 1
+    return 1;
+}

@@ -1,0 +1,2 @@
+Operation 18: On parameter 'a' (int*): set first element to lowerLim (when lowerLim within int range)
+Invariant: return.result1[] >= return.result2[] (elementwise)

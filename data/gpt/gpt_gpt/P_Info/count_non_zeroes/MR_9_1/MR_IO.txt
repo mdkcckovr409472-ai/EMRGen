@@ -1,0 +1,19 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Reuse the same array pointer but create a new array for follow-up input to modify safely
+    int* new_a = new int[tf.n];
+    for (int i = 0; i < tf.n; ++i) {
+        new_a[i] = tf.a[i];
+    }
+
+    // Find a zero element to set to non-zero (1)
+    for (int i = 0; i < tf.n; ++i) {
+        if (new_a[i] == 0) {
+            new_a[i] = 1;
+            break;
+        }
+    }
+
+    tf.a = new_a;
+    return tf;
+}

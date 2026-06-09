@@ -1,0 +1,346 @@
+double pooledMean(double data1[], double data2[], int n1, int n2) {
+    double sum1 = 0;
+    for (int i = 0; i < n1; i++) {
+        sum1 += data1[i];
+    }
+    double mean1 = sum1 / n1;
+    double sum2 = 0;
+    for (int i = 0; i < n2; i++) {
+        sum2 += data2[i];
+    }
+    double mean2 = sum2 / n2;
+    return (n1 * mean1 + n2 * mean2) / (n1 + n2);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'data1' (double*): add 1.0 to all elements
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 2: On parameter 'data1' (double*): subtract 0.5 from all elements
+Invariant:
+return.result1 > return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「subtract 0.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 5: On parameter 'data1' (double*): set first element to 0.0 (when the original element > 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「set first element to 0.0 (when the original element > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'data1' (double*): set last element to 100.0 (when the original element < 100)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「set last element to 100.0 (when the original element < 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'data1' (double*): increment a random element by 1.0 (when the element < maximum double)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「increment a random element by 1.0 (when the element < maximum double)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 8: On parameter 'data1' (double*): decrement a random element by 0.5 (when the element > minimum double)
+Invariant: 
+return.result1 > return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「decrement a random element by 0.5 (when the element > minimum double)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 12: On parameter 'data1' (double*): take absolute value of each element
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「take absolute value of each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'data1' (double*): swap two random distinct elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「swap two random distinct elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 16: On parameter 'data1' (double*): reverse the entire array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「reverse the entire array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 17: On parameter 'data1' (double*): left circular shift of array (move first element to the end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「left circular shift of array (move first element to the end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'data1' (double*): right circular shift of array (move last element to the front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「right circular shift of array (move last element to the front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'data1' (double*): sort array in ascending order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 20: On parameter 'data1' (double*): sort array in descending order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「sort array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 22: On parameter 'data1' (double*): set a random position’s element to 999.0 (when the element is less than 999.0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「set a random position’s element to 999.0 (when the element is less than 999.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'data1' (double*): set a random position’s element to -999.0 (when the element is greater than -999.0)
+Invariant: 
+return.result1 > return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「set a random position’s element to -999.0 (when the element is greater than -999.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 25: On parameter 'data1' (double*): apply floor to each element
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「apply floor to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'data1' (double*): apply ceil to each element
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「apply ceil to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 31: On parameter 'data2' (double*): add 2.0 to all elements
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「add 2.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 32: On parameter 'data2' (double*): subtract 1.0 from all elements
+Invariant: 
+return.result1 > return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「subtract 1.0 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 35: On parameter 'data2' (double*): set first element to 1.0 (when the original element < 1.0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「set first element to 1.0 (when the original element < 1.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 36: On parameter 'data2' (double*): set last element to -1.0 (when the original element > -1.0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「set last element to -1.0 (when the original element > -1.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 37: On parameter 'data2' (double*): increment a random element by 0.2 (when the element < maximum double)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「increment a random element by 0.2 (when the element < maximum double)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 38: On parameter 'data2' (double*): decrement a random element by 0.2 (when the element > minimum double)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「decrement a random element by 0.2 (when the element > minimum double)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'data2' (double*): replace a random element with its absolute value
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「replace a random element with its absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 42: On parameter 'data2' (double*): take natural logarithm of each element (when element > 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「take natural logarithm of each element (when element > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 43: On parameter 'data2' (double*): take exponential of each element
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「take exponential of each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 45: On parameter 'data2' (double*): swap two random distinct elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「swap two random distinct elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 46: On parameter 'data2' (double*): reverse the entire array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「reverse the entire array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 47: On parameter 'data2' (double*): left circular shift of array (move first element to the end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「left circular shift of array (move first element to the end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 48: On parameter 'data2' (double*): right circular shift of array (move last element to the front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「right circular shift of array (move last element to the front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 49: On parameter 'data2' (double*): sort array in ascending order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 50: On parameter 'data2' (double*): sort array in descending order
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「sort array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 52: On parameter 'data2' (double*): set a random position’s element to 500.0 (when the element is less than 500.0)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「set a random position’s element to 500.0 (when the element is less than 500.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 53: On parameter 'data2' (double*): set a random position’s element to -500.0 (when the element is greater than -500.0)
+Invariant: 
+return.result1 > return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「set a random position’s element to -500.0 (when the element is greater than -500.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 55: On parameter 'data2' (double*): apply floor to each element
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「apply floor to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 56: On parameter 'data2' (double*): apply ceil to each element
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「apply ceil to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 36
+关系总数: 36

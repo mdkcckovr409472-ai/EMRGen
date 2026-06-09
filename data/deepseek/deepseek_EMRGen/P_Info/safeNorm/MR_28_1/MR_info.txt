@@ -1,0 +1,2 @@
+Operation 28: On parameter 'v' (double*): 数组降序排序
+Invariant: return.result1 == return.result2

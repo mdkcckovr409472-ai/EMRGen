@@ -1,0 +1,19 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1 && tf.elements != nullptr) {
+        double max_val = tf.elements[0];
+        int max_idx = 0;
+        for (int i = 1; i < tf.n; ++i) {
+            if (tf.elements[i] > max_val) {
+                max_val = tf.elements[i];
+                max_idx = i;
+            }
+        }
+        int other_idx = 0;
+        do {
+            other_idx = rand() % tf.n;
+        } while (other_idx == max_idx);
+        std::swap(tf.elements[max_idx], tf.elements[other_idx]);
+    }
+    return tf;
+}

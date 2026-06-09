@@ -1,0 +1,2 @@
+Operation 27: On parameter 'a' (double*): 注入特殊值正无穷
+Invariant: return.result1[] <= return.result2[] (elementwise)

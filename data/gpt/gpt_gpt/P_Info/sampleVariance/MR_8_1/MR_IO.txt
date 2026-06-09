@@ -1,0 +1,5 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    tf.mean = tc.mean - 1.0;
+    return tf;
+}

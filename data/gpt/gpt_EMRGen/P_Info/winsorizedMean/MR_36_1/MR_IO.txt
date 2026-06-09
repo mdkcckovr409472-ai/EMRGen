@@ -1,0 +1,8 @@
+TestCase z36Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check: only modify when left is positive
+    if (follow_case.left > 0) {
+        follow_case.left = follow_case.left / 2;
+    }
+    return follow_case;
+}

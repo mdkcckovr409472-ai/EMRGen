@@ -1,0 +1,26 @@
+int z37check(double* result1, double* result2, int n) {
+    #include <cmath>
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    double epsilon = 1e-5;
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = result2[i];
+
+        if (std::isnan(A) || std::isnan(B)) return 0;
+
+        if (std::isinf(A) || std::isinf(B)) {
+            if (A < B || fabs(A - B) < epsilon) continue;
+            else return 0;
+        }
+        
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        double diff = A - B;
+
+        if (fabs(diff) <= tol) continue;
+        else if (diff > tol) return 0;
+        else return 1;
+    }
+    return 1;
+}

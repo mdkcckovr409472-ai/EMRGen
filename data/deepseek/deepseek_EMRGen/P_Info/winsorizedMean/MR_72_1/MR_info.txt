@@ -1,0 +1,2 @@
+Operation 72: On parameter 'right' (int): 与数组长度n取模
+Invariant: return.result1 == return.result2

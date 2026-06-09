@@ -1,0 +1,2 @@
+Operation 38: On parameter 'elements' (double*): 所有元素加自身（即乘2）
+Invariant: return.result1 <= return.result2

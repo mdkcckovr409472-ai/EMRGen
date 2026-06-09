@@ -1,0 +1,24 @@
+TestCase z19Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+    
+    // Defensive code to ensure there is at least one element
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Specific operation: set a random finite element to INF
+    int idx = rand() % follow_case.n;
+    double inf = 1.0/0.0;
+    double ninf = -1.0/0.0;
+    double val = follow_case.elements[idx];
+    if (val == val && val != inf && val != ninf) {
+        follow_case.elements[idx] = inf;
+    }
+    
+    return follow_case;
+}

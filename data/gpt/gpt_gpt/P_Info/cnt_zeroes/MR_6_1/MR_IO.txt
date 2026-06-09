@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for tf->a with the same size as tc to ensure safe modification
+    int* new_a = new int[tf.n];
+    for (int i = 0; i < tf.n; ++i) {
+        new_a[i] = tf.a[i];
+    }
+    new_a[0] = 0;  // Apply the MR operation: set first element to 0
+    tf.a = new_a;
+    return tf;
+}

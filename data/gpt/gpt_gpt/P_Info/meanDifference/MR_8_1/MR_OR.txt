@@ -1,0 +1,18 @@
+int check(TestCase tc) {
+    // Calculate source output Os
+    double Os = meanDifference(tc.sample1, tc.sample2, tc.n);
+
+    // Create follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Calculate follow-up output Of
+    double Of = meanDifference(Tf_case.sample1, Tf_case.sample2, Tf_case.n);
+
+    // Check metamorphic relation: Of > Os
+    int is_valid = (Of > Os) ? 1 : 0;
+
+    // Free dynamically allocated memory in Tf_case.sample1
+    delete[] Tf_case.sample1;
+
+    return is_valid;
+}

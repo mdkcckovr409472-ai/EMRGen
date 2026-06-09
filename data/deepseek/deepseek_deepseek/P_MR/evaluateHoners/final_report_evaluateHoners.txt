@@ -1,0 +1,31 @@
+double evaluateHoners(double coefficients[], double argument, int n) {
+    
+    double result = coefficients[n - 1];
+    for (int j = n - 2; j >= 0; j--) {
+        result = argument * result + coefficients[j];
+    }
+    return result;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素乘m（m为任意非零常数）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Of == m * Os ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「将数组所有元素乘以-1」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Of == -Os ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「将数组所有元素加上其自身（即乘以2）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Of == 2 * Os ✓
+
+----------------------------------------
+
+操作总数: 3
+关系总数: 3

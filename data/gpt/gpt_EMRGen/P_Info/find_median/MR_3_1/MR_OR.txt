@@ -1,0 +1,21 @@
+#include <cmath>
+int z3check(double result1, double result2) {
+    // Since is_array == 0, no need for length or pointer checks.
+
+    // Rearrange: 2 * result1 - result2 == 0 can be rewritten as:
+    // 2 * result1 == result2
+    // So A = 2 * result1, B = result2
+    double epsilon = 1e-5;
+    double A = 2.0 * result1;
+    double B = result2;
+
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    if (std::isinf(A) || std::isinf(B)) {
+        return (A == B) ? 1 : 0;
+    }
+
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    if (fabs(A - B) > tol) return 0;
+
+    return 1;
+}

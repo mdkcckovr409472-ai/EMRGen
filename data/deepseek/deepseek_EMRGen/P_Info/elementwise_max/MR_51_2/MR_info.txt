@@ -1,0 +1,2 @@
+Operation 51: On parameter 'b' (int*): 每隔两个元素（索引0,3,6...）置为原值减索引值
+Invariant: return.result1[][0..0] == return.result2[][0..0] (elementwise)

@@ -1,0 +1,55 @@
+TestCase z8Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n1 > 0 && t1.a != NULL) {
+        double* follow_case_a = (double*)malloc(t1.n1 * sizeof(double));
+        if (follow_case_a != NULL) {
+            memcpy(follow_case_a, t1.a, t1.n1 * sizeof(double));
+            follow_case.a = follow_case_a;
+        }
+    }
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n1 == 0
+    if (follow_case.n1 <= 0 || follow_case.a == NULL) {
+        // No elements to operate on or null pointer, return replica directly
+        return follow_case;
+    }
+    
+    // Specific operation code generated based on the rule
+    // Find indices where elements are greater than -1
+    int valid_indices_count = 0;
+    for (int i = 0; i < follow_case.n1; i++) {
+        if (follow_case.a[i] > -1) {
+            valid_indices_count++;
+        }
+    }
+    if (valid_indices_count == 0) {
+        // No element qualifies for replacement, return as is
+        return follow_case;
+    }
+    
+    // Randomly select one of these valid indices
+    int chosen_index = -1;
+    
+    // To ensure randomness, use rand() % valid_indices_count
+    // We must iterate again to find the chosen index
+    
+    int target_index_in_valid = rand() % valid_indices_count;
+    int count = 0;
+    for (int i = 0; i < follow_case.n1; i++) {
+        if (follow_case.a[i] > -1) {
+            if (count == target_index_in_valid) {
+                chosen_index = i;
+                break;
+            }
+            count++;
+        }
+    }
+    
+    if (chosen_index != -1) {
+        follow_case.a[chosen_index] = -1;
+    }
+    
+    return follow_case;
+}

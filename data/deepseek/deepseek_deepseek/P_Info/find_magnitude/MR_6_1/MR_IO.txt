@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* new_array = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_array[i] = tc.a[i];
+    }
+    std::sort(new_array, new_array + tf.n, std::greater<int>());
+    tf.a = new_array;
+    return tf;
+}

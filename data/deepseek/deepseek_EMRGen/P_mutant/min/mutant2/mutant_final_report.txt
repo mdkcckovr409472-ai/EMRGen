@@ -1,0 +1,144 @@
+double min(double elements[], int n) {
+    int size = n;
+    double min = elements[size - 1];
+    for (int i = size - 1; --i >= 0; ) {
+        if (elements[i] <= min) {
+            min = elements[i];
+        }
+    }
+    return min;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加1.0
+Invariant:
+return.result1 - return.result2 + 1 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (double*): 所有元素乘2.0
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (double*): 所有元素减0.5
+Invariant:
+2 * return.result1 - 2 * return.result2 - 1 == 0    ✓ ○ [Similar]
+return.result1 >= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 所有元素除以2.0
+Invariant:
+return.result1 - 2 * return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 5: On parameter 'elements' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (double*): 排序（升序）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (double*): 排序（降序）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 12: On parameter 'elements' (double*): 取前n/2个元素构成子数组（n>1）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'elements' (double*): 所有元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 17: On parameter 'elements' (double*): 随机元素加5.0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'elements' (double*): 随机元素减3.0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'elements' (double*): 随机元素除以0.5
+Invariant:
+2 * return.result1 - return.result2 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'elements' (double*): 元素值若为负数则置0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+return.result2 % return.result1 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 23: On parameter 'elements' (double*): 所有元素乘以n（非零时）
+Invariant:
+5 * return.result1 - return.result2 == 0    ✗ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'elements' (double*): 数组拼接自身（长度变为2n）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (double*): 移除数组中间一个元素（n>2）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'elements' (double*): 所有元素加索引值（索引从0开始）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'elements' (double*): 数组向右循环移位（末尾元素移到开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+操作总数: 20
+独立MR总数: 22
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

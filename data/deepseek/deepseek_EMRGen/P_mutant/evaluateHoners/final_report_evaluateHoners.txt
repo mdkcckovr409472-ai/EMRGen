@@ -1,0 +1,62 @@
+double evaluateHoners(double coefficients[], double argument, int n) {
+    
+    double result = coefficients[n - 1];
+    for (int j = n - 2; j >= 0; j--) {
+        result = argument * result + coefficients[j];
+    }
+    return result;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'coefficients' (double*): 所有元素乘2.0
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'coefficients' (double*): 所有元素除2.0
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素除2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 5: On parameter 'coefficients' (double*): 所有元素取相反数
+Invariant: 
+return.result1 + return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'coefficients' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 11: On parameter 'coefficients' (double*): 所有元素乘-1.0
+Invariant: 
+return.result1 + return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素乘-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+
+操作总数: 5
+关系总数: 5

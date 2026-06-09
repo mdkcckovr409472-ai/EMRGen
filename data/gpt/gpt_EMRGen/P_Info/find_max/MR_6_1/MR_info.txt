@@ -1,0 +1,2 @@
+Operation 6: On parameter 'a' (int*): set last element to INT_MIN (when element > INT_MIN)
+Invariant: return.result1 >= return.result2

@@ -1,0 +1,25 @@
+TestCase z39Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy of target array y
+    double* follow_case_y = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_y, t1.y, t1.n * sizeof(double));
+    follow_case.y = follow_case_y;
+
+    // Defensive check: need at least 2 elements to sort meaningfully
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+
+    // Sort y in descending order
+    for (int i = 0; i < follow_case.n - 1; ++i) {
+        for (int j = i + 1; j < follow_case.n; ++j) {
+            if (follow_case.y[i] < follow_case.y[j]) {
+                double temp = follow_case.y[i];
+                follow_case.y[i] = follow_case.y[j];
+                follow_case.y[j] = temp;
+            }
+        }
+    }
+
+    return follow_case;
+}

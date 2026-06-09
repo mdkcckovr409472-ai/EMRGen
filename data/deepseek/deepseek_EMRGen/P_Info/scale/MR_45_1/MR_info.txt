@@ -1,0 +1,2 @@
+Operation 45: On parameter 'arr' (double*): 数组反转
+Invariant: return.result1[] is the reverse of return.result2[]

@@ -1,0 +1,2 @@
+Operation 28: On parameter 'elements' (double*): 将数组中所有元素向上取整
+Invariant: return.result1 <= return.result2

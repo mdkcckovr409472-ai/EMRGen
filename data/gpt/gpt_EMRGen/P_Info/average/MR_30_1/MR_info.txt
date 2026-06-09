@@ -1,0 +1,2 @@
+Operation 30: On parameter 'a' (array[int]): set each element to element + index
+Invariant: return.result1 <= return.result2

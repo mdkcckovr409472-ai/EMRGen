@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Sort the array in descending order to form the follow-up input
+    // Since we must reuse tc.a, create a new array for tf.a
+    int* desc_sorted = new int[tf.n];
+    for (int i = 0; i < tf.n; ++i) desc_sorted[i] = tf.a[i];
+    std::sort(desc_sorted, desc_sorted + tf.n, std::greater<int>());
+    tf.a = desc_sorted;
+    return tf;
+}

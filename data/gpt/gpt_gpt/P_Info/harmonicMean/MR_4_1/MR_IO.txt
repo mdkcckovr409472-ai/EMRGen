@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Sort the array in descending order in-place reusing the original data pointer
+    std::sort(tf.data, tf.data + tf.n, std::greater<double>());
+    return tf;
+}

@@ -1,0 +1,24 @@
+int check(TestCase tc) {
+    // 获取初始输出 Os
+    double Os = sampleVariance(tc.elements, tc.mean, tc.n);
+    
+    // 构造衍生用例
+    TestCase Tf_case = change(tc);
+    
+    // 获取衍生输出 Of
+    double Of = sampleVariance(Tf_case.elements, Tf_case.mean, Tf_case.n);
+    
+    int is_valid = 0;
+    // 验证 Os 和 Of 是否相等（考虑浮点数精度）
+    const double epsilon = 1e-10;
+    if (fabs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    
+    // 清理资源：如果 change 中分配了新数组，需要释放
+    // 但根据 change 的实现，它复用了原数组指针并打乱顺序，没有分配新内存。
+    // 因此，这里不需要额外的释放操作。
+    // 注意：调用者负责管理原始 tc.elements 的内存。
+    
+    return is_valid;
+}

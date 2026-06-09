@@ -1,0 +1,24 @@
+TestCase z28Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+follow_case.elements = follow_case_elements;
+// ------------------------------------
+
+// 这是根据规则6a生成的防御性代码，防止n<2时出错
+if (follow_case.n < 2) {
+    // 元素不足2个，无需重排，直接返回副本
+    return follow_case;
+}
+
+// 这是根据规则5生成的具体操作代码
+srand(time(NULL));
+for (int i = follow_case.n - 1; i > 0; i--) {
+    int j = rand() % (i + 1);
+    double temp = follow_case.elements[i];
+    follow_case.elements[i] = follow_case.elements[j];
+    follow_case.elements[j] = temp;
+}
+
+return follow_case;}

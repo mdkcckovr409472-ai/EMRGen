@@ -1,0 +1,2 @@
+Operation 14: On parameter 'a' (int*): add 5 to every element
+Invariant: return.result1[] < return.result2[] (elementwise)

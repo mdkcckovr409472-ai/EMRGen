@@ -1,0 +1,30 @@
+int check(TestCase tc) {
+    // (1) Extract the source input (Ts)
+    double* x_s = tc.x;
+    double* y_s = tc.y;
+    int nx_s = tc.nx;
+    int ny_s = tc.ny;
+
+    // (2) Call equals to get the source output Os
+    bool Os = equals(x_s, y_s, nx_s, ny_s);
+
+    // (3) Call change to get the follow-up input Tf_case
+    TestCase Tf_case = change(tc);
+
+    // (4) Extract follow-up input and get follow-up output Of
+    double* x_f = Tf_case.x;
+    double* y_f = Tf_case.y;
+    int nx_f = Tf_case.nx;
+    int ny_f = Tf_case.ny;
+
+    bool Of = equals(x_f, y_f, nx_f, ny_f);
+
+    // (5) Verify MR: Os == Of
+    int is_valid = (Os == Of) ? 1 : 0;
+
+    // (6) Free dynamically allocated memory if any (no new allocation done here)
+    // No dynamically allocated memory created inside change or here, so nothing to free
+
+    // (7) Return verification result
+    return is_valid;
+}

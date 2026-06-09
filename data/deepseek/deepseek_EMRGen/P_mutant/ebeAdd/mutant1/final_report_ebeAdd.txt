@@ -1,0 +1,657 @@
+double* ebeAdd(double a[], double b[], int n1, int n2) {
+    if (0==1) {
+        return NULL; 
+    }
+
+    double* result = (double*)malloc(n1 * sizeof(double));
+    if (result == NULL) {
+        return NULL;  
+    }
+
+    for (int i = 0; i < n1; i++) {
+        result[i] = a[i] + b[i];  
+    }
+
+    return result; 
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (double*): 所有元素加10.0
+Invariant: 
+return.result1[] - return.result2[] + 10 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素加10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 10 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (double*): 所有元素减2.0
+Invariant: 
+return.result1[] - return.result2[] - 2 == 0
+return.result1[] > return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素减2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 2 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (double*): 随机位置置为999.0（当元素小于999.0时）
+Invariant: 
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「随机位置置为999.0（当元素小于999.0时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (double*): 每个元素取绝对值
+Invariant: 
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「每个元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (double*): 子数组前一半元素各加5.0
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「子数组前一半元素各加5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (double*): 随机位置元素置为最大值（假设最大值为DBL_MAX）
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「随机位置元素置为最大值（假设最大值为DBL_MAX）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (double*): 每个元素加自身索引值
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「每个元素加自身索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (double*): 随机位置元素加3.5
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「随机位置元素加3.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (double*): 所有元素加0.001
+Invariant: 
+5.059512706374041E15 * return.result1[] - 5.059512706374042E15 * return.result2[] + 5.059512706384E12 == 0
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素加0.001」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+5.059512706374041E15 * Os[] - 5.059512706374042E15 * Of[] + 5.059512706384E12 == 0
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (double*): 所有元素取对数（ln(x+1)，确保x+1>0）
+Invariant: 
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素取对数（ln(x+1)，确保x+1>0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (double*): 所有元素加10.0
+Invariant: 
+return.result1[] - return.result2[] + 10 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素加10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 10 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 33: On parameter 'b' (double*): 所有元素减2.0
+Invariant: 
+return.result1[] - return.result2[] - 2 == 0
+return.result1[] > return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素减2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 2 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 40: On parameter 'b' (double*): 每个元素取绝对值
+Invariant: 
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「每个元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 43: On parameter 'b' (double*): 子数组后一半元素各加5.0
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「子数组后一半元素各加5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 44: On parameter 'b' (double*): 随机位置元素置为最大值（假设最大值为DBL_MAX）
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「随机位置元素置为最大值（假设最大值为DBL_MAX）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 47: On parameter 'b' (double*): 每个元素减自身索引值
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「每个元素减自身索引值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 51: On parameter 'b' (double*): 随机位置元素加3.5
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「随机位置元素加3.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 53: On parameter 'b' (double*): 所有元素加0.001
+Invariant: 
+8.43252117729007E14 * return.result1[] - 8.43252117729007E14 * return.result2[] + 8.43252117728E11 == 0
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素加0.001」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+8.43252117729007E14 * Os[] - 8.43252117729007E14 * Of[] + 8.43252117728E11 == 0
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 58: On parameter 'b' (double*): 所有元素取指数（exp(x)）
+Invariant: 
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素取指数（exp(x)）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 61: On parameter 'n1' (int): 加1
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 62: On parameter 'n1' (int): 减1
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 64: On parameter 'n1' (int): 除以2（整数除法）
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「除以2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 68: On parameter 'n1' (int): 取绝对值
+Invariant: 
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 70: On parameter 'n1' (int): 加10
+Invariant: 
+return.result1[] - return.result2[] + 10 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「加10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 10 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 73: On parameter 'n1' (int): 除以3（整数除法）
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「除以3（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 74: On parameter 'n1' (int): 置为100
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「置为100」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 76: On parameter 'n1' (int): 加20
+Invariant: 
+return.result1[] - return.result2[] + 20 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「加20」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 20 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 79: On parameter 'n1' (int): 加索引值（假设索引为常量1）
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「加索引值（假设索引为常量1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 81: On parameter 'n1' (int): 加用户输入值1
+Invariant: 
+return.result1[] - return.result2[] + 1 == 0
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「加用户输入值1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 1 == 0
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 83: On parameter 'n1' (int): 减2
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「减2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 84: On parameter 'n1' (int): 加3
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「加3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 85: On parameter 'n1' (int): 置为特定值7
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「置为特定值7」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 86: On parameter 'n1' (int): 置为特定值8
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「置为特定值8」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 87: On parameter 'n1' (int): 加4
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「加4」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 88: On parameter 'n1' (int): 减4
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「减4」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 89: On parameter 'n1' (int): 置为特定值15
+Invariant: 
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (lexically)
+
+MR ：对于初始输入Ts中包含n1（int）的函数，若对 n1执行「置为特定值15」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 90: On parameter 'n2' (int): 加1
+Invariant: 
+return.result1[] - return.result2[] + 1 == 0
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 1 == 0
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 91: On parameter 'n2' (int): 减1
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 93: On parameter 'n2' (int): 除以2（整数除法）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「除以2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 94: On parameter 'n2' (int): 置为0
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 95: On parameter 'n2' (int): 置为最大值（INT_MAX）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为最大值（INT_MAX）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 96: On parameter 'n2' (int): 置为最小值（INT_MIN）
+Invariant: 
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为最小值（INT_MIN）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 97: On parameter 'n2' (int): 取绝对值
+Invariant: 
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 99: On parameter 'n2' (int): 加10
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「加10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 100: On parameter 'n2' (int): 减5
+Invariant: 
+return.result1[] - return.result2[] - 5 == 0
+return.result1[] > return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「减5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 5 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 101: On parameter 'n2' (int): 乘3
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「乘3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 102: On parameter 'n2' (int): 除以3（整数除法）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「除以3（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 103: On parameter 'n2' (int): 置为100
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为100」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 104: On parameter 'n2' (int): 置为-100
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为-100」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 105: On parameter 'n2' (int): 加20
+Invariant: 
+return.result1[] - return.result2[] + 20 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「加20」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 20 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 106: On parameter 'n2' (int): 减20
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「减20」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 108: On parameter 'n2' (int): 加索引值（假设索引为常量1）
+Invariant: 
+return.result1[] - return.result2[] + 1 == 0
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「加索引值（假设索引为常量1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 1 == 0
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 109: On parameter 'n2' (int): 随机扰动（加或减1）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「随机扰动（加或减1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 111: On parameter 'n2' (int): 置为负数（乘以-1）
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为负数（乘以-1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 112: On parameter 'n2' (int): 减2
+Invariant: 
+return.result1[] - return.result2[] - 2 == 0
+return.result1[] > return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「减2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 2 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 113: On parameter 'n2' (int): 加3
+Invariant: 
+return.result1[] - return.result2[] + 3 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「加3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 3 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 114: On parameter 'n2' (int): 置为特定值7
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为特定值7」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 115: On parameter 'n2' (int): 置为特定值8
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为特定值8」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 116: On parameter 'n2' (int): 加4
+Invariant: 
+return.result1[] - return.result2[] + 4 == 0
+return.result1[] < return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「加4」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 4 == 0
+Os[] < Of[] (elementwise)
+
+----------------------------------------
+
+Operation 117: On parameter 'n2' (int): 减4
+Invariant: 
+return.result1[] - return.result2[] - 4 == 0
+return.result1[] > return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「减4」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 4 == 0
+Os[] > Of[] (elementwise)
+
+----------------------------------------
+
+Operation 118: On parameter 'n2' (int): 置为特定值15
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含n2（int）的函数，若对 n2执行「置为特定值15」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+
+操作总数: 61
+关系总数: 103

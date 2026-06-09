@@ -1,0 +1,74 @@
+double* power(double data[], int k, int n) {
+    for (int i = 0; i < n; i++) {
+        data[i] = pow(data[i], k);
+    }
+    return data;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「add 1 to all elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「subtract 1 from all elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「multiply all elements by 2」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == pow(2, k) * Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「divide all elements by 2」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os / pow(2, k) ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「reverse the entire array」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「sort the array in ascending order」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「sort the array in descending order」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「circularly shift the entire array to the right by 1 position」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set all elements to 0」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set all elements to 1」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == n // The output array will be all ones raised to power k, which is still 1 per element; depending on k and n, this implies Of is sum of 1^k but here Of is an array, so exact numerical relation is not suitable, skip numeric relation. ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set the first element to the maximum value of the original array」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[0] >= Os[i] for all i in [0, n-1] ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set the first element to the minimum value of the original array」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of[0] <= Os[i] for all i in [0, n-1] ✗
+
+----------------------------------------
+
+操作总数: 12
+关系总数: 12

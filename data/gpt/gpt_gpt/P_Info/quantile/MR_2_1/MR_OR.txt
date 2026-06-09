@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    double Os = quantile(tc.sortedElements, tc.phi, tc.n);
+    
+    TestCase Tf_case = change(tc);
+
+    double Of = 0.0;
+    if (Tf_case.n > 0 && Tf_case.sortedElements != nullptr) {
+        Of = quantile(Tf_case.sortedElements, Tf_case.phi, Tf_case.n);
+    } else {
+        Of = 0.0;
+    }
+
+    int is_valid = 0;
+    if (Os > Of) {
+        is_valid = 1;
+    }
+
+    if (Tf_case.sortedElements != tc.sortedElements) {
+        delete[] Tf_case.sortedElements;
+    }
+    return is_valid;
+}

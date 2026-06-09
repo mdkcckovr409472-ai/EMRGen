@@ -1,0 +1,2 @@
+Operation 41: On parameter 'key' (int): 置为数组a的最后一个元素值
+Invariant: return.result1 <= return.result2

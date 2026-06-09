@@ -1,0 +1,23 @@
+int check(TestCase tc) {
+    // Call the function under test for source output Os
+    double Os = max(tc.elements, tc.n);
+
+    // Generate follow-up test case Tf
+    TestCase Tf_case = change(tc);
+
+    // Call the function under test for follow-up output Of
+    double Of = max(Tf_case.elements, Tf_case.n);
+
+    // Check if Os >= Of according to the MR invariant
+    int is_valid = 0;
+    if (Os >= Of) {
+        is_valid = 1;
+    }
+
+    // Free dynamically allocated memory in Tf_case
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+    }
+
+    return is_valid;
+}

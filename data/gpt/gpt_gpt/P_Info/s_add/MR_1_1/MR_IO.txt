@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // overwrite first element of array1 to INT_MAX
+    // Reuse the original array1, no extra allocation
+    tf.array1[0] = INT_MAX;
+    return tf;
+}

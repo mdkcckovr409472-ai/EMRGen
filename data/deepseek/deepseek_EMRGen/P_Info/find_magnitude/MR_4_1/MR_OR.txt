@@ -1,0 +1,28 @@
+#include <math.h>
+#include <stddef.h>
+
+int z4check(double result1, double result2) {
+    // 1. 防御 NaN
+    if (isnan(result1) || isnan(result2)) return 0;
+    
+    // 2. 处理无穷大（直接数学比较）
+    if (isinf(result1) || isinf(result2)) {
+        if (result1 >= result2) return 1;
+        else return 0;
+    }
+    
+    // 3. 浮点数容差比较
+    double epsilon = 1e-5;
+    double A = result1;
+    double B = result2;
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 条件：result1 >= result2
+    // 违反条件：result1 < result2 - tol
+    if (A < B - tol) {
+        return 0;
+    }
+    
+    // 4. 满足条件
+    return 1;
+}

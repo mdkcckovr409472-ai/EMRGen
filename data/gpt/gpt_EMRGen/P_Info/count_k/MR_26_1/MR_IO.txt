@@ -1,0 +1,23 @@
+TestCase z26Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of array a
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: need at least 2 elements to form a subarray
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+
+    // Rotate a random subarray left by 1
+    int start = rand() % (follow_case.n - 1);
+    int end = start + 1 + rand() % (follow_case.n - start - 1);
+    int temp = follow_case.a[start];
+    for (int i = start; i < end; ++i) {
+        follow_case.a[i] = follow_case.a[i + 1];
+    }
+    follow_case.a[end] = temp;
+
+    return follow_case;
+}

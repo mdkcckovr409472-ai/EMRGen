@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        tf.sample1[tf.n - 1] = -DBL_MAX;
+    }
+    return tf;
+}

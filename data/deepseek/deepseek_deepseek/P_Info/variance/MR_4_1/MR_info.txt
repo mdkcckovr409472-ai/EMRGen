@@ -1,0 +1,5 @@
+[Operation]
+MR ：对于初始输入Ts中包含x（double*）的函数，若对 x执行「所有元素除以常数c（c不为0）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+
+[Invariant]
+Os / (c * c) == Of

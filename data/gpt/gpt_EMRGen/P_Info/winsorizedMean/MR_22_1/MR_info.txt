@@ -1,0 +1,2 @@
+Operation 22: On parameter 'elements' (array[double]): exponentiate each element (e^x)
+Invariant: return.result1 < return.result2

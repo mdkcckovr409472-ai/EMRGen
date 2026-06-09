@@ -1,0 +1,37 @@
+TestCase z13Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if(t1.a != NULL && t1.n1 > 0){
+        double* follow_case_a = (double*)malloc(t1.n1 * sizeof(double));
+        if(follow_case_a != NULL){
+            memcpy(follow_case_a, t1.a, t1.n1 * sizeof(double));
+            follow_case.a = follow_case_a;
+        } else {
+            // malloc failed, return without altering
+            return follow_case;
+        }
+    } else {
+        follow_case.a = NULL;
+    }
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n1 < 2
+    if (follow_case.a == NULL || follow_case.n1 < 2) {
+        // Less than 2 elements, no sorting needed, return replica directly
+        return follow_case;
+    }
+    
+    // Specific operation code generated based on the rule
+    // Simple ascending sort using bubble sort for demonstration and safety
+    for(int i = 0; i < follow_case.n1 - 1; i++){
+        for(int j = 0; j < follow_case.n1 - 1 - i; j++){
+            if(follow_case.a[j] > follow_case.a[j+1]){
+                double temp = follow_case.a[j];
+                follow_case.a[j] = follow_case.a[j+1];
+                follow_case.a[j+1] = temp;
+            }
+        }
+    }
+    
+    return follow_case;
+}

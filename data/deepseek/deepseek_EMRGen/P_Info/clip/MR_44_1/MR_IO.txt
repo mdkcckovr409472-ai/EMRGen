@@ -1,0 +1,12 @@
+TestCase z44Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 防御性编程与边界检查
+// 由于操作仅针对单个整数参数 lowerLim 进行平方根取整，不涉及数组元素操作，因此无需检查 follow_case.n。
+// 但需要保护数学函数域：检查 lowerLim 是否 >= 0。
+if (follow_case.lowerLim >= 0) {
+    // 具体操作代码：平方根（取整）
+    follow_case.lowerLim = (int)sqrt((double)follow_case.lowerLim);
+}
+
+return follow_case;}

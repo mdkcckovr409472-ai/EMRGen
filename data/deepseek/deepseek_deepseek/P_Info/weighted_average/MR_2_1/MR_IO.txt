@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double c = 2.0; // 非零常数，示例值
+    double* new_b = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        new_b[i] = tf.b[i] * c;
+    }
+    tf.b = new_b;
+    return tf;
+}

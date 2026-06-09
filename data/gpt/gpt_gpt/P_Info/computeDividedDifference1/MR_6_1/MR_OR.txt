@@ -1,0 +1,42 @@
+int check(TestCase tc) {
+    if (tc.n <= 0) return 0;
+    double* y_copy1 = new double[tc.n];
+    double* y_copy2 = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        y_copy1[i] = tc.y[i];
+        y_copy2[i] = tc.y[i];
+    }
+    double* Os = computeDividedDifference1(tc.x, y_copy1, tc.n);
+    if (Os == nullptr) {
+        delete[] y_copy1;
+        delete[] y_copy2;
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    for (int i = 0; i < Tf_case.n; i++) {
+        y_copy2[i] = Tf_case.y[i];
+    }
+    double* Of = computeDividedDifference1(Tf_case.x, y_copy2, Tf_case.n);
+
+    int is_valid = 0;
+    if (Of != nullptr) {
+        // Check invariant: Of[0] == Os[0] / 2
+        if (Os[0] == 0.0) {
+            if (Of[0] == 0.0) {
+                is_valid = 1;
+            }
+        } else {
+            double rel_err = (Of[0] - Os[0] / 2.0) / Os[0];
+            if (rel_err < 0) rel_err = -rel_err;
+            if (rel_err < 1e-9) {
+                is_valid = 1;
+            }
+        }
+    }
+
+    delete[] y_copy1;
+    delete[] y_copy2;
+
+    return is_valid;
+}

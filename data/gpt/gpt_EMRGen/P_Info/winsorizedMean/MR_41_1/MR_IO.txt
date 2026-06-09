@@ -1,0 +1,10 @@
+TestCase z41Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check: ensure n > 0 before accessing
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    // Set left to n‑1
+    follow_case.left = follow_case.n - 1;
+    return follow_case;
+}

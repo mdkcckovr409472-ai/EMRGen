@@ -1,0 +1,2 @@
+Operation 25: On parameter 'data' (double[]): apply absolute value to subarray
+Invariant: return.result1[] == return.result2[]

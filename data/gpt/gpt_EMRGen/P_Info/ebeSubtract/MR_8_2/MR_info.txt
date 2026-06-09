@@ -1,0 +1,2 @@
+Operation 8: On parameter 'a' (array[double]): set a random position's element to -1 (when element is greater than -1)
+Invariant: return.result1[] >= return.result2[] (elementwise)

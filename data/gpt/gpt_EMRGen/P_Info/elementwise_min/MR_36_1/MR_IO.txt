@@ -1,0 +1,21 @@
+TestCase z36Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Deep copy memory allocation ONLY IF the parameter is an array/pointer
+    int* follow_case_b = (int*)malloc(t1.n * sizeof(int));
+    if (t1.b != NULL && t1.n > 0) {
+        memcpy(follow_case_b, t1.b, t1.n * sizeof(int));
+    }
+    follow_case.b = follow_case_b;
+
+    // Defensive Programming & Boundary Checks
+    if (follow_case.n <= 0 || follow_case.b == NULL) {
+        return follow_case;
+    }
+
+    // Specific transformation logic translated from subtract 1 from a random element
+    int idx = (int)(((unsigned int)rand()) % follow_case.n);
+    follow_case.b[idx] -= 1;
+
+    return follow_case;
+}

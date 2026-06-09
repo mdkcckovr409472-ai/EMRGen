@@ -1,0 +1,19 @@
+TestCase z34Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling code
+    double* follow_case_elements2 = (double*)malloc(follow_case.n * sizeof(double));
+    memcpy(follow_case_elements2, t1.elements2, follow_case.n * sizeof(double));
+    follow_case.elements2 = follow_case_elements2;
+
+    // Defensive check for array length
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Negate all elements in elements2
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.elements2[i] = -follow_case.elements2[i];
+    }
+
+    return follow_case;
+}

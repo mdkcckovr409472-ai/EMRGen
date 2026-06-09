@@ -1,0 +1,17 @@
+int check(TestCase tc) {
+    // Source output
+    double Os = kurtosis(tc.data, tc.n);
+
+    // Construct follow-up input
+    TestCase Tf_case = change(tc);
+
+    // Follow-up output
+    double Of = kurtosis(Tf_case.data, Tf_case.n);
+
+    // Verify Os == Of, allow tiny floating point tolerance
+    int is_valid = (fabs(Os - Of) < 1e-12) ? 1 : 0;
+
+    // No new dynamic memory allocated in change(), so no free needed here
+
+    return is_valid;
+}

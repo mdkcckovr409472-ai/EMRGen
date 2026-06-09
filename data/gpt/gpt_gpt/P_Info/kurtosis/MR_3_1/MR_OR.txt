@@ -1,0 +1,23 @@
+int check(TestCase tc) {
+    // (1) Extract source input
+    double* Ts = tc.data;
+    int n = tc.n;
+
+    // (2) Call target function for source output
+    double Os = kurtosis(Ts, n);
+
+    // (3) Generate follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // (4) Extract follow-up input and call target function for follow-up output
+    double Of = kurtosis(Tf_case.data, Tf_case.n);
+
+    // (5) Verify MR: Os == Of (allow small epsilon for floating point comparison)
+    const double EPSILON = 1e-9;
+    int is_valid = (std::abs(Os - Of) < EPSILON) ? 1 : 0;
+
+    // (6) No new memory was allocated in change(), so no free/delete required here
+
+    // (7) Return verification result
+    return is_valid;
+}

@@ -1,0 +1,2 @@
+Operation 29: On parameter 'b' (array[double]): multiply all elements by 2.0
+Invariant: return.result1[] - 2 * return.result2[] == 0

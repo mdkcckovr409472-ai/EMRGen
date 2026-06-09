@@ -1,0 +1,27 @@
+int check(TestCase tc) {
+    // Source output Os
+    double Os = 0;
+    for(int i = 0; i < tc.n; i++) {
+        Os += log(tc.elements[i]);
+    }
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Follow-up output Of
+    double Of = 0;
+    for(int i = 0; i < Tf_case.n; i++) {
+        Of += log(Tf_case.elements[i]);
+    }
+
+    // Verify Os > Of according to MR
+    int is_valid = 0;
+    if (Os > Of) {
+        is_valid = 1;
+    }
+
+    // Clean up dynamic memory allocated in change()
+    delete[] Tf_case.elements;
+
+    return is_valid;
+}

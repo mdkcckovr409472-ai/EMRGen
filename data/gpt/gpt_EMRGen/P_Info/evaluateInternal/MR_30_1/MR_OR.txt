@@ -1,0 +1,22 @@
+int z30check(double result1, double result2) {
+    // Core evaluation logic (direct scalar comparison)
+    const double epsilon = 1e-5;
+
+    // Rearrange invariant_condition: return.result1 - return.result2 + 2 == 0
+    // => result1 == result2 - 2
+    // So we compare: |result1 - (result2 - 2)| <= tol
+
+    double A = result1;
+    double B = result2 - 2;
+
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B) return 1;
+        else return 0;
+    }
+
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    if (fabs(A - B) > tol) return 0;
+
+    return 1;
+}

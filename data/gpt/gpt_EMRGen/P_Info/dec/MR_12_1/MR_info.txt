@@ -1,0 +1,2 @@
+Operation 12: On parameter 'array1' (array[int]): take absolute value of each element
+Invariant: return.result1[] <= return.result2[] (elementwise)

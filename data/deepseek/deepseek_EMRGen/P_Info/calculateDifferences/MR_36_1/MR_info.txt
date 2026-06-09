@@ -1,0 +1,2 @@
+Operation 36: On parameter 'y' (double*): 所有元素取自然对数（对非正元素跳过）
+Invariant: return.result1[] >= return.result2[] (elementwise)

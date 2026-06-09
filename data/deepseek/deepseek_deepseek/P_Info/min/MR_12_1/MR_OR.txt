@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = min(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = min(Tf_case.elements, Tf_case.n);
+    int is_valid = 0;
+    double k = 2.0; // 必须与change函数中使用的k值一致
+    if (Os * k == Of) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.elements;
+    return is_valid;
+}

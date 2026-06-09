@@ -1,0 +1,38 @@
+#include <math.h>
+#include <stddef.h>
+
+int z15check(double result1, double result2) {
+    // 1. 防御 NaN
+    if (isnan(result1) || isnan(result2)) {
+        return 0;
+    }
+
+    // 2. 处理无穷大 (动态容差对无穷大失效，需直接比较)
+    if (isinf(result1) || isinf(result2)) {
+        // 移项后的条件为 result1 <= result2
+        if (result1 <= result2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    // 3. 定义基础容差
+    double epsilon = 1e-5;
+
+    // 4. 提取移项后的左右操作数 (条件已为 result1 <= result2)
+    double A = result1;
+    double B = result2;
+
+    // 5. 计算动态宽容度
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    // 6. 带容差的比较判定 (条件为 A <= B)
+    // 违反条件为 A > B + tol
+    if (A > B + tol) {
+        return 0;
+    }
+
+    // 7. 满足条件，返回 1
+    return 1;
+}

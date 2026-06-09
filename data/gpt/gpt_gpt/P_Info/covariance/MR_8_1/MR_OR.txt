@@ -1,0 +1,20 @@
+int check(TestCase tc) {
+    double Os = covariance(tc.elements1, tc.elements2, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = covariance(Tf_case.elements1, Tf_case.elements2, Tf_case.n);
+
+    int is_valid = 0;
+    // Check the metamorphic relation: 0.5 * Os == Of with tolerance for floating point errors
+    const double epsilon = 1e-9;
+    if (fabs(0.5 * Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+
+    // Free dynamically allocated memory if changed in change()
+    if (Tf_case.elements2 != tc.elements2) {
+        delete[] Tf_case.elements2;
+        Tf_case.elements2 = nullptr;
+    }
+
+    return is_valid;
+}

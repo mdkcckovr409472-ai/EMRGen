@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = evaluateHoners(tc.coefficients, tc.argument, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = evaluateHoners(Tf_case.coefficients, Tf_case.argument, Tf_case.n);
+    double m = 2.0;
+    int is_valid = 0;
+    if (fabs(Of - m * Os) < 1e-9) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.coefficients;
+    return is_valid;
+}

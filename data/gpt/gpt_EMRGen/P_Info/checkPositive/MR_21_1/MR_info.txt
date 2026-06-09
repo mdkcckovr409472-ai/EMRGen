@@ -1,0 +1,2 @@
+Operation 21: On parameter 'a' (array[double]): randomly shuffle array elements
+Invariant: return.result1 == return.result2

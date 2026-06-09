@@ -1,0 +1,55 @@
+double distanceInf(double p1[], double p2[], int n) {
+    double maxi = 0;
+    for (int i = 0; i < n; i++) {
+        maxi = max(maxi, abs(p1[i] + p2[i]));
+    } 
+    return maxi;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 8: On parameter 'p1' (double*): 所有元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'p1' (double*): 随机位置元素置为该元素减去后一个元素的值（边界检查）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'p1' (double*): 随机位置元素置为最大值（是数组中最大值的两倍）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 37: On parameter 'p2' (double*): 所有元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'p2' (double*): 随机位置元素置为该元素加上前一个元素的值（边界检查）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'p2' (double*): 随机位置元素置为最大值（是数组中最大值的两倍）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 6
+独立MR总数: 6
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

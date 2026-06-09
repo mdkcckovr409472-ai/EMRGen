@@ -1,0 +1,13 @@
+int z10check(double result1, double result2) {
+    // Step 3: Defend against NaN and Inf
+    if (std::isnan(result1) || std::isnan(result2)) return 0;
+    if (std::isinf(result1) || std::isinf(result2)) {
+        if (result1 > result2) return 1; else return 0;
+    }
+    // Step 4: Calculate dynamic tolerance
+    double epsilon = 1e-5;
+    double tol = epsilon * fmax(1.0, fmax(fabs(result1), fabs(result2)));
+    // Step 5: Tolerance-based comparison evaluation for 'result1 > result2'
+    if (!(result1 > result2 - tol)) return 0;
+    return 1;
+}

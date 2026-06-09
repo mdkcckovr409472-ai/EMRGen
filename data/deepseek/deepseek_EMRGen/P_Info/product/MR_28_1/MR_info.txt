@@ -1,0 +1,2 @@
+Operation 28: On parameter 'elements' (double*): 随机两元素交换位置
+Invariant: return.result1 == return.result2

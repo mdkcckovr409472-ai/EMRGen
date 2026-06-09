@@ -1,0 +1,109 @@
+double* calculateDifferences(double x[], double y[], int n){
+
+    double* z = (double*)malloc(n * sizeof(double));
+
+    for (int i = 0; i < n; i++)
+    {
+        z[i] = y[i] - x[i];
+    }
+
+    return z;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains x (double*), if the operation 「add 1 to all elements」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os - 1 * n ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double*), if the operation 「subtract 1 from all elements」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os + 1 * n ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double*), if the operation 「multiply all elements by 2」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os - Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double*), if the operation 「divide all elements by 2」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os / 2 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double*), if the operation 「set all elements to 0」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os + sum(y[0..n-1]) ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double*), if the operation 「set the first element to the maximum value among x」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os - (y[0] - max(x)) ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double*), if the operation 「reverse the entire array」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double*), if the operation 「sort elements in ascending order」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains x (double*), if the operation 「circular right shift by 1 element」 is executed on x to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains y (double*), if the operation 「add 1 to all elements」 is executed on y to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os + 1 * n ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains y (double*), if the operation 「subtract 1 from all elements」 is executed on y to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os - 1 * n ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains y (double*), if the operation 「multiply all elements by 2」 is executed on y to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 2 * Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains y (double*), if the operation 「divide all elements by 2」 is executed on y to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os / 2 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains y (double*), if the operation 「set all elements to 0」 is executed on y to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == - sum(x[0..n-1]) ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains y (double*), if the operation 「set the first element to the minimum value among y」 is executed on y to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os + (min(y) - y[0]) ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains y (double*), if the operation 「reverse the entire array」 is executed on y to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains y (double*), if the operation 「sort elements in descending order」 is executed on y to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains y (double*), if the operation 「circular left shift by 1 element」 is executed on y to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+操作总数: 18
+关系总数: 18

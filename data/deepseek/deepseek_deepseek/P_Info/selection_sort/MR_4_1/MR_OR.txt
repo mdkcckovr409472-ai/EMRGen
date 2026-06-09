@@ -1,0 +1,23 @@
+int check(TestCase tc) {
+    int* Os = selection_sort(tc.list, tc.n);
+    TestCase Tf_case = change(tc);
+    int* Of = selection_sort(Tf_case.list, Tf_case.n);
+    int is_valid = 0;
+    int i;
+    int is_equal = 1;
+    for (i = 0; i < tc.n; i++) {
+        if (Os[i] != Of[i]) {
+            is_equal = 0;
+            break;
+        }
+    }
+    if (is_equal) {
+        is_valid = 1;
+    }
+    free(Os);
+    free(Of);
+    if (Tf_case.list != tc.list) {
+        free(Tf_case.list);
+    }
+    return is_valid;
+}

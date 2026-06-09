@@ -1,0 +1,14 @@
+int check(TestCase tc) {
+    int* Os = insertion_sort(tc.array, tc.n);
+    TestCase Tf_case = change(tc);
+    int* Of = insertion_sort(Tf_case.array, Tf_case.n);
+    int is_valid = 0;
+    if (Os != nullptr && Of != nullptr) {
+        if (Os[0] <= Of[0]) {
+            is_valid = 1;
+        }
+    }
+    free(Os);
+    free(Of);
+    return is_valid;
+}

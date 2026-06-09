@@ -1,0 +1,2 @@
+Operation 18: On parameter 'data' (double*): 数组反转
+Invariant: return.result1 == return.result2

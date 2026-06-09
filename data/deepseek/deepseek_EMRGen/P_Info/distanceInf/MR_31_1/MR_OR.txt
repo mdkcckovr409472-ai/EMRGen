@@ -1,0 +1,42 @@
+#include <cmath>
+#include <cstddef>
+
+int z31check(double result1, double result2) {
+    // 1. 防御性编程 (标量版本无需空指针和长度检查)
+    // 2. 核心判断逻辑 (标量直接比较)
+    // 根据条件 return.result1 <= return.result2，移项后为 result1 <= result2
+    // 提取 A = result1, B = result2
+    double A = result1;
+    double B = result2;
+
+    // 3. 浮点数特殊处理
+    // 第一步：定义基础容差
+    const double epsilon = 1e-5;
+
+    // 第二步：防御 NaN
+    if (std::isnan(A) || std::isnan(B)) {
+        return 0;
+    }
+
+    // 第三步：处理无穷大
+    if (std::isinf(A) || std::isinf(B)) {
+        // 无穷大时退化为数学直接比较
+        if (A <= B) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    // 第四步：计算动态宽容度
+    double tol = epsilon * std::fmax(1.0, std::fmax(std::fabs(A), std::fabs(B)));
+
+    // 第五步：带容差的比较判定 (条件为 A <= B)
+    // 若 A > B + tol，则违反条件
+    if (A > B + tol) {
+        return 0;
+    }
+
+    // 3. 全部满足，返回 1
+    return 1;
+}

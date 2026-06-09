@@ -1,0 +1,2 @@
+Operation 12: On parameter 'a' (int*): 数组降序排序
+Invariant: return.result1 == return.result2

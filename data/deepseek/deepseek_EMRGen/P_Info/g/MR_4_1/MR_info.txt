@@ -1,0 +1,2 @@
+Operation 4: On parameter 'expected' (double*): 所有元素除3.0
+Invariant: return.result1 == return.result2

@@ -1,0 +1,112 @@
+double autoCorrelation(double data[], int lag, double mean, double variance, int n){
+    double run = 0;
+    for (int i = lag; i < n; i++)
+    {
+        run += (data[i] - mean) * (data[i - lag] - mean);
+    }
+    
+    return run / (n - lag) / variance;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「add 1 to all elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of + 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「subtract 1 from all elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of + 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「multiply all elements by 2」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == 4 * Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「divide all elements by 2」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == 0.25 * Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「reverse the entire array」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「sort the entire array in ascending order」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「set all elements to 0」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「set all elements to 1」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「set the first element to the maximum value of the original array」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「set the first element to the minimum value of the original array」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double[]), if the operation 「circular shift all elements by 1 position to the right」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains mean (double), if the operation 「add 1 to mean」 is executed on mean to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains mean (double), if the operation 「subtract 1 from mean」 is executed on mean to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains mean (double), if the operation 「multiply mean by 2」 is executed on mean to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains mean (double), if the operation 「divide mean by 2」 is executed on mean to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains variance (double), if the operation 「add 1 to variance」 is executed on variance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains variance (double), if the operation 「subtract 1 from variance」 is executed on variance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os != Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains variance (double), if the operation 「multiply variance by 2」 is executed on variance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0.5 * Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains variance (double), if the operation 「divide variance by 2」 is executed on variance to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 2 * Os ✓
+
+----------------------------------------
+
+操作总数: 19
+关系总数: 19

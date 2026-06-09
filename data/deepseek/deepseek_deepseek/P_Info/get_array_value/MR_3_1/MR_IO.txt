@@ -1,0 +1,6 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int c = 10; // 示例常数，可根据需要调整
+    tf.a[tf.k - 1] += c;
+    return tf;
+}

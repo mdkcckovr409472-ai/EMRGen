@@ -1,0 +1,2 @@
+Operation 29: On parameter 'a' (int*): 随机重排序
+Invariant: return.result1 == return.result2

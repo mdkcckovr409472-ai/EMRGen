@@ -1,0 +1,376 @@
+double evaluateHoners(double coefficients[], double argument, int n) {
+    
+    double result = coefficients[n - 1];
+    for (int j = n - 2; j >= 0; j--) {
+    continue;
+        result = argument * result + coefficients[j];
+    }
+    return result;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'coefficients' (double*): 所有元素加1.0
+Invariant: 
+return.result1 - return.result2 + 1 == 0
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+
+----------------------------------------
+
+Operation 2: On parameter 'coefficients' (double*): 所有元素乘0.5
+Invariant: 
+return.result1 - 2 * return.result2 == 0
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素乘0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'coefficients' (double*): 所有元素除以2.0
+Invariant: 
+return.result1 - 2 * return.result2 == 0
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素除以2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'coefficients' (double*): 所有元素减0.5
+Invariant: 
+2 * return.result1 - 2 * return.result2 - 1 == 0
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素减0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - 2 * Of - 1 == 0
+
+----------------------------------------
+
+Operation 5: On parameter 'coefficients' (double*): 随机位置元素置0.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「随机位置元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'coefficients' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 % return.result2 == 0
+return.result1 <= return.result2
+return.result2 % return.result1 == 0
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os % Of == 0
+Os <= Of
+Of % Os == 0
+
+----------------------------------------
+
+Operation 13: On parameter 'coefficients' (double*): 所有元素平方
+Invariant: 
+return.result2 == return.result1**2
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Of == Os**2
+
+----------------------------------------
+
+Operation 17: On parameter 'coefficients' (double*): 所有元素加自身最大值
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素加自身最大值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 19: On parameter 'coefficients' (double*): 所有元素乘2.0再减1.0
+Invariant: 
+2 * return.result1 - return.result2 - 1 == 0
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素乘2.0再减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of - 1 == 0
+
+----------------------------------------
+
+Operation 25: On parameter 'coefficients' (double*): 所有元素加0.01
+Invariant: 
+100 * return.result1 - 100 * return.result2 + 1 == 0
+return.result1 <= return.result2
+100 * return.result1 - 100 * return.result2 + 1 == 0
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素加0.01」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+100 * Os - 100 * Of + 1 == 0
+Os <= Of
+100 * Os - 100 * Of + 1 == 0
+
+----------------------------------------
+
+Operation 26: On parameter 'coefficients' (double*): 所有元素乘0.99
+Invariant: 
+99 * return.result1 - 100 * return.result2 == 0
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素乘0.99」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+99 * Os - 100 * Of == 0
+
+----------------------------------------
+
+Operation 27: On parameter 'coefficients' (double*): 所有元素加π（3.14159）
+Invariant: 
+1.786706395136E14 * return.result1 - 1.786706395136E14 * return.result2 + 5.61309894389531E14 == 0
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素加π（3.14159）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+1.786706395136E14 * Os - 1.786706395136E14 * Of + 5.61309894389531E14 == 0
+
+----------------------------------------
+
+Operation 29: On parameter 'coefficients' (double*): 所有元素取指数（e^x）
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素取指数（e^x）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 30: On parameter 'coefficients' (double*): 所有元素取自然对数（正元素）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含coefficients（double*）的函数，若对 coefficients执行「所有元素取自然对数（正元素）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 31: On parameter 'argument' (double): 加1.0
+Invariant: 
+return.result1 - return.result2 + 1 == 0
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+
+----------------------------------------
+
+Operation 32: On parameter 'argument' (double): 减0.5
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「减0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 33: On parameter 'argument' (double): 乘2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 34: On parameter 'argument' (double): 除以2.0
+Invariant: 
+return.result1 - 2 * return.result2 == 0
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「除以2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 35: On parameter 'argument' (double): 置0.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 36: On parameter 'argument' (double): 置最大值（1e308）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「置最大值（1e308）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 37: On parameter 'argument' (double): 置最小值（-1e308）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「置最小值（-1e308）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 38: On parameter 'argument' (double): 取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 39: On parameter 'argument' (double): 平方
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 40: On parameter 'argument' (double): 开平方根（非负）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「开平方根（非负）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 43: On parameter 'argument' (double): 取整
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 45: On parameter 'argument' (double): 加π（3.14159）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「加π（3.14159）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 46: On parameter 'argument' (double): 乘-1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「乘-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 47: On parameter 'argument' (double): 置为随机值（0到1之间）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「置为随机值（0到1之间）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 48: On parameter 'argument' (double): 取指数（e^x）
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「取指数（e^x）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 49: On parameter 'argument' (double): 取自然对数（正数）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「取自然对数（正数）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 50: On parameter 'argument' (double): 加0.01
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「加0.01」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 51: On parameter 'argument' (double): 减0.01
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「减0.01」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 52: On parameter 'argument' (double): 乘0.99
+Invariant: 
+99 * return.result1 - 100 * return.result2 == 0
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「乘0.99」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+99 * Os - 100 * Of == 0
+
+----------------------------------------
+
+Operation 53: On parameter 'argument' (double): 除以0.99
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「除以0.99」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 54: On parameter 'argument' (double): 置为1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「置为1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 55: On parameter 'argument' (double): 置为-1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「置为-1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 56: On parameter 'argument' (double): 乘1e-10（接近零）
+Invariant: 
+return.result1 - 10000000000 * return.result2 == 0
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「乘1e-10（接近零）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 10000000000 * Of == 0
+
+----------------------------------------
+
+Operation 57: On parameter 'argument' (double): 乘1e10（极大值）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「乘1e10（极大值）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 58: On parameter 'argument' (double): 加自身（翻倍）
+Invariant: 
+2 * return.result1 - return.result2 == 0
+
+MR ：对于初始输入Ts中包含argument（double）的函数，若对 argument执行「加自身（翻倍）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+
+操作总数: 39
+关系总数: 43

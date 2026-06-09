@@ -1,0 +1,42 @@
+int check(TestCase tc) {
+    if (tc.n == 0) {
+        // For empty input, both outputs should be NULL according to the function under test
+        double* Os = calculateAbsoluteDifferences(tc.z, tc.n);
+        TestCase Tf_case = change(tc);
+        double* Of = calculateAbsoluteDifferences(Tf_case.z, Tf_case.n);
+        int is_valid = 0;
+        if (Os == NULL && Of == NULL) {
+            is_valid = 1;
+        }
+        // No heap allocations in this branch, so nothing to free
+        return is_valid;
+    }
+
+    double* Os = calculateAbsoluteDifferences(tc.z, tc.n);
+
+    if (Os == NULL) {
+        // If Os is NULL but n > 0, it's an error, return 0
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    double* Of = calculateAbsoluteDifferences(Tf_case.z, Tf_case.n);
+
+    if (Of == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        if (!(fabs(Of[i] - 1.0) < 1e-12 && Os[i] >= 0)) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    free(Os);
+    free(Of);
+
+    return is_valid;
+}

@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for follow-up input
+    double* new_a = new double[tf.n];
+    for (int i = 0; i < tf.n; ++i) {
+        new_a[i] = tf.a[i] / 0.5;
+    }
+    tf.a = new_a;
+    return tf;
+}

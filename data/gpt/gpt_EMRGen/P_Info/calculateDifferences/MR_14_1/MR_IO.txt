@@ -1,0 +1,22 @@
+TestCase z14Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy of target array x
+    double* follow_case_x = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_x, t1.x, t1.n * sizeof(double));
+    follow_case.x = follow_case_x;
+    // Defensive check: need at least 2 elements to perform sorting meaningful loop (0 or 1 element is already sorted)
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+    // Sort array x in ascending order (simple selection sort)
+    for (int i = 0; i < follow_case.n - 1; ++i) {
+        for (int j = i + 1; j < follow_case.n; ++j) {
+            if (follow_case.x[i] > follow_case.x[j]) {
+                double temp = follow_case.x[i];
+                follow_case.x[i] = follow_case.x[j];
+                follow_case.x[j] = temp;
+            }
+        }
+    }
+    return follow_case;
+}

@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 1) {
+        int* shifted_array = new int[tc.n];
+        shifted_array[0] = tc.a[tc.n - 1];
+        for (int i = 1; i < tc.n; i++) {
+            shifted_array[i] = tc.a[i - 1];
+        }
+        tf.a = shifted_array;
+    }
+    return tf;
+}

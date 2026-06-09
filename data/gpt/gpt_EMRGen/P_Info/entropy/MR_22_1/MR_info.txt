@@ -1,0 +1,2 @@
+Operation 22: On parameter 'k' (array[double]): clip all elements to [0.0,1.0]
+Invariant: return.result1 <= return.result2

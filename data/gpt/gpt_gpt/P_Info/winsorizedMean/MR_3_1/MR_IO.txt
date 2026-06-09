@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for reversed array
+    tf.elements = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.elements[i] = tc.elements[tc.n - 1 - i];
+    }
+    // left and right remain the same, since they index relative to the sorted array inside the function
+    return tf;
+}

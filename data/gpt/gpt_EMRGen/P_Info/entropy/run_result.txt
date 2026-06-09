@@ -1,0 +1,35 @@
+[MR_22_1]: 运行成功, 输出: 1
+
+[MR_6_1]: 运行成功, 输出: 1
+
+[MR_17_1]: 运行成功, 输出: 1
+
+[MR_8_1]: 运行成功, 输出: 1
+
+[MR_1_1]: 运行成功, 输出: 1
+
+[MR_3_1]: 运行成功, 输出: 1
+
+[MR_13_1]: 运行成功, 输出: 1
+
+[MR_12_1]: 运行成功, 输出: 1
+
+[MR_18_1]: 编译失败
+Error:
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/inv/1_inv_project/MR/P_Info/entropy/MR_18_1/MR_combined_18.cpp:97:1: error: expected unqualified-id before ‘++’ token
+   97 | ++
+      | ^~
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/inv/1_inv_project/MR/P_Info/entropy/MR_18_1/MR_combined_18.cpp: In function ‘TestResult z18runTest(int)’:
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/inv/1_inv_project/MR/P_Info/entropy/MR_18_1/MR_combined_18.cpp:132:18: error: ‘z18check’ was not declared in this scope
+  132 |     int status = z18check(source, follow);
+      |                  ^~~~~~~~
+
+[MR_19_1]: 运行成功, 输出: 1
+
+[MR_10_1]: 运行成功, 输出: 1
+
+[MR_11_1]: 运行成功, 输出: 1
+
+[MR_4_1]: 运行成功, 输出: 1
+
+[MR_9_1]: 运行成功, 输出: 1

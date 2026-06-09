@@ -1,0 +1,2 @@
+Operation 29: On parameter 'elements' (array[double]): add a random constant between -0.5 and 0.5 to each element
+Invariant: return.result1 == return.result2

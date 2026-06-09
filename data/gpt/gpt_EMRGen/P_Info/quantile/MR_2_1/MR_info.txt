@@ -1,0 +1,2 @@
+Operation 2: On parameter 'sortedElements' (array[double]): subtract 0.5 from every element
+Invariant: return.result1 >= return.result2

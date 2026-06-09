@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double c = 2.0; // 一个正数常数，例如2.0
+    double* new_p1 = new double[tf.n];
+    for (int i = 0; i < tf.n; ++i) {
+        new_p1[i] = tf.p1[i] * c;
+    }
+    tf.p1 = new_p1;
+    return tf;
+}

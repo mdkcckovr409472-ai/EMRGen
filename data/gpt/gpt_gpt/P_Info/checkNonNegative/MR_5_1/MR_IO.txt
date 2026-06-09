@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc; 
+    if (tf.n > 0 && tf.a != nullptr) {
+        double* desc_arr = new double[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            desc_arr[i] = tf.a[i];
+        }
+        // Sort in descending order
+        std::sort(desc_arr, desc_arr + tf.n, std::greater<double>());
+        tf.a = desc_arr;
+    }
+    return tf;
+}

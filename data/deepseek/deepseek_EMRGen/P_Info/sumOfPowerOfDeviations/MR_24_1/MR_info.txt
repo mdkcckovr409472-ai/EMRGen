@@ -1,0 +1,2 @@
+Operation 24: On parameter 'data' (double*): 数组随机重排序
+Invariant: return.result1 == return.result2

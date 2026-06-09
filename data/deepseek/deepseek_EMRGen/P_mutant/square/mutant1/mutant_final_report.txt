@@ -1,0 +1,76 @@
+double* square(double data[], int n) {
+    double* cp1 = (double*)malloc(n * sizeof(double));
+    memcpy(cp1,data,n*sizeof(double));
+    for (int i = 0; i != n; i++) {
+        cp1[i] = cp1[i] * cp1[i];
+    }
+    return cp1;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'data' (double*): 所有元素乘2.0
+Invariant:
+4 * return.result1[] - return.result2[] == 0    ✓ ○ [Similar]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 4: On parameter 'data' (double*): 所有元素除3.0
+Invariant:
+return.result1[] - 9 * return.result2[] == 0    ✓ ○ [Similar]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 5: On parameter 'data' (double*): 随机位置元素置0.0
+Invariant:
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'data' (double*): 所有元素取绝对值
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 12: On parameter 'data' (double*): 数组反转
+Invariant:
+return.result1[] is the reverse of return.result2[]    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 15: On parameter 'data' (double*): 子数组(后一半)元素乘1.5
+Invariant:
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'data' (double*): 随机位置元素乘0.5
+Invariant:
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'data' (double*): 随机位置元素除2.0
+Invariant:
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'data' (double*): 所有元素乘-1.0
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Same]
+
+----------------------------------------
+
+操作总数: 9
+独立MR总数: 11
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

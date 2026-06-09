@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Create a new array by reusing the original one to fulfill the MR requirement
+    // but since we must overwrite the first element, allocate a new array, copy and overwrite
+    if (tf.n > 0) {
+        double* new_z = (double*)malloc(tf.n * sizeof(double));
+        if (new_z != NULL) {
+            for (int i = 0; i < tf.n; i++) {
+                new_z[i] = tf.z[i];
+            }
+            new_z[0] = -std::numeric_limits<double>::max();
+            tf.z = new_z;
+        }
+    }
+    return tf;
+}

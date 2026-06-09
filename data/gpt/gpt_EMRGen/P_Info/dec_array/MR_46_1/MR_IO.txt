@@ -1,0 +1,8 @@
+TestCase z46Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive programming not required for scalar parameter k
+    if (follow_case.k > -100) {
+        follow_case.k = -100;
+    }
+    return follow_case;
+}

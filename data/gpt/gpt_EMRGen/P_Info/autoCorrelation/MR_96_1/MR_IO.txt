@@ -1,0 +1,8 @@
+TestCase z96Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive checks not needed for scalar clamp
+    if (follow_case.variance < 0) {
+        follow_case.variance = 0;
+    }
+    return follow_case;
+}

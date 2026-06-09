@@ -1,0 +1,24 @@
+TestCase z21Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_v = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_v, t1.v, t1.n * sizeof(double));
+    follow_case.v = follow_case_v;
+    // ------------------------------------
+    
+    // Defensive check for empty array
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Clip elements to [0,1] range
+    for (int i = 0; i < follow_case.n; ++i) {
+        if (follow_case.v[i] < 0.0) {
+            follow_case.v[i] = 0.0;
+        } else if (follow_case.v[i] > 1.0) {
+            follow_case.v[i] = 1.0;
+        }
+    }
+    
+    return follow_case;
+}

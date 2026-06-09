@@ -1,0 +1,94 @@
+double kurtosis(double data[], int n) {
+    double sum = 0;
+    double sumPD = 0;
+    double sumSq = 0;
+    for (int i = 0; i < n; i++) {
+        sum += data[i];
+        sumSq += data[i] * data[i];
+    }
+    double mean = sum / n;
+    double standardDeviation = sqrt((sumSq - mean * sum) / n);
+    for (int i = 0; i < n; i++) {
+        sumPD += pow(data[i] - mean, 4);
+    }
+    double moment4 = sumPD / n;
+    return -3 + moment4 / (standardDeviation * standardDeviation * standardDeviation * standardDeviation);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「add 1 to all elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「subtract 1 from all elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「multiply all elements by 2」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「divide all elements by 2」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「reverse the entire array」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「sort the entire array in ascending order」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「sort the entire array in descending order」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「circular left shift the array by 1 position」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set all elements to 0」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set all elements to 1」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set the first element to the maximum value among all elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「set the first element to the minimum value among all elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「add 0.5 to the first half elements」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data (double*), if the operation 「multiply the last half elements by 2」 is executed on data to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of != Os ✗
+
+----------------------------------------
+
+操作总数: 14
+关系总数: 14

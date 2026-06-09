@@ -1,0 +1,2 @@
+Operation 28: On parameter 'a' (int*): 将数组中的每个元素替换为其相邻元素（如a[i] = a[i+1]，边界处循环处理）
+Invariant: return.result1 == return.result2

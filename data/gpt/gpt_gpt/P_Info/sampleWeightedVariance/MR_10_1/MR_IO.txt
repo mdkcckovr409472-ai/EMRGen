@@ -1,0 +1,16 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Reuse the original weights array pointer, create a new array to hold modified weights
+    double* newWeights = new double[tc.n];
+    for (int i = 0; i < tc.n; ++i) {
+        newWeights[i] = tc.weights[i];
+    }
+    // Multiply the last three elements by 3, consider case when n < 3
+    int start = (tc.n >= 3) ? (tc.n - 3) : 0;
+    for (int i = start; i < tc.n; ++i) {
+        newWeights[i] *= 3;
+    }
+    tf.weights = newWeights;
+    // data and n remain the same and reused
+    return tf;
+}

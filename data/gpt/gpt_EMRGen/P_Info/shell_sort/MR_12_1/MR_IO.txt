@@ -1,0 +1,18 @@
+TestCase z12Change(TestCase t1) {
+    TestCase follow_case = t1;
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n - 1; ++i) {
+            for (int j = i + 1; j < follow_case.n; ++j) {
+                if (follow_case.a[i] < follow_case.a[j]) {
+                    int tmp = follow_case.a[i];
+                    follow_case.a[i] = follow_case.a[j];
+                    follow_case.a[j] = tmp;
+                }
+            }
+        }
+    }
+    return follow_case;
+}

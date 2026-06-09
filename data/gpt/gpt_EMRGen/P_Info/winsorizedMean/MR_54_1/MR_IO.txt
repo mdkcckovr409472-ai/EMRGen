@@ -1,0 +1,7 @@
+TestCase z54Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // No memory handling needed for non‑array target parameter
+    // Defensive checks not required for this simple assignment
+    follow_case.right = follow_case.n;
+    return follow_case;
+}

@@ -1,0 +1,2 @@
+Operation 13: On parameter 'moment4' (double): take absolute value
+Invariant: return.result1 <= return.result2

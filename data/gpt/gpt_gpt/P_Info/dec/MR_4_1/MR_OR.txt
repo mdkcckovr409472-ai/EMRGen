@@ -1,0 +1,28 @@
+int check(TestCase tc) {
+    int* Os = dec(tc.array1, tc.array2, tc.n);
+    if (!Os) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    int* Of = dec(Tf_case.array1, Tf_case.array2, Tf_case.n);
+    if (!Of) {
+        free(Os);
+        return 0;
+    }
+
+    int is_valid = 0;
+    if (tc.n > 0) {
+        if (Of[0] == Os[0] + (INT_MAX - tc.array1[0])) {
+            is_valid = 1;
+        }
+    } else {
+        // If no elements, consider MR holds trivially
+        is_valid = 1;
+    }
+
+    free(Os);
+    free(Of);
+
+    return is_valid;
+}

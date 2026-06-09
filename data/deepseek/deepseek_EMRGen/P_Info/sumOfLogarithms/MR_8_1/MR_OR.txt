@@ -1,0 +1,30 @@
+#include <math.h>
+#include <stddef.h>
+
+int z8check(double result1, double result2) {
+    // 防御性编程：检查NaN
+    if (isnan(result1) || isnan(result2)) return 0;
+    
+    // 移项：将 result1 - 2 * result2 == 0 转换为 result1 == 2 * result2
+    double A = result1;
+    double B = 2.0 * result2;
+    
+    // 处理无穷大情况
+    if (isinf(A) || isinf(B)) {
+        // 对于无穷大，直接使用数学比较
+        if (A == B) return 1;
+        else return 0;
+    }
+    
+    // 定义基础容差
+    double epsilon = 1e-5;
+    
+    // 计算动态容差
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 带容差的相等比较
+    if (fabs(A - B) > tol) return 0;
+    
+    // 满足条件
+    return 1;
+}

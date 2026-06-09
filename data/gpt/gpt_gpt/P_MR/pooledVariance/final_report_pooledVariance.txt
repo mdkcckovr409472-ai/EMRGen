@@ -1,0 +1,167 @@
+double pooledVariance(double data1[], double data2[], int n1, int n2) {
+    double sum1 = 0;
+    double sumSq1 = 0;
+    for (int i = 0; i < n1; i++) {
+        sum1 += data1[i];
+        sumSq1 += data1[i] * data1[i];
+    }
+    double mean1 = sum1 / n1;
+    double var1 = (sumSq1 - mean1 * sum1) / n1;
+    double sum2 = 0;
+    double sumSq2 = 0;
+    for (int i = 0; i < n2; i++) {
+        sum2 += data2[i];
+        sumSq2 += data2[i] * data2[i];
+    }
+    double mean2 = sum2 / n2;
+    double var2 = (sumSq2 - mean2 * sum2) / n2;
+    return (n1 * var1 + n2 * var2) / (n1 + n2);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「add 1 to all elements」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「subtract 1 from all elements」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「multiply all elements by 2」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+4 * Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「divide all elements by 2」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os / 4 == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「reverse the entire array」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「sort the array in ascending order」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「sort the array in descending order」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「circular shift the array elements by 1 position to the right」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「set all elements to 0」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「set all elements to 1」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「set the first element to the maximum element value in data1」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「set the last element to the minimum element value in data1」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「add 1 to the first half elements」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data1 (double[]), if the operation 「multiply the last half elements by 0.5」 is executed on data1 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「add 1 to all elements」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「subtract 1 from all elements」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「multiply all elements by 2」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+4 * Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「divide all elements by 2」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os / 4 == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「reverse the entire array」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「sort the array in ascending order」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「sort the array in descending order」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「circular shift the array elements by 1 position to the right」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「set all elements to 0」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「set all elements to 1」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「set the first element to the maximum element value in data2」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「set the last element to the minimum element value in data2」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「add 1 to the first half elements」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains data2 (double[]), if the operation 「multiply the last half elements by 0.5」 is executed on data2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✗
+
+----------------------------------------
+
+操作总数: 28
+关系总数: 28

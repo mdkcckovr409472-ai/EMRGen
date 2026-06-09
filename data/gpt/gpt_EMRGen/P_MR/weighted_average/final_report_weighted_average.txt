@@ -1,0 +1,108 @@
+double weighted_average(double a[], double b[], int n) {
+    double sum1 = 0;
+    double sum2 = 0;
+    for(int i = 0; i < n; i++) {
+        sum1 += a[i] * b[i];
+        sum2 += b[i];
+    }
+    return sum1 / sum2;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[double]): subtract 0.5 from all elements
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「subtract 0.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (array[double]): set first element to 0.0 (when it is > 0.0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「set first element to 0.0 (when it is > 0.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[double]): set last element to 1.0 (when it is < 1.0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「set last element to 1.0 (when it is < 1.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (array[double]): add 5.0 to a subarray of length 4 starting at a random index
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「add 5.0 to a subarray of length 4 starting at a random index」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (array[double]): multiply a subarray of length 5 starting at a random index by 0.5
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「multiply a subarray of length 5 starting at a random index by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (array[double]): apply natural logarithm to each element (if element > 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「apply natural logarithm to each element (if element > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (array[double]): set element at index n‑1 to DBL_MIN (when it is > DBL_MIN)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「set element at index n‑1 to DBL_MIN (when it is > DBL_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 32: On parameter 'b' (array[double]): multiply all elements by 0.5
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「multiply all elements by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 33: On parameter 'b' (array[double]): divide all elements by 3.0 (if element ≠ 0)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「divide all elements by 3.0 (if element ≠ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 10
+关系总数: 10

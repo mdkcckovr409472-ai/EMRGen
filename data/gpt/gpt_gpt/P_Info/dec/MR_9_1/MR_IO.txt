@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Create a new array2 for tf by multiplying each element by 2
+    int* new_array2 = (int*)malloc(sizeof(int) * tf.n);
+    for (int i = 0; i < tf.n; ++i) {
+        new_array2[i] = tf.array2[i] * 2;
+    }
+    tf.array2 = new_array2;
+    return tf;
+}

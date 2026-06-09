@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.z != NULL && tf.n > 0) {
+        for (int i = 0; i < tf.n; i++) {
+            if (tf.z[i] > 0.0) {
+                tf.z[i] = -tf.z[i];
+            }
+        }
+    }
+    return tf;
+}

@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int p = 0;
+    double d = 1.0;
+    if (tf.n > 0) {
+        tf.y[p] += d;
+    }
+    return tf;
+}

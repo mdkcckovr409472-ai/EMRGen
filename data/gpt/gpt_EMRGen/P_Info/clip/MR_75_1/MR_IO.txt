@@ -1,0 +1,11 @@
+TestCase z75Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Operation: set upperLim to its square when result ≤ INT_MAX
+    long long temp = (long long)follow_case.upperLim * (long long)follow_case.upperLim;
+    if (temp <= INT_MAX) {
+        follow_case.upperLim = (int)temp;
+    }
+
+    return follow_case;
+}

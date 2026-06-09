@@ -1,0 +1,2 @@
+Operation 44: On parameter 'lowerLim' (int): 平方根（取整）
+Invariant: return.result1[] >= return.result2[] (elementwise)

@@ -1,0 +1,19 @@
+TestResult z4runTest(int test_case_id) { // MODIFIED: Return type
+    TestCase follow_case = z4Change(test_cases[test_case_id]);
+    // 原始调用
+    double source = covariance(test_cases[test_case_id].elements1, test_cases[test_case_id].elements2, test_cases[test_case_id].n); // MODIFIED: Explicit type
+    // 变换后调用
+    double follow = covariance(follow_case.elements1, follow_case.elements2, follow_case.n);
+    
+    double** memory_list = (double**)malloc(1 * sizeof(double*));
+    memory_list[0] = follow_case.elements1;
+    
+    TestResult test_result;
+    test_result.memory_to_free = memory_list;
+    test_result.memory_count = 1;
+    
+    test_result.result2 = follow; // MODIFIED    
+    test_result.result1 = source; // MODIFIED
+    
+    return test_result; // MODIFIED: Return TestResult
+}

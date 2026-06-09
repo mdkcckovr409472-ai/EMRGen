@@ -1,0 +1,14 @@
+TestCase z30Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 操作描述为“减1”，仅作用于目标参数k（int类型，非数组）
+    // 根据规则4，仅当目标参数为数组类型时才需要malloc和memcpy深拷贝
+    // 此处目标参数k为int类型，因此无需数组内存处理代码
+    
+    // 根据规则6，操作“减1”不涉及数组访问、除法或数学函数
+    // 因此无需额外的防御性边界检查
+    
+    // 根据规则5生成具体操作代码：对follow_case.k执行减1操作
+    follow_case.k = follow_case.k - 1;
+    
+    return follow_case;
+}

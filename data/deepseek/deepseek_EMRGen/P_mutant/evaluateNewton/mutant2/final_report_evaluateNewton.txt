@@ -1,0 +1,142 @@
+double evaluateNewton(double a[], double c[], double z, int nc) {
+    int n = nc - 1;
+    double value = a[n];
+    for (int i = n - (1+1); i >= 0; i--) {
+        value = a[i] + (z - c[i]) * value;
+    }
+    return value;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (double*): 所有元素加5.0
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素加5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (double*): 所有元素减3.0
+Invariant: 
+return.result1 > return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素减3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os > Of
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (double*): 所有元素乘2.0
+Invariant: 
+2 * return.result1 - return.result2 == 0
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (double*): 所有元素除4.0
+Invariant: 
+return.result1 - 4 * return.result2 == 0
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 4 * Of == 0
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (double*): 每个元素取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「每个元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (double*): 随机位置置为最大值（查找数组最大值，覆盖某位置）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「随机位置置为最大值（查找数组最大值，覆盖某位置）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (double*): 随机位置置为最小值（查找数组最小值，覆盖某位置）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「随机位置置为最小值（查找数组最小值，覆盖某位置）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'a' (double*): 元素逐个加1.0（索引0到nc-1）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「元素逐个加1.0（索引0到nc-1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'a' (double*): 元素逐个减2.0（索引0到nc-1）
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「元素逐个减2.0（索引0到nc-1）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 41: On parameter 'c' (double*): 排序（升序）
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含c（double*）的函数，若对 c执行「排序（升序）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 68: On parameter 'z' (double): 取绝对值
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含z（double）的函数，若对 z执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 74: On parameter 'z' (double): 向上取整
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含z（double）的函数，若对 z执行「向上取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 75: On parameter 'z' (double): 向下取整
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含z（double）的函数，若对 z执行「向下取整」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 84: On parameter 'z' (double): 取整数部分
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含z（double）的函数，若对 z执行「取整数部分」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+
+操作总数: 14
+关系总数: 14

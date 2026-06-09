@@ -1,0 +1,17 @@
+TestCase z33Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 操作描述为"取绝对值"，目标参数为key，类型为int，不是数组类型。
+    // 根据规则4，仅当目标参数是数组类型时才执行malloc和memcpy。
+    // 因此，此处无需进行数组内存深拷贝。
+
+    // 防御性编程：取绝对值操作不依赖于数组长度n，无需检查n。
+    // 取绝对值操作不涉及除法或数学函数域检查。
+    // 直接对follow_case.key执行取绝对值操作。
+
+    // 根据规则5生成的具体操作代码：取绝对值
+    if (follow_case.key < 0) {
+        follow_case.key = -follow_case.key;
+    }
+
+    return follow_case;
+}

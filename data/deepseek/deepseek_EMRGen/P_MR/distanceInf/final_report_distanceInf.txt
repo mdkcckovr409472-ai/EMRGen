@@ -1,0 +1,71 @@
+double distanceInf(double p1[], double p2[], int n) {
+    double maxi = 0;
+    for (int i = 0; i < n; i++) {
+        maxi = max(maxi, abs(p1[i] - p2[i]));
+    } 
+    return maxi;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 16: On parameter 'p1' (double*): 随机位置元素置为无穷大（inf）
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「随机位置元素置为无穷大（inf）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 21: On parameter 'p1' (double*): 数组升序排序
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 23: On parameter 'p1' (double*): 随机重排序（洗牌）
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含p1（double*）的函数，若对 p1执行「随机重排序（洗牌）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 31: On parameter 'p2' (double*): 所有元素乘2.0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 44: On parameter 'p2' (double*): 随机位置元素置为无穷大（inf）
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「随机位置元素置为无穷大（inf）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 50: On parameter 'p2' (double*): 数组降序排序
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含p2（double*）的函数，若对 p2执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+
+操作总数: 7
+关系总数: 6

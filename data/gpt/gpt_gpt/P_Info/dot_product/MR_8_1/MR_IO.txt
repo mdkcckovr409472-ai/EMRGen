@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 0) {
+        int* new_b = new int[tc.n];
+        for (int i = 0; i < tc.n; i++) {
+            new_b[i] = tc.b[i] * 2;
+        }
+        tf.b = new_b;
+    }
+    return tf;
+}

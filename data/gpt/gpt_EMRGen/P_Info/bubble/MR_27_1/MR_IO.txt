@@ -1,0 +1,30 @@
+TestCase z27Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 2
+    if (follow_case.n < 2) {
+        // Less than 2 elements, rotation not applicable
+        return follow_case;
+    }
+    
+    // Specific operation code: rotate array left by k positions (k random 1..n-1)
+    int k = rand() % (follow_case.n - 1) + 1;  // k in [1, n-1]
+    int* temp = (int*)malloc(follow_case.n * sizeof(int));
+    if (temp == nullptr) {
+        // Allocation failed, return current state
+        return follow_case;
+    }
+    for (int i = 0; i < follow_case.n; ++i) {
+        int srcIdx = (i + k) % follow_case.n;
+        temp[i] = follow_case.a[srcIdx];
+    }
+    memcpy(follow_case.a, temp, follow_case.n * sizeof(int));
+    free(temp);
+    
+    return follow_case;
+}

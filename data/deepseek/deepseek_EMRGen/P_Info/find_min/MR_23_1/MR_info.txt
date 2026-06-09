@@ -1,0 +1,2 @@
+Operation 23: On parameter 'a' (int*): 将数组中最后一个小于-10的元素（如果存在）置为100
+Invariant: return.result1 <= return.result2

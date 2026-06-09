@@ -1,0 +1,2 @@
+Operation 43: On parameter 'array2' (array[int]): decrement element at a random valid index by 2
+Invariant: return.result1[] < return.result2[] (lexically)

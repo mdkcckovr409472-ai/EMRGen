@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* new_a = new int[tf.n];
+    for (int idx = 0; idx < tf.n; ++idx) {
+        new_a[idx] = -tf.a[idx];
+    }
+    tf.a = new_a;
+    return tf;
+}

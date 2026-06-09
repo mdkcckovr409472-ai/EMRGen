@@ -1,0 +1,2 @@
+Operation 49: On parameter 'array2' (int*): 所有元素与自身索引相减
+Invariant: return.result1[] <= return.result2[] (elementwise)

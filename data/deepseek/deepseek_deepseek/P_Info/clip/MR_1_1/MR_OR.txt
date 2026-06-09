@@ -1,0 +1,21 @@
+int check(TestCase tc) {
+    int* Os = clip(tc.a, tc.lowerLim, tc.upperLim, tc.n);
+    
+    TestCase Tf_case = change(tc);
+    int* Of = clip(Tf_case.a, Tf_case.lowerLim, Tf_case.upperLim, Tf_case.n);
+    
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        if (Os[i] > Of[i]) {
+            is_valid = 0;
+            break;
+        }
+    }
+    
+    // 注意：待测函数clip返回的是静态数组，无需释放Os和Of。
+    // 但Tf_case.a是动态修改的原始数组，这里没有分配新内存，所以无需额外释放。
+    // 如果change函数中分配了新数组，则需要在此释放。
+    // 本实现中，change直接修改了传入数组，没有新分配，故无动态内存需要释放。
+    
+    return is_valid;
+}

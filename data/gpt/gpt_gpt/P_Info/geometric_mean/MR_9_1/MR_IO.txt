@@ -1,0 +1,24 @@
+TestCase change(TestCase tc) {
+    // Reuse the same TestCase struct, but copy array to avoid overwriting original input
+    TestCase tf;
+    tf.n = tc.n;
+    if (tc.n > 0) {
+        tf.a = new int[tc.n];
+        for (int i = 0; i < tc.n; i++) {
+            tf.a[i] = tc.a[i];
+        }
+        // Find minimum value in original array
+        int min_val = tf.a[0];
+        for (int i = 1; i < tf.n; i++) {
+            if (tf.a[i] < min_val) {
+                min_val = tf.a[i];
+            }
+        }
+        // Set last element to minimum value
+        tf.a[tf.n - 1] = min_val;
+    } else {
+        // Handle edge case of empty array
+        tf.a = nullptr;
+    }
+    return tf;
+}

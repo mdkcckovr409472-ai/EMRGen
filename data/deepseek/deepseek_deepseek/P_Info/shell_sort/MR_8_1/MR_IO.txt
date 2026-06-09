@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int n = tf.n;
+    if (n > 1) {
+        int half = n / 2;
+        std::sort(tf.a, tf.a + half);
+        std::sort(tf.a + half, tf.a + n);
+    }
+    return tf;
+}

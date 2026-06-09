@@ -1,0 +1,22 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling code
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // Defensive check for at least 2 elements
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+    // Sort array in descending order
+    for (int i = 0; i < follow_case.n - 1; ++i) {
+        for (int j = 0; j < follow_case.n - i - 1; ++j) {
+            if (follow_case.elements[j] < follow_case.elements[j + 1]) {
+                double temp = follow_case.elements[j];
+                follow_case.elements[j] = follow_case.elements[j + 1];
+                follow_case.elements[j + 1] = temp;
+            }
+        }
+    }
+    return follow_case;
+}

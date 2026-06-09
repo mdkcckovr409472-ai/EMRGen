@@ -1,0 +1,106 @@
+double* standardize(double data[], int n) {
+    double* cp1 = (double*)malloc(n * sizeof(double));
+    memcpy(cp1,data,n*sizeof(double));
+    double sum = 0;
+    double sumSq = 0;
+    for (int i = 0; i < n; i++) {
+        sum += cp1[i];
+        sumSq += cp1[i] * cp1[i];
+    }
+    double mean = sum / n;
+    double sd = sqrt((sumSq - mean * sum) / n);
+    for (int i = 0; i < n; i++) {
+        cp1[i] = (cp1[i] - mean) / sd;
+    }
+    return cp1;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'data' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1[] == return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+
+----------------------------------------
+
+Operation 2: On parameter 'data' (array[double]): subtract 1.0 from all elements
+Invariant: 
+return.result1[] == return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「subtract 1.0 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[] (elementwise)
+
+----------------------------------------
+
+Operation 3: On parameter 'data' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 4: On parameter 'data' (array[double]): divide all elements by 2.0 (elements not equal to 0)
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「divide all elements by 2.0 (elements not equal to 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 9: On parameter 'data' (array[double]): subtract 1.0 from element at random valid index
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「subtract 1.0 from element at random valid index」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 13: On parameter 'data' (array[double]): reverse entire array
+Invariant: 
+return.result1[] is the reverse of return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「reverse entire array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] is the reverse of Of[]
+
+----------------------------------------
+
+Operation 15: On parameter 'data' (array[double]): sort array in ascending order
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「sort array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 16: On parameter 'data' (array[double]): sort array in descending order
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「sort array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 26: On parameter 'data' (array[double]): replace a subarray (contiguous sequence) with its reverse
+Invariant: 
+return.result1[] is the reverse of return.result2[] ✗
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「replace a subarray (contiguous sequence) with its reverse」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] is the reverse of Of[]
+
+----------------------------------------
+
+
+操作总数: 9
+关系总数: 9

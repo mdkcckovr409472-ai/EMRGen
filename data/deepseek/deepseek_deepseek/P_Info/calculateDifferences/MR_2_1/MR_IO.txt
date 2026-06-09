@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 5.0;
+    if (tf.y != nullptr) {
+        for (int i = 0; i < tf.n; i++) {
+            tf.y[i] += k;
+        }
+    }
+    return tf;
+}

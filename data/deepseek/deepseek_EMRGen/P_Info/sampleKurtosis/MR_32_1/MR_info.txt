@@ -1,0 +1,2 @@
+Operation 32: On parameter 'sampleVariance' (double): 除10.0
+Invariant: return.result1 <= return.result2

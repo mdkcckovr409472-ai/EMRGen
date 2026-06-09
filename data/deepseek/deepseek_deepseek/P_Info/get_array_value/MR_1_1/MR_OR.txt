@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    int Os = get_array_value(tc.a, tc.k, tc.n);
+    TestCase Tf_case = change(tc);
+    int Of = get_array_value(Tf_case.a, Tf_case.k, Tf_case.n);
+    int c = 5;
+    int is_valid = 0;
+    if (Os + c == Of) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.a;
+    return is_valid;
+}

@@ -1,0 +1,32 @@
+TestCase z23Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n1 > 0 && t1.a != NULL) {
+        double* follow_case_a = (double*)malloc(t1.n1 * sizeof(double));
+        if (follow_case_a != NULL) {
+            memcpy(follow_case_a, t1.a, t1.n1 * sizeof(double));
+            follow_case.a = follow_case_a;
+        } else {
+            // malloc failed, return the original struct to avoid NULL pointer usage
+            return follow_case;
+        }
+    } else {
+        // No allocation needed if n1 <= 0 or null pointer
+        follow_case.a = NULL;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n1 <= 0
+    if (follow_case.n1 <= 0 || follow_case.a == NULL) {
+        // No elements or null array, return immediately
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    int half = follow_case.n1 / 2;
+    for (int i = 0; i < half; i++) {
+        follow_case.a[i] += 10.0;
+    }
+
+    return follow_case;
+}

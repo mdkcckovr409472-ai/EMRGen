@@ -1,0 +1,2 @@
+Operation 60: On parameter 'array2' (int[]): divide elements at odd indices by 2 (integer)
+Invariant: return.result1[0..0] == return.result2[0..0] (elementwise)

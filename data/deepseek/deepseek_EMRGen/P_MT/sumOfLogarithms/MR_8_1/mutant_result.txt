@@ -1,0 +1,32 @@
+Total Mutants Generated: 46
+Total Mutants Compiled: 24
+Total Mutants Detected: 9
+Average Violation Rate: 0.3444
+Average Violation Rate(No Zero): 0.9185
+Detected Mutant IDs: 5, 6, 10, 14, 19, 29, 37, 39, 44
+
+=== Individual Mutant Violation Rates ===
+Mutant 1: 0.0000
+Mutant 5: 1.0000
+Mutant 6: 1.0000
+Mutant 7: 0.0000
+Mutant 10: 1.0000
+Mutant 11: 0.0000
+Mutant 12: 0.0000
+Mutant 14: 1.0000
+Mutant 16: 0.0000
+Mutant 17: 0.0000
+Mutant 19: 0.9667
+Mutant 22: 0.0000
+Mutant 23: 0.0000
+Mutant 29: 1.0000
+Mutant 31: 0.0000
+Mutant 33: 0.0000
+Mutant 35: 0.0000
+Mutant 36: 0.0000
+Mutant 37: 1.0000
+Mutant 38: 0.0000
+Mutant 39: 0.3000
+Mutant 43: 0.0000
+Mutant 44: 1.0000
+Mutant 46: 0.0000

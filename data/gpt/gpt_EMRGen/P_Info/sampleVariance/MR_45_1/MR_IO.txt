@@ -1,0 +1,11 @@
+TestCase z45Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive checks (none required for scalar mean perturbation)
+
+    // Random perturbation of mean by +/-0.01
+    double perturb = ((double)rand() / RAND_MAX - 0.5) * 0.02; // range [-0.01, 0.01]
+    follow_case.mean += perturb;
+
+    return follow_case;
+}

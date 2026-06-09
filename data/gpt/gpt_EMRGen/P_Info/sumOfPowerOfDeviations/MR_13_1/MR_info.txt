@@ -1,0 +1,2 @@
+Operation 13: On parameter 'data' (double[]): sort array ascending
+Invariant: return.result1 == return.result2

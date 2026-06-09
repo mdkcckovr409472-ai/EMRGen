@@ -1,0 +1,27 @@
+[MR_1_1]: 运行成功, 输出: 1
+
+[MR_3_1]: 运行成功, 输出: 0
+
+[MR_2_1]: 运行成功, 输出: 0
+
+[MR_4_1]: 编译失败
+Error:
+/home/robot/cp/InvariantMR/1_daikon_mt/1_deepseek_project_beiyong_7/MR/P_Info/dec_array/MR_4_1/MR_combined.cpp: In function ‘int check(TestCase)’:
+/home/robot/cp/InvariantMR/1_daikon_mt/1_deepseek_project_beiyong_7/MR/P_Info/dec_array/MR_4_1/MR_combined.cpp:115:1: error: jump to label ‘cleanup’
+  115 | cleanup:
+      | ^~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/1_deepseek_project_beiyong_7/MR/P_Info/dec_array/MR_4_1/MR_combined.cpp:93:14: note:   from here
+   93 |         goto cleanup;
+      |              ^~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/1_deepseek_project_beiyong_7/MR/P_Info/dec_array/MR_4_1/MR_combined.cpp:96:14: note:   crosses initialization of ‘TestCase Tf_case’
+   96 |     TestCase Tf_case = change(tc);
+      |              ^~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/1_deepseek_project_beiyong_7/MR/P_Info/dec_array/MR_4_1/MR_combined.cpp:115:1: error: jump to label ‘cleanup’
+  115 | cleanup:
+      | ^~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/1_deepseek_project_beiyong_7/MR/P_Info/dec_array/MR_4_1/MR_combined.cpp:88:14: note:   from here
+   88 |         goto cleanup;
+      |              ^~~~~~~
+/home/robot/cp/InvariantMR/1_daikon_mt/1_deepseek_project_beiyong_7/MR/P_Info/dec_array/MR_4_1/MR_combined.cpp:96:14: note:   crosses initialization of ‘TestCase Tf_case’
+   96 |     TestCase Tf_case = change(tc);
+      |              ^~~~~~~

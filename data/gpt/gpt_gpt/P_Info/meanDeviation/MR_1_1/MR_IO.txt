@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc; 
+    if (tc.n > 1 && tc.elements != nullptr) {
+        double* reversed_elements = new double[tc.n];
+        for (int i = 0; i < tc.n; ++i) {
+            reversed_elements[i] = tc.elements[tc.n - 1 - i];
+        }
+        tf.elements = reversed_elements;
+    }
+    return tf;
+}

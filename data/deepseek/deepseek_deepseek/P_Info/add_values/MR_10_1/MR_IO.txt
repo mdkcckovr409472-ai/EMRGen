@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int k = 5; // 示例常数k，可根据需要调整或作为参数传入
+    int* new_a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_a[i] = tc.a[i];
+        if (i % 2 == 1) { // 奇数索引（1, 3, 5...）
+            new_a[i] -= k;
+        }
+    }
+    tf.a = new_a;
+    return tf;
+}

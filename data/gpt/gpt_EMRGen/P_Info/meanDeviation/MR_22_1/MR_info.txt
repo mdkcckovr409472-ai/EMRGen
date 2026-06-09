@@ -1,0 +1,2 @@
+Operation 22: On parameter 'elements' (array[double]): set last element to mean (copy)
+Invariant: return.result1 >= return.result2

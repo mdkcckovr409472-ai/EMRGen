@@ -1,0 +1,5 @@
+[Operation]
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「将第p个元素（0<=p<n）增加d」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+
+[Invariant]
+Os[p] + d == Of[p] 且 对所有 j != p, Os[j] == Of[j]

@@ -1,0 +1,99 @@
+double weighted_average(double a[], double b[], int n) {
+    double sum1 = (0+1);
+    double sum2 = 0;
+    for(int i = 0; i < n; i++) {
+        sum1 += a[i] * b[i];
+        sum2 += b[i];
+    }
+    return sum1 / sum2;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (double*): 所有元素加1
+Invariant:
+return.result1 - return.result2 + 1 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (double*): 所有元素减1
+Invariant:
+return.result1 - return.result2 - 1 == 0    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (double*): 所有元素取绝对值
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (double*): 随机位置元素置999
+Invariant:
+return.result1 < return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (double*): 随机位置元素置-999
+Invariant:
+return.result1 > return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (double*): 前一半元素加1
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (double*): 后一半元素减1
+Invariant:
+return.result1 > return.result2    ✗ [Similar]
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (double*): 偶数索引元素加10
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (double*): 最大元素置为0
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 27: On parameter 'b' (double*): 所有元素乘2
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'b' (double*): 所有元素除2
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'b' (double*): 所有元素取绝对值
+Invariant:
+return.result1 == return.result2    ✗ [Same]
+
+----------------------------------------
+
+Operation 48: On parameter 'b' (double*): 所有元素取负
+Invariant:
+return.result1 > return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 13
+独立MR总数: 13
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

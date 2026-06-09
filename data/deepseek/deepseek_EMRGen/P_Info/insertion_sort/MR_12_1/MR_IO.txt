@@ -1,0 +1,27 @@
+TestCase z12Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    int* follow_case_array = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_array, t1.array, t1.n * sizeof(int));
+    follow_case.array = follow_case_array;
+    // ------------------------------------
+
+    // 这是根据规则6a生成的防御性代码，防止n<2时出错
+    if (follow_case.n < 2) {
+        // 元素不足2个，无法进行交换，直接返回副本
+        return follow_case;
+    }
+
+    // 这是根据规则5生成的具体操作代码
+    // 生成两个不同的随机索引
+    int idx1 = rand() % follow_case.n;
+    int idx2 = rand() % follow_case.n;
+    while (idx1 == idx2) {
+        idx2 = rand() % follow_case.n;
+    }
+    // 交换元素
+    int temp = follow_case.array[idx1];
+    follow_case.array[idx1] = follow_case.array[idx2];
+    follow_case.array[idx2] = temp;
+
+    return follow_case;}

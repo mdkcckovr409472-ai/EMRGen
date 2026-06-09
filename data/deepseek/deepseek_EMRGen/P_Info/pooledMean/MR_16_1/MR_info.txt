@@ -1,0 +1,2 @@
+Operation 16: On parameter 'data1' (double*): 所有元素类型转换为int再转回double
+Invariant: return.result1 >= return.result2

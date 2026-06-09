@@ -1,0 +1,2 @@
+Operation 8: On parameter 'array1' (double*): 所有元素开平方根
+Invariant: return.result1 <= return.result2

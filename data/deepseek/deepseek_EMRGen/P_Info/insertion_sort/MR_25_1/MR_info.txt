@@ -1,0 +1,2 @@
+Operation 25: On parameter 'array' (int*): 将最小值所在位置置为最大值
+Invariant: return.result1[] <= return.result2[] (elementwise)

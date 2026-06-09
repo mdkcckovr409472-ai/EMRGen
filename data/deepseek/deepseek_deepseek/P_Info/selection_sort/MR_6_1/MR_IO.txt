@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* new_list = (int*)malloc(tf.n * sizeof(int));
+    memcpy(new_list, tf.list, tf.n * sizeof(int));
+    for (int i = tf.n - 1; i > 0; --i) {
+        int j = rand() % (i + 1);
+        int temp = new_list[i];
+        new_list[i] = new_list[j];
+        new_list[j] = temp;
+    }
+    tf.list = new_list;
+    return tf;
+}

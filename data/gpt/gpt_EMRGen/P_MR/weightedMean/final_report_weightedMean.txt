@@ -1,0 +1,121 @@
+double weightedMean(double elements[], double theWeights[], int n) {
+    int size = n;
+    double sum = 0.0;
+    double weightsSum = 0.0;
+    for(int i = size; --i >= 0; ) {
+        double w = theWeights[i];
+        sum += elements[i] * w;
+        weightsSum += w;
+    }
+    return sum / weightsSum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1 - return.result2 + 1 == 0 ✓ ○
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 1 == 0
+Os < Of
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (array[double]): subtract 0.5 from all elements
+Invariant: 
+2 * return.result1 - 2 * return.result2 - 1 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「subtract 0.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - 2 * Of - 1 == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (array[double]): multiply all elements by 2.0
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (array[double]): divide all elements by 3.0 (when element ≠ 0)
+Invariant: 
+return.result1 - 3 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「divide all elements by 3.0 (when element ≠ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 3 * Of == 0
+
+----------------------------------------
+
+Operation 17: On parameter 'elements' (array[double]): take absolute value of all elements
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「take absolute value of all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 24: On parameter 'elements' (array[double]): floor all elements
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「floor all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (array[double]): ceil all elements
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「ceil all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'elements' (array[double]): apply natural logarithm to all positive elements (when element > 0)
+Invariant: 
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「apply natural logarithm to all positive elements (when element > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'theWeights' (array[double]): multiply all weights by 0.5
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含theWeights（array[double]）的函数，若对 theWeights执行「multiply all weights by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 34: On parameter 'theWeights' (array[double]): divide all weights by 2.0 (when weight ≠ 0)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含theWeights（array[double]）的函数，若对 theWeights执行「divide all weights by 2.0 (when weight ≠ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 45: On parameter 'theWeights' (array[double]): normalize weights by dividing each weight by sum of all weights (if sum ≠ 0)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含theWeights（array[double]）的函数，若对 theWeights执行「normalize weights by dividing each weight by sum of all weights (if sum ≠ 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 11
+关系总数: 12

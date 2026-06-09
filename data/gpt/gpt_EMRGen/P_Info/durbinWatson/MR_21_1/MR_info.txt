@@ -1,0 +1,2 @@
+Operation 21: On parameter 'elements' (array[double]): take absolute value of each element
+Invariant: return.result1 >= return.result2

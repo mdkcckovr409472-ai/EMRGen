@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    int* Os = clip(tc.a, tc.lowerLim, tc.upperLim, tc.n);
+    TestCase Tf_case = change(tc);
+    int* Of = clip(Tf_case.a, Tf_case.lowerLim, Tf_case.upperLim, Tf_case.n);
+    for (int i = 0; i < tc.n; i++) {
+        if (!(Os[i] >= Of[i])) {
+            return 0;
+        }
+    }
+    return 1;
+}

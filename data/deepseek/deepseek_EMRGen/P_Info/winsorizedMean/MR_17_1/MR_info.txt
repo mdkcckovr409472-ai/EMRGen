@@ -1,0 +1,2 @@
+Operation 17: On parameter 'elements' (double*): 将数组所有元素反转
+Invariant: return.result1 == return.result2

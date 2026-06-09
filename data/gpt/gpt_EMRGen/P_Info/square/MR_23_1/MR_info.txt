@@ -1,0 +1,2 @@
+Operation 23: On parameter 'data' (double[]): multiply subarray elements by 0.1
+Invariant: return.result1[] >= return.result2[] (elementwise)

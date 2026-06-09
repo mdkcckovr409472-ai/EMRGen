@@ -1,0 +1,2 @@
+Operation 16: On parameter 'x' (double*): 所有元素置为正无穷大（INFINITY）
+Invariant: return.result1[] > return.result2[] (elementwise)

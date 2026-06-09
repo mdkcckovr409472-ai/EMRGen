@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Subtract 1 from all elements of x as per MR operation
+    for (int i = 0; i < tf.n; i++) {
+        tf.x[i] = tc.x[i] - 1.0;
+    }
+    return tf;
+}

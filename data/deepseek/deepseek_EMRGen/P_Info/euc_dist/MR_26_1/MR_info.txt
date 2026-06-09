@@ -1,0 +1,2 @@
+Operation 26: On parameter 'array1' (double*): 数组降序排序
+Invariant: return.result1 <= return.result2

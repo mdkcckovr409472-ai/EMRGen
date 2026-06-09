@@ -1,0 +1,2 @@
+Operation 52: On parameter 'mean' (double): set to 999.0 (when mean < 999)
+Invariant: return.result1 < return.result2

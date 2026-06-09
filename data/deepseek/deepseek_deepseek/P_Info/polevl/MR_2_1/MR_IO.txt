@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int N = tc.N;
+    double* new_coef = new double[N + 1];
+    for (int i = 0; i <= N; i++) {
+        new_coef[i] = tc.coef[i] * 0.5;
+    }
+    tf.coef = new_coef;
+    return tf;
+}

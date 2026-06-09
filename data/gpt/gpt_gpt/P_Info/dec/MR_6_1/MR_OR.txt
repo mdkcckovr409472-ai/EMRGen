@@ -1,0 +1,33 @@
+int check(TestCase tc) {
+    int n = tc.n;
+    int* Os = dec(tc.array1, tc.array2, n);
+    if (Os == NULL) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+    int* Of = dec(Tf_case.array1, Tf_case.array2, n);
+    if (Of == NULL) {
+        free(Os);
+        return 0;
+    }
+
+    int half = n / 2;
+    // Calculate sum of elements in Os and Of
+    long long sum_Os = 0, sum_Of = 0;
+    for (int i = 0; i < n; i++) {
+        sum_Os += Os[i];
+        sum_Of += Of[i];
+    }
+
+    free(Os);
+    free(Of);
+
+    // Check MR: Of == Os + 2 * (n / 2)
+    // Because the function returns an array, we check the sum of elements relation to validate the MR.
+    // The difference in output sums should be equal to 2 * (n/2)
+    if (sum_Of == sum_Os + 2 * half) {
+        return 1;
+    }
+    return 0;
+}

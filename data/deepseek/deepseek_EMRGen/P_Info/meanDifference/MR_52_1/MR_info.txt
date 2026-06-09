@@ -1,0 +1,2 @@
+Operation 52: On parameter 'sample2' (double*): 数组反转
+Invariant: return.result1 - return.result2 == 0

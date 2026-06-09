@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.a != nullptr) {
+        int* new_a = (int*)malloc(tf.n * sizeof(int));
+        if (new_a != nullptr) {
+            int p = 1; // 循环左移1位
+            for (int i = 0; i < tf.n; ++i) {
+                new_a[i] = tf.a[(i + p) % tf.n];
+            }
+            tf.a = new_a;
+        }
+    }
+    return tf;
+}

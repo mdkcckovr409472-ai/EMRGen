@@ -1,0 +1,18 @@
+TestCase z38Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_y = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_y, t1.y, t1.n * sizeof(double));
+    follow_case.y = follow_case_y;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 2
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+    
+    // Specific operation code generated based on the rule: sort array in ascending order
+    std::sort(follow_case.y, follow_case.y + follow_case.n);
+    
+    return follow_case;
+}

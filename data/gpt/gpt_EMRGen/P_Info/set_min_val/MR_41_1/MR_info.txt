@@ -1,0 +1,2 @@
+Operation 41: On parameter 'k' (int): take absolute value of k
+Invariant: return.result1[] <= return.result2[] (elementwise)

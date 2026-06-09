@@ -1,0 +1,2 @@
+Operation 49: On parameter 'sampleVariance' (double): 加π
+Invariant: return.result1 >= return.result2

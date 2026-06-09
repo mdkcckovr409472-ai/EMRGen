@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tc.n > 0) {
+        double* newElements = new double[tc.n];
+        for (int i = 0; i < tc.n; ++i) {
+            newElements[i] = 0.5 * tc.sortedElements[i];
+        }
+        tf.sortedElements = newElements;
+    }
+    return tf;
+}

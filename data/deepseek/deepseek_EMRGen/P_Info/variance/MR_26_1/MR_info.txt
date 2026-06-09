@@ -1,0 +1,2 @@
+Operation 26: On parameter 'x' (double*): 将数组所有元素向右循环移位（末尾元素移到首部）
+Invariant: return.result1 == return.result2

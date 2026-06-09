@@ -1,0 +1,2 @@
+Operation 22: On parameter 'x' (array[double]): apply sin to each element
+Invariant: return.result1 >= return.result2

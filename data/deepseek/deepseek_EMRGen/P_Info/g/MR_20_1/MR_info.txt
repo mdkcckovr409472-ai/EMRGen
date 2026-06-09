@@ -1,0 +1,2 @@
+Operation 20: On parameter 'expected' (double*): 数组元素向左循环移位（首元素移到末尾）
+Invariant: return.result1 <= return.result2

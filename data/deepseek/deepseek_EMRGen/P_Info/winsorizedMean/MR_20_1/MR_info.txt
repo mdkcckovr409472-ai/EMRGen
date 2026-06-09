@@ -1,0 +1,2 @@
+Operation 20: On parameter 'elements' (double*): 将数组按降序排序
+Invariant: return.result1 == return.result2

@@ -1,0 +1,2 @@
+Operation 15: On parameter 'data1' (double*): sort array ascending
+Invariant: return.result1 == return.result2

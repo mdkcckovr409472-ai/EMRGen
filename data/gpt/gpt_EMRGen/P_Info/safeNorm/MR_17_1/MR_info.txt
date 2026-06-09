@@ -1,0 +1,2 @@
+Operation 17: On parameter 'v' (array[double]): take absolute value of all elements
+Invariant: return.result1 == return.result2

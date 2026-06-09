@@ -1,0 +1,2 @@
+Operation 19: On parameter 'sortedElements' (double*): 所有元素取平方
+Invariant: return.result1 <= return.result2

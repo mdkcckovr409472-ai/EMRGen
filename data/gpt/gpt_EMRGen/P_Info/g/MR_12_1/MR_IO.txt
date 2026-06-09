@@ -1,0 +1,22 @@
+TestCase z12Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    double* follow_case_expected = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_expected, t1.expected, t1.n * sizeof(double));
+    follow_case.expected = follow_case_expected;
+    // ---------------------------
+
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Operation: set a random element to DBL_MAX (1.0e308) if it is less than DBL_MAX
+    int idx = rand() % follow_case.n;
+    double maxVal = 1.0e308;
+    if (follow_case.expected[idx] < maxVal) {
+        follow_case.expected[idx] = maxVal;
+    }
+
+    return follow_case;
+}

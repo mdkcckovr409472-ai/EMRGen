@@ -1,0 +1,2 @@
+Operation 49: On parameter 'b' (double*): 子数组（前n2/2个元素）减5.0
+Invariant: return.result1[] >= return.result2[] (elementwise)

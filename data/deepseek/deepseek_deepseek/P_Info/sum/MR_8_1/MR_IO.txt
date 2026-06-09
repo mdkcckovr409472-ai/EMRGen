@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int index = 0; // 选择第一个元素进行增加操作
+        int k = 5; // 增加的值，可调整
+        tf.values = new int[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            tf.values[i] = tc.values[i];
+        }
+        tf.values[index] += k;
+    }
+    return tf;
+}

@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1) {
+        int idx1 = 0;
+        int idx2 = tf.n - 1;
+        double temp = tf.data[idx1];
+        tf.data[idx1] = tf.data[idx2];
+        tf.data[idx2] = temp;
+    }
+    return tf;
+}

@@ -1,0 +1,123 @@
+double winsorizedMean(double elements[], int left, int right, int n) {
+    qsort(elements, n, sizeof(double), [](const void *a, const void *b) -> int {
+        double diff = *(double *)a - *(double *)b;
+        if (diff > 0) return 1;
+        else if (diff < 0) return -1;
+        else return 0;
+    });
+
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += elements[i];
+    }
+
+    double mean = sum / n;
+
+    if (n > 0 && left >= 0 && left < n) {
+        double leftElement = elements[left];
+        for (int i = 0; i < left; ++i) {
+            mean += (leftElement - elements[i]) / n;
+        }
+    }
+
+    if (n > 0 && right >= 0 && right < n && (n - 1 - right) >= 0) {
+        double rightElement = elements[n - 1 - right];
+        for (int i = 0; i < right; ++i) {
+            mean += (rightElement - elements[n - 1 - i]) / n;
+        }
+    }
+
+    return mean;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素加k（k为常数）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os + k == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素乘以c（c为非零常数）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+c * Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「反转整个数组」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组按升序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组按降序排序」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组所有元素设置为同一个常数m」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组循环左移一位」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组循环右移一位」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组前left个元素（索引0至left-1）设置为同一个常数L」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「将数组后right个元素（索引n-1-right+1至n-1）设置为同一个常数R」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「将left值增加1（需确保新值小于n）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os <= Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「将left值减少1（需确保新值大于等于0）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os >= Of ✓
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含left（int）的函数，若对 left执行「将left值设置为0」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「将right值增加1（需确保新值小于n）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os <= Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「将right值减少1（需确保新值大于等于0）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os >= Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含right（int）的函数，若对 right执行「将right值设置为0」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✗
+
+----------------------------------------
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「交换数组中任意两个不相等的元素」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+Os == Of ✓
+
+----------------------------------------
+
+操作总数: 17
+关系总数: 17

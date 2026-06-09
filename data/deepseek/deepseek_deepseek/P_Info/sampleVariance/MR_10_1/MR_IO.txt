@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // 随机打乱数组元素的顺序
+    // 使用 Fisher-Yates shuffle 算法
+    for (int i = tf.n - 1; i > 0; --i) {
+        int j = rand() % (i + 1);
+        double temp = tf.elements[i];
+        tf.elements[i] = tf.elements[j];
+        tf.elements[j] = temp;
+    }
+    return tf;
+}

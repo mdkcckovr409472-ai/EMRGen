@@ -1,0 +1,2 @@
+Operation 17: On parameter 'a' (array[int]): set last element to k
+Invariant: return.result1 <= return.result2

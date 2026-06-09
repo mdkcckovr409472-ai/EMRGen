@@ -1,0 +1,2 @@
+Operation 28: On parameter 'x' (double*): 将数组中所有正数置为0.0
+Invariant: return.result1 >= return.result2

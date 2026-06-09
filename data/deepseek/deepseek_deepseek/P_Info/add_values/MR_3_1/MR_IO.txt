@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int m = 2; // 示例蜕变因子，可根据需要调整或参数化
+    int* new_array = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_array[i] = tc.a[i] * m;
+    }
+    tf.a = new_array;
+    return tf;
+}

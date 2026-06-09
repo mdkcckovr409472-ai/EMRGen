@@ -1,0 +1,2 @@
+Operation 11: On parameter 'moment4' (double): set to positive infinity
+Invariant: return.result1 < return.result2

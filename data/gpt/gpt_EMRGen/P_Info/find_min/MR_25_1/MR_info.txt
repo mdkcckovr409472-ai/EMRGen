@@ -1,0 +1,2 @@
+Operation 25: On parameter 'a' (array[int]): rotate subarray left by k positions (k random, within subarray length)
+Invariant: return.result1 == return.result2

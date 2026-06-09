@@ -1,0 +1,33 @@
+TestCase z12Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    if (t1.n > 0 && t1.a != NULL) {
+        memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    }
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    
+    // Specific operation code generated based on the rule
+    int eligible_indices[follow_case.n];
+    int eligible_count = 0;
+    for (int i = 0; i < follow_case.n; i++) {
+        if (follow_case.a[i] < 999) {
+            eligible_indices[eligible_count] = i;
+            eligible_count++;
+        }
+    }
+    if (eligible_count > 0) {
+        // Select a random element index among eligible indices
+        // Use rand() without seed here; assume environment provides srand if needed
+        int rand_index = eligible_indices[rand() % eligible_count];
+        follow_case.a[rand_index] = 999;
+    }
+    
+    return follow_case;
+}

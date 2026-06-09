@@ -1,0 +1,29 @@
+[MR_5_1]: 运行成功, 输出: 0
+
+[MR_6_1]: 运行成功, 输出: 0
+
+[MR_7_1]: 运行成功, 输出: 0
+
+[MR_8_1]: 运行成功, 输出: 0
+
+[MR_1_1]: 运行成功, 输出: 0
+
+[MR_3_1]: 运行成功, 输出: 0
+
+[MR_2_1]: 运行成功, 输出: 0
+
+[MR_10_1]: 运行成功, 输出: 0
+
+[MR_4_1]: 编译失败
+Error:
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/llm/1_gpt_project/MR/P_Info/scale/MR_4_1/MR_combined.cpp: In function ‘int check(TestCase)’:
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/llm/1_gpt_project/MR/P_Info/scale/MR_4_1/MR_combined.cpp:76:9: error: ‘Tc’ was not declared in this scope; did you mean ‘tc’?
+   76 |     if (Tc.n > 1000) {
+      |         ^~
+      |         tc
+/home/robot/cp/InvariantMR/1_daikon_mt_gpt/llm/1_gpt_project/MR/P_Info/scale/MR_4_1/MR_combined.cpp:84:13: error: ‘tf’ was not declared in this scope; did you mean ‘Of’?
+   84 |         if (tf.val == 0) { // val=0 implies no change in change()
+      |             ^~
+      |             Of
+
+[MR_9_1]: 运行成功, 输出: 0

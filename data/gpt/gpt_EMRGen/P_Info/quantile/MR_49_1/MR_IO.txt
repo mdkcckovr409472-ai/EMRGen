@@ -1,0 +1,9 @@
+TestCase z49Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Operation: cast phi to int and back to double (preserving sign)
+    int tmp = (int)follow_case.phi;
+    follow_case.phi = (double)tmp;
+
+    return follow_case;
+}

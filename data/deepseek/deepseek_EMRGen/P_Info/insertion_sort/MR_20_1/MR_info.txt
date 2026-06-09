@@ -1,0 +1,2 @@
+Operation 20: On parameter 'array' (int*): 将后半部分元素减10
+Invariant: return.result1[] > return.result2[] (lexically)

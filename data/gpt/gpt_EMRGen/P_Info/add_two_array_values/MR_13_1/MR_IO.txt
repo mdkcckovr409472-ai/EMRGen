@@ -1,0 +1,26 @@
+TestCase z13Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for deep copy of array 'a'
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive checks
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    if (follow_case.i < 0 || follow_case.j < 0 ||
+        follow_case.i >= follow_case.n || follow_case.j >= follow_case.n ||
+        follow_case.i > follow_case.j) {
+        return follow_case;
+    }
+
+    // Reverse sub‑array from i to j (inclusive)
+    for (int left = follow_case.i, right = follow_case.j; left < right; ++left, --right) {
+        int temp = follow_case.a[left];
+        follow_case.a[left] = follow_case.a[right];
+        follow_case.a[right] = temp;
+    }
+
+    return follow_case;
+}

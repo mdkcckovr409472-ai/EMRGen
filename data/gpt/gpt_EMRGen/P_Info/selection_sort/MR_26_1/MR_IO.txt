@@ -1,0 +1,19 @@
+TestCase z26Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    int* follow_case_list = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_list, t1.list, t1.n * sizeof(int));
+    follow_case.list = follow_case_list;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n == 0
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            if (follow_case.list[i] < 0) {
+                follow_case.list[i] = -follow_case.list[i];
+            }
+        }
+    }
+    
+    return follow_case;
+}

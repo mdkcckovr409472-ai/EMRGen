@@ -1,0 +1,22 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    double* sorted_elements = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        sorted_elements[i] = tf.elements[i];
+    }
+
+    // Sort in ascending order
+    for (int i = 0; i < tf.n - 1; i++) {
+        for (int j = 0; j < tf.n - 1 - i; j++) {
+            if (sorted_elements[j] > sorted_elements[j + 1]) {
+                double temp = sorted_elements[j];
+                sorted_elements[j] = sorted_elements[j + 1];
+                sorted_elements[j + 1] = temp;
+            }
+        }
+    }
+
+    tf.elements = sorted_elements;
+    return tf;
+}

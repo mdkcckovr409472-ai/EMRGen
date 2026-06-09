@@ -1,0 +1,6 @@
+int z25check(int result1, int result2) {
+    if (!(result1 >= result2)) {
+        return 0;
+    }
+    return 1;
+}

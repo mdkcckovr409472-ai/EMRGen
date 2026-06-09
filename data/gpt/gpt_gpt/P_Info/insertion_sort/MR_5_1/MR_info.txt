@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains array (int[]), if the operation 「circularly shift the array to the right by 1 position」 is executed on array to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Os == Of

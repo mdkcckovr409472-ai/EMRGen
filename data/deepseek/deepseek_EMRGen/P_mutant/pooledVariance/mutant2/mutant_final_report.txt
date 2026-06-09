@@ -1,0 +1,265 @@
+double pooledVariance(double data1[], double data2[], int n1, int n2) {
+    double sum1 = 0;
+    double sumSq1 = 0;
+    for (int i = 0; i < n1; i++) {
+        sum1 += data1[i];
+        sumSq1 *= data1[i] * data1[i];
+    }
+    double mean1 = sum1 / n1;
+    double var1 = (sumSq1 - mean1 * sum1) / n1;
+    double sum2 = 0;
+    double sumSq2 = 0;
+    for (int i = 0; i < n2; i++) {
+        sum2 += data2[i];
+        sumSq2 += data2[i] * data2[i];
+    }
+    double mean2 = sum2 / n2;
+    double var2 = (sumSq2 - mean2 * sum2) / n2;
+    return (n1 * var1 + n2 * var2) / (n1 + n2);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'data1' (array[double]): 所有元素乘2.0
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 4: On parameter 'data1' (array[double]): 所有元素除以3.0
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 5: On parameter 'data1' (array[double]): 随机位置元素置为999.0（当元素小于999.0时）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 7: On parameter 'data1' (array[double]): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 8: On parameter 'data1' (array[double]): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'data1' (array[double]): 随机重排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 10: On parameter 'data1' (array[double]): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 11: On parameter 'data1' (array[double]): 数组向右循环移位（末尾元素移到开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 12: On parameter 'data1' (array[double]): 取数组前一半元素
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 13: On parameter 'data1' (array[double]): 取数组后一半元素
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 15: On parameter 'data1' (array[double]): 所有元素取绝对值
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 18: On parameter 'data1' (array[double]): 所有元素乘1.5
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'data1' (array[double]): 所有元素除以2.5
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'data1' (array[double]): 数组按升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 25: On parameter 'data1' (array[double]): 数组按降序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 26: On parameter 'data1' (array[double]): 首尾元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 27: On parameter 'data1' (array[double]): 将数组所有元素设置为0.0
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'data2' (array[double]): 所有元素加15.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 31: On parameter 'data2' (array[double]): 所有元素减8.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 32: On parameter 'data2' (array[double]): 所有元素乘3.0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 33: On parameter 'data2' (array[double]): 所有元素除以4.0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 34: On parameter 'data2' (array[double]): 随机位置元素置为888.0（当元素小于888.0时）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 35: On parameter 'data2' (array[double]): 随机位置元素置为-888.0（当元素大于-888.0时）
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 36: On parameter 'data2' (array[double]): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 37: On parameter 'data2' (array[double]): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 38: On parameter 'data2' (array[double]): 随机重排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 39: On parameter 'data2' (array[double]): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 40: On parameter 'data2' (array[double]): 数组向右循环移位（末尾元素移到开头）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 44: On parameter 'data2' (array[double]): 所有元素取绝对值
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 45: On parameter 'data2' (array[double]): 所有元素加2.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 46: On parameter 'data2' (array[double]): 所有元素减1.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 47: On parameter 'data2' (array[double]): 所有元素乘2.5
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 48: On parameter 'data2' (array[double]): 所有元素除以1.5
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 53: On parameter 'data2' (array[double]): 数组按升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 54: On parameter 'data2' (array[double]): 数组按降序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 55: On parameter 'data2' (array[double]): 首尾元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 56: On parameter 'data2' (array[double]): 将数组所有元素设置为0.0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 57: On parameter 'data2' (array[double]): 将数组所有元素设置为1.0
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 58: On parameter 'data2' (array[double]): 所有元素加-5.0
+Invariant:
+return.result1 == return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+操作总数: 39
+独立MR总数: 39
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

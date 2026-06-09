@@ -1,0 +1,9 @@
+double durbinWatson(double elements[], int n) {
+    
+    double run = (0-1);
+    for (int i = 1; i < n; ++i) {
+        double x = elements[i] - elements[i - 1];
+        run += x * x;
+    }
+    return run;
+}

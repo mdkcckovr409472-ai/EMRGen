@@ -1,0 +1,6 @@
+TestCase z8Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive checks (none required for scalar assignment)
+    follow_case.moment4 = 1.7976931348623157e308;
+    return follow_case;
+}

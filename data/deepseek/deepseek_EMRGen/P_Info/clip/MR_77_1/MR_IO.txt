@@ -1,0 +1,11 @@
+TestCase z77Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 根据规则4，目标参数upperLim是int类型，不是数组类型，因此不执行malloc和memcpy操作。
+
+// 根据规则6，操作“自增1”不涉及数组访问、除法或数学函数，因此无需添加防御性边界检查。
+
+// 根据规则5，将“自增1”转换为C语言代码，操作于follow_case的副本上。
+follow_case.upperLim = follow_case.upperLim + 1;
+
+return follow_case;}

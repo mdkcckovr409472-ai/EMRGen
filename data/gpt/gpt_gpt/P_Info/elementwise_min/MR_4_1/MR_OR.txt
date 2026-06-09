@@ -1,0 +1,38 @@
+int check(TestCase tc) {
+    if (tc.a == NULL || tc.b == NULL || tc.n <= 0) {
+        return 0;
+    }
+    int* Os = elementwise_min(tc.a, tc.b, tc.n);
+    if (Os == NULL) {
+        return 0;
+    }
+
+    TestCase Tf_case = change(tc);
+
+    int* Of = NULL;
+    if (Tf_case.b != NULL) {
+        Of = elementwise_min(Tf_case.a, Tf_case.b, Tf_case.n);
+    }
+
+    int is_valid = 0;
+    if (Of != NULL) {
+        int valid = 1;
+        for (int i = 0; i < tc.n; i++) {
+            if (Os[i] < Of[i]) {
+                valid = 0;
+                break;
+            }
+        }
+        is_valid = valid;
+    }
+
+    free(Os);
+    if (Tf_case.b != tc.b) {
+        free(Tf_case.b);
+    }
+    if (Of != NULL) {
+        free(Of);
+    }
+
+    return is_valid;
+}

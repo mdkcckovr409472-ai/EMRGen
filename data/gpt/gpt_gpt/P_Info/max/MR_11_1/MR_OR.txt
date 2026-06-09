@@ -1,0 +1,24 @@
+int check(TestCase tc) {
+    // Extract the source input
+    double* Ts = tc.elements;
+    int n = tc.n;
+
+    // Get source output Os
+    double Os = max(Ts, n);
+
+    // Construct the follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Get follow-up output Of
+    double Of = max(Tf_case.elements, Tf_case.n);
+
+    // Check MR: Os < Of
+    int is_valid = (Os < Of) ? 1 : 0;
+
+    // Free dynamically allocated memory in Tf_case if different from tc.elements
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+    }
+
+    return is_valid;
+}

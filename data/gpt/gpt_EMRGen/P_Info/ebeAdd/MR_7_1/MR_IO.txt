@@ -1,0 +1,23 @@
+TestCase z7Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_a = (double*)malloc(t1.n1 * sizeof(double));
+    if (t1.a != NULL && t1.n1 > 0) {
+        memcpy(follow_case_a, t1.a, t1.n1 * sizeof(double));
+    }
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+
+    // Defensive programming and boundary checks
+    if (follow_case.n1 <= 0) {
+        // No elements to modify, return directly
+        return follow_case;
+    }
+
+    // Specific transformation: subtract 2.0 from a random element
+    // Use rand() modulo n1 to get an index within bounds
+    int idx = rand() % follow_case.n1;
+    follow_case.a[idx] -= 2.0;
+
+    return follow_case;
+}

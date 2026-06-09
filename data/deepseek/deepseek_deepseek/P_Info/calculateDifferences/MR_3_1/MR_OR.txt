@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    double* Os = calculateDifferences(tc.x, tc.y, tc.n);
+    TestCase Tf_case = change(tc);
+    double* Of = calculateDifferences(Tf_case.x, Tf_case.y, Tf_case.n);
+    int p = 0;
+    double d = 1.0;
+    int is_valid = 1;
+    if (tc.n > 0) {
+        if (Os[p] + d != Of[p]) {
+            is_valid = 0;
+        }
+        for (int j = 0; j < tc.n; j++) {
+            if (j != p && Os[j] != Of[j]) {
+                is_valid = 0;
+                break;
+            }
+        }
+    }
+    free(Os);
+    free(Of);
+    return is_valid;
+}

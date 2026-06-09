@@ -1,0 +1,19 @@
+TestCase z40Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy of target array y
+    double* follow_case_y = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_y, t1.y, t1.n * sizeof(double));
+    follow_case.y = follow_case_y;
+
+    // Defensive check for empty array
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Replace each element with its absolute value
+    for (int i = 0; i < follow_case.n; ++i) {
+        follow_case.y[i] = fabs(follow_case.y[i]);
+    }
+
+    return follow_case;
+}

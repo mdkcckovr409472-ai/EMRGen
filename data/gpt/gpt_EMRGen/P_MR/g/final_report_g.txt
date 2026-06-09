@@ -1,0 +1,212 @@
+double g( double expected[],  double observed[], int n) {
+    double sumExpected = 0;
+    double sumObserved = 0;
+    for (int i = 0; i < n; i++) {
+        sumExpected += expected[i];
+        sumObserved += observed[i];
+    }
+    double ratio = 1;
+    bool rescale = false;
+    if (fabs(sumExpected - sumObserved) > 10E-6) {
+        ratio = sumObserved / sumExpected;
+        rescale = true;
+    }
+    double sum = 0;
+        for (int i = 0; i < n; i++) {
+            double dev = rescale ? log((double) observed[i] / (ratio * expected[i])) : log((double) observed[i] / expected[i]);
+            sum += (double) observed[i] * dev;
+        }
+    return 2 * sum;
+}
+
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 4: On parameter 'expected' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含expected（array[double]）的函数，若对 expected执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 6: On parameter 'expected' (array[double]): replace each element with its absolute value
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含expected（array[double]）的函数，若对 expected执行「replace each element with its absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 7: On parameter 'expected' (array[double]): square each element (element = element * element)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含expected（array[double]）的函数，若对 expected执行「square each element (element = element * element)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 12: On parameter 'expected' (array[double]): set a random element to 1.0e308 (DBL_MAX) (when the element < DBL_MAX)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含expected（array[double]）的函数，若对 expected执行「set a random element to 1.0e308 (DBL_MAX) (when the element < DBL_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 19: On parameter 'expected' (array[double]): sort array in descending order
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含expected（array[double]）的函数，若对 expected执行「sort array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'expected' (array[double]): clamp elements > 10.0 to 10.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含expected（array[double]）的函数，若对 expected执行「clamp elements > 10.0 to 10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'expected' (array[double]): clamp elements < -10.0 to -10.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含expected（array[double]）的函数，若对 expected执行「clamp elements < -10.0 to -10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 35: On parameter 'expected' (array[double]): replace +Inf elements with DBL_MAX
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含expected（array[double]）的函数，若对 expected执行「replace +Inf elements with DBL_MAX」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 38: On parameter 'expected' (array[double]): apply ceil to each element
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含expected（array[double]）的函数，若对 expected执行「apply ceil to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 40: On parameter 'observed' (array[double]): add 2.0 to all elements
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「add 2.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 42: On parameter 'observed' (array[double]): multiply all elements by 0.5
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「multiply all elements by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 43: On parameter 'observed' (array[double]): divide all elements by 3.0
+Invariant: 
+return.result1 - 3 * return.result2 == 0 ✓ ○
+return.result1 >= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「divide all elements by 3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 3 * Of == 0
+Os >= Of
+
+----------------------------------------
+
+Operation 45: On parameter 'observed' (array[double]): square each element (element = element * element)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「square each element (element = element * element)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 47: On parameter 'observed' (array[double]): negate each element (element = -element)
+Invariant: 
+return.result1 + return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「negate each element (element = -element)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+Operation 51: On parameter 'observed' (array[double]): set a random element to 2.22507e-308 (DBL_MIN) (when the element > DBL_MIN)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「set a random element to 2.22507e-308 (DBL_MIN) (when the element > DBL_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 58: On parameter 'observed' (array[double]): randomly shuffle array
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「randomly shuffle array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 66: On parameter 'observed' (array[double]): clamp elements > 20.0 to 20.0
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「clamp elements > 20.0 to 20.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 67: On parameter 'observed' (array[double]): clamp elements < -20.0 to -20.0
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「clamp elements < -20.0 to -20.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 74: On parameter 'observed' (array[double]): replace -Inf elements with -DBL_MAX
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「replace -Inf elements with -DBL_MAX」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 76: On parameter 'observed' (array[double]): apply ceil to each element
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含observed（array[double]）的函数，若对 observed执行「apply ceil to each element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 20
+关系总数: 21

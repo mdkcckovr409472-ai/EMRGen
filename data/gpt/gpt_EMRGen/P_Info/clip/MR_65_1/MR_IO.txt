@@ -1,0 +1,6 @@
+TestCase z65Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Set upperLim to the maximum integer value
+    follow_case.upperLim = INT_MAX;
+    return follow_case;
+}

@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    // Reuse the original test case object and elements pointer
+    // Sort the array elements in ascending order to construct follow-up input
+    TestCase tf = tc;
+    // Create a new array to avoid modifying original data
+    double* sorted_elements = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        sorted_elements[i] = tc.elements[i];
+    }
+    // Sort the copied array in ascending order
+    std::sort(sorted_elements, sorted_elements + tc.n);
+    tf.elements = sorted_elements;
+    return tf;
+}

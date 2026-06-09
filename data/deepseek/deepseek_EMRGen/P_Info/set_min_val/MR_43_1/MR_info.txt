@@ -1,0 +1,2 @@
+Operation 43: On parameter 'k' (int): 置为数组a中的最小值（若n>0）
+Invariant: return.result1[] >= return.result2[] (elementwise)

@@ -1,0 +1,501 @@
+int dot_product(int a[], int b[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+            /*sum += a[i] * b[i];*/
+        }
+    return sum;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (int*): 所有元素加1
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (int*): 所有元素减1
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 3: On parameter 'a' (int*): 所有元素乘2
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (int*): 所有元素除以2
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素除以2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 5: On parameter 'a' (int*): 随机位置置为0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机位置置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (int*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (int*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'a' (int*): 数组升序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'a' (int*): 数组降序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (int*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'a' (int*): 数组向右循环移位（末元素移到开头）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组向右循环移位（末元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'a' (int*): 前一半元素置为0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「前一半元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (int*): 后一半元素置为1
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「后一半元素置为1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (int*): 随机位置元素置为999（当元素小于999时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机位置元素置为999（当元素小于999时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 15: On parameter 'a' (int*): 所有元素取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 16: On parameter 'a' (int*): 所有元素平方
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (int*): 所有元素取负数
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素取负数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'a' (int*): 每个元素减去相邻元素值（位置i元素减i+1，末元素保持不变）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「每个元素减去相邻元素值（位置i元素减i+1，末元素保持不变）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'a' (int*): 每个元素加上相邻元素值（位置i元素加i+1，末元素保持不变）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「每个元素加上相邻元素值（位置i元素加i+1，末元素保持不变）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (int*): 随机位置元素加5
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机位置元素加5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (int*): 随机位置元素减3
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「随机位置元素减3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (int*): 所有元素加10
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素加10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 23: On parameter 'a' (int*): 所有元素减10
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素减10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (int*): 所有元素乘3
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素乘3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'a' (int*): 所有元素除以2（整数除法）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素除以2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 26: On parameter 'a' (int*): 所有元素置为0（清空）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素置为0（清空）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'a' (int*): 所有元素置为1
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「所有元素置为1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 28: On parameter 'b' (int*): 所有元素加1
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素加1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 29: On parameter 'b' (int*): 所有元素减1
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素减1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'b' (int*): 所有元素乘2
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (int*): 所有元素除以2
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素除以2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 32: On parameter 'b' (int*): 随机位置置为0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「随机位置置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 33: On parameter 'b' (int*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 34: On parameter 'b' (int*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 35: On parameter 'b' (int*): 数组升序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 36: On parameter 'b' (int*): 数组降序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 37: On parameter 'b' (int*): 数组向左循环移位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「数组向左循环移位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 38: On parameter 'b' (int*): 数组向右循环移位（末元素移到开头）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「数组向右循环移位（末元素移到开头）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 39: On parameter 'b' (int*): 前一半元素置为0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「前一半元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 40: On parameter 'b' (int*): 后一半元素置为1
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「后一半元素置为1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 41: On parameter 'b' (int*): 随机位置元素置为999（当元素小于999时）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「随机位置元素置为999（当元素小于999时）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 42: On parameter 'b' (int*): 所有元素取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 43: On parameter 'b' (int*): 所有元素平方
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 44: On parameter 'b' (int*): 所有元素取负数
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素取负数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 45: On parameter 'b' (int*): 每个元素减去相邻元素值（位置i元素减i+1，末元素保持不变）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「每个元素减去相邻元素值（位置i元素减i+1，末元素保持不变）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 46: On parameter 'b' (int*): 每个元素加上相邻元素值（位置i元素加i+1，末元素保持不变）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「每个元素加上相邻元素值（位置i元素加i+1，末元素保持不变）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 47: On parameter 'b' (int*): 随机位置元素加5
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「随机位置元素加5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 48: On parameter 'b' (int*): 随机位置元素减3
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「随机位置元素减3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 49: On parameter 'b' (int*): 所有元素加10
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素加10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 50: On parameter 'b' (int*): 所有元素减10
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素减10」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 51: On parameter 'b' (int*): 所有元素乘3
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素乘3」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 52: On parameter 'b' (int*): 所有元素除以2（整数除法）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素除以2（整数除法）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 53: On parameter 'b' (int*): 所有元素置为0（清空）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素置为0（清空）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 54: On parameter 'b' (int*): 所有元素置为1
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「所有元素置为1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 54
+关系总数: 54

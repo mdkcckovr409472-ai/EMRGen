@@ -1,0 +1,152 @@
+double covariance(double elements1[], double elements2[], int n) {
+
+    double sumx = elements1[0];
+    double sumy = elements2[0];
+    double Sxy = 0;
+    
+    for (int i = 1; i < n; ++i) {
+        double x = elements1[i];
+        double y = elements2[i];
+        sumx += x;
+        Sxy += (x - sumx / (i + 1)) * (y - sumy / i);
+        sumy += y;
+    }
+    return Sxy / (n - 1);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements1' (double*): add 1.0 to all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements1（double*）的函数，若对 elements1执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 2: On parameter 'elements1' (double*): subtract 2.0 from all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements1（double*）的函数，若对 elements1执行「subtract 2.0 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 3: On parameter 'elements1' (double*): multiply all elements by 0.5
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements1（double*）的函数，若对 elements1执行「multiply all elements by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'elements1' (double*): divide all elements by 2.0 (skip zeros)
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements1（double*）的函数，若对 elements1执行「divide all elements by 2.0 (skip zeros)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 6: On parameter 'elements1' (double*): negate all elements (multiply by -1)
+Invariant: 
+return.result1 + return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements1（double*）的函数，若对 elements1执行「negate all elements (multiply by -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+Operation 12: On parameter 'elements1' (double*): cap elements to a maximum of 10.0 (if element > 10)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements1（double*）的函数，若对 elements1执行「cap elements to a maximum of 10.0 (if element > 10)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'elements1' (double*): replace element at a random index with the average of its immediate neighbors
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements1（double*）的函数，若对 elements1执行「replace element at a random index with the average of its immediate neighbors」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 29: On parameter 'elements2' (double*): add 1.0 to all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements2（double*）的函数，若对 elements2执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'elements2' (double*): subtract 2.0 from all elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements2（double*）的函数，若对 elements2执行「subtract 2.0 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 31: On parameter 'elements2' (double*): multiply all elements by 0.5
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements2（double*）的函数，若对 elements2执行「multiply all elements by 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 32: On parameter 'elements2' (double*): divide all elements by 2.0 (skip zeros)
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements2（double*）的函数，若对 elements2执行「divide all elements by 2.0 (skip zeros)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 34: On parameter 'elements2' (double*): negate all elements (multiply by -1)
+Invariant: 
+return.result1 + return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含elements2（double*）的函数，若对 elements2执行「negate all elements (multiply by -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+Operation 40: On parameter 'elements2' (double*): cap elements to a maximum of 10.0 (if element > 10)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements2（double*）的函数，若对 elements2执行「cap elements to a maximum of 10.0 (if element > 10)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 54: On parameter 'elements2' (double*): replace element at a random index with the average of its immediate neighbors
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements2（double*）的函数，若对 elements2执行「replace element at a random index with the average of its immediate neighbors」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 14
+关系总数: 15

@@ -1,0 +1,2 @@
+Operation 78: On parameter 'end' (int): 加100
+Invariant: return.result1 <= return.result2

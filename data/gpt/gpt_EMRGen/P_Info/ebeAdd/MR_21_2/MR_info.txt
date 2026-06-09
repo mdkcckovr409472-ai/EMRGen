@@ -1,0 +1,2 @@
+Operation 21: On parameter 'a' (array[double]): set a random element to 999 (if less than 999)
+Invariant: return.result1[] <= return.result2[] (elementwise)

@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double k = 2.0;
+    int n = tf.n;
+    tf.data = new double[n];
+    for (int i = 0; i < n; i++) {
+        tf.data[i] = tc.data[i] * k;
+    }
+    return tf;
+}

@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for tf.a to add 1 to all elements
+    tf.a = (int*)malloc(tc.n * sizeof(int));
+    for (int i = 0; i < tc.n; i++) {
+        tf.a[i] = tc.a[i] + 1;
+    }
+    return tf;
+}

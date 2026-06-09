@@ -1,0 +1,193 @@
+double autoCorrelation(double data[], int lag, double mean, double variance, int n){
+    double run = 0;
+    for (int i = lag; i < n; i++)
+    {
+        run += (data[i] - mean) * (data[i - lag] - mean);
+    }
+    
+    return run / (n - lag) / variance;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 9: On parameter 'data' (array[double]): reverse array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 14: On parameter 'data' (array[double]): reverse subarray from index i to j (i < j)
+Invariant: 
+return.result1 == return.result2 ✗
+return.result1 - return.result2 == 0 ✗
+
+MR ：对于初始输入Ts中包含data（array[double]）的函数，若对 data执行「reverse subarray from index i to j (i < j)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 34: On parameter 'lag' (int): set lag to 0 (when lag > 0)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含lag（int）的函数，若对 lag执行「set lag to 0 (when lag > 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'lag' (int): set lag to absolute value of itself
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含lag（int）的函数，若对 lag执行「set lag to absolute value of itself」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 40: On parameter 'lag' (int): take absolute value of lag
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含lag（int）的函数，若对 lag执行「take absolute value of lag」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 41: On parameter 'lag' (int): clamp lag to range [0,100]
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含lag（int）的函数，若对 lag执行「clamp lag to range [0,100]」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 57: On parameter 'mean' (double): set mean to 0.0 (when mean ≠ 0.0)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set mean to 0.0 (when mean ≠ 0.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 59: On parameter 'mean' (double): set mean to -1.0 (when mean ≠ -1.0)
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set mean to -1.0 (when mean ≠ -1.0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 61: On parameter 'mean' (double): set mean to -DBL_MAX (when mean > -DBL_MAX)
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set mean to -DBL_MAX (when mean > -DBL_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 63: On parameter 'mean' (double): take absolute value of mean
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「take absolute value of mean」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 64: On parameter 'mean' (double): negate mean (multiply by -1)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「negate mean (multiply by -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 72: On parameter 'mean' (double): set mean to random double in [-10,10]
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set mean to random double in [-10,10]」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 74: On parameter 'mean' (double): set mean to DBL_MIN (when mean > DBL_MIN)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set mean to DBL_MIN (when mean > DBL_MIN)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 75: On parameter 'mean' (double): set mean to DBL_MAX (when mean < DBL_MAX)
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set mean to DBL_MAX (when mean < DBL_MAX)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 78: On parameter 'variance' (double): multiply variance by 2.0
+Invariant: 
+return.result1 - 2 * return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含variance（double）的函数，若对 variance执行「multiply variance by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - 2 * Of == 0
+
+----------------------------------------
+
+Operation 79: On parameter 'variance' (double): divide variance by 2.0 (if not zero)
+Invariant: 
+2 * return.result1 - return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含variance（double）的函数，若对 variance执行「divide variance by 2.0 (if not zero)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os - Of == 0
+
+----------------------------------------
+
+Operation 85: On parameter 'variance' (double): take absolute value of variance
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含variance（double）的函数，若对 variance执行「take absolute value of variance」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 86: On parameter 'variance' (double): negate variance (multiply by -1)
+Invariant: 
+return.result1 + return.result2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含variance（double）的函数，若对 variance执行「negate variance (multiply by -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os + Of == 0
+
+----------------------------------------
+
+Operation 96: On parameter 'variance' (double): clamp variance to ≥ 0 (set negative values to 0)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含variance（double）的函数，若对 variance执行「clamp variance to ≥ 0 (set negative values to 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 19
+关系总数: 21

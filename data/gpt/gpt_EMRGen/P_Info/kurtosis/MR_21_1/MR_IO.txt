@@ -1,0 +1,31 @@
+TestCase z21Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_data = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_data, t1.data, t1.n * sizeof(double));
+    follow_case.data = follow_case_data;
+    // ------------------------------------
+
+    // Defensive code: ensure there is at least one element to work with
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Operation: reverse subarray between two random indices
+    int idx1 = rand() % follow_case.n;
+    int idx2 = rand() % follow_case.n;
+    if (idx1 > idx2) {
+        int tmp = idx1;
+        idx1 = idx2;
+        idx2 = tmp;
+    }
+    while (idx1 < idx2) {
+        double tmp = follow_case.data[idx1];
+        follow_case.data[idx1] = follow_case.data[idx2];
+        follow_case.data[idx2] = tmp;
+        ++idx1;
+        --idx2;
+    }
+
+    return follow_case;
+}

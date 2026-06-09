@@ -1,0 +1,22 @@
+TestCase z48Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_data2 = (double*)malloc(t1.n2 * sizeof(double));
+    memcpy(follow_case_data2, t1.data2, t1.n2 * sizeof(double));
+    follow_case.data2 = follow_case_data2;
+    // ------------------------------------
+    
+    // Defensive check: ensure there is at least one element to shift
+    if (follow_case.n2 <= 0) {
+        return follow_case;
+    }
+    
+    // Right circular shift of data2 (move last element to the front)
+    double last_elem = follow_case.data2[follow_case.n2 - 1];
+    for (int i = follow_case.n2 - 1; i > 0; --i) {
+        follow_case.data2[i] = follow_case.data2[i - 1];
+    }
+    follow_case.data2[0] = last_elem;
+    
+    return follow_case;
+}

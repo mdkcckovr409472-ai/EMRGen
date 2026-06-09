@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    int Os = hamming_dist(tc.a, tc.b, tc.n);
+    TestCase Tf_case = change(tc);
+    int Of = hamming_dist(Tf_case.a, Tf_case.b, Tf_case.n);
+    int is_valid = 0;
+    if (Of == Os - 1) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.b;
+    return is_valid;
+}

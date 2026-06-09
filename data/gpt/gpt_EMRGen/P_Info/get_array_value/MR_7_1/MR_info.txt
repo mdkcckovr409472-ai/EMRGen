@@ -1,0 +1,2 @@
+Operation 7: On parameter 'a' (array[int]): replace each element with its absolute value
+Invariant: return.result1 <= return.result2

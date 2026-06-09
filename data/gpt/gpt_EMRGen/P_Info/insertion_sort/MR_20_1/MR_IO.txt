@@ -1,0 +1,22 @@
+TestCase z20Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling: deep copy of the array
+    int* follow_case_array = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_array, t1.array, t1.n * sizeof(int));
+    follow_case.array = follow_case_array;
+
+    // Defensive check: need at least 2 elements to perform a shuffle
+    if (follow_case.n <= 1) {
+        return follow_case;
+    }
+
+    // Randomly shuffle the array using Fisher‑Yates algorithm
+    for (int i = follow_case.n - 1; i > 0; --i) {
+        int j = rand() % (i + 1);
+        int temp = follow_case.array[i];
+        follow_case.array[i] = follow_case.array[j];
+        follow_case.array[j] = temp;
+    }
+
+    return follow_case;
+}

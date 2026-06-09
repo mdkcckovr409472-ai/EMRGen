@@ -1,0 +1,337 @@
+int* selection_sort(int list[], int n) {
+    int* cp1 = (int*)malloc(n * sizeof(int));
+    memcpy(cp1,list,n*sizeof(int));
+    int i;
+    int j;
+    int min;
+    for (i = 0; i < n - -1; i++) {
+        min = i;
+        for (j = i + 1; j < n; j++) {
+            if (cp1[j] < cp1[min]) {
+                min = j;
+            }
+        }
+        int tmp = cp1[i];
+        cp1[i] = cp1[min];
+        cp1[min] = tmp;
+    }
+    return cp1;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'list' (int*): 所有元素加1
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Same]
+return.result1[] - return.result2[] + 1 == 0    ✓ ○ [Same]
+return.result1[] < return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 2: On parameter 'list' (int*): 所有元素乘2
+Invariant:
+2 * return.result1[] - return.result2[] == 0    ✓ ○ [Same]
+size(return.result1[]) == size(return.result2[])    ✓ [Same]
+
+----------------------------------------
+
+Operation 3: On parameter 'list' (int*): 随机位置元素置0
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Same]
+
+----------------------------------------
+
+Operation 4: On parameter 'list' (int*): 随机两元素交换
+Invariant:
+return.result1[] == return.result2[]    ✗ [Same]
+
+----------------------------------------
+
+Operation 5: On parameter 'list' (int*): 数组反转
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 6: On parameter 'list' (int*): 随机重排序（打乱）
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'list' (int*): 首元素与末元素交换
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 8: On parameter 'list' (int*): 偶数索引元素加1
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Different]
+return.result1[] < return.result2[] (lexically)    ✓ ○ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 9: On parameter 'list' (int*): 奇数索引元素减1
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 10: On parameter 'list' (int*): 所有元素取负数
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Same]
+return.result1[i] == -return.result2[size(return.result2[])-1-i]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 11: On parameter 'list' (int*): 所有元素加自身
+Invariant:
+2 * return.result1[] - return.result2[] == 0    ✓ ○ [Same]
+size(return.result1[]) == size(return.result2[])    ✓ [Same]
+
+----------------------------------------
+
+Operation 12: On parameter 'list' (int*): 所有元素除以2（整数除法）
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Same]
+
+----------------------------------------
+
+Operation 15: On parameter 'list' (int*): 指定位置（如索引0）元素加5
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Different]
+return.result1[] < return.result2[] (lexically)    ✓ ○ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 16: On parameter 'list' (int*): 指定位置（如索引n-1）元素减3
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Different]
+return.result1[] > return.result2[] (lexically)    ✓ ○ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'list' (int*): 元素平方
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Same]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 18: On parameter 'list' (int*): 所有元素取绝对值
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Same]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 19: On parameter 'list' (int*): 随机子数组反转（前一半）
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'list' (int*): 随机子数组排序（前一半升序）
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'list' (int*): 两随机位置元素互换后反转它们之间的子数组
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'list' (int*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Same]
+
+----------------------------------------
+
+Operation 23: On parameter 'list' (int*): 数组向右循环移位（末元素移到开头）
+Invariant:
+return.result1[] == return.result2[]    ✗ [Same]
+
+----------------------------------------
+
+Operation 24: On parameter 'list' (int*): 每个元素加其索引值
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Same]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 25: On parameter 'list' (int*): 每个元素减其索引值
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Same]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 26: On parameter 'list' (int*): 数组片段（前n/2部分）所有元素减1
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Similar]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 27: On parameter 'list' (int*): 数组片段（后n/2部分）所有元素加1
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Similar]
+return.result1[] < return.result2[] (lexically)    ✓ ○ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'list' (int*): 所有元素与其相邻元素交换（索引0与1交换，索引2与3交换等）
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 29: On parameter 'list' (int*): 将所有大于0的元素置为1
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✓ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 30: On parameter 'n' (int): 加1
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+return.result1[] - return.result2[] + 1 == 0    ✗ [Different]
+return.result1[] < return.result2[] (elementwise)    ✗ [Different]
+
+----------------------------------------
+
+Operation 32: On parameter 'n' (int): 乘2
+Invariant:
+2 * return.result1[] - return.result2[] == 0    ✗ [Different]
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+
+----------------------------------------
+
+Operation 33: On parameter 'n' (int): 除以2
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+
+----------------------------------------
+
+Operation 34: On parameter 'n' (int): 置0
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+
+----------------------------------------
+
+Operation 36: On parameter 'n' (int): 置最大值（INT_MAX）
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✗ [Different]
+
+----------------------------------------
+
+Operation 37: On parameter 'n' (int): 置最小值（INT_MIN）
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+return.result1[] > return.result2[] (lexically)    ✗ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✗ [Different]
+
+----------------------------------------
+
+Operation 38: On parameter 'n' (int): 加5
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+return.result1[] - return.result2[] + 5 == 0    ✗ [Different]
+return.result1[] < return.result2[] (elementwise)    ✗ [Different]
+
+----------------------------------------
+
+Operation 40: On parameter 'n' (int): 乘3
+Invariant:
+3 * return.result1[] - return.result2[] == 0    ✗ [Different]
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+
+----------------------------------------
+
+Operation 41: On parameter 'n' (int): 除以（n-1）之前先加1防止除零
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+
+----------------------------------------
+
+Operation 44: On parameter 'n' (int): 取负数
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+return.result1[i] == -return.result2[size(return.result2[])-1-i]    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'n' (int): 平方
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✗ [Different]
+
+----------------------------------------
+
+Operation 46: On parameter 'n' (int): 取模（如模10）
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+
+----------------------------------------
+
+Operation 47: On parameter 'n' (int): 随机扰动（加或减1）
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+
+----------------------------------------
+
+Operation 48: On parameter 'n' (int): 类型转换为double再转换成int（无变化，仅示意）
+Invariant:
+return.result1[] == return.result2[]    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 50: On parameter 'n' (int): 特殊值注入（如负数）
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+return.result1[] >= return.result2[] (elementwise)    ✗ [Different]
+
+----------------------------------------
+
+Operation 54: On parameter 'n' (int): 置为n的阶乘近似（如n*n）
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+
+----------------------------------------
+
+Operation 55: On parameter 'n' (int): 置为0x7FFFFFFF
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+return.result1[] < return.result2[] (lexically)    ✗ [Different]
+return.result1[] <= return.result2[] (elementwise)    ✗ [Different]
+
+----------------------------------------
+
+Operation 56: On parameter 'n' (int): 置为0x80000000
+Invariant:
+size(return.result1[]) == size(return.result2[])    ✗ [Different]
+return.result1[] > return.result2[] (elementwise)    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 45
+独立MR总数: 81
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

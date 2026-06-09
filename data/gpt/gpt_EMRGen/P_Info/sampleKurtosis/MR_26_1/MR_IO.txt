@@ -1,0 +1,6 @@
+TestCase z26Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Apply exponential to the moment4 field
+    follow_case.moment4 = exp(follow_case.moment4);
+    return follow_case;
+}

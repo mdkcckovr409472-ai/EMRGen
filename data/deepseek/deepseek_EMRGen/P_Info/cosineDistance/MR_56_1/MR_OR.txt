@@ -1,0 +1,37 @@
+#include <cmath>
+#include <cfloat>
+
+int z56check(double result1, double result2) {
+    // 防御性编程：检查NaN
+    if (std::isnan(result1) || std::isnan(result2)) return 0;
+    
+    // 处理无穷大情况
+    if (std::isinf(result1) || std::isinf(result2)) {
+        // 对于相等比较，两个无穷大必须同号才相等
+        if (std::isinf(result1) && std::isinf(result2)) {
+            // 检查符号是否相同（正无穷=正无穷，负无穷=负无穷）
+            return ((result1 > 0 && result2 > 0) || (result1 < 0 && result2 < 0)) ? 1 : 0;
+        }
+        // 一个无穷大，一个有限数，肯定不相等
+        return 0;
+    }
+    
+    // 定义基础容差
+    double epsilon = 1e-5;
+    
+    // 移项后的条件：result1 == result2
+    // 提取A和B（已经分布在==两侧）
+    double A = result1;
+    double B = result2;
+    
+    // 计算动态容差
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    
+    // 带容差的相等比较
+    if (fabs(A - B) > tol) {
+        return 0;
+    }
+    
+    // 满足条件
+    return 1;
+}

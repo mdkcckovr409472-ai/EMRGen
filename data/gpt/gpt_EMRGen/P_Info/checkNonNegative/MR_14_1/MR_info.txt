@@ -1,0 +1,2 @@
+Operation 14: On parameter 'a' (array[double]): replace random element with its reciprocal (when element ≠ 0)
+Invariant: return.result1 == return.result2

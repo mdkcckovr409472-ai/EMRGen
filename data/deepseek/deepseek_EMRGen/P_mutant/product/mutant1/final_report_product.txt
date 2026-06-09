@@ -1,0 +1,259 @@
+double product(double elements[], int n) {
+    int size = n;
+    double product = 1;
+    for (int i = size; -i >= 0; ) {
+        product *= elements[i];
+    }
+    return product;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (double*): 所有元素乘2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (double*): 所有元素除以2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素除以2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 所有元素减1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 5: On parameter 'elements' (double*): 随机位置元素乘3.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机位置元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (double*): 随机位置元素除以2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机位置元素除以2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (double*): 随机位置元素加5.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机位置元素加5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (double*): 随机位置元素减2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机位置元素减2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (double*): 随机位置元素置为999(当元素小于999时)
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机位置元素置为999(当元素小于999时)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (double*): 随机位置元素置为-999(当元素大于-999时)
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机位置元素置为-999(当元素大于-999时)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'elements' (double*): 数组右移一位(末尾元素移到开头)
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「数组右移一位(末尾元素移到开头)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 14: On parameter 'elements' (double*): 数组左移一位(开头元素移到末尾)
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「数组左移一位(开头元素移到末尾)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 15: On parameter 'elements' (double*): 元素平方
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 16: On parameter 'elements' (double*): 取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 17: On parameter 'elements' (double*): 所有元素置为1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素置为1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 18: On parameter 'elements' (double*): 随机位置元素置为0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「随机位置元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'elements' (double*): 第一个元素置为0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「第一个元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 20: On parameter 'elements' (double*): 最后一个元素置为0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「最后一个元素置为0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'elements' (double*): 所有元素加随机值(-0.5到0.5之间)
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素加随机值(-0.5到0.5之间)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 22: On parameter 'elements' (double*): 所有元素乘随机值(0.5到1.5之间)
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素乘随机值(0.5到1.5之间)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 23: On parameter 'elements' (double*): 前一半元素加1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「前一半元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 24: On parameter 'elements' (double*): 后一半元素减1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「后一半元素减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (double*): 所有元素置为1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「所有元素置为1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (double*): 偶数索引元素加1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「偶数索引元素加1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'elements' (double*): 奇数索引元素减1.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「奇数索引元素减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 29: On parameter 'elements' (double*): 元素取平方根(限制非负)
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含elements（double*）的函数，若对 elements执行「元素取平方根(限制非负)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 27
+关系总数: 27

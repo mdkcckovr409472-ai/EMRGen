@@ -1,0 +1,22 @@
+int check(TestCase tc) {
+    // Source output Os
+    double Os = varianceDifference(tc.sample1, tc.sample2, tc.n);
+    
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    
+    // Follow-up output Of
+    double Of = varianceDifference(Tf_case.sample1, Tf_case.sample2, Tf_case.n);
+    
+    // Verify metamorphic relation Os == Of, using a tolerance for floating-point comparison
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (std::abs(Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    
+    // Free allocated memory in Tf_case
+    delete[] Tf_case.sample1;
+    
+    return is_valid;
+}

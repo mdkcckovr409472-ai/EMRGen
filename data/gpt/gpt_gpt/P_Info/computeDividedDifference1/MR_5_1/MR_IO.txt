@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Multiply all elements in y by 2 to form follow-up input
+    for (int i = 0; i < tf.n; i++) {
+        tf.y[i] = 2.0 * tf.y[i];
+    }
+    return tf;
+}

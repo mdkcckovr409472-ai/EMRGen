@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = max(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = max(Tf_case.elements, Tf_case.n);
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (fabs(2 * Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.elements;
+    return is_valid;
+}

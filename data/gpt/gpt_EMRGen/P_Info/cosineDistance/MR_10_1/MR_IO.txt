@@ -1,0 +1,22 @@
+TestCase z10Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_p1 = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_p1, t1.p1, t1.n * sizeof(double));
+    follow_case.p1 = follow_case_p1;
+    // ------------------------------------
+    
+    // Defensive code: ensure there is at least one element to process
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Specific operation: replace Inf with maximum double value
+    for (int i = 0; i < follow_case.n; ++i) {
+        if (isinf(follow_case.p1[i])) {
+            follow_case.p1[i] = std::numeric_limits<double>::max();
+        }
+    }
+    
+    return follow_case;
+}

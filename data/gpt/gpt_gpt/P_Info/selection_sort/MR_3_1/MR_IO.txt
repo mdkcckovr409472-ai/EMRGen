@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory for the modified list
+    int* new_list = (int*)malloc(tc.n * sizeof(int));
+    for (int i = 0; i < tc.n; i++) {
+        new_list[i] = tc.list[i] * 2;
+    }
+    tf.list = new_list;
+    return tf;
+}

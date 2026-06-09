@@ -1,0 +1,18 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.a == nullptr) {
+        return 0;
+    }
+
+    int Os = find_max(tc.a, tc.n);
+
+    TestCase tf = change(tc);
+    int Of = find_max(tf.a, tf.n);
+
+    int is_valid = (2 * Os == Of) ? 1 : 0;
+
+    if (tf.a != tc.a) {
+        delete[] tf.a;
+    }
+
+    return is_valid;
+}

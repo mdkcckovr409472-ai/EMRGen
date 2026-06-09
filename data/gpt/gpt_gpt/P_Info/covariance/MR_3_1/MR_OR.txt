@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = covariance(tc.elements1, tc.elements2, tc.n);
+    TestCase tf = change(tc);
+    double Of = covariance(tf.elements1, tf.elements2, tf.n);
+    int is_valid = 0;
+    const double epsilon = 1e-9;
+    if (std::abs(2.0 * Os - Of) < epsilon) {
+        is_valid = 1;
+    }
+    delete[] tf.elements1;
+    return is_valid;
+}

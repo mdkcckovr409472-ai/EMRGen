@@ -1,0 +1,14 @@
+TestCase z34Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // 这是根据规则5生成的具体操作代码
+    if (follow_case.k < 0) {
+        follow_case.k = -follow_case.k;
+    }
+    
+    return follow_case;}

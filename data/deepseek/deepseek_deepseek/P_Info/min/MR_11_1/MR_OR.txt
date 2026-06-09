@@ -1,0 +1,30 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.elements == nullptr) {
+        return 0;
+    }
+    
+    double Os = min(tc.elements, tc.n);
+    
+    TestCase Tf_case = change(tc);
+    
+    double Of = min(Tf_case.elements, Tf_case.n);
+    
+    double c = 5.0; // 必须与 change 函数中使用的常数一致
+    int is_valid = 0;
+    if (fabs((Os + c) - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    
+    // 清理 change 函数中修改的数组内存（原始数组由调用者管理）
+    // 由于 change 函数直接修改了传入数组的副本指针指向的数据，
+    // 这里需要将数组恢复原状，以便不影响后续可能的测试。
+    // 注意：这里假设 tc.elements 和 Tf_case.elements 指向同一块内存。
+    // 根据 change 的实现，确实如此，因此恢复数据。
+    if (Tf_case.n > 0 && Tf_case.elements != nullptr) {
+        for (int i = 0; i < Tf_case.n; ++i) {
+            Tf_case.elements[i] = tc.elements[i];
+        }
+    }
+    
+    return is_valid;
+}

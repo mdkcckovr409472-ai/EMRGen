@@ -1,0 +1,2 @@
+Operation 15: On parameter 'a' (int*): 数组向左循环移位（首元素移到末尾）
+Invariant: return.result1[] == return.result2[]

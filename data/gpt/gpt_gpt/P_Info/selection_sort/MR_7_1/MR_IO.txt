@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    if (tc.n <= 1) {
+        return tc;
+    }
+    int* shifted = (int*)malloc(tc.n * sizeof(int));
+    shifted[0] = tc.list[tc.n - 1];
+    for (int i = 1; i < tc.n; i++) {
+        shifted[i] = tc.list[i - 1];
+    }
+    TestCase tf = tc;
+    tf.list = shifted;
+    return tf;
+}

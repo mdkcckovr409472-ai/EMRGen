@@ -1,0 +1,2 @@
+Operation 46: On parameter 'elements' (double*): 随机位置元素置为均值
+Invariant: return.result1 >= return.result2

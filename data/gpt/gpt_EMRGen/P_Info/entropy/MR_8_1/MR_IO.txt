@@ -1,0 +1,21 @@
+TestCase z8Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_k = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_k, t1.k, t1.n * sizeof(double));
+    follow_case.k = follow_case_k;
+    // ------------------------------------
+    if (follow_case.n < 2) {
+        return follow_case;
+    }
+    // swap two random elements
+    int idx1 = rand() % follow_case.n;
+    int idx2 = rand() % follow_case.n;
+    while (idx2 == idx1) {
+        idx2 = rand() % follow_case.n;
+    }
+    double temp = follow_case.k[idx1];
+    follow_case.k[idx1] = follow_case.k[idx2];
+    follow_case.k[idx2] = temp;
+    return follow_case;
+}

@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    // Reuse the original TestCase struct but overwrite with sorted descending array
+    TestCase tf = tc;
+    // Allocate new memory for sorted array to avoid modifying original array in tc
+    int* sorted_a = (int*)malloc(tf.n * sizeof(int));
+    if (!sorted_a) return tf; // malloc failure safe guard
+    
+    memcpy(sorted_a, tf.a, tf.n * sizeof(int));
+    // Sort in descending order
+    std::sort(sorted_a, sorted_a + tf.n, std::greater<int>());
+    tf.a = sorted_a;
+    
+    return tf;
+}

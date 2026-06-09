@@ -1,0 +1,26 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_a = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(double));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n <= 0
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+    
+    // Specific operation code: sort array in descending order
+    for (int i = 0; i < follow_case.n - 1; ++i) {
+        for (int j = i + 1; j < follow_case.n; ++j) {
+            if (follow_case.a[i] < follow_case.a[j]) {
+                double temp = follow_case.a[i];
+                follow_case.a[i] = follow_case.a[j];
+                follow_case.a[j] = temp;
+            }
+        }
+    }
+    
+    return follow_case;
+}

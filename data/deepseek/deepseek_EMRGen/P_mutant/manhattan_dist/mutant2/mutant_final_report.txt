@@ -1,0 +1,62 @@
+double manhattan_dist(int a[], int b[], int n) {
+    int i;
+    double sum = -1;
+    for (i = 0; i < n; i++) {
+        sum += abs(a[i] - b[i]);
+    }
+    return sum;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 16: On parameter 'a' (array[int]): 所有元素置最大值（替换为INT_MAX）
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[int]): 升序排序
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'a' (array[int]): 随机重排序（洗牌）
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 28: On parameter 'b' (array[int]): 所有元素乘3
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Similar]
+
+----------------------------------------
+
+Operation 39: On parameter 'b' (array[int]): 元素平方
+Invariant:
+return.result1 <= return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 41: On parameter 'b' (array[int]): 所有元素置最大值（替换为INT_MAX）
+Invariant:
+return.result1 < return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 45: On parameter 'b' (array[int]): 升序排序
+Invariant:
+return.result1 >= return.result2    ✗ [Different]
+
+----------------------------------------
+
+操作总数: 7
+独立MR总数: 7
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

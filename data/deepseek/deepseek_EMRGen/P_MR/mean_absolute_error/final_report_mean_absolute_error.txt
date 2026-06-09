@@ -1,0 +1,53 @@
+double mean_absolute_error(int a[], int b[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += abs(a[i] - b[i]);
+    }
+    return (double) sum / n;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 19: On parameter 'a' (int*): 数组所有元素立方
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含a（int*）的函数，若对 a执行「数组所有元素立方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 40: On parameter 'b' (int*): 随机两元素交换
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 47: On parameter 'b' (int*): 数组所有元素平方
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「数组所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 48: On parameter 'b' (int*): 数组所有元素立方
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含b（int*）的函数，若对 b执行「数组所有元素立方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+
+操作总数: 5
+关系总数: 4

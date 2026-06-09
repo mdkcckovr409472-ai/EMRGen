@@ -1,0 +1,153 @@
+double sumOfLogarithms(double elements[], int n) {
+    double logsum = 0;
+    for(int i = 0; i < n; i++) {
+        logsum += log(elements[i]);
+    }
+    /*return logsum;*/
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (double*): 所有元素加1.0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (double*): 所有元素乘2.0
+Invariant:
+6.397257943178464E15 * return.result1 - 6.397257943178465E15 * return.result2 + 1.3302723919886608E16 == 0    ✗ [Different]
+return.result1 < return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 4: On parameter 'elements' (double*): 所有元素除2.0
+Invariant:
+6.397257943178467E15 * return.result1 - 6.397257943178465E15 * return.result2 - 1.3302723919886616E16 == 0    ✗ [Different]
+return.result1 > return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (double*): 随机两元素交换
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (double*): 数组向左循环移位（首元素移到末尾）
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (double*): 数组反转
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (double*): 随机重排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (double*): 每个元素平方
+Invariant:
+2 * return.result1 - return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 12: On parameter 'elements' (double*): 每个元素开平方
+Invariant:
+return.result1 - 2 * return.result2 == 0    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 13: On parameter 'elements' (double*): 每个元素取绝对值
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 14: On parameter 'elements' (double*): 奇数索引元素加1.0
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 16: On parameter 'elements' (double*): 前一半元素乘0.5
+Invariant:
+6.397257943178466E15 * return.result1 - 6.397257943178465E15 * return.result2 - 4.434241306628872E15 == 0    ✗ [Different]
+return.result1 > return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 17: On parameter 'elements' (double*): 后一半元素除0.5
+Invariant:
+6.397257943178467E15 * return.result1 - 6.397257943178465E15 * return.result2 + 8.86848261325772E15 == 0    ✗ [Different]
+return.result1 < return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 18: On parameter 'elements' (double*): 替换负数元素为1.0
+Invariant:
+return.result1 == return.result2    ✓ [Different]
+
+----------------------------------------
+
+Operation 19: On parameter 'elements' (double*): 替换零元素为0.001
+Invariant:
+return.result1 == return.result2    ✓ [Different]
+
+----------------------------------------
+
+Operation 20: On parameter 'elements' (double*): 所有元素加自身索引值
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 21: On parameter 'elements' (double*): 随机位置元素置为999（当元素小于999时）
+Invariant:
+return.result1 <= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 22: On parameter 'elements' (double*): 随机位置元素置为0.001（当元素大于0.001时）
+Invariant:
+return.result1 >= return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+Operation 24: On parameter 'elements' (double*): 数组升序排序
+Invariant:
+return.result1 == return.result2    ✓ ○ [Same]
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (double*): 提取前3个元素作为子数组
+Invariant:
+return.result1 == return.result2    ✗ [Different]
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (double*): 所有元素乘以2.0后再加1.0
+Invariant:
+return.result1 < return.result2    ✓ ○ [Different]
+
+----------------------------------------
+
+操作总数: 21
+独立MR总数: 29
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================

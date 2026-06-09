@@ -1,0 +1,215 @@
+double* ebeAdd(double a[], double b[], int n1, int n2) {
+    if (n1 != n2) {
+        return NULL; 
+    }
+
+    double* result = (double*)malloc(n1 * sizeof(double));
+    if (result == NULL) {
+        return NULL;  
+    }
+
+    for (int i = 0; i < n1; i++) {
+        result[i] = a[i] + b[i];  
+    }
+
+    return result; 
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'a' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1[] - return.result2[] + 1 == 0 ✓ ○
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 1 == 0
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 2: On parameter 'a' (array[double]): subtract 1.0 from all elements
+Invariant: 
+return.result1[] - return.result2[] - 1 == 0 ✓ ○
+return.result1[] > return.result2[] (lexically) ✓ ○
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「subtract 1.0 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 1 == 0
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 6: On parameter 'a' (array[double]): add 5.0 to a random element
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「add 5.0 to a random element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 7: On parameter 'a' (array[double]): subtract 2.0 from a random element
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「subtract 2.0 from a random element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 13: On parameter 'a' (array[double]): sort the array in ascending order
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「sort the array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 14: On parameter 'a' (array[double]): sort the array in descending order
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「sort the array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 17: On parameter 'a' (array[double]): set all elements to their absolute values
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「set all elements to their absolute values」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 20: On parameter 'a' (array[double]): increment one element by 1 and decrement another element by 1 (bounds checked)
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✗
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「increment one element by 1 and decrement another element by 1 (bounds checked)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 21: On parameter 'a' (array[double]): set a random element to 999 (if less than 999)
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含a（array[double]）的函数，若对 a执行「set a random element to 999 (if less than 999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 30: On parameter 'b' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1[] - return.result2[] + 1 == 0 ✓ ○
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] + 1 == 0
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (array[double]): subtract 1.0 from all elements
+Invariant: 
+return.result1[] - return.result2[] - 1 == 0 ✓ ○
+return.result1[] > return.result2[] (lexically) ✓ ○
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「subtract 1.0 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - Of[] - 1 == 0
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 35: On parameter 'b' (array[double]): add 5.0 to a random element
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「add 5.0 to a random element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 36: On parameter 'b' (array[double]): subtract 2.0 from a random element
+Invariant: 
+return.result1[] > return.result2[] (lexically) ✓ ○
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「subtract 2.0 from a random element」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 42: On parameter 'b' (array[double]): sort the array in ascending order
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「sort the array in ascending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 43: On parameter 'b' (array[double]): sort the array in descending order
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「sort the array in descending order」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 46: On parameter 'b' (array[double]): set all elements to their absolute values
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✗
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「set all elements to their absolute values」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 49: On parameter 'b' (array[double]): increment one element by 1 and decrement another element by 1 (bounds checked)
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✗
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「increment one element by 1 and decrement another element by 1 (bounds checked)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 50: On parameter 'b' (array[double]): set a random element to 999 (if less than 999)
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含b（array[double]）的函数，若对 b执行「set a random element to 999 (if less than 999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+
+操作总数: 18
+关系总数: 32

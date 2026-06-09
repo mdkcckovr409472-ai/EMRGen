@@ -1,0 +1,22 @@
+int z1check(double result1, double result2) {
+    const double epsilon = 1e-5;
+
+    // Extract A and B from condition: return.result1 == return.result2
+    // Rearranged: compare result1 and result2 directly
+    double A = result1;
+    double B = result2;
+
+    // NaN check
+    if (std::isnan(A) || std::isnan(B)) return 0;
+
+    // Inf check with direct equality
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B) return 1;
+        else return 0;
+    }
+
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    if (fabs(A - B) > tol) return 0;
+
+    return 1;
+}

@@ -1,0 +1,31 @@
+TestCase z11Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n < 2
+    if (follow_case.n < 2) {
+        // Less than 2 elements, nothing to sort
+        return follow_case;
+    }
+    
+    // Specific operation code: sort array ascending
+    for (int i = 0; i < follow_case.n - 1; ++i) {
+        int minIdx = i;
+        for (int j = i + 1; j < follow_case.n; ++j) {
+            if (follow_case.elements[j] < follow_case.elements[minIdx]) {
+                minIdx = j;
+            }
+        }
+        if (minIdx != i) {
+            double temp = follow_case.elements[i];
+            follow_case.elements[i] = follow_case.elements[minIdx];
+            follow_case.elements[minIdx] = temp;
+        }
+    }
+    
+    return follow_case;
+}

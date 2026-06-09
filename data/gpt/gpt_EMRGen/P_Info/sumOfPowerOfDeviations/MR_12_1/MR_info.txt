@@ -1,0 +1,2 @@
+Operation 12: On parameter 'data' (double[]): right circular shift array (move last element to front)
+Invariant: return.result1 == return.result2

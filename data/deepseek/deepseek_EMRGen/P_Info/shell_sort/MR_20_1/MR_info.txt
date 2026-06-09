@@ -1,0 +1,2 @@
+Operation 20: On parameter 'a' (int*): 将后半部分元素减1
+Invariant: return.result1[] >= return.result2[] (elementwise)

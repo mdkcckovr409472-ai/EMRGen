@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    tf.sample2 = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        tf.sample2[i] = tc.sample2[i] + 1;
+    }
+    return tf;
+}

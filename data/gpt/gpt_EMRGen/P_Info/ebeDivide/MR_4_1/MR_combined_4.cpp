@@ -1,0 +1,171 @@
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cfloat>
+#include <cctype>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+
+double* ebeDivide(double a[], double b[], int n1, int n2) {
+    if (n1 != n2) {
+        return NULL;  
+    }
+
+    double* result = (double*)malloc(n1 * sizeof(double));
+    if (result == NULL) {
+        return NULL;  
+    }
+
+    for (int i = 0; i < n1; i++) {
+        if (b[i] == 0.0) {
+            result[i] = INFINITY;  
+        } else {
+            result[i] = a[i] / b[i];
+        }
+    }
+
+    return result;  
+}
+
+
+typedef struct {
+    double* a; double* b; int n1; int n2;
+} TestCase;
+
+TestCase test_cases[] = {
+    {(double[]){10.5, -3.2, 1000.0}, (double[]){2.0, 4.0, -50.0}, 3, 3},
+    {(double[]){-25.0, 300.5, 7.7, 82.1}, (double[]){5.0, -150.2, 0.5, 9.1}, 4, 4},
+    {(double[]){123.45, 0.001, 5000.0, -1000.0}, (double[]){-1.5, 200.0, 2.5, -2.5}, 4, 4},
+    {(double[]){-900.0, 707.1, 8000.0}, (double[]){0.1, -70.7, 400.0}, 3, 3},
+    {(double[]){3.14, -2.71, 1.618}, (double[]){1.0, 0.1, -0.5}, 3, 3},
+    {(double[]){250.0, -20.3, 760.0, -880.0}, (double[]){2.5, 2.0, -4.0, 8.0}, 4, 4},
+    {(double[]){5.5, 0.0001, -700.0}, (double[]){1.1, 0.0002, -350.0}, 3, 3},
+    {(double[]){600.0, -50.0, 0.25, 192.0}, (double[]){-3.0, 25.0, 0.5, -96.0}, 4, 4},
+    {(double[]){18.0, 0.12, -900.0, 720.0}, (double[]){6.0, 0.03, -300.0, 360.0}, 4, 4},
+    {(double[]){1000.0, 500.0, 250.0}, (double[]){10.0, 5.0, 2.5}, 3, 3},
+    {(double[]){-45.0, 33.3, -25.5, 14.5}, (double[]){-5.0, 3.7, -2.5, 1.0}, 4, 4},
+    {(double[]){0.5, 150.0, -0.75}, (double[]){0.25, 50.0, -0.25}, 3, 3},
+    {(double[]){55.4, -123.7, 88.9}, (double[]){2.0, -41.23, 44.45}, 3, 3},
+    {(double[]){12.0, -240.0}, (double[]){4.0, 60.0}, 2, 2},
+    {(double[]){5.0, 5.0, 5.0, 5.0}, (double[]){1.0, 2.0, 5.0, 10.0}, 4, 4},
+    {(double[]){111.0, -222.0, 333.0}, (double[]){3.0, -6.0, 11.0}, 3, 3},
+    {(double[]){77.7, -88.8, 99.9}, (double[]){7.7, -8.8, 9.9}, 3, 3},
+    {(double[]){9000.0, 8000.0, 7000.0}, (double[]){3000.0, 4000.0, 5000.0}, 3, 3},
+    {(double[]){6.28, -3.14, 1.57}, (double[]){2.0, -1.0, 0.5}, 3, 3},
+    {(double[]){0.33, 1.44, -2.55}, (double[]){0.11, 0.48, -0.85}, 3, 3},
+    {(double[]){150.0, -450.0, 900.0}, (double[]){50.0, -150.0, 300.0}, 3, 3},
+    {(double[]){3.0, -9.0, 12.0, -15.0}, (double[]){1.0, -3.0, 4.0, -5.0}, 4, 4},
+    {(double[]){500.5, -400.4, 300.3}, (double[]){25.0, -20.0, 15.0}, 3, 3},
+    {(double[]){999.9, -888.8, 777.7}, (double[]){9.999, -8.888, 7.777}, 3, 3},
+    {(double[]){4.0, 16.0, 64.0, 256.0}, (double[]){2.0, 4.0, 8.0, 16.0}, 4, 4},
+    {(double[]){27.0, -9.0, 3.0, -1.0}, (double[]){9.0, -3.0, 1.0, -0.5}, 4, 4},
+    {(double[]){1234.5, -6789.0, 5432.1}, (double[]){123.45, -678.9, 543.21}, 3, 3},
+    {(double[]){7.0, 14.0, 21.0}, (double[]){1.0, 7.0, 3.0}, 3, 3},
+    {(double[]){19.0, -38.0, 57.0, -76.0}, (double[]){1.9, -3.8, 5.7, -7.6}, 4, 4}
+};
+int num_test_cases = 29;
+
+
+    typedef struct {
+        double* result1;
+        double* result2;
+        int** memory_to_free;
+        int memory_count; 
+        int status;
+} TestResult;
+
+TestCase z4Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_a = (double*)malloc(t1.n1 * sizeof(double));
+    if (t1.n1 > 0 && t1.a != NULL) {
+        memcpy(follow_case_a, t1.a, t1.n1 * sizeof(double));
+    }
+    else {
+        follow_case_a = NULL;
+    }
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n1 <= 0
+    if (follow_case.n1 <= 0 || follow_case.a == NULL) {
+        // No elements to process or null pointer, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    for (int i = 0; i < follow_case.n1; i++) {
+        if (follow_case.a[i] != 0.0) {
+            follow_case.a[i] = follow_case.a[i] / 2.0;
+        }
+    }
+
+    return follow_case;
+}
+
+int z4check(double* result1, double* result2, int n) {
+    if (n <= 0) return 1;
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    double epsilon = 1e-5;
+    for (int i = 0; i < n; i++) {
+        double A = result1[i];
+        double B = 2 * result2[i];
+
+        if (std::isnan(A) || std::isnan(B)) return 0;
+        if (std::isinf(A) || std::isinf(B)) {
+            if (A == B) continue;
+            else return 0;
+        }
+
+        double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+        if (fabs(A - B) > tol) return 0;
+    }
+
+    return 1;
+}
+
+TestResult z4runTest(int test_case_id) { // MODIFIED: Return type
+    TestCase follow_case = z4Change(test_cases[test_case_id]);
+    // 原始调用
+    double* source = ebeDivide(test_cases[test_case_id].a, test_cases[test_case_id].b, test_cases[test_case_id].n1, test_cases[test_case_id].n2); // MODIFIED: Explicit type
+    // 变换后调用
+    double* follow = ebeDivide(follow_case.a, follow_case.b, follow_case.n1, follow_case.n2);
+    
+    int** memory_list = (int**)malloc(1 * sizeof(int*));
+    
+    
+    TestResult test_result;
+    test_result.memory_to_free = memory_list;
+    test_result.memory_count = 1;
+    
+    test_result.result2 = follow; // MODIFIED    
+    test_result.result1 = source; // MODIFIED
+    int status = z4check(source, follow, test_cases[test_case_id].n1);
+    test_result.status = status;
+    
+    return test_result; // MODIFIED: Return TestResult
+}
+
+
+int main() {
+    srand(time(NULL));
+    int status_end = 1;
+    for (int i = 0; i < num_test_cases; i++) {
+        TestResult result = z4runTest(i);
+        if (result.status == 0) status_end = 0;
+        for (int j = 0; j < result.memory_count; j++) {
+            free(result.memory_to_free[j]);
+        }
+        free(result.memory_to_free);  // 释放指针数组本身
+    }
+    std::cout << status_end << std::endl;
+    return 0;
+}

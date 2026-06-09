@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0 && tf.x != nullptr) {
+        // Allocate new array for x with all elements incremented by 1
+        double* new_x = new double[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            new_x[i] = tf.x[i] + 1.0;
+        }
+        tf.x = new_x;
+    }
+    return tf;
+}

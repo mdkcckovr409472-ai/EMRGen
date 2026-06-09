@@ -1,0 +1,17 @@
+int check(TestCase tc) {
+    double Os = safeNorm(tc.v, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = safeNorm(Tf_case.v, Tf_case.n);
+    int is_valid = 0;
+    double k = 2.0;
+    double expected = k * Os;
+    double tolerance = 1e-10;
+    if (fabs(Of - expected) < tolerance) {
+        is_valid = 1;
+    }
+    if (Tf_case.v != nullptr && Tf_case.v != tc.v) {
+        delete[] Tf_case.v;
+        Tf_case.v = nullptr;
+    }
+    return is_valid;
+}

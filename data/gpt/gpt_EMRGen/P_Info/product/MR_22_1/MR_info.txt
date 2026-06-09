@@ -1,0 +1,2 @@
+Operation 22: On parameter 'elements' (array[double]): square each element
+Invariant: return.result2 == return.result1**2

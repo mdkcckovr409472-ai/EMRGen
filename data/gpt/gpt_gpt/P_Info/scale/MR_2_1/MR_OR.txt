@@ -1,0 +1,15 @@
+int check(TestCase tc) {
+    double* Os = scale(tc.val, tc.arr, tc.n);
+    TestCase Tf_case = change(tc);
+    double* Of = scale(Tf_case.val, Tf_case.arr, Tf_case.n);
+
+    int is_valid = 1;
+    for (int i = 0; i < tc.n; i++) {
+        // Of[i] == Os[i] - arr[i] * 1  => Of[i] + arr[i] == Os[i]
+        if (fabs(Of[i] - (Os[i] - tc.arr[i])) > 1e-9) {
+            is_valid = 0;
+            break;
+        }
+    }
+    return is_valid;
+}

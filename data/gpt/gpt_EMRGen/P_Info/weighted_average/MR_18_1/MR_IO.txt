@@ -1,0 +1,21 @@
+TestCase z18Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_a = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(double));
+    follow_case.a = follow_case_a;
+    // ------------------------------------
+    
+    // Defensive check: need at least 4 elements for the subarray
+    if (follow_case.n < 4) {
+        return follow_case;
+    }
+    
+    // Add 5.0 to a subarray of length 4 starting at a random index
+    int start_idx = rand() % (follow_case.n - 4 + 1);
+    for (int i = 0; i < 4; ++i) {
+        follow_case.a[start_idx + i] += 5.0;
+    }
+    
+    return follow_case;
+}

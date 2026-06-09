@@ -1,0 +1,31 @@
+int check(TestCase tc) {
+    int is_valid = 0;
+    int* Os = nullptr;
+    int* Of = nullptr;
+
+    if (tc.array && tc.n > 0) {
+        Os = insertion_sort(tc.array, tc.n);
+        if (Os) {
+            TestCase Tf_case = change(tc);
+            if (Tf_case.array && Tf_case.n > 0) {
+                Of = insertion_sort(Tf_case.array, Tf_case.n);
+                if (Of) {
+                    is_valid = 1;
+                    for (int i = 0; i < tc.n; ++i) {
+                        if (Os[i] != Of[i]) {
+                            is_valid = 0;
+                            break;
+                        }
+                    }
+                }
+                if (Tf_case.array != tc.array) {
+                    free(Tf_case.array);
+                }
+            }
+        }
+    }
+
+    if (Os) free(Os);
+    if (Of) free(Of);
+    return is_valid;
+}

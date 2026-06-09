@@ -1,0 +1,123 @@
+double evaluateInternal(double x[], double y[], double z, int n) {
+    int nearest = 0;
+    double c[1000];
+    double d[1000];
+    double min_dist = INFINITY;
+    for (int i = 0; i < n; i++) {
+        c[i] = y[i];
+        d[i] = y[i];
+        double dist = abs(z - x[i]);
+        if (dist < min_dist) {
+            nearest = i;
+            min_dist = dist;
+        }
+    }
+    double value = y[nearest];
+    for (int i = 1; i < n; i++) {
+        for (int j = 0; j < n - i; j++) {
+            double tc = x[j] - z;
+            double td = x[i + j] - z;
+            double divider = x[j] - x[i + j];
+            double w = (c[j + 1] - d[j]) / divider;
+            c[j] = tc * w;
+            d[j] = td * w;
+        }
+        if (nearest < 0.5 * (n - i + 1)) {
+            value += c[nearest];
+        } else {
+            nearest--;
+            value += d[nearest];
+        }
+    }
+    return value;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 24: On parameter 'x' (double[]): clip values above 1000 to 1000
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含x（double[]）的函数，若对 x执行「clip values above 1000 to 1000」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'x' (double[]): clip values below -1000 to -1000
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含x（double[]）的函数，若对 x执行「clip values below -1000 to -1000」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 27: On parameter 'x' (double[]): replace Inf entries with 1e308
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含x（double[]）的函数，若对 x执行「replace Inf entries with 1e308」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 30: On parameter 'y' (double[]): add 2.0 to all elements
+Invariant: 
+return.result1 - return.result2 + 2 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含y（double[]）的函数，若对 y执行「add 2.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of + 2 == 0
+
+----------------------------------------
+
+Operation 31: On parameter 'y' (double[]): subtract 1.0 from all elements
+Invariant: 
+return.result1 - return.result2 - 1 == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含y（double[]）的函数，若对 y执行「subtract 1.0 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os - Of - 1 == 0
+
+----------------------------------------
+
+Operation 53: On parameter 'y' (double[]): clip values above 500 to 500
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含y（double[]）的函数，若对 y执行「clip values above 500 to 500」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 54: On parameter 'y' (double[]): clip values below -500 to -500
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含y（double[]）的函数，若对 y执行「clip values below -500 to -500」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 56: On parameter 'y' (double[]): replace Inf entries with 1e308
+Invariant: 
+return.result1 == return.result2 ✗
+
+MR ：对于初始输入Ts中包含y（double[]）的函数，若对 y执行「replace Inf entries with 1e308」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 76: On parameter 'z' (double): ceil (smallest integer ≥ z)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含z（double）的函数，若对 z执行「ceil (smallest integer ≥ z)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+
+操作总数: 9
+关系总数: 9

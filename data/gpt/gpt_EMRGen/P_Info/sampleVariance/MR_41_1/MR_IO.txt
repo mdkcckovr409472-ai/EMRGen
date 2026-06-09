@@ -1,0 +1,8 @@
+TestCase z41Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check for sqrt domain
+    if (follow_case.mean >= 0) {
+        follow_case.mean = sqrt(follow_case.mean);
+    }
+    return follow_case;
+}

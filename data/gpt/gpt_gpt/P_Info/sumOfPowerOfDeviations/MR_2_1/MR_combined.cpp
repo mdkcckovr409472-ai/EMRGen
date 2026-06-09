@@ -1,0 +1,121 @@
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cfloat>
+#include <cctype>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+
+double sumOfPowerOfDeviations(double data[], int k, double c, int n) {
+    double sum = 0;
+    for(int i = 0; i < n; i++) {
+        sum += pow(data[i] - c, k);
+        }
+    return sum;
+}
+
+
+typedef struct {
+    double* data; int k; double c; int n;
+} TestCase;
+
+TestCase test_cases[] = {
+    {(double[]){1.0, 2.0, 3.0}, 2, 0.0, 3},
+    {(double[]){}, 1, 5.0, 0},
+    {(double[]){-1.5, 0.0, 2.5}, 1, 1.0, 3},
+    {(double[]){3.0, -3.0, 3.0}, 3, 0.0, 3},
+    {(double[]){0.5, -0.5, 0.5, -0.5}, 2, 0.0, 4},
+    {(double[]){10.0, -10.0}, 1, 5.0, 2},
+    {(double[]){2.0, 2.0, 2.0}, 0, 2.0, 3},
+    {(double[]){-2.0, -4.0, -6.0}, 2, -3.0, 3},
+    {(double[]){1.1, 2.2, 3.3, 4.4}, 1, 2.5, 4},
+    {(double[]){5.0, 0.0, -5.0}, 4, 1.0, 3},
+    {(double[]){0.0}, 5, 0.0, 1},
+    {(double[]){-1.0, 1.0, -1.0, 1.0}, 3, 0.0, 4},
+    {(double[]){3.5, -2.5, 0.0}, -1, 1.0, 3},
+    {(double[]){7.0, 8.0, 9.0}, 2, 8.0, 3},
+    {(double[]){-3.3, 3.3}, 1, -3.3, 2},
+    {(double[]){0.1, 0.2, 0.3}, 2, 0.15, 3},
+    {(double[]){4.0, -1.0, 2.0, -3.0}, 1, -0.5, 4},
+    {(double[]){6.0, 6.0}, 0, 0.0, 2},
+    {(double[]){-0.7, 0.7, -0.7}, 2, 0.0, 3},
+    {(double[]){2.5, -2.5, 2.5, -2.5, 0.0}, 3, 1.0, 5},
+    {(double[]){1.0, 2.0}, 10, 0.0, 2},
+    {(double[]){-5.0, 5.0, -5.0, 5.0}, 2, 0.0, 4},
+    {(double[]){3.14, -3.14}, 1, 0.0, 2},
+    {(double[]){0.0, 0.0, 0.0}, 5, 0.0, 3},
+    {(double[]){9.0, -9.0, 1.0}, 2, 5.0, 3},
+    {(double[]){1.5, -1.5, 2.5, -2.5}, 1, 0.0, 4},
+    {(double[]){-2.2, 3.3, -4.4, 5.5}, 3, -1.0, 4},
+    {(double[]){0.25, -0.25, 0.75, -0.75}, 2, 0.5, 4},
+    {(double[]){8.0}, 0, 8.0, 1},
+    {(double[]){-1.0, 0.0, 1.0}, 1, 0.0, 3}
+};
+int num_test_cases = 30;
+
+
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new memory to store a copy of data
+    double* new_data = new double[tf.n];
+    for(int i = 0; i < tf.n; i++){
+        new_data[i] = tf.data[i];
+    }
+    // Sort the copy in ascending order
+    for(int i = 0; i < tf.n - 1; i++) {
+        for(int j = 0; j < tf.n - i - 1; j++) {
+            if(new_data[j] > new_data[j+1]){
+                double temp = new_data[j];
+                new_data[j] = new_data[j+1];
+                new_data[j+1] = temp;
+            }
+        }
+    }
+    tf.data = new_data;
+    return tf;
+}
+
+int check(TestCase tc) {
+    // Extract source input
+    double* Ts = tc.data;
+    int k = tc.k;
+    double c = tc.c;
+    int n = tc.n;
+    // Compute source output Os
+    double Os = sumOfPowerOfDeviations(Ts, k, c, n);
+    // Get follow-up test case Tf using change()
+    TestCase Tf = change(tc);
+    double* Tf_data = Tf.data;
+    // Compute follow-up output Of
+    double Of = sumOfPowerOfDeviations(Tf_data, k, c, n);
+    // Verify metamorphic relation Os == Of with tolerance for floating-point comparison
+    int is_valid = 0;
+    const double EPSILON = 1e-12;
+    if(fabs(Os - Of) < EPSILON) {
+        is_valid = 1;
+    }
+    // Free dynamically allocated memory in Tf
+    if(Tf_data != Ts) {
+        delete[] Tf_data;
+    }
+    return is_valid;
+}
+
+int main() {
+    int status_end = 1;
+    for (int i = 0; i < num_test_cases; i++) {
+        int is_valid = check(test_cases[i]);
+        if (is_valid == 0) {
+            status_end = 0; 
+        }
+    }
+    std::cout << status_end << std::endl;
+    return 0;
+}

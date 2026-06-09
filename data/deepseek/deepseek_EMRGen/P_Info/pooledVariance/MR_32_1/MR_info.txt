@@ -1,0 +1,2 @@
+Operation 32: On parameter 'data2' (double*): 所有元素减1.0
+Invariant: return.result1 == return.result2

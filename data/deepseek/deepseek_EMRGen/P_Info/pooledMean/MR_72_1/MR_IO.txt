@@ -1,0 +1,22 @@
+TestCase z72Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    double* follow_case_data2 = (double*)malloc(t1.n2 * sizeof(double));
+    memcpy(follow_case_data2, t1.data2, t1.n2 * sizeof(double));
+    follow_case.data2 = follow_case_data2;
+    // ------------------------------------
+    
+    // 这是根据规则6a生成的防御性代码，防止n2<1时出错
+    if (follow_case.n2 < 1) {
+        // 数组为空，无法进行移位操作，直接返回副本
+        return follow_case;
+    }
+    
+    // 这是根据规则5生成的具体操作代码
+    double first_element = follow_case.data2[0];
+    for (int i = 0; i < follow_case.n2 - 1; i++) {
+        follow_case.data2[i] = follow_case.data2[i + 1];
+    }
+    follow_case.data2[follow_case.n2 - 1] = first_element;
+    
+    return follow_case;}

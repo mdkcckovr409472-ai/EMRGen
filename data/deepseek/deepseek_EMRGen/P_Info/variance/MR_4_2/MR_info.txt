@@ -1,0 +1,2 @@
+Operation 4: On parameter 'x' (double*): 所有元素除4.0
+Invariant: return.result1 >= return.result2

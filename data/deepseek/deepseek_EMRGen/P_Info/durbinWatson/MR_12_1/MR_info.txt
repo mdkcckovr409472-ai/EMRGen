@@ -1,0 +1,2 @@
+Operation 12: On parameter 'elements' (double*): 所有元素乘黄金分割比
+Invariant: 5.39729777351867E14 * return.result1 - 2.06158430208E14 * return.result2 == 0

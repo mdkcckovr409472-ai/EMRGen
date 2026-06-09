@@ -1,0 +1,6 @@
+TestCase z38Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Operation: set left to n (maximum)
+    follow_case.left = follow_case.n;
+    return follow_case;
+}

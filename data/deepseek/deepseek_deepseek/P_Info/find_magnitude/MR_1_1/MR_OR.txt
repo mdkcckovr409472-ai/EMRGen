@@ -1,0 +1,12 @@
+int check(TestCase tc) {
+    double Os = find_magnitude(tc.a, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = find_magnitude(Tf_case.a, Tf_case.n);
+    int is_valid = 0;
+    int m = 2; // 必须与 change 函数中使用的 m 值一致
+    if (abs(m) * Os == Of) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.a;
+    return is_valid;
+}

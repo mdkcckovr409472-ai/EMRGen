@@ -1,0 +1,20 @@
+bool checkNonNegative(double a[], int n){
+    
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] < 0)
+        {
+            return false;
+        }
+    }
+    return true; 
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+
+操作总数: 0
+关系总数: 0

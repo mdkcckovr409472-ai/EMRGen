@@ -1,0 +1,2 @@
+Operation 34: On parameter 'observed' (double*): 所有元素取绝对值
+Invariant: return.result1 == return.result2

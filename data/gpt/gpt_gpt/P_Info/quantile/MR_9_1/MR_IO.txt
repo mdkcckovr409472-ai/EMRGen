@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.phi - 0.1 >= 0) {
+        tf.phi = tf.phi - 0.1;
+    }
+    return tf;
+}

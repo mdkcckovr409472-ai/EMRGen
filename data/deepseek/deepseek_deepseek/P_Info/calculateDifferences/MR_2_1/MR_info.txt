@@ -1,0 +1,5 @@
+[Operation]
+MR ：对于初始输入Ts中包含y（double*）的函数，若对 y执行「所有元素加k（k为任意常数）」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+
+[Invariant]
+Os[i] + k == Of[i]

@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = average(tc.a, tc.n);
+    TestCase tf = change(tc);
+    double Of = average(tf.a, tf.n);
+    int is_valid = 0;
+    if (fabs(Of - (Os + 2.0/tf.n)) < 1e-9) {
+        is_valid = 1;
+    }
+    delete[] tf.a;
+    return is_valid;
+}

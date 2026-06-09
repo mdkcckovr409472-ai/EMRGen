@@ -1,0 +1,6 @@
+int z17check(bool result1, bool result2) {
+    if (!(result1 == result2)) {
+        return 0;
+    }
+    return 1;
+}

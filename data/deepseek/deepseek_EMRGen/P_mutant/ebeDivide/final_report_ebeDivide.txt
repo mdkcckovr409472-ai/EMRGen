@@ -1,0 +1,111 @@
+double* ebeDivide(double a[], double b[], int n1, int n2) {
+    if (n1 != n2) {
+        return NULL;  
+    }
+
+    double* result = (double*)malloc(n1 * sizeof(double));
+    if (result == NULL) {
+        return NULL;  
+    }
+
+    for (int i = 0; i < n1; i++) {
+        if (b[i] == 0.0) {
+            result[i] = INFINITY;  
+        } else {
+            result[i] = a[i] / b[i];
+        }
+    }
+
+    return result;  
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'a' (double*): 所有元素乘3.0
+Invariant: 
+3 * return.result1[] - return.result2[] == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+3 * Os[] - Of[] == 0
+
+----------------------------------------
+
+Operation 4: On parameter 'a' (double*): 所有元素除4.0
+Invariant: 
+return.result1[] - 4 * return.result2[] == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 4 * Of[] == 0
+
+----------------------------------------
+
+Operation 10: On parameter 'a' (double*): 所有元素加自身（即乘2）
+Invariant: 
+2 * return.result1[] - return.result2[] == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「所有元素加自身（即乘2）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+2 * Os[] - Of[] == 0
+
+----------------------------------------
+
+Operation 24: On parameter 'a' (double*): 数组升序排序
+Invariant: 
+return.result1[] >= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含a（double*）的函数，若对 a执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (lexically)
+
+----------------------------------------
+
+Operation 31: On parameter 'b' (double*): 所有元素乘0.1
+Invariant: 
+10 * return.result1[] - return.result2[] == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素乘0.1」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+10 * Os[] - Of[] == 0
+
+----------------------------------------
+
+Operation 32: On parameter 'b' (double*): 所有元素除10.0
+Invariant: 
+10 * return.result1[] - return.result2[] == 0 ✓ ○
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「所有元素除10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+10 * Os[] - Of[] == 0
+
+----------------------------------------
+
+Operation 43: On parameter 'b' (double*): 随机位置元素置0.0
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「随机位置元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 51: On parameter 'b' (double*): 数组升序排序
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 54: On parameter 'b' (double*): 清空数组（所有元素置0）
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✗
+
+MR ：对于初始输入Ts中包含b（double*）的函数，若对 b执行「清空数组（所有元素置0）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+
+
+操作总数: 10
+关系总数: 9

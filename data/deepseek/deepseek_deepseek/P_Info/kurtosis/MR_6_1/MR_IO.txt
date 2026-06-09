@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // 分配新数组用于降序排序，以复用原结构体指针
+    double* sorted_data = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        sorted_data[i] = tc.data[i];
+    }
+    // 降序排序
+    std::sort(sorted_data, sorted_data + tc.n, std::greater<double>());
+    tf.data = sorted_data;
+    // 注意：tf.n 保持不变
+    return tf;
+}

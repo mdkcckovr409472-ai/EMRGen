@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 1) {
+        for (int i = 0; i < tf.n / 2; i++) {
+            double tmp = tf.k[i];
+            tf.k[i] = tf.k[tf.n - 1 - i];
+            tf.k[tf.n - 1 - i] = tmp;
+        }
+    }
+    return tf;
+}

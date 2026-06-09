@@ -1,0 +1,2 @@
+Operation 47: On parameter 'lowerLim' (int): 置为INT_MIN
+Invariant: return.result1[] >= return.result2[] (elementwise)

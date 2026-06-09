@@ -1,0 +1,2 @@
+Operation 6: On parameter 'expected' (array[double]): replace each element with its absolute value
+Invariant: return.result1 == return.result2

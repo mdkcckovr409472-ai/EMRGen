@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains array2 (int[]), if the operation 「add 1 to all elements」 is executed on array2 to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Of == Os - n

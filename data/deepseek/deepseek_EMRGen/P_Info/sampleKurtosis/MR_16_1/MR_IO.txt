@@ -1,0 +1,8 @@
+TestCase z16Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // 向下取整操作
+    follow_case.moment4 = floor(follow_case.moment4);
+
+    return follow_case;
+}

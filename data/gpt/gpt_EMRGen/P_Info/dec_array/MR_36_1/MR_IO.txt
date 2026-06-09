@@ -1,0 +1,8 @@
+TestCase z36Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive programming: ensure safe handling of k
+    if (follow_case.k < 0) {
+        follow_case.k = -follow_case.k;
+    }
+    return follow_case;
+}

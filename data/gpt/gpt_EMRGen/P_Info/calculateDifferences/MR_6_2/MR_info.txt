@@ -1,0 +1,2 @@
+Operation 6: On parameter 'x' (double*): set last element to 100.0 (when it is less than 100.0)
+Invariant: return.result1[] >= return.result2[] (elementwise)

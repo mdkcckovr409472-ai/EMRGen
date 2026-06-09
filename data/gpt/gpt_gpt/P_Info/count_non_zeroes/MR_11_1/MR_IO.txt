@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int mid = tf.n / 2;
+        tf.a[mid] = 1;
+    }
+    return tf;
+}

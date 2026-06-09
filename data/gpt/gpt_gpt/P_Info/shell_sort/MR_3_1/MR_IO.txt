@@ -1,0 +1,22 @@
+TestCase change(TestCase tc) {
+    // Reuse original array but create a new descending sorted array for tf.a
+    // Allocate new array for tf.a
+    int* desc_a = (int*)malloc(tc.n * sizeof(int));
+    memcpy(desc_a, tc.a, tc.n * sizeof(int));
+
+    // Sort desc_a in descending order
+    for (int i = 0; i < tc.n -1; i++) {
+        for (int j = i + 1; j < tc.n; j++) {
+            if (desc_a[i] < desc_a[j]) {
+                int tmp = desc_a[i];
+                desc_a[i] = desc_a[j];
+                desc_a[j] = tmp;
+            }
+        }
+    }
+
+    TestCase tf = tc;
+    tf.a = desc_a;  // overwrite with descending sorted array
+
+    return tf;
+}

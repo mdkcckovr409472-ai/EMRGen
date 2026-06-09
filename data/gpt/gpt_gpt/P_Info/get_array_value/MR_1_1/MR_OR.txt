@@ -1,0 +1,26 @@
+int check(TestCase tc) {
+    // Source input
+    int* Ts = tc.a;
+    int k = tc.k;
+    int n = tc.n;
+    // Source output
+    int Os = get_array_value(Ts, k, n);
+
+    // Follow-up test case
+    TestCase Tf_case = change(tc);
+    int* Tf = Tf_case.a;
+    // Follow-up output
+    int Of = get_array_value(Tf, k, n);
+
+    int is_valid = 0;
+    if (Os + 1 == Of) {
+        is_valid = 1;
+    }
+
+    // Cleanup dynamically allocated memory in Tf_case.a if different from original
+    if (Tf_case.a != tc.a) {
+        delete[] Tf_case.a;
+    }
+
+    return is_valid;
+}

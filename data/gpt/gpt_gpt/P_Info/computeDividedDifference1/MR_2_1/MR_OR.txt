@@ -1,0 +1,53 @@
+int check(TestCase tc) {
+    // Source input
+    double* x_s = tc.x;
+    double* y_s = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        y_s[i] = tc.y[i];
+    }
+    int n = tc.n;
+
+    // Get source output Os
+    double* Os = computeDividedDifference1(x_s, y_s, n);
+    if (Os == nullptr) {
+        delete[] y_s;
+        return 0;
+    }
+    // Copy Os for safe comparison before reuse of y_s in change()
+    double Os_copy[100];
+    for (int i = 0; i < n; i++) {
+        Os_copy[i] = Os[i];
+    }
+    delete[] y_s;
+
+    // Construct follow-up test case Tf
+    TestCase Tf_case = change(tc);
+
+    // Prepare follow-up y array (copy from Tf_case.y)
+    double* y_f = new double[Tf_case.n];
+    for (int i = 0; i < Tf_case.n; i++) {
+        y_f[i] = Tf_case.y[i];
+    }
+
+    // Get follow-up output Of
+    double* Of = computeDividedDifference1(Tf_case.x, y_f, Tf_case.n);
+    if (Of == nullptr) {
+        delete[] y_f;
+        return 0;
+    }
+
+    // Verify MR: Os == Of (element-wise equality within a small tolerance)
+    int is_valid = 1;
+    const double epsilon = 1e-12;
+    for (int i = 0; i < n; i++) {
+        if (std::abs(Os_copy[i] - Of[i]) > epsilon) {
+            is_valid = 0;
+            break;
+        }
+    }
+
+    // Free allocated memory
+    delete[] y_f;
+
+    return is_valid;
+}

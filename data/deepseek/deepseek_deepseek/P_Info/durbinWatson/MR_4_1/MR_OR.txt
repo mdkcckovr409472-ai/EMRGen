@@ -1,0 +1,10 @@
+int check(TestCase tc) {
+    double Os = durbinWatson(tc.elements, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = durbinWatson(Tf_case.elements, Tf_case.n);
+    int is_valid = 0;
+    if (Os >= Of) {
+        is_valid = 1;
+    }
+    return is_valid;
+}

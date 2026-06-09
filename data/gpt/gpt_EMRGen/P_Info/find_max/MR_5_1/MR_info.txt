@@ -1,0 +1,2 @@
+Operation 5: On parameter 'a' (int*): set first element to INT_MAX (when element < INT_MAX)
+Invariant: return.result1 < return.result2

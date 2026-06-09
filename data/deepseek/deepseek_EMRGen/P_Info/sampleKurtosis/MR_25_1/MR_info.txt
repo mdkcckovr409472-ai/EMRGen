@@ -1,0 +1,2 @@
+Operation 25: On parameter 'moment4' (double): 置最小双精度值
+Invariant: return.result1 > return.result2

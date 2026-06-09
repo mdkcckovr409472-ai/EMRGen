@@ -1,0 +1,21 @@
+TestCase z6Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code ---
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+    // -------------------------
+
+    // Defensive check: need at least one element
+    if (follow_case.n <= 0) {
+        return follow_case;
+    }
+
+    // Operation: increment a random element by 5 if it does not overflow
+    int idx = rand() % follow_case.n;
+    if (follow_case.a[idx] <= INT_MAX - 5) {
+        follow_case.a[idx] += 5;
+    }
+
+    return follow_case;
+}

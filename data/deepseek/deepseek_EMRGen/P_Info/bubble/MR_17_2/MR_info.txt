@@ -1,0 +1,2 @@
+Operation 17: On parameter 'a' (int*): 随机一个元素置为最小值（如INT_MIN）
+Invariant: return.result1[] >= return.result2[] (elementwise)

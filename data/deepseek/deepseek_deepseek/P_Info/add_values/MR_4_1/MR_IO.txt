@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    int* reversed_a = new int[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        reversed_a[i] = tc.a[tf.n - 1 - i];
+    }
+    tf.a = reversed_a;
+    return tf;
+}

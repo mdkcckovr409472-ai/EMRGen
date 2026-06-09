@@ -1,0 +1,18 @@
+TestCase z22Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Memory handling for array 'a'
+    int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+    memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+    follow_case.a = follow_case_a;
+
+    // Defensive check: ensure there is at least one element
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            if (follow_case.a[i] >= 0) {
+                follow_case.a[i] = (int)floor(sqrt((double)follow_case.a[i]));
+            }
+            // If element is negative, leave it unchanged
+        }
+    }
+    return follow_case;
+}

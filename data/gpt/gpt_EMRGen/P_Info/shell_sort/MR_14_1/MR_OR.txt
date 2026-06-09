@@ -1,0 +1,23 @@
+int z14check(int* result1, int* result2, int n) {
+    // 4.a) Length validity check
+    if (n <= 0) return 1;
+    // 4.b) Null pointer check
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    for (int i = 0; i < n; i++) {
+        int A = result1[i];
+        int B = result2[i];
+        if (A == B) {
+            // Equal elements, continue to next element
+            continue;
+        } else if (A < B) {
+            // result1 less than result2 lex order at first unequal element: condition satisfied
+            return 1;
+        } else {
+            // result1 greater than result2: condition violated
+            return 0;
+        }
+    }
+    // All elements equal: for strict '<' lexicographically, return 0
+    return 0;
+}

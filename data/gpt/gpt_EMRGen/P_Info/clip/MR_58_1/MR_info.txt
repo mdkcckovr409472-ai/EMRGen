@@ -1,0 +1,2 @@
+Operation 58: On parameter 'upperLim' (int): add 1 (when result ≤ INT_MAX)
+Invariant: return.result1[] <= return.result2[] (elementwise)

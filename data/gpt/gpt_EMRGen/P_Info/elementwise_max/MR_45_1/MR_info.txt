@@ -1,0 +1,2 @@
+Operation 45: On parameter 'b' (array[int]): replace a random element with the minimum value present in array (if greater than min)
+Invariant: return.result1[] >= return.result2[] (elementwise)

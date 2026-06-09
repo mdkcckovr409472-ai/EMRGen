@@ -1,0 +1,5 @@
+[Operation]
+MR ：对于初始输入Ts中包含values（int*）的函数，若对 values执行「反转整个数组」操作得到新输入Tf，则函数的初始输出Os和后续输出Of应满足以下关系：
+
+[Invariant]
+Os == Of

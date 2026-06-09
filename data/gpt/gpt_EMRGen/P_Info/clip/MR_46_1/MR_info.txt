@@ -1,0 +1,2 @@
+Operation 46: On parameter 'lowerLim' (int): set to current² (when result ≤ INT_MAX)
+Invariant: return.result1[] <= return.result2[] (elementwise)

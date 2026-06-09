@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Allocate new array for follow-up input to avoid overwriting original array
+    double* newArr = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        newArr[i] = tc.arr[i] + 1.0;
+    }
+    tf.arr = newArr;
+    return tf;
+}

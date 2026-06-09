@@ -1,0 +1,35 @@
+int check(TestCase tc) {
+    // Extract source input
+    int* Ts = tc.a;
+    int n = tc.n;
+
+    // Call function bubble to get source output Os
+    int* Os = bubble(Ts, n);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+
+    // Call function bubble to get follow-up output Of
+    int* Of = bubble(Tf_case.a, Tf_case.n);
+
+    int is_valid = 0;
+    // According to MR invariant: Os > Of
+    // Compare element-wise Os[i] and Of[i], Os[i] > Of[i] for all i
+    int valid_flag = 1;
+    for (int i = 0; i < n; i++) {
+        if (!(Os[i] > Of[i])) {
+            valid_flag = 0;
+            break;
+        }
+    }
+    if (valid_flag) {
+        is_valid = 1;
+    }
+
+    // Free allocated memory
+    free(Os);
+    free(Of);
+    free(Tf_case.a);
+
+    return is_valid;
+}

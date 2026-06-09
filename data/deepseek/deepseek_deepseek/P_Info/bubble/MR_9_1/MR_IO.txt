@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int max_idx = 0;
+        for (int i = 1; i < tf.n; ++i) {
+            if (tf.a[i] > tf.a[max_idx]) {
+                max_idx = i;
+            }
+        }
+        tf.a[max_idx] = tf.a[max_idx] + 1;
+    }
+    return tf;
+}

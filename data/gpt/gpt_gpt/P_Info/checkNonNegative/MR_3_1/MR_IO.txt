@@ -1,0 +1,10 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    double* reversed_array = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        reversed_array[i] = tf.a[tf.n - 1 - i];
+    }
+    tf.a = reversed_array;
+    return tf;
+}

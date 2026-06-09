@@ -1,0 +1,2 @@
+Operation 14: On parameter 'moment4' (double): 取整操作
+Invariant: return.result1 >= return.result2

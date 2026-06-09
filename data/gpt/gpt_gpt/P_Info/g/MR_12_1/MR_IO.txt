@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+
+    // Allocate new memory for observed array and divide each element by 2 as per MR operation
+    double* newObserved = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        newObserved[i] = tc.observed[i] / 2.0;
+    }
+    tf.observed = newObserved;
+
+    return tf;
+}

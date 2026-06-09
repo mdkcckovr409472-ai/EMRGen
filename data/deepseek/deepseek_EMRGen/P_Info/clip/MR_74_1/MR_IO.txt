@@ -1,0 +1,10 @@
+TestCase z74Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // 操作目标参数为 int 类型，不是数组，因此不执行内存深拷贝。
+
+    // 根据规则5生成的具体操作代码：将 upperLim 置为 INT_MIN
+    follow_case.upperLim = INT_MIN;
+
+    return follow_case;
+}

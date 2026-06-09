@@ -1,0 +1,9 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    double* reversedData2 = new double[tc.n2];
+    for(int i = 0; i < tc.n2; i++) {
+        reversedData2[i] = tc.data2[tc.n2 - 1 - i];
+    }
+    tf.data2 = reversedData2;
+    return tf;
+}

@@ -1,0 +1,20 @@
+int z20check(double result1, double result2) {
+    // Core evaluation logic (direct scalar comparison)
+    // Rearrange: result1 <= result2   ->  A = result1, B = result2, operator <=
+    double epsilon = 1e-5;
+    double A = result1;
+    double B = result2;
+
+    #include <cmath>
+    if (std::isnan(A) || std::isnan(B)) return 0;
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A <= B) return 1;
+        else return 0;
+    }
+
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+
+    if (A > B + tol) return 0;
+
+    return 1;
+}

@@ -1,0 +1,22 @@
+#include <cmath>
+
+int z30check(double result1, double result2) {
+    // 1. Core evaluation logic (direct scalar comparison)
+    // Invariant: 3 * result1 - result2 + 5 == 0
+    // Rearranged: 3 * result1 + 5 == result2
+    double epsilon = 1e-5;
+    double A = 3 * result1 + 5;
+    double B = result2;
+
+    if (std::isnan(A) || std::isnan(B)) return 0;
+
+    if (std::isinf(A) || std::isinf(B)) {
+        if (A == B) return 1;
+        else return 0;
+    }
+
+    double tol = epsilon * fmax(1.0, fmax(fabs(A), fabs(B)));
+    if (fabs(A - B) > tol) return 0;
+
+    return 1;
+}

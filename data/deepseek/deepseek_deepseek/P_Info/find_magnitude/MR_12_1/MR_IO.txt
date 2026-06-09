@@ -1,0 +1,13 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    if (tf.n > 0) {
+        int* new_array = new int[tf.n];
+        for (int i = 0; i < tf.n; i++) {
+            new_array[i] = tf.a[i];
+        }
+        int random_index = rand() % tf.n;
+        new_array[random_index] = 0;
+        tf.a = new_array;
+    }
+    return tf;
+}

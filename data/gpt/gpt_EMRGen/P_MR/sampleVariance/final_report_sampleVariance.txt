@@ -1,0 +1,369 @@
+double sampleVariance(double elements[], double mean, int n) {
+    int size = n;
+    double sum = 0;
+    for (int i = size; --i >= 0; ) {
+        double delta = elements[i] - mean;
+        sum += delta * delta;
+    }
+    return sum / (size - 1);
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 1: On parameter 'elements' (array[double]): add 1.0 to all elements
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「add 1.0 to all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 2: On parameter 'elements' (array[double]): subtract 0.5 from all elements
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「subtract 0.5 from all elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 3: On parameter 'elements' (array[double]): multiply all elements by 2.0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「multiply all elements by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 6: On parameter 'elements' (array[double]): set last element to 100.0 (when element < 100)
+Invariant: 
+return.result1 <= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「set last element to 100.0 (when element < 100)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 7: On parameter 'elements' (array[double]): replace a random element with -999.0 (when element > -999)
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「replace a random element with -999.0 (when element > -999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 8: On parameter 'elements' (array[double]): swap two random elements
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「swap two random elements」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 9: On parameter 'elements' (array[double]): reverse array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「reverse array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'elements' (array[double]): left circular shift of array (move first element to end)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「left circular shift of array (move first element to end)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 11: On parameter 'elements' (array[double]): right circular shift of array (move last element to front)
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「right circular shift of array (move last element to front)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 12: On parameter 'elements' (array[double]): sort array ascending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「sort array ascending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'elements' (array[double]): sort array descending
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「sort array descending」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 19: On parameter 'elements' (array[double]): set random element to INF (when element is finite)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「set random element to INF (when element is finite)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 23: On parameter 'elements' (array[double]): random shuffle of array
+Invariant: 
+return.result1 == return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「random shuffle of array」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 25: On parameter 'elements' (array[double]): replace elements > 50 with 50
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「replace elements > 50 with 50」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 26: On parameter 'elements' (array[double]): replace elements < -50 with -50
+Invariant: 
+return.result1 >= return.result2 ✗
+
+MR ：对于初始输入Ts中包含elements（array[double]）的函数，若对 elements执行「replace elements < -50 with -50」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 28: On parameter 'mean' (double): add 1.0
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「add 1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 29: On parameter 'mean' (double): subtract 0.5
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「subtract 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 30: On parameter 'mean' (double): multiply by 2.0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「multiply by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 31: On parameter 'mean' (double): divide by 2.0
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「divide by 2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 32: On parameter 'mean' (double): set to 0.0 (when mean != 0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to 0.0 (when mean != 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 33: On parameter 'mean' (double): set to 1e308 (maximum double)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to 1e308 (maximum double)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 34: On parameter 'mean' (double): set to -1e308 (minimum double)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to -1e308 (minimum double)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 36: On parameter 'mean' (double): set to INF
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to INF」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 37: On parameter 'mean' (double): take absolute value
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「take absolute value」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 38: On parameter 'mean' (double): negate (multiply by -1)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「negate (multiply by -1)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'mean' (double): take reciprocal (1/mean) (when mean != 0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「take reciprocal (1/mean) (when mean != 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 40: On parameter 'mean' (double): square (mean * mean)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「square (mean * mean)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 41: On parameter 'mean' (double): sqrt (when mean >= 0)
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「sqrt (when mean >= 0)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 42: On parameter 'mean' (double): round to nearest integer
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「round to nearest integer」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 43: On parameter 'mean' (double): floor
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「floor」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 44: On parameter 'mean' (double): ceil
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「ceil」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 45: On parameter 'mean' (double): random perturbation +/-0.01
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「random perturbation +/-0.01」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 46: On parameter 'mean' (double): set to 3.14159 (when mean != 3.14159)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to 3.14159 (when mean != 3.14159)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 47: On parameter 'mean' (double): set to -3.14159
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to -3.14159」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 48: On parameter 'mean' (double): set to 2.71828
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to 2.71828」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 49: On parameter 'mean' (double): set to -2.71828
+Invariant: 
+return.result1 < return.result2 ✗
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to -2.71828」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 50: On parameter 'mean' (double): set to 0.5
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to 0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 51: On parameter 'mean' (double): set to -0.5
+Invariant: 
+return.result1 <= return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to -0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 52: On parameter 'mean' (double): set to 999.0 (when mean < 999)
+Invariant: 
+return.result1 < return.result2 ✓ ○
+
+MR ：对于初始输入Ts中包含mean（double）的函数，若对 mean执行「set to 999.0 (when mean < 999)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+
+操作总数: 39
+关系总数: 39

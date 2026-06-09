@@ -1,0 +1,2 @@
+Operation 38: On parameter 'left' (int): set left to n (maximum)
+Invariant: return.result1 >= return.result2

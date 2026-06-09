@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    double Os = covariance(tc.elements1, tc.elements2, tc.n);
+
+    TestCase Tf_case = change(tc);
+    double Of = covariance(Tf_case.elements1, Tf_case.elements2, Tf_case.n);
+
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+
+    // Free any dynamic memory allocated in change()
+    delete[] Tf_case.elements1;
+
+    return is_valid;
+}

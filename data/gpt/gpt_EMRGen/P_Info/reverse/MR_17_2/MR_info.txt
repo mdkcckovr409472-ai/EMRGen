@@ -1,0 +1,2 @@
+Operation 17: On parameter 'a' (array[int]): set a random element to -999 (when the element is greater than -999)
+Invariant: return.result1[] >= return.result2[] (elementwise)

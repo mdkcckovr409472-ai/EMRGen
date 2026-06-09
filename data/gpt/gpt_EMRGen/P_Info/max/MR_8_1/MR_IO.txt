@@ -1,0 +1,22 @@
+TestCase z8Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n == 0
+    if (follow_case.n == 0) {
+        return follow_case;
+    }
+    
+    // Specific operation code: replace each element with its absolute value
+    for (int i = 0; i < follow_case.n; ++i) {
+        if (follow_case.elements[i] < 0) {
+            follow_case.elements[i] = -follow_case.elements[i];
+        }
+    }
+    
+    return follow_case;
+}

@@ -1,0 +1,8 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Add 1.0 to each element in work array to form follow-up input
+    for(int i = tf.begin; i < tf.end; ++i) {
+        tf.work[i] += 1.0;
+    }
+    return tf;
+}

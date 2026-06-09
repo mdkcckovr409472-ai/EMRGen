@@ -1,0 +1,2 @@
+Operation 16: On parameter 'a' (array[int]): set all elements greater than 10 to 10
+Invariant: return.result1[] >= return.result2[] (elementwise)

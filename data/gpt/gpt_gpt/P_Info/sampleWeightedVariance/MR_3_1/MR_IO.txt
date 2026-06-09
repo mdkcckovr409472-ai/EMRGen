@@ -1,0 +1,27 @@
+TestCase change(TestCase tc) {
+    // Create shallow copy to reuse memory as much as possible
+    TestCase tf = tc;
+
+    // Make a deep copy of data array because we need to modify the first element
+    double* newData = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        newData[i] = tc.data[i];
+    }
+
+    // Find max element in the original data array
+    double maxValue = tc.data[0];
+    for (int i = 1; i < tc.n; i++) {
+        if (tc.data[i] > maxValue) {
+            maxValue = tc.data[i];
+        }
+    }
+
+    // Set first element of newData to maxValue
+    newData[0] = maxValue;
+
+    // Assign newData to follow-up test case
+    tf.data = newData;
+
+    // weights and n remain unchanged
+    return tf;
+}

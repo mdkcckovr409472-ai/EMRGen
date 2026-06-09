@@ -1,0 +1,29 @@
+int check(TestCase tc) {
+    // Source input
+    double* Ts = tc.elements;
+    int left = tc.left;
+    int right = tc.right;
+    int n = tc.n;
+
+    // Source output
+    double Os = winsorizedMean(Ts, left, right, n);
+
+    // Construct follow-up test case
+    TestCase Tf_case = change(tc);
+    double* Tf = Tf_case.elements;
+
+    // Follow-up output
+    double Of = winsorizedMean(Tf, Tf_case.left, Tf_case.right, Tf_case.n);
+
+    // Verify MR: Os == Of (allowing epsilon tolerance for floating point)
+    const double epsilon = 1e-12;
+    int is_valid = (std::abs(Os - Of) <= epsilon) ? 1 : 0;
+
+    // Free dynamically allocated memory from change()
+    if (Tf != Ts) {
+        delete[] Tf;
+        Tf_case.elements = nullptr;
+    }
+
+    return is_valid;
+}

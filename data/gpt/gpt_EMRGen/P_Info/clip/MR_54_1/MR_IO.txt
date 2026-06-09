@@ -1,0 +1,8 @@
+TestCase z54Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check to avoid underflow when subtracting 10
+    if (follow_case.lowerLim >= INT_MIN + 10) {
+        follow_case.lowerLim -= 10;
+    }
+    return follow_case;
+}

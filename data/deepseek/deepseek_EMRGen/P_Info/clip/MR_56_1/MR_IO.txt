@@ -1,0 +1,15 @@
+TestCase z56Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 操作描述为“减一个随机小偏移（如-5）”，操作于目标参数 lowerLim 上。
+// 根据规则，lowerLim 是 int 类型，不是数组，因此不执行 malloc 和 memcpy 操作。
+
+// 根据规则6a，此操作不涉及数组访问或循环，无需检查数组长度 n。
+// 根据规则6b，此操作不涉及除法，无需检查分母。
+// 根据规则6c，此操作不涉及数学函数，无需检查定义域。
+
+// 这是根据规则5生成的具体操作代码
+// 减一个随机小偏移（如-5）。这里使用固定偏移 -5 作为示例。
+follow_case.lowerLim = follow_case.lowerLim - 5;
+
+return follow_case;}

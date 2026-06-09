@@ -1,0 +1,18 @@
+int check(TestCase tc) {
+    // Source input and output
+    double Os = min(tc.elements, tc.n);
+    // Construct follow-up input
+    TestCase Tf_case = change(tc);
+    double Of = min(Tf_case.elements, Tf_case.n);
+
+    // Verify MR: 2 * Os == Of within a tolerance
+    const double eps = 1e-9;
+    int is_valid = (fabs(2 * Os - Of) < eps) ? 1 : 0;
+
+    // Clean up dynamically allocated memory in Tf_case
+    if (Tf_case.elements != tc.elements) {
+        delete[] Tf_case.elements;
+        Tf_case.elements = nullptr;
+    }
+    return is_valid;
+}

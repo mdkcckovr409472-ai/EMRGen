@@ -1,0 +1,2 @@
+Operation 5: On parameter 'k' (double*): 所有元素取相反数
+Invariant: return.result1 == return.result2

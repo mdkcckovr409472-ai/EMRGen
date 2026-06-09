@@ -1,0 +1,14 @@
+int check(TestCase tc) {
+    if (tc.expected == nullptr || tc.observed == nullptr || tc.n <= 0) {
+        return 0;
+    }
+    double Os = g(tc.expected, tc.observed, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = g(Tf_case.expected, Tf_case.observed, Tf_case.n);
+    int is_valid = (Os != Of) ? 1 : 0;
+    if (Tf_case.observed != tc.observed) {
+        delete[] Tf_case.observed;
+        Tf_case.observed = nullptr;
+    }
+    return is_valid;
+}

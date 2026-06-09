@@ -1,0 +1,17 @@
+int z41check(int* result1, int* result2, int n) {
+    // 4.a Length validity check
+    if (n <= 0) return 1;
+    // 4.b Null pointer check
+    if (result1 == NULL || result2 == NULL) return 0;
+
+    for (int i = 0; i < n; i++) {
+        if (result1[i] < result2[i]) {
+            return 1; // first unequal pair, condition satisfied
+        } else if (result1[i] > result2[i]) {
+            return 0; // first unequal pair, condition violated
+        } // continue if equal
+    }
+
+    // All elements equal, strictly less is false
+    return 0;
+}

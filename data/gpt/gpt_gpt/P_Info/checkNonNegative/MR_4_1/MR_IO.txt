@@ -1,0 +1,11 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // allocate new array and copy values
+    double* sortedArray = new double[tf.n];
+    for (int i = 0; i < tf.n; i++) {
+        sortedArray[i] = tf.a[i];
+    }
+    std::sort(sortedArray, sortedArray + tf.n);
+    tf.a = sortedArray;
+    return tf;
+}

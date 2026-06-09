@@ -1,0 +1,12 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc; 
+    // Allocate new array for the follow-up input to avoid modifying original array
+    int* new_a = new int[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        new_a[i] = tc.a[i];
+    }
+    // Sort in descending order
+    std::sort(new_a, new_a + tc.n, [](int x, int y) { return x > y; });
+    tf.a = new_a;
+    return tf;
+}

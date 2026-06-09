@@ -1,0 +1,2 @@
+Operation 26: On parameter 'z' (array[double]): increase first half elements by 10% (multiply by 1.1)
+Invariant: return.result1[] <= return.result2[] (elementwise)

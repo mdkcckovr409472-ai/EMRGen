@@ -1,0 +1,2 @@
+Operation 16: On parameter 'a' (int*): 交换数组中两个随机位置的元素
+Invariant: return.result1 == return.result2

@@ -1,0 +1,14 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc; 
+    if (tf.n > 1 && tf.sortedElements != nullptr) {
+        // Make a copy of the array to avoid modifying the original input
+        double* newArray = new double[tf.n];
+        for (int i = 0; i < tf.n; ++i) {
+            newArray[i] = tf.sortedElements[i];
+        }
+        // Sort the copied array in ascending order as per MR
+        std::sort(newArray, newArray + tf.n);
+        tf.sortedElements = newArray;
+    }
+    return tf;
+}

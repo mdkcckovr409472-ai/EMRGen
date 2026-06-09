@@ -1,0 +1,8 @@
+TestCase z29Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // 目标参数 k 不是数组类型，因此不执行数组深拷贝操作。
+    
+    // 根据规则5生成的具体操作代码：加1
+    follow_case.k = follow_case.k + 1;
+    
+    return follow_case;}

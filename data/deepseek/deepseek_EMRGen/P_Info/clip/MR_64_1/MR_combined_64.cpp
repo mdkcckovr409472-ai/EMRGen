@@ -1,0 +1,174 @@
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cfloat>
+#include <cctype>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+
+int* clip(int a[], int lowerLim, int upperLim, int n) {
+    int* r = (int*)malloc(n * sizeof(int));
+        for (int i = 0; i < n; i++) {
+            if (a[i] < lowerLim) {
+                r[i] = lowerLim;
+            } else {
+                if (a[i] > upperLim) {
+                    r[i] = upperLim;
+                } else {
+                    r[i] = a[i];
+                }
+            }
+        }
+        return r;
+    }
+    
+
+
+typedef struct {
+    int* a; int lowerLim; int upperLim; int n;
+} TestCase;
+
+TestCase test_cases[] = {
+    {(int[]){10, 20, 30}, 15, 25, 3},
+    {(int[]){5, 12, 18, 7}, 10, 15, 4},
+    {(int[]){-3, 0, 8, -1, 4}, 0, 5, 5},
+    {(int[]){100, 200, 150}, 120, 180, 3},
+    {(int[]){22, 33, 44, 55}, 30, 50, 4},
+    {(int[]){7}, 5, 10, 1},
+    {(int[]){-10, -5, 0, 5, 10}, -7, 7, 5},
+    {(int[]){14, 19, 23, 28}, 18, 25, 4},
+    {(int[]){50, 60, 70, 80, 90}, 65, 85, 5},
+    {(int[]){-20, -15, -10}, -18, -12, 3},
+    {(int[]){0, 1, 2, 3, 4, 5}, 1, 4, 6},
+    {(int[]){99, 101, 98, 102}, 100, 101, 4},
+    {(int[]){45, 67, 89, 23}, 50, 80, 4},
+    {(int[]){6, 7, 8, 9, 10}, 6, 10, 5},
+    {(int[]){-50, 50, -25, 25}, -30, 30, 4},
+    {(int[]){17, 29, 31, 42}, 20, 40, 4},
+    {(int[]){123, 456, 789}, 200, 700, 3},
+    {(int[]){11, 22, 33, 44, 55, 66}, 25, 60, 6},
+    {(int[]){-1, -2, -3, -4}, -3, -1, 4},
+    {(int[]){80, 85, 90, 95, 100}, 82, 97, 5},
+    {(int[]){37, 52, 48, 61}, 40, 60, 4},
+    {(int[]){999, 1001, 998, 1002}, 1000, 1001, 4},
+    {(int[]){0, 10, 20, 30, 40}, 5, 35, 5},
+    {(int[]){-100, 0, 100}, -50, 50, 3},
+    {(int[]){71, 82, 93, 64, 75}, 70, 90, 5},
+    {(int[]){19, 27, 35, 43}, 20, 40, 4},
+    {(int[]){150, 250, 350}, 200, 300, 3},
+    {(int[]){8, 16, 24, 32}, 10, 30, 4},
+    {(int[]){-9, 9, -8, 8, -7, 7}, -8, 8, 6},
+    {(int[]){55, 66, 77, 88, 99}, 60, 95, 5}
+};
+int num_test_cases = 30;
+
+
+    typedef struct {
+        int* result1;
+        int* result2;
+        int** memory_to_free;
+        int memory_count; 
+        int status;
+} TestResult;
+
+TestCase z64Change(TestCase t1) {
+TestCase follow_case = t1;
+
+// 根据规则5生成的具体操作代码
+follow_case.upperLim = follow_case.lowerLim;
+
+return follow_case;}
+
+int z64check(int* result1, int* result2, int n) {
+    // 1. 防御性编程 (空指针与长度检查)
+    if (result1 == NULL || result2 == NULL) return 0;
+    if (n <= 0) return 1;
+
+    // 2. 核心判断逻辑 (字典序比较)
+    for (int i = 0; i < n; i++) {
+        // 找到第一个不相等的元素对
+        if (result1[i] != result2[i]) {
+            // 根据这一对元素的大小关系决定结果
+            // 条件为 result1[] > result2[] (lexically)
+            if (result1[i] > result2[i]) {
+                // 第一个不相等处，result1[i] > result2[i]，满足字典序大于，可以提前返回成功
+                // 但需要继续检查后续元素吗？不，字典序比较在第一个不相等处已出结果。
+                // 此处 result1[i] > result2[i] 已经满足 > 的条件，因此整个数组字典序大于成立。
+                // 循环可以结束，返回1。
+                // 注意：我们需要遍历完所有元素吗？不需要，在第一个不相等处已经能判定。
+                // 对于 > 比较，如果第一个不相等处 result1[i] > result2[i]，则 result1 字典序大于 result2，条件满足。
+                // 如果 result1[i] < result2[i]，则 result1 字典序小于 result2，条件不满足。
+                // 因此，我们可以在发现不相等时立即根据大小关系返回。
+                if (result1[i] > result2[i]) {
+                    // 条件满足
+                    // 但我们必须确保后续没有其他违反条件的情况吗？
+                    // 对于字典序，后续元素不再影响已经得出的结果。
+                    // 所以可以立即返回1。
+                    // 但是，函数要求一旦违反条件返回0，全部满足返回1。
+                    // 字典序大于：只要在第一个不相等处 result1 > result2，则整个条件成立。
+                    // 因此，我们可以在这里返回1。
+                    // 然而，标准实现通常是：遍历，在第一个不相等处决定返回0或1，如果遍历完都相等，则返回0（因为严格大于要求不相等）。
+                    // 让我们按标准字典序实现：
+                    // for i in 0..n-1:
+                    //   if a[i] != b[i]:
+                    //       return (a[i] > b[i]) ? 1 : 0;
+                    // return 0; // 所有元素相等，不满足严格大于
+                    return 1; // 因为 result1[i] > result2[i]
+                } else {
+                    return 0;
+                }
+            } else {
+                // result1[i] < result2[i]
+                return 0;
+            }
+        }
+        // 如果相等，继续循环
+    }
+
+    // 3. 循环结束，所有元素都相等，不满足严格大于 (>) 条件
+    return 0;
+}
+
+TestResult z64runTest(int test_case_id) { // MODIFIED: Return type
+    TestCase follow_case = z64Change(test_cases[test_case_id]);
+    // 原始调用
+    int* source = clip(test_cases[test_case_id].a, test_cases[test_case_id].lowerLim, test_cases[test_case_id].upperLim, test_cases[test_case_id].n); // MODIFIED: Explicit type
+    // 变换后调用
+    int* follow = clip(follow_case.a, follow_case.lowerLim, follow_case.upperLim, follow_case.n);
+    
+    int** memory_list = (int**)malloc(1 * sizeof(int*));
+    
+    
+    TestResult test_result;
+    test_result.memory_to_free = memory_list;
+    test_result.memory_count = 1;
+    
+    test_result.result2 = follow; // MODIFIED    
+    test_result.result1 = source; // MODIFIED
+    int status = z64check(source, follow, test_cases[test_case_id].n);
+    test_result.status = status;
+    return test_result; // MODIFIED: Return TestResult
+}
+
+
+int main() {
+    srand(time(NULL));
+    int status_end = 1;
+    for (int i = 0; i < num_test_cases; i++) {
+        TestResult result = z64runTest(i);
+        if (result.status == 0) status_end = 0;
+        for (int j = 0; j < result.memory_count; j++) {
+            free(result.memory_to_free[j]);
+        }
+        free(result.memory_to_free);  // 释放指针数组本身
+    }
+    std::cout << status_end << std::endl;
+    return 0;
+}

@@ -1,0 +1,2 @@
+Operation 18: On parameter 'a' (array[int]): replace every element with its square
+Invariant: return.result1 <= return.result2

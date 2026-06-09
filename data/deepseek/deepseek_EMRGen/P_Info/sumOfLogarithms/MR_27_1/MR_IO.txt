@@ -1,0 +1,32 @@
+TestCase z27Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- 这是根据规则4生成的内存处理代码 ---
+    double* follow_case_elements = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements, t1.elements, t1.n * sizeof(double));
+    follow_case.elements = follow_case_elements;
+    // ------------------------------------
+    
+    // 这是根据规则6a生成的防御性代码，防止n<=0时出错
+    if (follow_case.n <= 0) {
+        // 数组为空或长度无效，直接返回副本
+        return follow_case;
+    }
+    
+    // 这是根据规则5生成的具体操作代码
+    // 1. 找到最小值
+    double min_val = follow_case.elements[0];
+    for (int i = 1; i < follow_case.n; i++) {
+        if (follow_case.elements[i] < min_val) {
+            min_val = follow_case.elements[i];
+        }
+    }
+    
+    // 2. 生成随机位置
+    srand(time(NULL)); // 初始化随机种子
+    int random_index = rand() % follow_case.n; // 生成[0, n-1]的随机索引
+    
+    // 3. 将随机位置的元素置为最小值
+    follow_case.elements[random_index] = min_val;
+    
+    return follow_case;
+}

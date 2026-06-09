@@ -1,0 +1,2 @@
+Operation 15: On parameter 'a' (int*): subtract 3 from every element
+Invariant: return.result1[] > return.result2[] (elementwise)

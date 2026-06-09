@@ -1,0 +1,2 @@
+Operation 27: On parameter 'a' (array[int]): set subarray (first half) to zeros
+Invariant: return.result1 <= return.result2

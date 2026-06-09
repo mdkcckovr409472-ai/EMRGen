@@ -1,0 +1,2 @@
+Operation 45: On parameter 'theWeights' (array[double]): normalize weights by dividing each weight by sum of all weights (if sum ≠ 0)
+Invariant: return.result1 == return.result2

@@ -1,0 +1,2 @@
+Operation 21: On parameter 'elements' (array[double]): log each element (when element > 0)
+Invariant: return.result1 >= return.result2

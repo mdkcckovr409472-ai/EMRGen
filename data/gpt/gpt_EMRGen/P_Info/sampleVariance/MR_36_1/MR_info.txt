@@ -1,0 +1,2 @@
+Operation 36: On parameter 'mean' (double): set to INF
+Invariant: return.result1 < return.result2

@@ -1,0 +1,11 @@
+int check(TestCase tc) {
+    double Os = weightedRMS(tc.data, tc.weights, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = weightedRMS(Tf_case.data, Tf_case.weights, Tf_case.n);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    delete[] Tf_case.weights;
+    return is_valid;
+}

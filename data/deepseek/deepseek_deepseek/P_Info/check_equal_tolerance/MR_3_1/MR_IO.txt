@@ -1,0 +1,5 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    tf.tol = DBL_MAX;
+    return tf;
+}

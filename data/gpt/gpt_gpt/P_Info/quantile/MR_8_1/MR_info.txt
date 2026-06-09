@@ -1,0 +1,5 @@
+[Operation]
+MR ：For the function where the initial input Ts contains phi (double), if the operation 「add 0.1 to phi when phi + 0.1 ≤ 1」 is executed on phi to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+
+[Invariant]
+Os <= Of

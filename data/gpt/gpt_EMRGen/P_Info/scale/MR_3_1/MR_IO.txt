@@ -1,0 +1,6 @@
+TestCase z3Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // No array handling needed for 'val' as it is a scalar
+    follow_case.val *= 2.0;
+    return follow_case;
+}

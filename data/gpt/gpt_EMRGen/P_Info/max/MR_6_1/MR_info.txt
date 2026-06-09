@@ -1,0 +1,2 @@
+Operation 6: On parameter 'elements' (array[double]): set random element to DBL_MAX (when element < DBL_MAX)
+Invariant: return.result1 < return.result2

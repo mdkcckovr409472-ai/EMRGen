@@ -1,0 +1,34 @@
+TestCase z17Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n > 0 && t1.a != NULL) {
+        int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+        memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+        follow_case.a = follow_case_a;
+    } else {
+        follow_case.a = NULL;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n < 1
+    if (follow_case.n <= 0 || follow_case.a == NULL) {
+        // No elements to process or array is NULL, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    int random_index = 0;
+    // Select random index in safe manner
+    // To avoid any dependency on external random generators,
+    // use a simple pseudo-random method (for demonstration).
+    // Since C++ "rand()" may not be allowed, use modulus of pointer address.
+    // But here simply use first element as a fallback to ensure deterministic.
+    random_index = (unsigned long)follow_case.a[0] % follow_case.n;
+
+    // Square the element at the random index, protect against overflow is not mandatory here
+    int val = follow_case.a[random_index];
+    // No domain restrictions on squaring int
+    follow_case.a[random_index] = val * val;
+
+    return follow_case;
+}

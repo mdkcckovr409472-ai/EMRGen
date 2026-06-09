@@ -1,0 +1,10 @@
+TestCase z33Change(TestCase t1) {
+    TestCase follow_case = t1;
+
+    // Defensive checks (none required for setting a scalar)
+
+    // Operation: set mean to the maximum double value
+    follow_case.mean = 1e308;
+
+    return follow_case;
+}

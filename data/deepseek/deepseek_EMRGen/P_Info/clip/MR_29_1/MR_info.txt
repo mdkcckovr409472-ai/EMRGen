@@ -1,0 +1,2 @@
+Operation 29: On parameter 'a' (int*): 将数组元素与upperLim取最小值
+Invariant: return.result1[] == return.result2[]

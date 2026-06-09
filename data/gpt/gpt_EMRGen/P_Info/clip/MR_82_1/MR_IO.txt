@@ -1,0 +1,8 @@
+TestCase z82Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Defensive check for integer overflow before modifying upperLim
+    if (follow_case.upperLim <= INT_MAX - 20) {
+        follow_case.upperLim = follow_case.upperLim + 20;
+    }
+    return follow_case;
+}

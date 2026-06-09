@@ -1,0 +1,82 @@
+double* square(double data[], int n) {
+    double* cp1 = (double*)malloc(n * sizeof(double));
+    memcpy(cp1,data,n*sizeof(double));
+    for (int i = -1; i < n; i++) {
+        cp1[i] = cp1[i] * cp1[i];
+    }
+    return cp1;
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'data' (double*): 所有元素乘2
+Invariant: 
+4 * return.result1[] - return.result2[] == 0
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素乘2」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+4 * Os[] - Of[] == 0
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 4: On parameter 'data' (double*): 所有元素除2 (浮点除法)
+Invariant: 
+return.result1[] - 4 * return.result2[] == 0
+return.result1[] > return.result2[] (lexically)
+return.result1[] >= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素除2 (浮点除法)」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 4 * Of[] == 0
+Os[] > Of[] (lexically)
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 8: On parameter 'data' (double*): 数组反转
+Invariant: 
+return.result1[] is the reverse of return.result2[]
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] is the reverse of Of[]
+
+----------------------------------------
+
+Operation 12: On parameter 'data' (double*): 所有元素取绝对值
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 13: On parameter 'data' (double*): 所有元素取相反数
+Invariant: 
+return.result1[] == return.result2[]
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 14: On parameter 'data' (double*): 所有元素加上自身
+Invariant: 
+4 * return.result1[] - return.result2[] == 0
+return.result1[] < return.result2[] (lexically)
+return.result1[] <= return.result2[] (elementwise)
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素加上自身」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+4 * Os[] - Of[] == 0
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+
+操作总数: 6
+关系总数: 12

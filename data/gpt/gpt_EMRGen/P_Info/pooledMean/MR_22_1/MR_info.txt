@@ -1,0 +1,2 @@
+Operation 22: On parameter 'data1' (double*): set a random position’s element to 999.0 (when the element is less than 999.0)
+Invariant: return.result1 <= return.result2

@@ -1,0 +1,2 @@
+Operation 45: On parameter 'mean' (double): random perturbation +/-0.01
+Invariant: return.result1 <= return.result2

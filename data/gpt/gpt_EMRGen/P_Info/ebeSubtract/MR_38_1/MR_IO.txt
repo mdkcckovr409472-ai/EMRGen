@@ -1,0 +1,36 @@
+TestCase z38Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    if (t1.n2 > 0) {
+        double* follow_case_b = (double*)malloc(t1.n2 * sizeof(double));
+        memcpy(follow_case_b, t1.b, t1.n2 * sizeof(double));
+        follow_case.b = follow_case_b;
+    } else {
+        follow_case.b = NULL;
+    }
+    // ------------------------------------
+
+    // Defensive code generated based on rule (a) to prevent errors when n2 < 2
+    if (follow_case.n2 < 2) {
+        // Less than 2 elements, cannot sort descending, return replica directly
+        return follow_case;
+    }
+
+    // Specific operation code generated based on the rule
+    // Sort the array follow_case.b in descending order using simple selection sort
+    for (int i = 0; i < follow_case.n2 - 1; i++) {
+        int max_idx = i;
+        for (int j = i + 1; j < follow_case.n2; j++) {
+            if (follow_case.b[j] > follow_case.b[max_idx]) {
+                max_idx = j;
+            }
+        }
+        if (max_idx != i) {
+            double temp = follow_case.b[i];
+            follow_case.b[i] = follow_case.b[max_idx];
+            follow_case.b[max_idx] = temp;
+        }
+    }
+
+    return follow_case;
+}

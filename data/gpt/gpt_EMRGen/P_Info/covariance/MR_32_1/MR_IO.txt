@@ -1,0 +1,19 @@
+TestCase z32Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // --- Memory handling code generated based on the rule ---
+    double* follow_case_elements2 = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_elements2, t1.elements2, t1.n * sizeof(double));
+    follow_case.elements2 = follow_case_elements2;
+    // ------------------------------------
+    
+    // Defensive code generated based on rule (a) to prevent errors when n == 0
+    if (follow_case.n > 0) {
+        for (int i = 0; i < follow_case.n; ++i) {
+            if (follow_case.elements2[i] != 0.0) {
+                follow_case.elements2[i] /= 2.0;
+            }
+        }
+    }
+    
+    return follow_case;
+}

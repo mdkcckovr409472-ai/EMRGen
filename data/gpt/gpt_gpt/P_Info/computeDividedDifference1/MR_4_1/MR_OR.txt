@@ -1,0 +1,29 @@
+int check(TestCase tc) {
+    if (tc.n <= 0) return 0;
+    double* y_copy = new double[tc.n];
+    for (int i = 0; i < tc.n; i++) {
+        y_copy[i] = tc.y[i];
+    }
+    double* Os = computeDividedDifference1(tc.x, y_copy, tc.n);
+    if (Os == nullptr) {
+        delete[] y_copy;
+        return 0;
+    }
+    TestCase Tf = change(tc);
+    double* y_follow = new double[Tf.n];
+    for (int i = 0; i < Tf.n; i++) {
+        y_follow[i] = Tf.y[i];
+    }
+    double* Of = computeDividedDifference1(Tf.x, y_follow, Tf.n);
+    int is_valid = 0;
+    if (Of != nullptr) {
+        // Of[0] == Os[0] - 1
+        if (Of[0] == Os[0] - 1.0) {
+            is_valid = 1;
+        }
+    }
+    delete[] y_copy;
+    delete[] y_follow;
+    delete[] Tf.y;
+    return is_valid;
+}

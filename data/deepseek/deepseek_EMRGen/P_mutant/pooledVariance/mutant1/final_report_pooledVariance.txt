@@ -1,0 +1,337 @@
+double pooledVariance(double data1[], double data2[], int n1, int n2) {
+    double sum1 = 0;
+    double sumSq1 = 0;
+    for (int i = 0; i < n1; i++) {
+        /*sum1 += data1[i];*/
+        sumSq1 += data1[i] * data1[i];
+    }
+    double mean1 = sum1 / n1;
+    double var1 = (sumSq1 - mean1 * sum1) / n1;
+    double sum2 = 0;
+    double sumSq2 = 0;
+    for (int i = 0; i < n2; i++) {
+        sum2 += data2[i];
+        sumSq2 += data2[i] * data2[i];
+    }
+    double mean2 = sum2 / n2;
+    double var2 = (sumSq2 - mean2 * sum2) / n2;
+    return (n1 * var1 + n2 * var2) / (n1 + n2);
+}
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 2: On parameter 'data1' (double*): 所有元素乘1.5
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「所有元素乘1.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 4: On parameter 'data1' (double*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 5: On parameter 'data1' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 6: On parameter 'data1' (double*): 数组左移一位（首元素移到末尾）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「数组左移一位（首元素移到末尾）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 8: On parameter 'data1' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 10: On parameter 'data1' (double*): 所有元素除以2.0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「所有元素除以2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 11: On parameter 'data1' (double*): 所有元素取负数
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「所有元素取负数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 13: On parameter 'data1' (double*): 所有元素置0.0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「所有元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 15: On parameter 'data1' (double*): 所有元素加自身值
+Invariant: 
+4 * return.result1 - return.result2 == 0
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「所有元素加自身值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+4 * Os - Of == 0
+Os <= Of
+
+----------------------------------------
+
+Operation 16: On parameter 'data1' (double*): 所有元素乘0.5
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「所有元素乘0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 20: On parameter 'data1' (double*): 索引0和索引1元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「索引0和索引1元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 21: On parameter 'data1' (double*): 所有元素置为最大值（如1e308）
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「所有元素置为最大值（如1e308）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 22: On parameter 'data1' (double*): 所有元素置为最小值（如-1e308）
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「所有元素置为最小值（如-1e308）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 25: On parameter 'data1' (double*): 所有元素乘以2.0后再加3.0
+Invariant: 
+return.result1 < return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「所有元素乘以2.0后再加3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os < Of
+
+----------------------------------------
+
+Operation 28: On parameter 'data1' (double*): 数组升序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 29: On parameter 'data1' (double*): 数组降序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data1（double*）的函数，若对 data1执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 31: On parameter 'data2' (double*): 所有元素加3.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「所有元素加3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 32: On parameter 'data2' (double*): 所有元素乘2.0
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「所有元素乘2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 34: On parameter 'data2' (double*): 随机两元素交换
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 35: On parameter 'data2' (double*): 数组反转
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 36: On parameter 'data2' (double*): 数组右移一位（末尾元素移到首位）
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「数组右移一位（末尾元素移到首位）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 38: On parameter 'data2' (double*): 所有元素取绝对值
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 39: On parameter 'data2' (double*): 所有元素减1.0
+Invariant: 
+return.result1 == return.result2
+return.result1 - return.result2 == 0
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「所有元素减1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+Os - Of == 0
+
+----------------------------------------
+
+Operation 40: On parameter 'data2' (double*): 所有元素除以3.0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「所有元素除以3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 41: On parameter 'data2' (double*): 所有元素取负数
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「所有元素取负数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 43: On parameter 'data2' (double*): 所有元素置1.0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「所有元素置1.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 45: On parameter 'data2' (double*): 所有元素减自身值
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「所有元素减自身值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 46: On parameter 'data2' (double*): 所有元素乘0.25
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「所有元素乘0.25」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 50: On parameter 'data2' (double*): 索引0和索引2元素交换
+Invariant: 
+return.result1 <= return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「索引0和索引2元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os <= Of
+
+----------------------------------------
+
+Operation 53: On parameter 'data2' (double*): 数组元素自增2.0
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「数组元素自增2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 54: On parameter 'data2' (double*): 数组元素自减0.5
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「数组元素自减0.5」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 55: On parameter 'data2' (double*): 所有元素加100.0后再除2.0
+Invariant: 
+return.result1 >= return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「所有元素加100.0后再除2.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os >= Of
+
+----------------------------------------
+
+Operation 58: On parameter 'data2' (double*): 数组升序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+Operation 59: On parameter 'data2' (double*): 数组降序排序
+Invariant: 
+return.result1 == return.result2
+
+MR ：对于初始输入Ts中包含data2（double*）的函数，若对 data2执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os == Of
+
+----------------------------------------
+
+
+操作总数: 34
+关系总数: 36

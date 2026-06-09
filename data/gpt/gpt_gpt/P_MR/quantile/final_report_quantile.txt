@@ -1,0 +1,103 @@
+double quantile(double sortedElements[], double phi, int n) {      
+    double index = phi * (n - 1);
+    int lhs = (int) index;
+    double delta = index - lhs;
+    double result;
+    if (n == 0) {
+        return 0.0;
+    }
+    if (lhs == n - 1) {
+        result = sortedElements[lhs];
+    } else {
+        result = (1 - delta) * sortedElements[lhs] + delta * sortedElements[lhs + 1];
+    }
+    return result;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「add 1 to all elements」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os < Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「subtract 1 from all elements」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os > Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「multiply all elements by 0.5」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0.5 * Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「divide all elements by 2」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0.5 * Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「reverse the entire array」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「sort the array in ascending order」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「sort the array in descending order」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os <= Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「circular shift the array elements by 1 position to the right」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os == Of ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「set all elements to 0」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 0 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「set all elements to 1」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of == 1 ✗
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「set the last element to the maximum value among elements」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os <= Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains sortedElements (double[]), if the operation 「set the last element to the minimum value among elements」 is executed on sortedElements to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains phi (double), if the operation 「add 0.1 to phi when phi + 0.1 ≤ 1」 is executed on phi to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os <= Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains phi (double), if the operation 「subtract 0.1 from phi when phi - 0.1 ≥ 0」 is executed on phi to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Os >= Of ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains phi (double), if the operation 「multiply phi by 0.5」 is executed on phi to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✓
+
+----------------------------------------
+
+MR ：For the function where the initial input Ts contains phi (double), if the operation 「divide phi by 2」 is executed on phi to obtain the new input Tf, then the initial output Os and the subsequent output Of of the function should satisfy the following relation:
+Of <= Os ✓
+
+----------------------------------------
+
+操作总数: 16
+关系总数: 16

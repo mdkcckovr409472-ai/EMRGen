@@ -1,0 +1,10 @@
+int check(TestCase tc) {
+    double Os = sumOfPowerOfDeviations(tc.data, tc.k, tc.c, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = sumOfPowerOfDeviations(Tf_case.data, Tf_case.k, Tf_case.c, Tf_case.n);
+    int is_valid = 0;
+    if (Os == Of) {
+        is_valid = 1;
+    }
+    return is_valid;
+}

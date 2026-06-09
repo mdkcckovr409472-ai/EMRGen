@@ -1,0 +1,16 @@
+int check(TestCase tc) {
+    if (tc.n <= 0 || tc.elements == nullptr) {
+        return 1;
+    }
+    double* original_elements_copy = new double[tc.n];
+    std::memcpy(original_elements_copy, tc.elements, tc.n * sizeof(double));
+    double Os = winsorizedMean(original_elements_copy, tc.left, tc.right, tc.n);
+    TestCase Tf_case = change(tc);
+    double Of = winsorizedMean(Tf_case.elements, Tf_case.left, Tf_case.right, Tf_case.n);
+    int is_valid = 0;
+    if (std::abs(Os - Of) < 1e-9) {
+        is_valid = 1;
+    }
+    delete[] original_elements_copy;
+    return is_valid;
+}

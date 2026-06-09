@@ -1,0 +1,18 @@
+TestCase z8Change(TestCase t1) {
+    TestCase follow_case = t1;
+    // Deep copy for x
+    double* follow_case_x = (double*)malloc(t1.n * sizeof(double));
+    memcpy(follow_case_x, t1.x, t1.n * sizeof(double));
+    follow_case.x = follow_case_x;
+
+    // Defensive programming
+    if (follow_case.n < 1) {
+        return follow_case;
+    }
+
+    // Specific transformation: increment a random element by 1.0
+    int idx = rand() % follow_case.n;
+    follow_case.x[idx] += 1.0;
+
+    return follow_case;
+}

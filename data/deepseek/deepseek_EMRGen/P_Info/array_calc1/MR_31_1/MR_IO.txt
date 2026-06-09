@@ -1,0 +1,18 @@
+TestCase z31Change(TestCase t1) {
+TestCase follow_case = t1;
+// --- 这是根据规则4生成的内存处理代码 ---
+// 条件检查：当且仅当 int 是数组类型时执行。根据参数列表，'a' 是 int* 且 is_array 为 True。
+int* follow_case_a = (int*)malloc(t1.n * sizeof(int));
+memcpy(follow_case_a, t1.a, t1.n * sizeof(int));
+follow_case.a = follow_case_a;
+// ------------------------------------
+
+// 防御性编程：根据规则6a，操作“取负”对数组长度无特殊要求（不依赖循环或特定索引），因此无需添加 if (follow_case.n > 0) 检查。
+// 操作“取负”不涉及除法或数学函数域，因此无需规则6b和6c的检查。
+// 根据规则6d，严禁在函数内部调用 free() 释放 t1 或其成员。
+
+// 这是根据规则5生成的具体操作代码
+// 操作“取负”应用于目标参数 k
+follow_case.k = -follow_case.k;
+
+return follow_case;}

@@ -1,0 +1,2 @@
+Operation 24: On parameter 'array' (array[int]): set last element to min of array
+Invariant: return.result1[] >= return.result2[] (elementwise)

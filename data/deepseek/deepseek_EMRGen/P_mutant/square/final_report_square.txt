@@ -1,0 +1,219 @@
+double* square(double data[], int n) {
+    double* cp1 = (double*)malloc(n * sizeof(double));
+    memcpy(cp1,data,n*sizeof(double));
+    for (int i = 0; i < n; i++) {
+        cp1[i] = cp1[i] * cp1[i];
+    }
+    return cp1;
+}
+
+
+========================================================
+ *  Contextual Operations and Discovered Invariants
+========================================================
+
+Operation 3: On parameter 'data' (double*): 所有元素乘3.0
+Invariant: 
+9 * return.result1[] - return.result2[] == 0 ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素乘3.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+9 * Os[] - Of[] == 0
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 4: On parameter 'data' (double*): 所有元素除4.0
+Invariant: 
+return.result1[] - 16 * return.result2[] == 0 ✓ ○
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素除4.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] - 16 * Of[] == 0
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 5: On parameter 'data' (double*): 所有元素取相反数
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 6: On parameter 'data' (double*): 所有元素取绝对值
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 7: On parameter 'data' (double*): 所有元素平方
+Invariant: 
+return.result2[] == return.result1[]**2 (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「所有元素平方」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Of[] == Os[]**2 (elementwise)
+
+----------------------------------------
+
+Operation 16: On parameter 'data' (double*): 数组反转
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+return.result1[] is the reverse of return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组反转」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+Os[] is the reverse of Of[]
+
+----------------------------------------
+
+Operation 17: On parameter 'data' (double*): 数组随机重排序
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组随机重排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 18: On parameter 'data' (double*): 数组升序排序
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组升序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 19: On parameter 'data' (double*): 数组降序排序
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组降序排序」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 21: On parameter 'data' (double*): 数组向右循环移位（末尾元素移到首部）
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「数组向右循环移位（末尾元素移到首部）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 22: On parameter 'data' (double*): 随机位置元素置0.0
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机位置元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 25: On parameter 'data' (double*): 随机位置元素置最大值（DBL_MAX）
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机位置元素置最大值（DBL_MAX）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 26: On parameter 'data' (double*): 随机位置元素置最小值（DBL_MIN）
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机位置元素置最小值（DBL_MIN）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 27: On parameter 'data' (double*): 随机位置元素置正无穷大（INFINITY）
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机位置元素置正无穷大（INFINITY）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 28: On parameter 'data' (double*): 随机位置元素置负无穷大（-INFINITY）
+Invariant: 
+return.result1[] < return.result2[] (lexically) ✓ ○
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机位置元素置负无穷大（-INFINITY）」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] < Of[] (lexically)
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 30: On parameter 'data' (double*): 随机两元素交换
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机两元素交换」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 31: On parameter 'data' (double*): 随机子数组（连续3个元素）所有元素置0.0
+Invariant: 
+return.result1[] >= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机子数组（连续3个元素）所有元素置0.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] >= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 32: On parameter 'data' (double*): 随机子数组（连续2个元素）所有元素乘10.0
+Invariant: 
+return.result1[] <= return.result2[] (elementwise) ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机子数组（连续2个元素）所有元素乘10.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (elementwise)
+
+----------------------------------------
+
+Operation 33: On parameter 'data' (double*): 随机子数组（连续4个元素）所有元素加5.0
+Invariant: 
+return.result1[] <= return.result2[] (lexically) ✗
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机子数组（连续4个元素）所有元素加5.0」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] <= Of[] (lexically)
+
+----------------------------------------
+
+Operation 35: On parameter 'data' (double*): 随机子数组（连续2个元素）所有元素取相反数
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机子数组（连续2个元素）所有元素取相反数」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+Operation 36: On parameter 'data' (double*): 随机子数组（连续4个元素）所有元素取绝对值
+Invariant: 
+return.result1[] == return.result2[] ✓ ○
+
+MR ：对于初始输入Ts中包含data（double*）的函数，若对 data执行「随机子数组（连续4个元素）所有元素取绝对值」操作得到新输入Tf，则函数的初始输出Os和Of应满足以下关系：
+Os[] == Of[]
+
+----------------------------------------
+
+
+
+操作总数: 22
+关系总数: 27

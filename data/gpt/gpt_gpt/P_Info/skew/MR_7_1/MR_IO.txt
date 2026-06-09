@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Sort the array in ascending order according to MR
+    // Since we must reuse the data pointer, sort in place
+    std::sort(tf.data, tf.data + tf.n);
+    return tf;
+}

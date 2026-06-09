@@ -1,0 +1,7 @@
+TestCase change(TestCase tc) {
+    TestCase tf = tc;
+    // Sort the array in ascending order to form follow-up input
+    // Since tc.a points to int*, we sort in-place
+    std::sort(tf.a, tf.a + tf.n);
+    return tf;
+}
